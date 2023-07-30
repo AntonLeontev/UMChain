@@ -1,140 +1,1140 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('title', 'Main')
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+@section('content')
+	<div class="bg-[#E5E5E5]">
+    <section class="major">
+        <div class="container">
+            <div class="major__inner">
+                <div class="major__left">
+                    <h1 class="major__title">UMCHAIN – IT-решения для бизнеса на основе блокчейн</h1>
+                    <div class="major__description">Стань одним из первых. Сделай шаг в децентрализованное будущее</div>
+                    <div class="major__btn">
 
-        <!-- Styles -->
-        <style>
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.ml-4{margin-left:1rem}.mt-16{margin-top:4rem}.mt-6{margin-top:1.5rem}.mt-4{margin-top:1rem}.-mt-px{margin-top:-1px}.mr-1{margin-right:0.25rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-16{height:4rem}.h-7{height:1.75rem}.h-6{height:1.5rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-16{width:4rem}.w-7{width:1.75rem}.w-6{width:1.5rem}.w-5{width:1.25rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.self-center{align-self:center}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity))}.bg-dots-darker{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")}.from-gray-700\/50{--tw-gradient-from:rgb(55 65 81 / 0.5);--tw-gradient-to:rgb(55 65 81 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0);--tw-gradient-stops:var(--tw-gradient-from), transparent, var(--tw-gradient-to)}.bg-center{background-position:center}.stroke-red-500{stroke:#ef4444}.stroke-gray-400{stroke:#9ca3af}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-gray-500\/20{--tw-shadow-color:rgb(107 114 128 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-red-500 *::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-red-500::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.focus\:rounded-sm:focus{border-radius:0.125rem}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-red-500:focus{outline-color:#ef4444}.group:hover .group-hover\:stroke-gray-600{stroke:#4b5563}.z-10{z-index: 10}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (prefers-color-scheme: dark){.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:bg-gray-800\/50{background-color:rgb(31 41 55 / 0.5)}.dark\:bg-red-800\/20{background-color:rgb(153 27 27 / 0.2)}.dark\:bg-dots-lighter{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")}.dark\:bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.dark\:stroke-gray-600{stroke:#4b5563}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dark\:ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.dark\:ring-inset{--tw-ring-inset:inset}.dark\:ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.group:hover .dark\:group-hover\:stroke-gray-400{stroke:#9ca3af}}@media (min-width: 640px){.sm\:fixed{position:fixed}.sm\:top-0{top:0px}.sm\:right-0{right:0px}.sm\:ml-0{margin-left:0px}.sm\:flex{display:flex}.sm\:items-center{align-items:center}.sm\:justify-center{justify-content:center}.sm\:justify-between{justify-content:space-between}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:gap-8{gap:2rem}.lg\:p-8{padding:2rem}}
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                        @if(Auth::check())
+{{--                            <a href="{{ route('cabinet.personal.data') }}">Записаться на покупку umt токенов</a>--}}
+                            <a href="#" id="majorBtn">Записаться на покупку umt токенов</a>
+                        @else
+{{--                            <a href="{{ route('register') }}">Записаться на покупку umt токенов</a>--}}
+                            <a href="#" id="majorBtn">Записаться на покупку umt токенов</a>
                         @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
-                    </svg>
-                </div>
-
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
-                                    </svg>
-                                </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
-                                </p>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="major__img-block">
+                        <img class="one" src="{{asset('images/logo01.png')}}" alt="">
+                        <img class="two" src="{{asset('images/logo02.png')}}" alt="">
                     </div>
                 </div>
-
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                        <div class="flex items-center gap-4">
-                            <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                </svg>
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </div>
-                </div>
+{{--                <div class="major__right">--}}
+{{--                    <div class="major__timer">До конца 1 раунда осталось:</div>--}}
+{{--                    <div class="major__time">--}}
+{{--                        <div class="major__one">--}}
+{{--                            <div class="major__top">Токенов</div>--}}
+{{--                            <div class="major__box">0 <span>млн.</span></div>--}}
+{{--                            <div class="major__box">0<span></span></div>--}}
+{{--                        </div>--}}
+{{--                        <div class="major__one">--}}
+{{--                            <div class="major__top">Модулей</div>--}}
+{{--                            <div class="major__box">600</div>--}}
+{{--                            <div class="major__box">0</div>--}}
+{{--                        </div>--}}
+{{--                        <div class="major__one">--}}
+{{--                            <div class="major__top">Блоков</div>--}}
+{{--                            <div class="major__box">12000</div>--}}
+{{--                            <div class="major__box">0</div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--            </div>--}}
+        </div>
+    </section>
+    <div class="content__grid">
+        <div class="content__left">
+            <div class="content__list">
+                <ul>
+                    <li><a href="#what">Что такое Токен UMT?</a></li>
+                    <li><a href="#bepartner">Как стать партнером</a></li>
+                    <li><a href="#overview">Web 3.0</a></li>
+                    <li><a href="#benefit">Преимущества DWB</a></li>
+                    <li><a href="#distribution">Для кого предназначен DWB</a></li>
+                    <li><a href="#about">Выгода для партнёра</a></li>
+                    <li><a href="#team">Функция utility-токена UMC</a></li>
+                    <li><a href="#reg">Функция технического токена UMT</a></li>
+                    <li><a href="#tok">Tokenomics</a></li>
+                    <li><a href="#map">Дорожная карта</a></li>
+                    <li><a href="#feedback">Свяжитесь с нами</a></li>
+                </ul>
             </div>
         </div>
-    </body>
-</html>
+        <div class="content__right">
+            <section class="what" id="what">
+                <div class="what__inner">
+                    <h3 class="common__title">UMChain - Цифровая экосистема для электронной коммерции на блокчейн</h3>
+                </div>
+                <div class="what__text">
+                    <p>Основной проект компании Umchain OU - Dwb.world. Миссией проекта является разработка децентрализованного конструктора сайтов DWB с функцией приёма платежей на свой кошелек и экосистемы Umchain, в рамках которой существуют продавцы и покупатели. Для продавцов открываются возможности создания собственного сайта, его наполнения, загрузки товаров и тд.</p>
+
+                    <p><strong>Целями создания системы являются:</strong></p>
+
+                    <p>
+                        <strong>-	создание децентрализованной системы с обеспечением полной прозрачности всех осуществляемых в системе процедур за счет использования технологии публичных Блокчейн сетей</strong>
+                    </p>
+                    <p>
+                        <strong>-	обеспечение прозрачности и достоверности расчетов между Поставщиками и Покупателями за счет использования Смарт контрактов</strong>
+                    </p>
+                    <p>
+                        <strong>-	обеспечение доступности системы широкому кругу Покупателей за счет использования средств облачной подписи</strong>
+                    </p>
+
+                    <p>
+                        Для реализации взаимоотношений (бизнес-процессов) с партнерами разработан прикладной протокол UMChain на базе блокчейн платформы Polygon и выпуск двух токенов,  один из которых (UMT) будет использоваться в расчетах продавцов и покупателей между собой, а второй (UMC) - давать возможность пользоваться экосистемой Umchain - этот токен является цифровым активом компании и будет представлен на биржах.
+                    </p>
+
+                    <p>
+                        ICO проводится с целью разбработки и внедрения децентрализованного алгоритма взаимодействия внутри экосистемы Umchain. Таким образом держатели токенов UMС будут мотивированы работоспособностью экосистемы: база данных сервиса и база данных блокчейн обращаются друк к другу, в связи с чем вырабатывается новый мотивационный блок, который будет вознаграждать держателей токенов, распределяя вознаграждение между всеми держателями токенов. Блокчейн будет работать по алгоритму Proof-of-stake.
+                    </p>
+                </div>
+            </section>
+            <div class="bepartner" id="bepartner">
+                <div class="bepartner__inner">
+                    <h3 class="common__title">Как стать партнером</h3>
+                    <div class="bepartner__wrapper">
+                        <div class="bepartner__item">
+                            <div class="bepartner__image">
+                                <img src="{{asset('images/bepartnerOne.svg')}}" alt="">
+                            </div>
+                            <div class="bepartner__step">Шаг1</div>
+                            <div class="bepartner__description">1. Зарегистрироваться в личном кабинете</div>
+                        </div>
+                        <div class="bepartner__item">
+                            <div class="bepartner__image">
+                                <img src="{{asset('images/bepartnerTwo.svg')}}" alt="">
+                            </div>
+                            <div class="bepartner__step">Шаг2</div>
+                            <div class="bepartner__description">2. Выбрать количество Токенов</div>
+                        </div>
+                        <div class="bepartner__item">
+                            <div class="bepartner__image">
+                                <img src="{{asset('images/bepartnerThree.svg')}}" alt="">
+                            </div>
+                            <div class="bepartner__step">Шаг3</div>
+                            <div class="bepartner__description">3. Инвестировать в токены, совершив обмен USDT на UMС Токен
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bepartner__addition">*Для совершения транзакций необходимо быть владельцем любого
+                        криптокошелька. Если у вас еще нет криптокошелька, вы можете воспользоваться нашей <a href="">инструкцией
+                            по установке</a> приложения на ваш смартфон
+                    </div>
+                    <div class="bepartner__btn">
+                        @if(Auth::check())
+                            <a href="{{ route('cabinet.personal.data') }}">Купить по стартовой цене</a>
+                        @else
+                            <a href="{{ route('login') }}">Купить по стартовой цене</a>
+                        @endif
+                    </div>
+                    <div class="bepartner__small">(!) Инвестиционная криптовалютная деятельность, включая получение Токенов UMC, подвержена рыночному риску. Мы предоставляем вам простые и удобные способы получения Токенов UMC. Мы прилагаем все усилия, чтобы исчерпывающе информировать пользователей о предложенных на бирже криптовалютах, но не несем ответственности за последствия, которые могут возникнуть в результате получения Токенов UMC. Любая информация, изложенная на данной странице, несет исключительно информационный характер относительно конкретных Токенов или способа их получения.</div>
+                </div>
+            </div>
+            <section class="overview" id="overview">
+                <div class="overview__inner">
+                    <h3 class="common__title">Web 3.0</h3>
+                    <p class="common__text"><span class="text--ping">dwb.world</span> - децентрализованный конструтор сайтов Web 3.0</p>
+                    <div class="overview__box">
+                        <div class="overview__info">
+                            <p> DWB - децентрализованный оптимизированный конструктор сайтов. Проект предоставляет возможность создать полноценный сайт и заниматься коммерцией, продажей товара или услуг в интернете. </p>
+                            <p>В личном кабинете есть всё необходимое для управления вашим бизнесом: настройки уведомлений, статистика по заказам, баланс и возможность вывода заработанных средств. </p>
+                            <p>При создании сайта в индивидуальном порядке выбирается способ проведения платежей в системе: p2p платежи, либо использование интернет-эквайринга.</p>
+                        </div>
+                        <div class="overview__right">
+                            <div class="overview__task">Возможности:</div>
+                            <ul class="overview__list">
+                                <li class="overview__item">Отслеживание всех транзакций на сайте</li>
+                                <li class="overview__item">Вывод средств 24/7</li>
+                                <li class="overview__item">Быстрое создание магазина за 15 минут</li>
+                                <li class="overview__item">Возможность создания и продажи NFT</li>
+                                <li class="overview__item">Peer to Peer Transaction</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="overview__competition" id="benefit">
+                        <h4 class="overview__title">Преимущества DWB</h4>
+                        <div class="overview__wrapper">
+                            <div class="overview__one">
+                                <div class="overview__name"><span>CMS</span> - конструктор</div>
+                                <div class="overview__description">
+                                      <p>
+                                          Взаимодействие с платформой предполагает размещение товаров и услуг на индивидуально созданном сайте.
+                                      </p>
+                                      <p>
+                                          Для создания ресурса используется ваш домен, информация о вашей компании, ваш номер кошелька (при p2p взаимодействии).
+
+                                      </p>
+                                      <p>
+                                          Интуитивно понятный личный кабинет делает работу с сайтом на DWB легкой и приятной, а внутренняя SEO оптимизация и интерфейс пользователя - удобны для ваших клиентов и посетителей сайта.
+                                      </p>
+                                </div>
+                            </div>
+                            <div class="overview__one">
+                                <div class="overview__name"><span>Модуль </span> интеграции с маркетплейсами</div>
+                                <div class="overview__description">
+                                    <p>Создание сайта на DWB открывает для предпринимателей возможность автоматической выгрузки товаров на маркетплейсы. </p>
+                                    <p>Чтобы разместить товары на маркетплейсе, загрузите их на созданный сайт, а затем в настройках укажите, на каких маркетплейсах вы хотите разместить ваши товары.</p>
+                                </div>
+                            </div>
+                            <div class="overview__one">
+                                <div class="overview__name"><span>Безопасность </span> и прозрачность транзакций</div>
+                                <div class="overview__description">
+                                    <p>Так как внутренние бизнес-процессы системы происходят на основе блокчейн технологий, вы можете быть уверены в безопасности каждой транзакции. </p>
+                                    <p>С помощью криптографии технология блокчейн помогает предотвратить любые несанкционированные и мошеннические действия. </p>
+                                    <p>Распределение средств осуществляется по установленным в смарт-контракте правилам, что исключает ошибки в системе. </p>
+                                </div>
+                            </div>
+                            <div class="overview__one">
+                                <div class="overview__name"><span>Мгновенное </span> начисление средств на личный кошелёк</div>
+                                <div class="overview__description">
+                                    <p>Средства автоматические начисляются на Ваш личный кошелек.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overview__trouble" id="distribution">
+                        <h4 class="overview__title">Для кого предназначен конструктор DWB</h4>
+                        <div class="overview__box">
+                            <div class="overview__info">
+                                <div class="overview__name"><span>Селлеры</span>, продающие товары онлайн</div>
+                                <div class="overview__description">
+                                    <p>Малый и средний бизнес в свете последних событий в мире столкнулся с непростыми проблемами и в полной степени ощутил последствия. Этот сегмент экономики зачастую не имеет финансовой подушки и оказывается без какой-либо поддержки, без защиты от влияния внешних факторов. </p>
+                                    <p>Многие нуждаются в IT-инструментах, для содержания и управления которыми не потребуется большая компанда специалистов. </p>
+                                </div>
+                            </div>
+                            <div class="overview__info">
+                                <div class="overview__image">
+                                    <img src="{{asset('images/cube.svg')}}" alt="">
+                                </div>
+                                <div class="overview__name overview__name--small"><span>Создатели</span> бизнеса и собственных продуктов
+                                </div>
+                                <div class="overview__description">
+                                    <p>Тенденция перевода бизнеса в онлайн очевидна, поэтому предприниматели часто обращаются к известным действенным инструментам продаж и цифровизации своего дела, уделяя особенное внимание созданию собственного сайта.</p>
+                                    <p>Для них важно иметь надежное IT-решение, на которое можно положиться, и которое будет работать невзирая на события, происходящие в стране и в мире.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-none overview__box">
+                            <div class="overview__info">
+                                <div class="overview__name"><span>NFT</span> Коллеционеры и художники</div>
+                                <div class="overview__description">
+                                    <p>
+                                        Создавайте свои NFT коллекции и продавайте их на своем сайте, все техничские вопросы мы берем на себя.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="overview__info">
+                                <div class="overview__image overview__image--investment">
+                                   <img src="{{asset('images/investment.jpg')}}" alt="">
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="benefit mb-98" id="about ">
+                <div class="benefit__inner">
+                    <h3 class="common__title">Выгода для партнера</h3>
+                    <div class="mb-20 benefit__wrapper">
+                        <div class="benefit__item">
+                            <div class="benefit__cube">
+                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
+                            </div>
+                            <div class="benefit__description">Быстрое создание сайта и наполнение товарами</div>
+                        </div>
+                        <div class="benefit__item">
+                            <div class="benefit__cube">
+                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
+                            </div>
+                            <div class="benefit__description">Доступная и интуитивно понятная настройка сайта и управление личным кабинетом
+                            </div>
+                        </div>
+                        <div class="benefit__item">
+                            <div class="benefit__cube">
+                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
+                            </div>
+                            <div class="benefit__description">Возможность выбора базовой технологии: p2p, cryptoprocessing или  интернет-эквайринг
+                            </div>
+                        </div>
+                        <div class="benefit__item">
+                            <div class="benefit__cube">
+                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
+                            </div>
+                            <div class="benefit__description">Безопасность и прозрачность транзакций
+                            </div>
+                        </div>
+                        <div class="benefit__item">
+                            <div class="benefit__cube">
+                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
+                            </div>
+                            <div class="benefit__description">Интеграция с другими маркетплейсами</div>
+                        </div>
+                        <div class="benefit__item">
+                            <div class="benefit__cube">
+                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
+                            </div>
+                            <div class="benefit__description">Оптимизированный пользовательский интерфейс
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bepartner__btn">
+                    @if(Auth::check())
+                        <a  href="{{ route('cabinet.personal.data') }}">Стать партнёром</a>
+                    @else
+                        <a   href="{{ route('login') }}">Стать партнёром</a>
+                    @endif
+                    </div>
+                </div>
+            </section>
+            <section class="mb-56" id="team">
+                 <div >
+                    <h3 class="common__title">Функция Utility-токена UMC</h3>
+                    <div class="what__text">
+                        <p>
+                            В Umchain функционирует UMC (Utility-Token) – инфраструктурная единица, которая обслуживает экономическую модель экосистемы.
+                        </p>
+                        <p>
+                            Возможность пользования экосистемой Umchain предполагает, что все взаиморасчеты происходят только в нативном токене UMC.
+                        </p>
+                        <p>
+                            При каждой новой транзакции, система обращается к Utility-токену за подтверждением. В случае положительного ответа формируется новый блок, в котором создается карточка товара с количеством и ценой. Цена записывается в блокчейн и создается стейблтокен равный этой сумме. При продаже созданного товара сумма в виде стейблтокена поступает на кошелек продавца.
+                        </p>
+                        <p>
+                            Владельцы Utility-токена получают вознаграждение с каждой транзации в сети: от создания товара до его продажи.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-56" id="reg">
+                 <div>
+                    <h3 class="common__title">Функция Технического токена UMT</h3>
+                    <div class="mb-56 what__text">
+                        <p>
+                           В Umchain функционирует UMT Token – он явлеятся стейбл токеном и вырабатывается в случае, когда при создании сайта выбран способ взаиморасчетов через нашу платежную систему.</p>
+
+                        <p>
+                           При создании карточки товара в платформе DWB, создается блок с ценой этой картчочки, при успешной транзакции UMT токен распределяется по сети (продавцу, реферералу и тд.)</p>
+                        </p>
+                    </div>
+
+                    <div class="mb-98">
+                        <picture>
+                            <source srcset="{{asset('images/sxema-dest.png')}}" media="(min-width: 768px)">
+                            <img class="distribution__img" src="{{asset('images/sxema-mob.png')}}" alt="фото">
+                        </picture>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-56">
+                <div class="distribution__table">
+                    <div class="distribution__left">
+                        <div class="distribution__wrapper">
+                            <div class="distribution__round"><span>Бизнес Роли</span></div>
+                        </div>
+                    </div>
+                    <div class="distribution__middle">
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                                Оператор платформы
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                                Продавец (Поставщик)
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                                Покупатель
+                            </div>
+                        </div>
+                    </div>
+                    <div class="distribution__right">
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Оператор платформы, обеспечивающий ввод фиатных средств в систему, и, как следствие, эмиссию и сжигание токенов UMT
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Пользователь экосистемы, осуществляющий загрузку товаров на контракт Umchain
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Пользователь маркетплейса, осуществляющий покупку товаров на маркетплейс за UM токен
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class='mb-56'>
+                <div class="distribution__table">
+                    <div class="distribution__left">
+                        <div class="distribution__wrapper">
+                            <div class="distribution__round"><span>Описание компонентов системы</span></div>
+                        </div>
+                    </div>
+                    <div class="distribution__middle">
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            UMT Token Contract
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            UMC Token Contract
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Access Control
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Seller Contract
+                            </div>
+                        </div>
+                        <div class="distribution__item distribution__item-a">
+                            <div class="distribution__wrapper">
+
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Magic Wallet
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Seller-service
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            App DB
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Alchemy Poygon Node
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Gateway
+                            </div>
+                        </div>
+                    </div>
+                    <div class="distribution__right">
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Прикладной контракт, реализующий функции эмиссии, оборота и сжигания токенов UMT
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Прикладной контракт, реализующий функции эмиссии, оборота и сжигания токенов UMC
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            ACL Contract	Прикладной контракт, реализующий ролевую модель участников
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                                <div>Прикладной контракт, реализующий функции:</div>
+                                <div>- создания, редактирования, удаления партнеров</div>
+                            </div>
+                        </div>
+                        <div class="distribution__item distribution__item-a">
+                            <div class="distribution__wrapper">
+                                <ul>
+                                    <li>- создания, редактирования, удаления товаров</li>
+                                    <li>- расщепление платежа в соответствии с правилами</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Внешний сервис, реализующий аутентификацию и выдачу адреса в блокчейне через SMS/Email/Social Login
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            ACL Contract	Прикладной контракт, реализующий ролевую модель участников
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Системный компонент, база данных, обеспечивающая хранение витрин данных
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Системный компонент, узел блокчейна Polygon в Alchemy BaaS (Blockchain-as-a-Service)
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Системный компонент, nginx, реализующий единую точку входа в API системы
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section id="tok">
+                <div class="about__inner mb-44">
+                    <h4 class="tok__title mb-44">Tokenomics</h4>
+                    <picture>
+                        <source srcset="{{asset('images/a-dest.png')}}" media="(min-width: 768px)">
+                        <img class="distribution__img" src="{{asset('images/a-mob.png')}}" alt="фото">
+                    </picture>
+                </div>
+                <div class="about__inner mb-44">
+                    <h4 class="tok__title mb-44">Token distribution</h4>
+                    <picture>
+                        <source srcset="{{asset('images/b-dest.png')}}" media="(min-width: 768px)">
+                        <img class="distribution__img" src="{{asset('images/b-mob.png')}}" alt="фото">
+                    </picture>
+                </div>
+                <div class="about__inner mb-98">
+                    <h4 class="tok__title mb-44">UMC Token emission</h4>
+                    <picture>
+                        <source srcset="{{asset('images/c-dest.png')}}" media="(min-width: 768px)">
+                        <img class="distribution__img" src="{{asset('images/c-mob.png')}}" alt="фото">
+                    </picture>
+                </div>
+            </section>
+
+            <section>
+
+                <p class="text-p mb-44 text-i">
+                    Общее количество UMC Токенов составляет 444 000 000
+                </p>
+                <div class="distribution__table">
+                    <div class="distribution__left">
+                        <div class="distribution__wrapper">
+                            <div class="distribution__round"><span>Seed</span></div>
+                            <div class="distribution__target">Цель:</div>
+                            <div class="distribution__description">
+                                <p>Запустить dwb.world</p>
+                                <p>Разработка смартконтракта NFT;</p>
+                            </div>
+                            <ul class="distribution__data">
+                                <li>Дата</li>
+                                <li>08.10.2022</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="distribution__middle">
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Allocation
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Percentage %
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Raise total
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Price
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Lock
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Vesting (linear)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="distribution__right">
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            22 200 000
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            5,00 %
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            $ 33 300,00
+                            </div>
+                        </div>
+                        <div class="distribution__item distribution__item--small">
+                            <div class="distribution__wrapper">
+                            0,0015 USDT
+                            </div>
+                            <!-- <div class="distribution__wrapper distribution--flex">
+                                <div class="distribution__one distribution__one--normal">0,01287001 USDT</div>
+                                <div class="distribution__one distribution__one--pink">0,00536251 USDT</div>
+                            </div> -->
+                        </div>
+                        <div class="distribution__item distribution__item--small">
+                            <div class="distribution__wrapper distribution__one--normal">
+                            3 month
+                            </div>
+                        </div>
+                        <div class="distribution__item distribution__item--small">
+                            <div class="distribution__wrapper distribution__one--normal">
+                            10% each month for 10 months after 6 month cliff from listing
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="distribution__table">
+                    <div class="distribution__left">
+                        <div class="distribution__wrapper">
+                            <div class="distribution__round"><span>Private</span></div>
+                            <div class="distribution__target">Цель:</div>
+                            <div class="distribution__description">
+                                <p>Старт запуска разработки блокчейн сети;</p>
+                            </div>
+                            <ul class="distribution__data">
+                                <li>Дата</li>
+                                <li>31.10.2022</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="distribution__middle">
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Allocation
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Percentage %
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Raise total
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Price
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Lock
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Vesting (linear)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="distribution__right">
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            44 400 000
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            10,00 %
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            $ 111 100,00
+                            </div>
+                        </div>
+                        <div class="distribution__item distribution__item--small">
+                            <div class="distribution__wrapper distribution--flex">
+                                <div class="distribution__one distribution__one--normal">0,0025 USDT</div>
+                                <div class="distribution__one distribution__one--pink">0,001 USDT</div>
+                            </div>
+                        </div>
+                        <div class="distribution__item distribution__item--small">
+                            <div class="distribution__wrapper distribution__one--normal">
+                            0
+                            </div>
+                        </div>
+                        <div class="distribution__item distribution__item--small">
+                            <div class="distribution__wrapper distribution__one--normal">
+                            10% each month for 10 months after 6 month cliff from listing
+                            </div>https://ico.umchain.org/
+                        </div>
+                    </div>
+                </div>
+
+                <div class="distribution__table">
+                    <div class="distribution__left">
+                        <div class="distribution__wrapper">
+                            <div class="distribution__round"><span>Public </span></div>
+                            <div class="distribution__target">Цель:</div>
+                            <div class="distribution__description">
+
+                            </div>
+                            <ul class="distribution__data">
+                                <li>Дата</li>
+                                <li>12.01.2023</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="distribution__middle">
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Allocation
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Percentage %
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Raise total
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Price
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Lock
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            Vesting (linear)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="distribution__right">
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            22 200 000
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            5,00 %
+                            </div>
+                        </div>
+                        <div class="distribution__item">
+                            <div class="distribution__wrapper">
+                            $ 77 700,00
+                            </div>
+                        </div>
+                        <div class="distribution__item distribution__item--small">
+                            <div class="distribution__wrapper distribution--flex">
+                                <div class="distribution__one distribution__one--normal">0,0035 USDT</div>
+                                <div class="distribution__one distribution__one--pink">0,001 USDT</div>
+                            </div>
+                        </div>
+                        <div class="distribution__item distribution__item--small">
+                            <div class="distribution__wrapper distribution__one--normal">
+                            0
+                            </div>
+                        </div>
+                        <div class="distribution__item distribution__item--small">
+                            <div class="distribution__wrapper distribution__one--normal">
+                            10% each month for 10 months after 6 month cliff from listing
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="about" id="map">
+                <div class="about__inner">
+                    <h4 class="overview__title">Дорожная карта</h4>
+                    <div class="overview__choose">
+                        <div class="overview__num">2022</div>
+                        <div class="overview__arrow">
+                            <img src="{{asset('images/arrow.svg')}}" alt="">
+                        </div>
+                        <div class="overview__spisok">
+                            <div class="overview__uno">2020</div>
+                            <div class="overview__uno">2021</div>
+                            <div class="overview__uno">2022</div>
+                            <div class="overview__uno">2023</div>
+                        </div>
+                    </div>
+                        <div class="about__map about__map--four" style="display: none;">
+                            <!-- <div class="about__table">
+                                <div class="about__line">
+                                    <img src="{{asset('images/lineThird.svg')}}" alt="">
+                                </div>
+                                <div class="about__counting">
+                                    <div class="about__count">00</div>
+                                    <div class="about__count">01</div>
+                                </div>
+                                <div class="about__block">
+                                    <div class="about__texting">Разработка и запуск проекта по доставке цветов umflowers.ru
+                                    </div>
+                                </div>
+                                <div class="about__boxing">
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                </div>
+                                <div class="about__inform">
+                                    <div class="about__information">
+                                        <p>Запуск контекстной рекламы</p>
+                                        <p>Создание аккаунтов в социальных сетях</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Ростове Великом и Ярославле</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Дзержинском</p>
+                                    </div>
+                                    <div class="about__information">
+                                        <p>Участие в соревнованиях по бодибилдингу в Воронеже</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Москве и Санкт-Петербурге</p>
+                                        <p>Разработка CRM системы в части для рекламы и маркетинга</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Краснодаре и Сочи </p>
+                                        <p>Разработка CRM системы в части для call-центра</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about__dates">
+                                <div class="about__data about__data--pink">2020</div>
+                                <div class="about__data about__data--text">UM Chain</div>
+                                <div class="about__data about__data--small">07 / 2020</div>
+                                <div class="about__data">2021</div>
+                                <div class="about__data">2022</div>
+                            </div>
+                            <div class="about__bottom"></div>
+                            <div class="hide__about">
+                                <div class="about__item">
+                                    <span class="about__num">00</span> – <span>UM Chain</span>
+                                </div>
+                                <div class="about__item">
+                                    <span class="about__num">01</span> – <span>Разработка и запуск проекта по доставке цветов umflowers.ru</span>
+                                </div>
+                            </div> -->
+                            <picture>
+                                <source srcset="{{asset('images/сhart1-dest.png')}}" media="(min-width: 768px)">
+                                <img class="distribution__img" src="{{asset('images/сhart1-mob.png')}}" alt="фото">
+                            </picture>
+                        </div>
+                         <div class="about__map about__map--three">
+                            <!-- <div class="about__table">
+                                <div class="about__line">
+                                    <img src="{{asset('images/lineThird.svg')}}" alt="">
+                                </div>
+                                <div class="about__counting">
+                                    <div class="about__count">00</div>
+                                    <div class="about__count">01</div>
+                                </div>
+                                <div class="about__block">
+                                    <div class="about__texting">Разработка и запуск проекта по доставке цветов umflowers.ru
+                                    </div>
+                                </div>
+                                <div class="about__boxing">
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                </div>
+                                <div class="about__inform">
+                                    <div class="about__information">
+                                        <p>Запуск контекстной рекламы</p>
+                                        <p>Создание аккаунтов в социальных сетях</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Ростове Великом и Ярославле</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Дзержинском</p>
+                                    </div>
+                                    <div class="about__information">
+                                        <p>Участие в соревнованиях по бодибилдингу в Воронеже</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Москве и Санкт-Петербурге</p>
+                                        <p>Разработка CRM системы в части для рекламы и маркетинга</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Краснодаре и Сочи </p>
+                                        <p>Разработка CRM системы в части для call-центра</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about__dates">
+                                <div class="about__data about__data--pink">2020</div>
+                                <div class="about__data about__data--text">UM Chain</div>
+                                <div class="about__data about__data--small">07 / 2020</div>
+                                <div class="about__data">2021</div>
+                                <div class="about__data">2022</div>
+                            </div>
+                            <div class="about__bottom"></div>
+                            <div class="hide__about">
+                                <div class="about__item">
+                                    <span class="about__num">00</span> – <span>UM Chain</span>
+                                </div>
+                                <div class="about__item">
+                                    <span class="about__num">01</span> – <span>Разработка и запуск проекта по доставке цветов umflowers.ru</span>
+                                </div>
+                            </div> -->
+                            <picture>
+                                <source srcset="{{asset('images/сhart2-dest.png')}}" media="(min-width: 768px)">
+                                <img class="distribution__img" src="{{asset('images/сhart2-mob.png')}}" alt="фото">
+                            </picture>
+                        </div>
+                        <div class="about__map about__map--two">
+                            <!-- <div class="about__table">
+                                <div class="about__line">
+                                    <img src="{{asset('images/lineSecond.svg')}}" alt="">
+                                </div>
+                                <div class="about__block">
+                                    <div class="about__texting">Разработка CRM системы в части для руководителя</div>
+                                    <div class="about__texting">Разработка и запуск автоматизированной системы
+                                        взаимодействия партнеров с клиентами
+                                    </div>
+                                    <div class="about__texting">Разработка единой платформы для объединения 30 сфер бизнеса
+                                    </div>
+                                    <div class="about__texting">Выпуск Токенов UMT для привлечения инвестиций, закрытое
+                                        Pre-ICO
+                                    </div>
+                                    <div class="about__texting">Поиск партнеров в категориях: Доставка ресторанной еды,
+                                        Доставка свежих фруктов и овощей
+                                    </div>
+                                    <div class="about__texting">Тестирование платформы в категории доставка цветов</div>
+                                    <div class="about__texting">Разработка категории доставка еды и продуктов, разработка
+                                        личного кабинета инвестора
+                                    </div>
+                                </div>
+                                <div class="about__counting">
+                                    <div class="about__count">02</div>
+                                    <div class="about__count">03</div>
+                                    <div class="about__count">04</div>
+                                    <div class="about__count">05</div>
+                                    <div class="about__count">06</div>
+                                    <div class="about__count">07</div>
+                                    <div class="about__count">08</div>
+                                </div>
+                                <div class="about__boxing">
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                </div>
+                                <div class="about__inform">
+                                    <div class="about__information">
+                                        <p>Запуск контекстной рекламы</p>
+                                        <p>Создание аккаунтов в социальных сетях</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Ростове Великом и Ярославле</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Дзержинском</p>
+                                    </div>
+                                    <div class="about__information">
+                                        <p>Участие в соревнованиях по бодибилдингу в Воронеже</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Москве и Санкт-Петербурге</p>
+                                        <p>Разработка CRM системы в части для рекламы и маркетинга</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Краснодаре и Сочи </p>
+                                        <p>Разработка CRM системы в части для call-центра</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about__dates">
+                                <div class="about__data about__start">2020</div>
+                                <div class="about__data about__data--pink">2021</div>
+                                <div class="about__data about__data--small">02 / 2021</div>
+                                <div class="about__data about__data--small">03 / 2021</div>
+                                <div class="about__data about__data--small">04 / 2021</div>
+                                <div class="about__data about__data--small">05 / 2021</div>
+                                <div class="about__data about__data--small">10 / 2021</div>
+                                <div class="about__data about__data--small">11 / 2021</div>
+                                <div class="about__data about__data--small">12 / 2021</div>
+                                <div class="about__data">2022</div>
+                            </div>
+                            <div class="about__bottom"></div>
+                            <div class="hide__about">
+                                <div class="about__item">
+                                    <span class="about__num">02</span> –
+                                    <span>Разработка CRM системы в части для руководителя</span>
+                                </div>
+                                <div class="about__item">
+                                    <span class="about__num">03</span> – <span>Разработка и запуск автоматизированной системы взаимодействия партнеров с клиентами</span>
+                                </div>
+                                <div class="about__item about__info">
+                                    <span class="about__num">04</span> – <span>Разработка единой платформы для объединения 30 сфер бизнеса</span>
+                                </div>
+                                <div class="about__item about__info">
+                                    <span class="about__num">05</span> – <span>Выпуск Токенов UMT для привлечения инвестиций, закрытое Pre-ICO</span>
+                                </div>
+                                <div class="about__item about__info">
+                                    <span class="about__num">06</span> – <span>Поиск партнеров в категориях: Доставка ресторанной еды, Доставка свежих фруктов и овощей</span>
+                                </div>
+                                <div class="about__item about__info">
+                                    <span class="about__num">07</span> – <span>Тестирование платформы в категории доставка цветов</span>
+                                </div>
+                                <div class="about__item about__info">
+                                    <span class="about__num">08</span> – <span>Разработка категории доставка еды и продуктов,  разработка личного кабинета инвестора</span>
+                                </div>
+                            </div> -->
+                            <picture>
+                                <source srcset="{{asset('images/сhart4-dest.png')}}" media="(min-width: 768px)">
+                                <img class="distribution__img" src="{{asset('images/сhart2-mob-mob.png')}}" alt="фото">
+                            </picture>
+                        </div>
+                        <div class="about__map about__map--one">
+                            <!-- <div class="about__table">
+                                <div class="about__line">
+                                    <img src="{{asset('images/line.svg')}}" alt="">
+                                </div>
+                                <div class="about__block">
+                                    <div class="about__texting">Разработка модуля для категорий «Автосервис, гостиничный
+                                        бизнес, Салоны красоты, фитнес»
+                                    </div>
+                                    <div class="about__texting"style="width: 435px;">Разработка блокчейна unitedcorporation.org
+                                        и интеграция с базой unitedmarket.org, Разработка сайта umscan.org (информационный сайт о статусе
+                                        заказа, транзакциях, блоках, токенах)
+                                    </div>
+                                    <div class="about__texting">Разработка модуля для интеграции Unitedmarket в сайты
+                                        партнеров
+                                    </div>
+                                    <div class="about__texting">Листинг на Бирже</div>
+                                    <div class="about__texting">Выход на мировой рынок, формирование call center</div>
+                                    <div class="about__texting">Внедрение unitedmarket в Европе, Америки, Азии, Австралии,
+                                        Африки
+                                    </div>
+                                </div>
+                                <div class="about__counting">
+                                    <div class="about__count">09</div>
+                                    <div class="about__count">10</div>
+                                    <div class="about__count">11</div>
+                                    <div class="about__count">12</div>
+                                    <div class="about__count">13</div>
+                                    <div class="about__count">14</div>
+                                </div>
+                                <div class="about__boxing">
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                    <div class="about__point">
+                                        <img src="{{asset('images/point.svg')}}" alt="">
+                                    </div>
+                                </div>
+                                <div class="about__inform">
+                                    <div class="about__information">
+                                        <p>Запуск контекстной рекламы</p>
+                                        <p>Создание аккаунтов в социальных сетях</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Ростове Великом и Ярославле</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Дзержинском</p>
+                                    </div>
+                                    <div class="about__information">
+                                        <p>Участие в соревнованиях по бодибилдингу в Воронеже</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Москве и Санкт-Петербурге</p>
+                                        <p>Разработка CRM системы в части для рекламы и маркетинга</p>
+                                        <p>Участие в соревнованиях по бодибилдингу в Краснодаре и Сочи </p>
+                                        <p>Разработка CRM системы в части для call-центра</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about__dates">
+                                <div class="about__data about__start">2020</div>
+                                <div class="about__data">2021</div>
+                                <div class="about__data about__data--pink">2022</div>
+                                <div class="about__data about__data--small">02 / 2022</div>
+                                <div class="about__data about__data--small">03 / 2022</div>
+                                <div class="about__data about__data--small">04 / 2022</div>
+                                <div class="about__data about__data--small">05 / 2022</div>
+                                <div class="about__data about__data--small">06 / 2022</div>
+                            </div>
+                            <div class="about__bottom"></div>
+                            <div class="hide__about">
+                                <div class="about__item">
+                                    <span class="about__num">09</span><span> – Разработка модуля для категорий «Автосервис, гостиничный бизнес, Салоны красоты, фитнес» </span>
+                                </div>
+                                <div class="about__item">
+                                    <span class="about__num">10</span><span> – Разработка блокчейна unitedcorporation.org и интеграция с базой unitedmarket.org, Разработка сайта umscan.org  (информационный сайт о статусе заказа, транзакциях, блоках, токенах)</span>
+                                </div>
+                                <div class="about__item">
+                                    <span class="about__num">11</span><span> – Разработка модуля для интеграции Unitedmarket в сайты партнеров</span>
+                                </div>
+                                <div class="about__item">
+                                    <span class="about__num">12</span><span> – Листинг на Бирже </span>
+                                </div>
+                                <div class="about__item">
+                                    <span class="about__num">13</span><span> – Выход на мировой рынок, формирование call center</span>
+                                </div>
+                                <div class="about__item">
+                                    <span class="about__num">14</span><span> – Внедрение unitedmarket  в Европе, Америки, Азии, Австралии, Африки</span>
+                                </div>
+                            </div> -->
+                            <picture>
+                                <source srcset="{{asset('images/сhart3-dest.png')}}" media="(min-width: 768px)">
+                                <img class="distribution__img" src="{{asset('images/сhart3-mob.png')}}" alt="фото">
+                            </picture>
+                        </div>
+                </div>
+            </section>
+            <section class="team" id="feedback">
+                <div class="team__inner">
+
+                </div>
+            </section>
+            {{-- @livewire('contact-us-component') --}}
+        </div>
+    </div>
+</div>
+<script src="/js/main.js"></script>
+
+{{-- @include('livewire.popup-purchase-tokens-component') --}}
+@endsection

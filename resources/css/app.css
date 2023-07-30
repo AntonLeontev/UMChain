@@ -1,3 +1,6 @@
+@import url('./style.min.css');
+@import url('./ico-style.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
