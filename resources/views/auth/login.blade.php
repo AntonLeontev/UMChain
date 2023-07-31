@@ -1,47 +1,47 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends('layouts.auth')
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+@section('title', __('auth.titles.login'))
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+@section('h1', __('auth.titles.login'))
+
+@section('content')
+    <div class="reg__info">
+        <div class="reg__form">
+            <form method="POST" action="{{ LaravelLocalization::localizeUrl(route('login')) }}">
+                @csrf
+                <div class="reg__one">
+                    <div class="reg__name">{{ __('Email') }}</div>
+                    <div class="reg__field">
+                        <input type="email" name="email" value="{{ old('email') }}" required autofocus
+                            class="{{ session('wrong__input') }}">
+                    </div>
+                    @error('email')
+                        <div>
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="reg__one">
+                    <div class="reg__name">{{ __('Password') }}</div>
+                    <div class="reg__field">
+                        <input id="password" type="password" class="login__password {{ session('wrong__input') }}"
+                            name="password" required autocomplete="current-password">
+                    </div>
+                    @error('password')
+                        <div class="">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="mb-8 reg__forget">
+                    <a
+                        href="{{ LaravelLocalization::localizeUrl(route('password.email')) }}">{{ __('Forget password?') }}</a>
+                </div>
+                <x-secondary-button type="submit">{{ __('Login') }}</x-secondary-button>
+            </form>
+            <div class="reg__have">{{ __('Not registered yet?') }}<a
+                    href="{{ LaravelLocalization::localizeUrl(route('register')) }}"
+                    class="reg__signin">&nbsp;{{ __('Register now') }} </a></div>
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+@endsection

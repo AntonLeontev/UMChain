@@ -61,7 +61,7 @@
 					@include('layouts.partials.lang-list')
                 </div>
                 <div class="header__person active">
-                    <a href="{{route('login')}}">
+                    <a href="{{ LaravelLocalization::localizeUrl(route('cabinet.portfolio')) }}">
                         <svg width="38" height="34" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="path-1-inside-1_17:597" fill="white">
                                 <rect width="37.4" height="34" rx="1.36"/>

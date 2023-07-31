@@ -11,9 +11,32 @@ export default {
     ],
 
     theme: {
+        screens: {
+            sm: "576",
+            md: "768px",
+            lg: "1024px",
+            xl: "1440px",
+        },
+        colors: {
+            transparent: "transparent",
+            black: "#292929",
+            white: "#ffffff",
+            pink: "#ED0474",
+        },
+        fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            serif: ["Merriweather", "serif"],
+        },
         extend: {
-            fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+            spacing: {
+                "8xl": "96rem",
+                "9xl": "128rem",
+            },
+            borderRadius: {
+                "none": "0",
+                "sm": ".125rem",
+                DEFAULT: ".25rem",
+                "4xl": "2rem",
             },
         },
     },

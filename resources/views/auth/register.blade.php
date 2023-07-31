@@ -1,52 +1,69 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+@extends('layouts.auth')
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+@section('title', __('auth.titles.register'))
+
+@section('h1', __('auth.titles.register'))
+
+@section('content')
+    <div class="reg__info">
+        {{--                        <div class="reg__littletitle">Вы сможете приобрести выбранный сертификат после регистрации</div> --}}
+        <div class="reg__form">
+            <form method="POST" action="{{ LaravelLocalization::localizeUrl(route('register')) }}">
+                {{ session()->get('ref_master_slug') }}
+                @csrf
+                @if (session()->has('package_message'))
+                    <div class="reg__have">{{ session()->get('package_message') }}</div>
+                @endif
+                <div class="reg__one">
+                    <div class="reg__name">{{ __('Name') }}</div>
+                    <div class="reg__field">
+                        <input type="text" name="name" value="{{ old('name') }}" required>
+                    </div>
+					@error('name')
+                        <div>
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="reg__one">
+                    <div class="reg__name">{{ __('Email') }}</div>
+                    <div class="reg__field">
+                        <input type="email" name="email" value="{{ old('email') }}" required>
+                    </div>
+					@error('email')
+                        <div>
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="reg__one">
+                    <div class="reg__name">{{ __('Password') }}</div>
+                    <div class="reg__field">
+                        <input type="password" name="password" required autocomplete="new-password">
+                    </div>
+					@error('password')
+                        <div>
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="reg__one">
+                    <div class="reg__name">{{ __('Repeat password') }}</div>
+                    <div class="reg__field">
+                        <input type="password" name="password_confirmation" required autocomplete="new-password">
+                    </div>
+                </div>
+                <div class="mb-8 reg__agreement">
+                    <input id="happy" type="checkbox" class="custom-checkbox" name="happy" value="yes" required>
+                    <label for="happy"><span>{{ __('I agree to') }}&nbsp;<a
+                                href=""
+                                class="happy__hide">{{ __('the processing of personal data.') }}</a></span></label>
+                </div>
+				
+				<x-secondary-button type="submit">{{ __('Register now') }}</x-secondary-button>
+            </form>
+            <div class="reg__have">{{ __('Already have an account?') }}<a href="{{ LaravelLocalization::localizeUrl(route('login')) }}"
+                    class="reg__signin">&nbsp;{{ __('Login') }}</a></div>
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+@endsection

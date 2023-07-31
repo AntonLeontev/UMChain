@@ -8,16 +8,16 @@
         <div class="container">
             <div class="major__inner">
                 <div class="major__left">
-                    <h1 class="major__title">UMCHAIN – IT-решения для бизнеса на основе блокчейн</h1>
-                    <div class="major__description">Стань одним из первых. Сделай шаг в децентрализованное будущее</div>
+                    <h1 class="major__title">{{ __('home.UMCHAIN – IT solutions for business based on blockchain') }}</h1>
+                    <div class="major__description">{{ __('home.Become one of the first. Take a step into a decentralized future') }}</div>
                     <div class="major__btn">
 
                         @if(Auth::check())
 {{--                            <a href="{{ route('cabinet.personal.data') }}">Записаться на покупку umt токенов</a>--}}
-                            <a href="#" id="majorBtn">Записаться на покупку umt токенов</a>
+                            <a href="#" id="majorBtn">{{ __('Sign up for the purchase of umt tokens') }}</a>
                         @else
 {{--                            <a href="{{ route('register') }}">Записаться на покупку umt токенов</a>--}}
-                            <a href="#" id="majorBtn">Записаться на покупку umt токенов</a>
+                            <a href="#" id="majorBtn">{{ __('Sign up for the purchase of umt tokens') }}</a>
                         @endif
                     </div>
                     <div class="major__img-block">
@@ -51,12 +51,13 @@
         <div class="content__left">
             <div class="content__list">
                 <ul>
-                    <li><a href="#what">Что такое Токен UMT?</a></li>
-                    <li><a href="#bepartner">Как стать партнером</a></li>
+                    <li><a href="#what">{{ __('home.What is Umchain?') }}</a></li>
+                    <li><a href="#bepartner">{{ __('home.partner.h1') }}</a></li>
                     <li><a href="#overview">Web 3.0</a></li>
-                    <li><a href="#benefit">Преимущества DWB</a></li>
-                    <li><a href="#distribution">Для кого предназначен DWB</a></li>
-                    <li><a href="#about">Выгода для партнёра</a></li>
+                    <li><a href="#benefit">{{ __('home.menu.advantages') }}</a></li>
+                    <li><a href="#distribution">{{ __('home.menu.forWhom') }}</a></li>
+                    <li><a href="#benefit-partner">{{ __('home.menu.benefitPartner') }}</a></li>
+                    <li><a href="#benefit-investor">{{ __('home.menu.benefitInvestor') }}</a></li>
                     <li><a href="#team">Функция utility-токена UMC</a></li>
                     <li><a href="#reg">Функция технического токена UMT</a></li>
                     <li><a href="#tok">Tokenomics</a></li>
@@ -68,35 +69,42 @@
         <div class="content__right">
             <section class="what" id="what">
                 <div class="what__inner">
-                    <h3 class="common__title">UMChain - Цифровая экосистема для электронной коммерции на блокчейн</h3>
+                    <h3 class="common__title">{{ __('home.what.h1') }}</h3>
                 </div>
                 <div class="what__text">
-                    <p>Основной проект компании Umchain OU - Dwb.world. Миссией проекта является разработка децентрализованного конструктора сайтов DWB с функцией приёма платежей на свой кошелек и экосистемы Umchain, в рамках которой существуют продавцы и покупатели. Для продавцов открываются возможности создания собственного сайта, его наполнения, загрузки товаров и тд.</p>
+                    <p>
+						{{ __('home.what.1') }}
+					</p>
 
-                    <p><strong>Целями создания системы являются:</strong></p>
-
-                    <p>
-                        <strong>-	создание децентрализованной системы с обеспечением полной прозрачности всех осуществляемых в системе процедур за счет использования технологии публичных Блокчейн сетей</strong>
-                    </p>
-                    <p>
-                        <strong>-	обеспечение прозрачности и достоверности расчетов между Поставщиками и Покупателями за счет использования Смарт контрактов</strong>
-                    </p>
-                    <p>
-                        <strong>-	обеспечение доступности системы широкому кругу Покупателей за счет использования средств облачной подписи</strong>
-                    </p>
+                    <p><strong>{{ __('home.what.2') }}</strong></p>
 
                     <p>
-                        Для реализации взаимоотношений (бизнес-процессов) с партнерами разработан прикладной протокол UMChain на базе блокчейн платформы Polygon и выпуск двух токенов,  один из которых (UMT) будет использоваться в расчетах продавцов и покупателей между собой, а второй (UMC) - давать возможность пользоваться экосистемой Umchain - этот токен является цифровым активом компании и будет представлен на биржах.
+                        <strong>-	{{ __('home.what.3') }}</strong>
+                    </p>
+                    <p>
+                        <strong>-	{{ __('home.what.4') }}</strong>
+                    </p>
+                    <p>
+                        <strong>-	{{ __('home.what.5') }}</strong>
+                    </p>
+                    <p>
+                        <strong>-	{{ __('home.what.6') }}</strong>
                     </p>
 
                     <p>
-                        ICO проводится с целью разбработки и внедрения децентрализованного алгоритма взаимодействия внутри экосистемы Umchain. Таким образом держатели токенов UMС будут мотивированы работоспособностью экосистемы: база данных сервиса и база данных блокчейн обращаются друк к другу, в связи с чем вырабатывается новый мотивационный блок, который будет вознаграждать держателей токенов, распределяя вознаграждение между всеми держателями токенов. Блокчейн будет работать по алгоритму Proof-of-stake.
+                        {{ __('home.what.7') }}
+                    </p>
+                    <p>
+                        {{ __('home.what.8') }}
+                    </p>
+					<p>
+                        <strong>-	{{ __('home.what.9') }}</strong>
                     </p>
                 </div>
             </section>
             <div class="bepartner" id="bepartner">
                 <div class="bepartner__inner">
-                    <h3 class="common__title">Как стать партнером</h3>
+                    <h3 class="common__title">{{ __('home.partner.h1') }}</h3>
                     <div class="bepartner__wrapper">
                         <div class="bepartner__item">
                             <div class="bepartner__image">
@@ -127,7 +135,7 @@
                     </div>
                     <div class="bepartner__btn">
                         @if(Auth::check())
-                            <a href="{{ route('cabinet.personal.data') }}">Купить по стартовой цене</a>
+                            <a href="{{ route('cabinet.personal') }}">Купить по стартовой цене</a>
                         @else
                             <a href="{{ route('login') }}">Купить по стартовой цене</a>
                         @endif
@@ -137,95 +145,93 @@
             </div>
             <section class="overview" id="overview">
                 <div class="overview__inner">
-                    <h3 class="common__title">Web 3.0</h3>
-                    <p class="common__text"><span class="text--ping">dwb.world</span> - децентрализованный конструтор сайтов Web 3.0</p>
+                    <h3 class="common__title">{{ __('home.web.h1') }}</h3>
+                    <p class="common__text"><span class="text--ping">Umchain</span> {{ __('home.web.1') }}</p>
                     <div class="overview__box">
                         <div class="overview__info">
-                            <p> DWB - децентрализованный оптимизированный конструктор сайтов. Проект предоставляет возможность создать полноценный сайт и заниматься коммерцией, продажей товара или услуг в интернете. </p>
-                            <p>В личном кабинете есть всё необходимое для управления вашим бизнесом: настройки уведомлений, статистика по заказам, баланс и возможность вывода заработанных средств. </p>
-                            <p>При создании сайта в индивидуальном порядке выбирается способ проведения платежей в системе: p2p платежи, либо использование интернет-эквайринга.</p>
+                            <p> {{ __('home.web.2') }}</p>
+                            <p>{{ __('home.web.3') }}</p>
+                            <p>{{ __('home.web.4') }}</p>
+                            <p>{{ __('home.web.5') }}</p>
                         </div>
                         <div class="overview__right">
-                            <div class="overview__task">Возможности:</div>
+                            <div class="overview__task">{{ __('home.web.capabilities.title') }}</div>
                             <ul class="overview__list">
-                                <li class="overview__item">Отслеживание всех транзакций на сайте</li>
-                                <li class="overview__item">Вывод средств 24/7</li>
-                                <li class="overview__item">Быстрое создание магазина за 15 минут</li>
-                                <li class="overview__item">Возможность создания и продажи NFT</li>
-                                <li class="overview__item">Peer to Peer Transaction</li>
+                                <li class="overview__item">{{ __('home.web.capabilities.1') }}</li>
+                                <li class="overview__item">{{ __('home.web.capabilities.2') }}</li>
+                                <li class="overview__item">{{ __('home.web.capabilities.3') }}</li>
+                                <li class="overview__item">{{ __('home.web.capabilities.4') }}</li>
+                                <li class="overview__item">{{ __('home.web.capabilities.5') }}</li>
                             </ul>
                         </div>
                     </div>
                     <div class="overview__competition" id="benefit">
-                        <h4 class="overview__title">Преимущества DWB</h4>
+                        <h4 class="overview__title">{{ __('home.web.advantages.title') }}</h4>
                         <div class="overview__wrapper">
                             <div class="overview__one">
-                                <div class="overview__name"><span>CMS</span> - конструктор</div>
+                                <div class="overview__name"><span>{{ __('home.web.advantages.1.1') }}</span>{{ __('home.web.advantages.1.2') }}</div>
                                 <div class="overview__description">
                                       <p>
-                                          Взаимодействие с платформой предполагает размещение товаров и услуг на индивидуально созданном сайте.
+                                          {{ __('home.web.advantages.1.3') }}
                                       </p>
                                       <p>
-                                          Для создания ресурса используется ваш домен, информация о вашей компании, ваш номер кошелька (при p2p взаимодействии).
-
+                                          {{ __('home.web.advantages.1.4') }}
                                       </p>
                                       <p>
-                                          Интуитивно понятный личный кабинет делает работу с сайтом на DWB легкой и приятной, а внутренняя SEO оптимизация и интерфейс пользователя - удобны для ваших клиентов и посетителей сайта.
+                                          {{ __('home.web.advantages.1.5') }}
                                       </p>
                                 </div>
                             </div>
                             <div class="overview__one">
-                                <div class="overview__name"><span>Модуль </span> интеграции с маркетплейсами</div>
+                                <div class="overview__name"><span>{{ __('home.web.advantages.2.1') }} </span>{{ __('home.web.advantages.2.2') }}</div>
                                 <div class="overview__description">
-                                    <p>Создание сайта на DWB открывает для предпринимателей возможность автоматической выгрузки товаров на маркетплейсы. </p>
-                                    <p>Чтобы разместить товары на маркетплейсе, загрузите их на созданный сайт, а затем в настройках укажите, на каких маркетплейсах вы хотите разместить ваши товары.</p>
+                                    <p>{{ __('home.web.advantages.2.3') }}</p>
                                 </div>
                             </div>
                             <div class="overview__one">
-                                <div class="overview__name"><span>Безопасность </span> и прозрачность транзакций</div>
+                                <div class="overview__name"><span>{{ __('home.web.advantages.3.1') }} </span>{{ __('home.web.advantages.3.2') }}</div>
                                 <div class="overview__description">
-                                    <p>Так как внутренние бизнес-процессы системы происходят на основе блокчейн технологий, вы можете быть уверены в безопасности каждой транзакции. </p>
-                                    <p>С помощью криптографии технология блокчейн помогает предотвратить любые несанкционированные и мошеннические действия. </p>
-                                    <p>Распределение средств осуществляется по установленным в смарт-контракте правилам, что исключает ошибки в системе. </p>
+                                    <p>{{ __('home.web.advantages.3.3') }}</p>
+                                    <p>{{ __('home.web.advantages.3.4') }}</p>
                                 </div>
                             </div>
                             <div class="overview__one">
-                                <div class="overview__name"><span>Мгновенное </span> начисление средств на личный кошелёк</div>
+                                <div class="overview__name"><span>{{ __('home.web.advantages.4.1') }} </span> {{ __('home.web.advantages.4.2') }}</div>
                                 <div class="overview__description">
-                                    <p>Средства автоматические начисляются на Ваш личный кошелек.</p>
+                                    <p>{{ __('home.web.advantages.4.3') }}</p>
 
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="overview__trouble" id="distribution">
-                        <h4 class="overview__title">Для кого предназначен конструктор DWB</h4>
+                        <h4 class="overview__title">{{ __('home.forWhom.h1') }}</h4>
                         <div class="overview__box">
                             <div class="overview__info">
-                                <div class="overview__name"><span>Селлеры</span>, продающие товары онлайн</div>
+                                <div class="overview__name"><span>{{ __('home.forWhom.1.1') }}</span>, {{ __('home.forWhom.1.2') }}</div>
                                 <div class="overview__description">
-                                    <p>Малый и средний бизнес в свете последних событий в мире столкнулся с непростыми проблемами и в полной степени ощутил последствия. Этот сегмент экономики зачастую не имеет финансовой подушки и оказывается без какой-либо поддержки, без защиты от влияния внешних факторов. </p>
-                                    <p>Многие нуждаются в IT-инструментах, для содержания и управления которыми не потребуется большая компанда специалистов. </p>
+                                    <p>{{ __('home.forWhom.1.3') }}</p>
+                                    <p>{{ __('home.forWhom.1.4') }}</p>
                                 </div>
                             </div>
                             <div class="overview__info">
                                 <div class="overview__image">
                                     <img src="{{asset('images/cube.svg')}}" alt="">
                                 </div>
-                                <div class="overview__name overview__name--small"><span>Создатели</span> бизнеса и собственных продуктов
+                                <div class="overview__name overview__name--small"><span>{{ __('home.forWhom.2.1') }}</span> {{ __('home.forWhom.2.2') }}
                                 </div>
                                 <div class="overview__description">
-                                    <p>Тенденция перевода бизнеса в онлайн очевидна, поэтому предприниматели часто обращаются к известным действенным инструментам продаж и цифровизации своего дела, уделяя особенное внимание созданию собственного сайта.</p>
-                                    <p>Для них важно иметь надежное IT-решение, на которое можно положиться, и которое будет работать невзирая на события, происходящие в стране и в мире.</p>
+                                    <p>{{ __('home.forWhom.2.3') }}</p>
+                                    <p>{{ __('home.forWhom.2.4') }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="border-none overview__box">
                             <div class="overview__info">
-                                <div class="overview__name"><span>NFT</span> Коллеционеры и художники</div>
+                                <div class="overview__name"><span>{{ __('home.forWhom.3.1') }}</span> {{ __('home.forWhom.3.2') }}</div>
                                 <div class="overview__description">
                                     <p>
-                                        Создавайте свои NFT коллекции и продавайте их на своем сайте, все техничские вопросы мы берем на себя.
+                                        {{ __('home.forWhom.3.3') }}
                                     </p>
                                 </div>
                             </div>
@@ -239,56 +245,97 @@
                 </div>
             </section>
 
-            <section class="benefit mb-98" id="about ">
+            <section id="benefit-partner" class="benefit mb-98" id="about ">
                 <div class="benefit__inner">
-                    <h3 class="common__title">Выгода для партнера</h3>
+                    <h3 class="common__title">{{ __('home.benefitPartner.h1') }}</h3>
                     <div class="mb-20 benefit__wrapper">
                         <div class="benefit__item">
                             <div class="benefit__cube">
                                 <img src="{{asset('images/cubeOne.svg')}}" alt="">
                             </div>
-                            <div class="benefit__description">Быстрое создание сайта и наполнение товарами</div>
+                            <div class="benefit__description">{{ __('home.benefitPartner.1') }}</div>
                         </div>
                         <div class="benefit__item">
                             <div class="benefit__cube">
                                 <img src="{{asset('images/cubeOne.svg')}}" alt="">
                             </div>
-                            <div class="benefit__description">Доступная и интуитивно понятная настройка сайта и управление личным кабинетом
-                            </div>
-                        </div>
-                        <div class="benefit__item">
-                            <div class="benefit__cube">
-                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
-                            </div>
-                            <div class="benefit__description">Возможность выбора базовой технологии: p2p, cryptoprocessing или  интернет-эквайринг
+                            <div class="benefit__description">{{ __('home.benefitPartner.2') }}
                             </div>
                         </div>
                         <div class="benefit__item">
                             <div class="benefit__cube">
                                 <img src="{{asset('images/cubeOne.svg')}}" alt="">
                             </div>
-                            <div class="benefit__description">Безопасность и прозрачность транзакций
+                            <div class="benefit__description">{{ __('home.benefitPartner.3') }}
                             </div>
                         </div>
                         <div class="benefit__item">
                             <div class="benefit__cube">
                                 <img src="{{asset('images/cubeOne.svg')}}" alt="">
                             </div>
-                            <div class="benefit__description">Интеграция с другими маркетплейсами</div>
+                            <div class="benefit__description">{{ __('home.benefitPartner.4') }}
+                            </div>
                         </div>
                         <div class="benefit__item">
                             <div class="benefit__cube">
                                 <img src="{{asset('images/cubeOne.svg')}}" alt="">
                             </div>
-                            <div class="benefit__description">Оптимизированный пользовательский интерфейс
+                            <div class="benefit__description">{{ __('home.benefitPartner.5') }}</div>
+                        </div>
+                        <div class="benefit__item">
+                            <div class="benefit__cube">
+                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
+                            </div>
+                            <div class="benefit__description">{{ __('home.benefitPartner.6') }}
+                            </div>
+                        </div>
+                        <div class="benefit__item">
+                            <div class="benefit__cube">
+                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
+                            </div>
+                            <div class="benefit__description">{{ __('home.benefitPartner.7') }}
                             </div>
                         </div>
                     </div>
                     <div class="bepartner__btn">
                     @if(Auth::check())
-                        <a  href="{{ route('cabinet.personal.data') }}">Стать партнёром</a>
+                        <a  href="{{ route('cabinet.personal') }}">{{ __('home.benefitPartner.btn') }}</a>
                     @else
-                        <a   href="{{ route('login') }}">Стать партнёром</a>
+                        <a   href="{{ route('login') }}">{{ __('home.benefitPartner.btn') }}</a>
+                    @endif
+                    </div>
+                </div>
+            </section>
+            <section id="benefit-investor" class="benefit mb-98" id="about ">
+                <div class="benefit__inner">
+                    <h3 class="common__title">{{ __('home.benefitInvestor.h1') }}</h3>
+                    <div class="mb-20 benefit__wrapper">
+                        <div class="benefit__item">
+                            <div class="benefit__cube">
+                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
+                            </div>
+                            <div class="benefit__description">{{ __('home.benefitInvestor.1') }}</div>
+                        </div>
+                        <div class="benefit__item">
+                            <div class="benefit__cube">
+                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
+                            </div>
+                            <div class="benefit__description">{{ __('home.benefitInvestor.2') }}
+                            </div>
+                        </div>
+                        <div class="benefit__item">
+                            <div class="benefit__cube">
+                                <img src="{{asset('images/cubeOne.svg')}}" alt="">
+                            </div>
+                            <div class="benefit__description">{{ __('home.benefitInvestor.3') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bepartner__btn">
+                    @if(Auth::check())
+                        <a  href="{{ route('cabinet.personal') }}">{{ __('home.benefitInvestor.btn') }}</a>
+                    @else
+                        <a   href="{{ route('login') }}">{{ __('home.benefitInvestor.btn') }}</a>
                     @endif
                     </div>
                 </div>
@@ -1130,11 +1177,114 @@
 
                 </div>
             </section>
-            {{-- @livewire('contact-us-component') --}}
+            <div>
+				<section class="reg reg--small" id="reg">
+					<div class="container">
+						<div class="reg__inner">
+							<h1 class="reg__title">{{__('Contact us')}}</h1>
+							<div class="reg__wrapper">
+								<div class="reg__info">
+									<div class="reg__form">
+										<form action="">
+											<div class="reg__one">
+												<div class="reg__name">{{__('What is your name?')}}</div>
+												<div class="reg__field">
+													<input type="text" name="name" required>
+												</div>
+											</div>
+											<div class="reg__one">
+												<div class="reg__name">{{__('Your phone number')}}</div>
+												<div class="reg__field">
+													<input type="text" name="phone">
+												</div>
+											</div>
+											<div class="reg__one">
+												<div class="reg__name">{{__('Email')}}</div>
+												<div class="reg__field">
+													<input type="email" name="email" required>
+												</div>
+											</div>
+											<div class="reg__one">
+												<div class="reg__name">{{__('Your question')}}</div>
+												<div class="reg__field">
+													<input type="text" name="message" required>
+												</div>
+											</div>
+											<div class="reg__agreement">
+												<input type="checkbox" class="custom-checkbox" id="happy" name="happy" value="yes" required>
+												<label for="happy"><p>{{__('By clicking the Submit button, you agree to the')}}<a href="">{{__('Privacy Policy')}}</a></p></label>
+											</div>
+											<button type="submit" class="reg__btn">
+												{{__('Submit')}}
+											</button>
+										</form>
+									</div>
+								</div>
+								<div class="reg__img reg__img--desc">
+									<img src="{{asset('images/cubeMob.svg')}}" alt="">
+								</div>
+								<div class="reg__img reg__img--mob">
+									<img src="{{asset('images/cubeMob.svg')}}" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
         </div>
     </div>
 </div>
 <script src="/js/main.js"></script>
 
-{{-- @include('livewire.popup-purchase-tokens-component') --}}
+<div class="popup" id="popup">
+    <div class="popup__title">{{__('Submit a request for the purchase of UMT Tokens')}}</div>
+    <div class="reg__info">
+        <div class="reg__form">
+            <form action="" method="POST">
+                <div class="reg__one">
+                    <div class="reg__name">{{__('What is your name?')}}</div>
+                    <div class="reg__field">
+                        <input type="text" name="name" autocomplete="on" required>
+                    </div>
+                </div>
+                <div class="reg__one">
+                    <div class="reg__name">{{__('Your phone number')}}</div>
+                    <div class="reg__field">
+                        <input type="tel" name="phone"required autocomplete="on">
+                    </div>
+                </div>
+                <div class="reg__one">
+                    <div class="reg__name">{{__('Your Email')}}</div>
+                    <div class="reg__field">
+                        <input type="email"  name="email" required autocomplete="on">
+                    </div>
+                </div>
+                <div class="reg__one">
+                    <div class="reg__name">{{__('What dollar amount do you reserve UMT tokens for?')}}</div>
+                    <div class="reg__field">
+                        <input type="number" name="tokens" required>
+                    </div>
+                </div>
+                <div class="reg__agreement">
+                    <input type="checkbox" class="custom-checkbox" id="happy2" name="happy" value="yes" required>
+                    <label for="happy2"><p>{{__('By clicking the Submit button, you agree to the')}} <a href="#">{{__('Privacy Policy')}}</a></p></label>
+                </div>
+                <button class="reg__btn" type="submit">
+                    {{__('Submit a request')}}
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="popup__close" id="popupClose">
+        <img src="{{asset('images/close.svg')}}" alt="">
+    </div>
+</div>
+@if(session()->has('message_sent_success'))
+    <div class="thanks" id="thanks">
+        <div class="thanks__title">{{__('Thank you for your application, our managers will contact you')}}</div>
+        <div class="thanks__close" id="thanksClose">
+            <img src="{{asset('images/close.svg')}}" alt="">
+        </div>
+    </div>
+@endif
 @endsection
