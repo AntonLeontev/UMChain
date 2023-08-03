@@ -24,12 +24,6 @@
             </div>
             <div class="footer__col">
                 <ul>
-                    <!--<li><a href="/#what">{{ __('What is a UMT token?') }}</a></li>-->
-                    <!--<li><a href="/#bepartner">{{ __('How to become a partner') }}</a></li>-->
-                    <!--<li><a href="/#overview">{{ __('Project overview') }}</a></li>-->
-                    <!--<li><a href="/#benefit">{{ __('Benefits to investors') }}</a></li>-->
-                    <!--<li><a href="/#distribution">{{ __('UMT token distribution') }}</a></li>-->
-
                     <li><a href="#">{{ __('footer.What is a UMT token?') }}</a></li>
                     <li><a href="#">{{ __('footer.How to become a partner') }}</a></li>
                     <li><a href="#">{{ __('footer.Project overview') }}</a></li>
@@ -40,11 +34,6 @@
             </div>
             <div class="footer__col footer__col--two">
                 <ul>
-                    <!--<li><a href="/#about">{{ __('About us') }}</a></li>-->
-                    <!--<li><a href="/#team">{{ __('Our team') }}</a></li>-->
-                    <!--<li><a href="/#reg">{{ __('Contact us') }}</a></li>-->
-                    <!--<li><a href="">{{ __('Privacy Policy') }}</a></li>-->
-                    <!--<li><a href="">Блог</a></li>-->
                 </ul>
             </div>
             <div class="footer__contacts">
@@ -67,25 +56,8 @@
                 </div>
             </div>
         </div>
-        <!-- Chatra {literal} -->
-        {{-- <script>
-            (function(d, w, c) {
-                w.ChatraID = 'YSH3Sxf2rvLbfvvfE';
-                var s = d.createElement('script');
-                w[c] = w[c] || function() {
-                    (w[c].q = w[c].q || []).push(arguments);
-                };
-                s.async = true;
-                s.src = 'https://call.chatra.io/chatra.js';
-                if (d.head) d.head.appendChild(s);
-            })(document, window, 'Chatra');
-        </script> --}}
-        <!-- /Chatra {/literal} -->
         <div class="footer__rights">
             © UM Chain, {{ date('Y') }}г.
         </div>
     </div>
 </footer>
-@if (Cookie::get('cookie_agree') != 'yes')
-    {{-- @livewire('cookie-agree-component') --}}
-@endif

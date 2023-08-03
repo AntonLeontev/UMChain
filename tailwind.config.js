@@ -22,6 +22,8 @@ export default {
             black: "#292929",
             white: "#ffffff",
             pink: "#ED0474",
+            grey: "#868686",
+            danger: "#aa0000",
         },
         fontFamily: {
             sans: ["Inter", "sans-serif"],
@@ -33,12 +35,15 @@ export default {
                 "9xl": "128rem",
             },
             borderRadius: {
-                "none": "0",
-                "sm": ".125rem",
+                none: "0",
+                sm: ".125rem",
                 DEFAULT: ".25rem",
                 "4xl": "2rem",
             },
         },
+    },
+    corePlugins: {
+        container: false,
     },
 
     plugins: [forms],

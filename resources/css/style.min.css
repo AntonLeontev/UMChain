@@ -1199,7 +1199,7 @@ body {
 .password__eye {
     position: absolute;
     right: 0;
-    top: 0;
+    top: calc(50% - 12px);
     cursor: pointer;
 }
 .password__eye:hover path,
@@ -1272,7 +1272,7 @@ body {
 }
 .main {
     font-family: "Inter", sans-serif;
-    height: 100%;
+    /* height: 100%; */
     background: #2a2a2a;
 }
 .main__btn {
@@ -1374,7 +1374,7 @@ body {
 .main__left {
     max-width: 620px;
     width: 100%;
-    padding: 40px 0 130px 80px;
+    padding: 40px 80px 130px 80px;
 }
 .main__right {
     background: #e5e5e5;
@@ -1440,26 +1440,42 @@ body {
     background: #292929;
 }
 .main__menu--list li {
-    max-width: 193px;
+	position: relative;
+    max-width: 250px;
     width: 100%;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 140%;
+	text-align: center;
+	padding: 14px 0;
+	width: 100%;
+	text-align: center;
+	color: #ffffff;
+	transition: all 0.3s;
+	cursor: pointer;
+	border: solid 1px transparent;
 }
-.main__menu--list li a {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 140%;
-    text-align: center;
-    padding: 14px 0;
-    width: 100%;
-    text-align: center;
-    color: #ffffff;
+.main__menu--list li:hover {
+	color: #ed0474;
 }
 .main__menu--list li + li {
     margin-top: 26px;
 }
-.main__menu--list li.active a {
-    background: rgba(196, 196, 196, 0.37);
-    border-radius: 4px;
+.main__menu--list li.active {
+    /* background: rgba(196, 196, 196, 0.37); */
+    border-radius: 4px; 
+	color: #ed0474;
+	border: solid 1px #ed0474;
 }
+/* .main__menu--list li.active::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: #ed0474;
+} */
 .main__photo {
     text-align: center;
     margin-bottom: 32px;
@@ -3165,7 +3181,7 @@ body {
 }
 .out__box {
     background: #dddddd;
-    padding: 84px 0 107px;
+    padding: 84px 20px 107px;
 }
 .out__buttons {
     max-width: 350px;
@@ -5278,7 +5294,7 @@ body {
         grid-gap: 50px;
     }
     .main__left {
-        padding: 40px 0 130px 30px;
+        padding: 40px 30px 130px 30px;
     }
     .main__right {
         padding-bottom: 150px;
@@ -5547,7 +5563,7 @@ body {
         overflow-y: hidden;
     }
     .main__left {
-        padding: 20px 0 0 30px;
+        padding: 20px 30px 0 30px;
     }
     .main__top {
         margin-bottom: 0;
@@ -6766,7 +6782,7 @@ three";
         padding: 40px 35px 150px;
     }
     .main__left {
-        padding: 0 0 0 15px;
+        padding: 0 15px 0 15px;
     }
     .main__out {
         max-width: 100%;

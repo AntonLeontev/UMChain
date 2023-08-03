@@ -13,6 +13,6 @@ class PageController extends Controller
 
 	public function cabinet()
 	{
-		return 123;
+		return view('personal');
 	}
 }

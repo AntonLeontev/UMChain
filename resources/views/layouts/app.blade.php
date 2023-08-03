@@ -18,7 +18,7 @@
 			[x-cloak] {display: none;}
 		</style>
     </head>
-    <body class="flex flex-col h-full font-sans antialiased">
+    <body class="flex flex-col min-h-screen font-sans antialiased">
 		@include('layouts.partials.header')
 
 		@yield('content')
