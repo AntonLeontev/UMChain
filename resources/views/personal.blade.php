@@ -344,13 +344,14 @@
 						}
 						
                         this.page = 'wallet';
-						window.history.pushState({}, '', "{{ config('app.url') }}/cabinet/wallet");
+						
+						this.pushState(wallet);
                         return;
                     }
 
                     if (this.page === 'wallet') {
                         this.page = this.prevPage;
-						window.history.pushState({}, '', "{{ config('app.url') }}/cabinet/" + this.prevPage);
+						this.pushState(this.prevPage);
                         return;
                     }
                 },
@@ -359,9 +360,14 @@
 					this.page = this.$event.detail;
 
 					if (this.$event.detail === 'logout') return;
-					
-					window.history.pushState({}, '', "{{ config('app.url') }}/cabinet/" + this.$event.detail);
+
+					this.pushState(this.$event.detail);
                 },
+				pushState(path) {
+					let url = window.location.href.replace(/\/(?!.*\/).+/gm, '');
+					
+					window.history.pushState({}, '', `${url}/` + path);
+				},
 				
 
 
