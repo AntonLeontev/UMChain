@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
@@ -44,6 +45,12 @@ Route::group([
 			Route::put('update-password', [ProfileController::class, 'updatePassword'])->name('users.update-password');
 		});
 
+	Route::prefix('orders')
+		->middleware(HandlePrecognitiveRequests::class)
+		->group(function() {
+			Route::post('create', [OrderController::class, 'create'])->name('orders.create');
+			Route::put('{order}/make-paid', [OrderController::class, 'makePaid'])->name('orders.make-paid');
+		});
 
 	
 	

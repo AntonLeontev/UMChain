@@ -711,7 +711,7 @@ body {
 .packets__inner {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr) [3];
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(3, 1fr);
 }
 .packets__count {
@@ -1526,7 +1526,7 @@ body {
 }
 .main__portfolio {
     max-width: 440px;
-    width: 100%;
+    width: 400px;
     padding-bottom: 100px;
 }
 .main__dop {
@@ -1665,13 +1665,13 @@ body {
     text-align: left;
 }
 .balance__top {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 131%;
     color: #ffb6d9;
     margin-bottom: 8px;
 }
 .balance__text {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 140%;
     text-align: center;
     color: #ffffff;
@@ -2266,13 +2266,9 @@ body {
     position: relative;
 }
 .append__success {
-    display: none;
     position: absolute;
     top: 100px;
     left: 40%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
     font-size: 16px;
     line-height: 140%;
     text-align: center;
@@ -3250,7 +3246,7 @@ body {
 .team__wrapper {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr) [3];
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 36px 48px;
 }
@@ -3412,9 +3408,9 @@ body {
 .overview__wrapper {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr) [2];
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(2, 1fr);
-    -ms-grid-rows: (1fr) [2];
+    -ms-grid-rows: (1fr);
     grid-template-rows: repeat(2, 1fr);
 }
 .overview__one {
@@ -3490,7 +3486,7 @@ body {
 .benefit__wrapper {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr) [3];
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 41px 25px;
 }
@@ -3682,8 +3678,7 @@ body {
     font-size: 24px;
     line-height: 160%;
     letter-spacing: 0.05em;
-    font-family: "Open
-Sans", sans-serif;
+    font-family: "OpenSans", sans-serif;
     color: #0b1331;
 }
 .datepicker--nav-title i {
@@ -3705,7 +3700,7 @@ Sans", sans-serif;
     border-bottom: 1px solid #868686;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr) [3];
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 36px;
 }
@@ -5352,7 +5347,7 @@ body {
         display: -ms-grid;
         display: grid;
         grid-gap: 40px;
-        -ms-grid-columns: (1fr) [2];
+        -ms-grid-columns: (1fr);
         grid-template-columns: repeat(2, 1fr);
     }
     .about__texting {
@@ -5385,7 +5380,7 @@ body {
     .circle__wrapper {
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: (1fr) [2];
+        -ms-grid-columns: (1fr);
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 90px 0;
     }
@@ -5508,7 +5503,7 @@ body {
         transform: rotate(90deg);
     }
     .team__wrapper {
-        -ms-grid-columns: (1fr) [2];
+        -ms-grid-columns: (1fr);
         grid-template-columns: repeat(2, 1fr);
     }
     .team__item {
@@ -5866,7 +5861,7 @@ body {
     .datepicker--cells-days {
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: (1fr) [7];
+        -ms-grid-columns: (1fr);
         grid-template-columns: repeat(7, 1fr);
     }
     .datepicker--cell-day {
@@ -6795,7 +6790,7 @@ three";
     .main__token {
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: (1fr) [2];
+        -ms-grid-columns: (1fr);
         grid-template-columns: repeat(2, 1fr);
         grid-row-gap: 3px;
     }
@@ -6941,7 +6936,7 @@ three";
     .dividends__all {
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: (1fr) [2];
+        -ms-grid-columns: (1fr);
         grid-template-columns: repeat(2, 1fr);
         grid-row-gap: 3px;
     }

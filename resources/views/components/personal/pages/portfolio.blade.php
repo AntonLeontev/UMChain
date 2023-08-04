@@ -1,0 +1,75 @@
+<div data-page="portfolio" x-show="page === 'portfolio'" x-cloak>
+    <div class="main__portfolio">
+        <div class="main__balance">
+            <div class="balance__text">{{ __('cabinet/portfolio.balance') }}</div>
+            <div class="balance__count">
+                <div class="balance__umt">UMT</div>
+                <div class="balance__num" x-text="user.umt"></div>
+            </div>
+            <div>
+                <div class="balance__text">
+					{{ __('cabinet/portfolio.freeze') }}
+                    <div class="balance__times" style="">
+                        <div class="balance__time balance__days">
+                            <div class="balance__date">144</div>
+                            дня
+                        </div>
+                        <div class="balance__time balance__hours">
+                            <div class="balance__date">23</div>
+                            часа
+                        </div>
+                        <div class="balance__time balance__minutes">
+                            <div class="balance__date">17</div>
+                            минут
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main__token">
+            <div class="token__major">
+                <div class="token__logo">
+                    <img src="/images/token.png" alt="">
+                </div>
+                <div class="token__info">
+                    <div class="token__name">UMT Token</div>
+                    <div class="token__count"><span x-text="formatRate(1 / settings.rate)"></span> USDT</div>
+                </div>
+            </div>
+            <div class="token__num">
+                <div class="token__rate">USDT <span x-text="user.usdt"></span></div>
+                {{-- <div class="token__percent" style="visibility: hidden">+3,25 %</div> --}}
+            </div>
+            <div class="token__out out__inactive">
+
+
+            </div>
+        </div>
+        {{-- <div class="main__dividends" style="">
+            <div class="dividends__all">
+                <div class="dividends__main">
+                    <div class="dividends__name">
+                        <span>Дивиденды</span>
+                        <div class="dividends__arrow">
+                            <img src="https://ico.umchain.org/images/blackArrow.svg" alt="">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="dividends__rate" style="">
+                    <div class="dividends__rub">₽ 1 055,15</div>
+                    <div class="dividends__percent">+3,25 %</div>
+                </div>
+                <div class="dividends__out out__active">
+                    <a href="https://ico.umchain.org/ru/cabinet/profile/portfolio/out"></a>
+                </div>
+            </div>
+            <div class="dividends__graf">
+                <img src="https://ico.umchain.org/images/graf.png" alt="">
+            </div>
+        </div> --}}
+        <div class="main__dop" @click="$dispatch('switch', {value: 'wallet'})">
+			<x-secondary-button class="w-full">{{ __('cabinet/portfolio.btn') }}</x-secondary-button>
+        </div>
+    </div>
+</div>

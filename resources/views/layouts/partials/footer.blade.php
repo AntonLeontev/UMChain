@@ -40,7 +40,7 @@
                 <div class="footer__connect">{{ __('footer.Contact us') }}</div>
                 <div class="footer__how">{{ __('footer.If you have any questions, please email us:') }}</div>
                 <div class="footer__mail">
-                    <a href="mailto:hello@umchain.org">hello@umchain.org</a>
+                    <a href="mailto:{{ settings()->email }}">{{ settings()->email }}</a>
                 </div>
                 <div class="footer__social">
                     <ul class="footer__media">

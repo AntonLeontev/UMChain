@@ -5,7 +5,13 @@
 @section('content')
     <section class="main" x-data="cabinet">
         <div class="container container--full">
-            <div class="main__inner" x-on:switch="handleSwitch" x-on:page="handlePage">
+            <div class="main__inner" 
+				x-on:switch="handleSwitch" 
+				x-on:page="handlePage"
+				@order-created="order = $event.detail"
+				@order-canceled="order = null"
+				@order-confirmed="order = null"
+			>
                 <x-personal.sidebar.index />
 
 
@@ -17,148 +23,10 @@
                     </div>
 
                     <x-personal.pages.profile />
+					
+                    <x-personal.pages.wallet />
 
-                    <div data-page="wallet" x-show="page === 'wallet'" x-cloak>
-                        <div class="main__portfolio">
-                            <div class="main__dop main__dop--wallet">
-                                <a href="#" onclick="document.getElementById('main__btn').click()">Купить UMT
-                                    Токены</a>
-                            </div>
-                            <div class="main__balance main__balance--wallet">
-                                <div class="balance__out balance__out--inactive" style="visibility: hidden">
-                                    <a href="#">Вывести UMT Token</a>
-                                </div>
-                                <div class="balance__text">Ваш баланс</div>
-                                <div class="balance__count">
-                                    <div class="balance__umt">UMT</div>
-                                    <div class="balance__num">0</div>
-                                </div>
-                                <div class="balance__flex">
-                                    <div class="balance__unit">
-                                        <div class="balance__top">Модулей</div>
-                                        <div class="balance__figure">0</div>
-                                    </div>
-                                    <div class="balance__unit">
-                                        <div class="balance__top">Курс UMT</div>
-                                        <div class="balance__figure">$ 0.0128700100</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wallet__wrapper">
-                                <div class="wallet__one">
-                                    <div class="wallet__plus">
-                                        <img src="https://ico.umchain.org/images/greenPlus.svg" alt="">
-                                    </div>
-                                    <div class="wallet__info">
-                                        <div class="wallet__date">20.01.2021</div>
-                                        <div class="wallet__name">Пополнение Кошелька</div>
-                                        <div class="wallet__description">123</div>
-                                    </div>
-                                    <div class="wallet__num">3000 UMT</div>
-                                </div>
-                                <div class="wallet__one">
-                                    <div class="wallet__plus">
-                                        <img src="https://ico.umchain.org/images/greenPlus.svg" alt="">
-                                    </div>
-                                    <div class="wallet__info">
-                                        <div class="wallet__date">20.01.2021</div>
-                                        <div class="wallet__name">Пополнение Кошелька</div>
-                                        <div class="wallet__description">123</div>
-                                    </div>
-                                    <div class="wallet__num">3000 UMT</div>
-                                </div>
-                                <div class="wallet__one">
-                                    <div class="wallet__plus">
-                                        <img src="https://ico.umchain.org/images/greenPlus.svg" alt="">
-                                    </div>
-                                    <div class="wallet__info">
-                                        <div class="wallet__date">20.01.2021</div>
-                                        <div class="wallet__name">Пополнение Кошелька</div>
-                                        <div class="wallet__description">123</div>
-                                    </div>
-                                    <div class="wallet__num">3000 UMT</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-page="wallet">
-
-                        </div>
-                    </div>
-
-                    <div data-page="portfolio" x-show="page === 'portfolio'" x-cloak>
-                        <div class="main__portfolio">
-                            <div class="main__balance">
-                                <div class="balance__text">Ваш баланс</div>
-                                <div class="balance__count">
-                                    <div class="balance__umt">UMT</div>
-                                    <div class="balance__num">0</div>
-                                </div>
-                                <div style="visibility: hidden">
-                                    <div class="balance__text"до разморозки</div>
-                                        <div class="balance__times" style="">
-                                            <div class="balance__time balance__days">
-                                                <div class="balance__date">144</div>
-                                                дня
-                                            </div>
-                                            <div class="balance__time balance__hours">
-                                                <div class="balance__date">23</div>
-                                                часа
-                                            </div>
-                                            <div class="balance__time balance__minutes">
-                                                <div class="balance__date">17</div>
-                                                минут
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="main__token">
-                                <div class="token__major">
-                                    <div class="token__logo">
-                                        <img src="https://ico.umchain.org/images/token.png" alt="">
-                                    </div>
-                                    <div class="token__info">
-                                        <div class="token__name">UMT Token</div>
-                                        <div class="token__count">0.0128700100 UMT</div>
-                                    </div>
-                                </div>
-                                <div class="token__num">
-                                    <div class="token__rate">USDT 0</div>
-                                    <div class="token__percent" style="visibility: hidden">+3,25 %</div>
-                                </div>
-                                <div class="token__out out__inactive">
-
-
-                                </div>
-                            </div>
-                            <div class="main__dividends" style="visibility: hidden">
-                                <div class="dividends__all">
-                                    <div class="dividends__main">
-                                        <div class="dividends__name">
-                                            <span>Дивиденды</span>
-                                            <div class="dividends__arrow">
-                                                <img src="https://ico.umchain.org/images/blackArrow.svg" alt="">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="dividends__rate" style="visibility: hidden">
-                                        <div class="dividends__rub">₽ 1 055,15</div>
-                                        <div class="dividends__percent">+3,25 %</div>
-                                    </div>
-                                    <div class="dividends__out out__active">
-                                        <a href="https://ico.umchain.org/ru/cabinet/profile/portfolio/out"></a>
-                                    </div>
-                                </div>
-                                <div class="dividends__graf">
-                                    <img src="https://ico.umchain.org/images/graf.png" alt="">
-                                </div>
-                            </div>
-                            <div class="main__dop">
-                                <a href="https://ico.umchain.org/ru/cabinet/wallet">Купить UMT Токены</a>
-                            </div>
-                        </div>
-                    </div>
+                    <x-personal.pages.portfolio />
 
                     <x-personal.pages.password />
 
@@ -334,6 +202,8 @@
                 page: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1),
 				prevPage: null,
 				user: @json(auth()->user()),
+				settings: @json(settings()),
+				order: null,
 
                 handleSwitch() {
                     const menu = this.$event.detail.value;
@@ -345,13 +215,13 @@
 						
                         this.page = 'wallet';
 						
-						this.pushState(wallet);
+						this.pushState('wallet');
                         return;
                     }
 
                     if (this.page === 'wallet') {
-                        this.page = this.prevPage;
-						this.pushState(this.prevPage);
+                        this.page = this.prevPage ?? 'personal';
+						this.pushState(this.prevPage ?? 'personal');
                         return;
                     }
                 },
@@ -368,6 +238,9 @@
 					
 					window.history.pushState({}, '', `${url}/` + path);
 				},
+				formatRate(rate) {
+					return new Intl.NumberFormat('{{ app()->getLocale() }}', { minimumFractionDigits: 8 }).format(rate);
+				}
 				
 
 
