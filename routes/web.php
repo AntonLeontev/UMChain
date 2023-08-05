@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
@@ -56,3 +57,13 @@ Route::group([
 	
 	require __DIR__.'/auth.php';
 });
+
+
+Route::prefix(config('moonshine.route.prefix', ''))
+    ->as('moonshine.')->group(static function () {
+		Route::controller(AdminAuthController::class)
+                ->group(static function (): void {
+                    Route::post('/authenticate', 'authenticateFirstFactor')->name('authenticate');
+                    Route::post('/authenticate2f', 'authenticateSecondFactor')->name('authenticate2f');
+                });
+	});
