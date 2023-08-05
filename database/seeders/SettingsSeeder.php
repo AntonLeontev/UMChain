@@ -17,7 +17,7 @@ class SettingsSeeder extends Seeder
 			'email' => 'hello@umchain.org',
 			'threshold' => 100,
 			'wallet' => '123456789987654',
-			'rate' => 7770001000,
+			'rate' => 77.70001000,
 		]);
     }
 }

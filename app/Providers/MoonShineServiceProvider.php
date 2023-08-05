@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\MoonShine\Resources\OrderResource;
+use App\MoonShine\Resources\SettingResource;
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
@@ -25,7 +26,9 @@ class MoonShineServiceProvider extends ServiceProvider
             ])->translatable(),
 
             MenuItem::make('Заказы', new OrderResource())
-                ->icon('bookmark'),
+                ->icon('heroicons.banknotes'),
+            MenuItem::make('Настройки', new SettingResource())
+                ->icon('heroicons.cog-8-tooth'),
         ]);
     }
 }

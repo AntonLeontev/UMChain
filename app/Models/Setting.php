@@ -15,6 +15,7 @@ class Setting extends Model
 		'threshold',
 		'wallet',
 		'rate',
+		'default_freeze',
 	];
 
 	protected $casts = [

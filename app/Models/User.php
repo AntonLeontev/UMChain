@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Casts\OrderAmountCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -23,6 +25,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+		'umt',
+		'usdt',
     ];
 
     /**
@@ -43,6 +47,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+		'umt' => OrderAmountCast::class,
+		'usdt' => OrderAmountCast::class,
     ];
 
 	protected $with = [

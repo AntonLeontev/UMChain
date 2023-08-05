@@ -6,6 +6,7 @@ use App\Casts\OrderAmountCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Log;
 
 class Order extends Model
 {
@@ -18,6 +19,7 @@ class Order extends Model
 		'is_paid',
 		'is_accepted',
 		'wallet',
+		'freeze_to',
 	];
 
 	protected $casts = [
@@ -31,4 +33,19 @@ class Order extends Model
 	{
 		return $this->belongsTo(User::class);
 	}
+
+	protected static function booted(): void
+    {
+        static::updated(function (Order $order) {
+			if (! $order->wasChanged('is_accepted')) {
+				return;
+			}
+
+			if ($order->is_accepted) {
+				$umt = $order->user->umt;
+				$order->user->update(['umt' => $umt + $order->umt]);
+				Log::channel('telegram')->debug('Order accepted', [$order->user->umt]);
+			}
+        });
+    }
 }

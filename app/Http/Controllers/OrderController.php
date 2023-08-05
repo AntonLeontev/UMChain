@@ -16,6 +16,7 @@ class OrderController extends Controller
 			'usdt' => $request->safe()->usdt,
 			'umt' => $request->safe()->umt,
 			'wallet' => settings()->wallet,
+			'freeze_to' => settings()->default_freeze,
 		]);
 
 		return response()->json($order);
