@@ -1574,6 +1574,7 @@ body {
 }
 .main__ref {
     max-width: 510px;
+	width: 360px;
     margin: 0 auto;
     padding-bottom: 101px;
 }
@@ -1618,7 +1619,7 @@ body {
     margin: 57px auto 60px;
 }
 .ref__hide {
-    display: none;
+    /* display: none; */
 }
 .balance__flex {
     margin-top: 30px;

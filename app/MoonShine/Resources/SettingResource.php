@@ -37,12 +37,22 @@ class SettingResource extends Resource
 				->required(),
 			Date::make('Заморозка', 'default_freeze')
 				->format('d.m.Y'),
+			Number::make('UMT %', 'umt_percent')
+				->expansion('%'),
+			Number::make('USDT %', 'usdt_percent')
+				->expansion('%'),
         ];
 	}
 
 	public function rules(Model $item): array
 	{
-	    return [];
+	    return [
+			'email' => ['required', 'email'],
+			'threshold' => ['required', 'integer'],
+			'default_freeze' => ['nullable', 'date'],
+			'umt_percent' => ['required', 'integer', 'min:0', 'max: 65535'],
+			'usdt_percent' => ['required', 'integer', 'min:0', 'max: 65535'],
+		];
     }
 
     public function search(): array

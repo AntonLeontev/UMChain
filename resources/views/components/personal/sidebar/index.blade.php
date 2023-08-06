@@ -24,8 +24,18 @@
                     @click="$dispatch('page', 'password')">
                     {{ __('cabinet/sidebar.password') }}
                 </li>
+
                 <li class="tracking-widest" :class="{ 'active': page === 'referral' }"
-                    @click="$dispatch('page', 'referral')">{{ __('cabinet/sidebar.referral') }}</li>
+                    @click="$dispatch('page', 'referral')">{{ __('cabinet/sidebar.referral') }}
+				</li>
+
+				@if (auth()->user()->activeRefLink)
+					<li class="tracking-widest" :class="{ 'active': page === 'banners' }"
+						@click="$dispatch('page', 'banners')"
+						>
+						{{ __('cabinet/sidebar.banners') }}
+					</li>
+				@endif
 
                 <li class="tracking-widest" :class="{ 'active': page === 'notifications' }"
                     @click="$dispatch('page', 'notifications')">{{ __('cabinet/sidebar.notifications') }}</li>
@@ -174,6 +184,9 @@
                         break;
                     case 'referral':
                         return 'Referral';
+                        break;
+                    case 'banners':
+                        return 'Banners';
                         break;
                     case 'portfolio':
                         return 'Portfolio';

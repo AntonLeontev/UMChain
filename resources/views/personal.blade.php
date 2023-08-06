@@ -29,97 +29,12 @@
                     <x-personal.pages.portfolio />
 
                     <x-personal.pages.password />
+					
+                    <x-personal.pages.referral />
 
-                    <div data-page="referral" x-show="page === 'referral'" x-cloak>
-                        <div class="main__ref">
-                            <div class="ref__title">Партнерская программа UMChain. Возможность зарабатывать от 10% выплат
-                                от всех приведенных к нам партнеров.</div>
-                            <div class="ref__description">Заполни анкету, получи реферальную ссылку, зарабатывай вместе с
-                                нами.</div>
-                            <form class="ref__form">
-                                <div class="main__data">
-                                    <div class="reg__one">
-                                        <div class="reg__name">ФИО</div>
-                                        <div class="reg__field">
-                                            <input type="text" wire:model.debounce.500ms="name">
-                                        </div>
-                                    </div>
-                                    <div class="reg__one">
-                                        <div class="reg__name">Email</div>
-                                        <div class="reg__field">
-                                            <input type="email" wire:model.debounce.500ms="email">
-                                        </div>
-                                    </div>
-                                    <div class="reg__one">
-                                        <div class="reg__name">Телеграм</div>
-                                        <div class="reg__field">
-                                            <input type="text" required wire:model.debounce.500ms="telegram"
-                                                placeholder="@user">
-                                        </div>
-                                    </div>
-                                    <div class="reg__one">
-                                        <div class="reg__name">Тип трафика</div>
-                                        <div class="reg__field">
-                                            <input type="text" wire:model.debounce.500ms="type_traffic"
-                                                placeholder="https://vk.com/unitedmarketorg">
-                                        </div>
-                                    </div>
-                                    <div class="reg__one">
-                                        <div class="reg__name">Желаемая ссылка для реферальной программы</div>
-                                        <div class="reg__field">
-                                            <input type="text" wire:model.debounce.500ms="want_link">
-                                        </div>
-                                    </div>
-                                    <button class="reg__btn reg__btn--small" wire:click.prevent="sendRequest">
-                                        Отправить
-                                    </button>
-                                </div>
-                            </form>
-                            <div class="ref__list">
-                                <div class="ref__item">
-                                    <div class="ref__name">Разрешенный тип трафика</div>
-                                    <div class="ref__hide">
-                                        <div class="ref__text">Контекстная реклама: Разрешено, через сайты прокладки </div>
-                                        <div class="ref__text">Баннерная реклама: Разрешено с использованием направленных
-                                            заказчиком рекламных материалов</div>
-                                        <div class="ref__text">RichMedia</div>
-                                        <div class="ref__text">Социальные cети: Разрешено, без ссылок на официальные группы
-                                            заказчиков</div>
-                                        <div class="ref__text">Teasers (Content): Разрешено с использованием направленных
-                                            заказчиком рекламных материалов</div>
-                                        <div class="ref__text">Clickunder/Popunder</div>
-                                        <div class="ref__text">Дорвеи</div>
-                                        <div class="ref__text">Контентные сайты</div>
-                                    </div>
-                                </div>
-                                <div class="ref__item">
-                                    <div class="ref__name">Запрещенный тип трафика</div>
-                                    <div class="ref__hide">
-                                        <div class="ref__text">Контекст на бренд</div>
-                                        <div class="ref__text">Cashback</div>
-                                        <div class="ref__text">Price – Comparison</div>
-                                        <div class="ref__text">Купоны/Промокоды</div>
-                                        <div class="ref__text">Adult – трафик</div>
-                                        <div class="ref__text">Toolbar</div>
-                                        <div class="ref__text">Email – спам рассылка</div>
-                                    </div>
-                                </div>
-                                <div class="ref__item">
-                                    <div class="ref__name">Типы трафика по согласованию</div>
-                                    <div class="ref__hide">
-                                        <div class="ref__text">Мотивированный трафик</div>
-                                        <div class="ref__text">SMS</div>
-                                        <div class="ref__text">Баннеры</div>
-                                        <div class="ref__text">Email рассылка</div>
-                                        <div class="ref__text">Email</div>
-                                        <div class="ref__text">Брокерский трафик</div>
-                                        <div class="ref__text">Дорвеи</div>
-                                        <div class="ref__text">Pop – UP</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+					<div data-page="banners" x-show="page === 'banners'" x-cloak>
+						Banners
+					</div>
 
                     <div data-page="notifications" x-show="page === 'notifications'" x-cloak>
                         <div class="main__uved">
@@ -201,7 +116,7 @@
             Alpine.data('cabinet', () => ({
                 page: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1),
 				prevPage: null,
-				user: @json(auth()->user()),
+				user: @json(auth()->user()->loadCount('refLink')),
 				settings: @json(settings()),
 				order: null,
 

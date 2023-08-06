@@ -7,6 +7,7 @@ return [
 	'portfolio' => 'Portfolio',
 	'password' => 'Password change',
 	'referral' => 'Referral',
+	'banners' => 'Banners',
 	'notifications' => 'Notifications',
 	'logout' => 'Log out',
 ];

@@ -49,12 +49,14 @@ class User extends Authenticatable
         'password' => 'hashed',
 		'umt' => OrderAmountCast::class,
 		'usdt' => OrderAmountCast::class,
+		'hasLinkRequest' => 'boolean',
     ];
 
 	protected $with = [
 		'ethWallet',
 		'tronWallet',
 		'acceptedOrders',
+		'activeRefLink',
 	];
 
 	public function ethWallet(): HasOne
@@ -75,5 +77,15 @@ class User extends Authenticatable
 	public function acceptedOrders(): HasMany
 	{
 		return $this->hasMany(Order::class)->where('is_accepted', true)->orderByDesc('created_at');
+	}
+
+	public function activeRefLink(): HasOne
+	{
+		return $this->hasOne(ReferralLink::class)->where('is_active', true);
+	}
+
+	public function refLink(): HasOne
+	{
+		return $this->hasOne(ReferralLink::class);
 	}
 }

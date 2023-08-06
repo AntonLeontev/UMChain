@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReferralLinkController;
 use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -36,6 +37,7 @@ Route::group([
 			Route::get('portfolio', [PageController::class, 'cabinet'])->name('cabinet.portfolio');
 			Route::get('password', [PageController::class, 'cabinet'])->name('cabinet.password');
 			Route::get('referral', [PageController::class, 'cabinet'])->name('cabinet.referral');
+			Route::get('banners', [PageController::class, 'cabinet'])->name('cabinet.banners');
 			Route::get('notifications', [PageController::class, 'cabinet'])->name('cabinet.notifications');
 	});
 
@@ -51,6 +53,11 @@ Route::group([
 		->group(function() {
 			Route::post('create', [OrderController::class, 'create'])->name('orders.create');
 			Route::put('{order}/make-paid', [OrderController::class, 'makePaid'])->name('orders.make-paid');
+		});
+
+	Route::prefix('reflinks')
+		->group(function() {
+			Route::post('create', [ReferralLinkController::class, 'create'])->name('reflinks.create');
 		});
 
 	
