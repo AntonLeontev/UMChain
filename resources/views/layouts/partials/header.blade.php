@@ -60,7 +60,7 @@
                 <div class="header__lang">
 					@include('layouts.partials.lang-list')
                 </div>
-				@unless (request()->is('*/cabinet/*'))
+				@unless (request()->routeIs('cabinet.*'))
 					<div class="header__person active">
 						<a href="{{ LaravelLocalization::localizeUrl(route('cabinet.portfolio')) }}">
 							<svg width="38" height="34" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
