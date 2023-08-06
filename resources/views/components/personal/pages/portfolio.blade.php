@@ -12,15 +12,15 @@
                     <div class="balance__times" style="">
                         <div class="balance__time balance__days">
                             <div class="balance__date" x-text="diff.day">144</div>
-                            дня
+                            {{ __('cabinet/portfolio.days') }}
                         </div>
                         <div class="balance__time balance__hours">
                             <div class="balance__date" x-text="diff.hour">23</div>
-                            часа
+                            {{ __('cabinet/portfolio.hours') }}
                         </div>
                         <div class="balance__time balance__minutes">
                             <div class="balance__date" x-text="diff.minute">17</div>
-                            минут
+                            {{ __('cabinet/portfolio.minutes') }}
                         </div>
                     </div>
                 </div>
