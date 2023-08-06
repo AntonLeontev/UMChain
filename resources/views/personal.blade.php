@@ -86,11 +86,11 @@
                     <div data-page="logout" x-show="page === 'logout'" x-cloak>
                         <div class="main__out">
                             <div class="out__box">
-                                <div class="out__title">Вы действительно хотите выйти?</div>
+                                <div class="out__title">{{ __('cabinet/logout.sure') }}</div>
                                 <div class="out__buttons !justify-around">
                                     <div class="out__no">
                                         <x-btn-transparent class="!text-black" x-on:click="page = prevPage">
-											Отмена
+											{{ __('cabinet/logout.cancel') }}
 										</x-btn-transparent>
                                     </div>
                                     <div class="out__yes w-min">
