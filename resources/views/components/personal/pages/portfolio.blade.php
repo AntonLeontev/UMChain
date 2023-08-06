@@ -6,20 +6,20 @@
                 <div class="balance__umt">UMT</div>
                 <div class="balance__num" x-text="user.umt"></div>
             </div>
-            <div>
-                <div class="balance__text">
+            <div x-data="{diff: dateDiff(new Date(user.accepted_orders.find(el => el.freeze_to !== null).freeze_to), new Date())}">
+                <div class="balance__text" x-show="! diff.past">
 					{{ __('cabinet/portfolio.freeze') }}
                     <div class="balance__times" style="">
                         <div class="balance__time balance__days">
-                            <div class="balance__date">144</div>
+                            <div class="balance__date" x-text="diff.day">144</div>
                             дня
                         </div>
                         <div class="balance__time balance__hours">
-                            <div class="balance__date">23</div>
+                            <div class="balance__date" x-text="diff.hour">23</div>
                             часа
                         </div>
                         <div class="balance__time balance__minutes">
-                            <div class="balance__date">17</div>
+                            <div class="balance__date" x-text="diff.minute">17</div>
                             минут
                         </div>
                     </div>

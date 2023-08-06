@@ -240,9 +240,22 @@
 				},
 				formatRate(rate) {
 					return new Intl.NumberFormat('{{ app()->getLocale() }}', { minimumFractionDigits: 8 }).format(rate);
-				}
-				
+				},
+				formatDate(date) {
+					date = new Date(date)
+					const options = {};
+					return date.toLocaleDateString('{{ app()->getLocale() }}', options);
+				},
+				dateDiff(date1, date2) {
+					let diff = new Date(date1.getTime() - date2.getTime());
 
+					return {
+						past: diff.getTime() < 0,
+						day: Math.floor(diff.getTime() / (1000 * 3600 * 24)),
+						hour: diff.getUTCHours(),
+						minute: diff.getUTCMinutes(),
+					}
+				},
 
             }))
         })

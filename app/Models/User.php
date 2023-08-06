@@ -54,6 +54,7 @@ class User extends Authenticatable
 	protected $with = [
 		'ethWallet',
 		'tronWallet',
+		'acceptedOrders',
 	];
 
 	public function ethWallet(): HasOne
@@ -73,6 +74,6 @@ class User extends Authenticatable
 
 	public function acceptedOrders(): HasMany
 	{
-		return $this->hasMany(Order::class)->where('is_accepted', true);
+		return $this->hasMany(Order::class)->where('is_accepted', true)->orderByDesc('created_at');
 	}
 }
