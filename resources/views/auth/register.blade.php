@@ -17,7 +17,7 @@
                 <div class="reg__one">
                     <div class="reg__name">{{ __('Name') }}</div>
                     <div class="reg__field">
-                        <input type="text" name="name" value="{{ old('name') }}" required>
+                        <input type="text" name="name" class="focus:border-b-pink focus:ring-0" value="{{ old('name') }}" required>
                     </div>
 					@error('name')
                         <div>
@@ -28,7 +28,7 @@
                 <div class="reg__one">
                     <div class="reg__name">{{ __('Email') }}</div>
                     <div class="reg__field">
-                        <input type="email" name="email" value="{{ old('email') }}" required>
+                        <input type="email" name="email" class="focus:border-b-pink focus:ring-0" value="{{ old('email') }}" required>
                     </div>
 					@error('email')
                         <div>
@@ -39,7 +39,7 @@
                 <div class="reg__one">
                     <div class="reg__name">{{ __('Password') }}</div>
                     <div class="reg__field">
-                        <input type="password" name="password" required autocomplete="new-password">
+                        <input type="password" name="password" class="focus:border-b-pink focus:ring-0" required autocomplete="new-password">
                     </div>
 					@error('password')
                         <div>
@@ -50,7 +50,7 @@
                 <div class="reg__one">
                     <div class="reg__name">{{ __('Repeat password') }}</div>
                     <div class="reg__field">
-                        <input type="password" name="password_confirmation" required autocomplete="new-password">
+                        <input type="password" name="password_confirmation" class="focus:border-b-pink focus:ring-0" required autocomplete="new-password">
                     </div>
                 </div>
                 <div class="mb-8 reg__agreement">

@@ -12,10 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('referral_link_registrations', function (Blueprint $table) {
-            $table->id();
-			$table->foreignIdFor(ReferralLink::class)->constrained()->cascadeOnDelete();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('agent_id')
+				->nullable()
+				->before('created_at')
+				->comment('ref link owner id');
         });
     }
 
@@ -24,6 +25,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('referral_link_registrations');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('agent_id');
+        });
     }
 };

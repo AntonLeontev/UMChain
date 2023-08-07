@@ -13,7 +13,7 @@
                     <div class="reg__name">{{ __('Email') }}</div>
                     <div class="reg__field">
                         <input type="email" name="email" value="{{ old('email') }}" required autofocus
-                            class="{{ session('wrong__input') }}">
+                            class="{{ session('wrong__input') }} focus:border-b-pink focus:ring-0">
                     </div>
                     @error('email')
                         <div>
@@ -24,7 +24,7 @@
                 <div class="reg__one">
                     <div class="reg__name">{{ __('Password') }}</div>
                     <div class="reg__field">
-                        <input id="password" type="password" class="login__password {{ session('wrong__input') }}"
+                        <input id="password" type="password" class="login__password {{ session('wrong__input') }} focus:border-b-pink focus:ring-0"
                             name="password" required autocomplete="current-password">
                     </div>
                     @error('password')

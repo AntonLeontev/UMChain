@@ -7,7 +7,6 @@ use App\Models\User;
 
 use Illuminate\Database\Eloquent\Model;
 use MoonShine\Actions\FiltersAction;
-use MoonShine\Fields\BelongsTo;
 use MoonShine\Fields\ID;
 use MoonShine\Fields\NoInput;
 use MoonShine\Fields\Number;
@@ -32,12 +31,18 @@ class ReferralLinkResource extends Resource
 			Number::make('USDT %', 'usdt_percent'),
 			SwitchBoolean::make('Активна', 'is_active')
 				->autoUpdate(true),
+			NoInput::make('Переходов', '', fn($item) => $item->loadCount('clicks')->clicks_count),
+			NoInput::make('Регистраций', '', fn($item) => $item->user->loadCount('referrals')->referrals_count),
         ];
 	}
 
 	public function rules(Model $item): array
 	{
-	    return [];
+	    return [
+			'umt_percent' => ['integer', 'min:0', 'max:5000'],
+			'usdt_percent' => ['integer', 'min:0', 'max:5000'],
+			'is_active' => ['boolean'],
+		];
     }
 
     public function search(): array

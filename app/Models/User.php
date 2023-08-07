@@ -27,6 +27,7 @@ class User extends Authenticatable
         'password',
 		'umt',
 		'usdt',
+		'agent_id',
     ];
 
     /**
@@ -87,5 +88,10 @@ class User extends Authenticatable
 	public function refLink(): HasOne
 	{
 		return $this->hasOne(ReferralLink::class);
+	}
+
+	public function referrals(): HasMany
+	{
+		return $this->hasMany(User::class, 'agent_id');
 	}
 }
