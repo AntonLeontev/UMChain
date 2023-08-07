@@ -34,9 +34,11 @@
 						{{-- <div class="wallet__description">123</div> --}}
 					</div>
 					<div class="flex self-end">
-						<div class="self-center mr-1 wallet__plus">
-							<img src="/images/greenPlus.svg" alt="">
-						</div>
+						@if ($transaction->direction->value === 'income')
+							<div class="self-center mr-1 wallet__plus">
+								<img src="/images/greenPlus.svg" alt="">
+							</div>
+						@endif
 						<div class="wallet__num whitespace-nowrap">{{ $transaction->amount }} UMT</div>
 					</div>
 				</div>
