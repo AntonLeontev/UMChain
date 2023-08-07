@@ -5,7 +5,9 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Casts\OrderAmountCast;
+use App\Enums\AccountType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -58,6 +60,7 @@ class User extends Authenticatable
 		'tronWallet',
 		'acceptedOrders',
 		'activeRefLink',
+		'umtTransactions',
 	];
 
 	public function ethWallet(): HasOne
@@ -90,8 +93,23 @@ class User extends Authenticatable
 		return $this->hasOne(ReferralLink::class);
 	}
 
+	public function agent(): BelongsTo
+	{
+		return $this->belongsTo(User::class, 'agent_id');
+	}
+
 	public function referrals(): HasMany
 	{
 		return $this->hasMany(User::class, 'agent_id');
+	}
+
+	public function transactions(): HasMany
+	{
+		return $this->hasMany(Transaction::class);
+	}
+
+	public function umtTransactions(): HasMany
+	{
+		return $this->hasMany(Transaction::class)->where('account_type', AccountType::umt);
 	}
 }

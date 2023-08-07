@@ -4,6 +4,8 @@ return [
 	'balance' => 'Your balance',
 	'rate' => 'UMT rate',
 	'adding' => 'Adding to wallet',
+	'Referral fee' => 'Referral fee',
+	'UMT purchase' => 'UMT purchase',
 	'buy' => 'You can buy UMT Tokens',
 	'total' => 'Total',
 	'btn' => 'Buy',

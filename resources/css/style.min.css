@@ -2426,7 +2426,7 @@ body {
 }
 .wallet__info {
     max-width: 300px;
-    width: 100%;
+    /* width: 100%; */
 }
 .replenish__title {
     font-size: 24px;

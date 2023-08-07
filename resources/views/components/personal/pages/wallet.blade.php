@@ -26,21 +26,36 @@
 		</div>
 
 		<div class="wallet__wrapper">
-			<template x-for="order in user.accepted_orders">
+			@foreach (auth()->user()->umtTransactions as $transaction)
 				<div class="wallet__one">
 					<div class="wallet__info">
-						<div class="wallet__date" x-text="formatDate(order.created_at)"></div>
-						<div class="wallet__name">{{ __('cabinet/wallet.adding') }}</div>
+						<div class="wallet__date">{{ $transaction->created_at->translatedFormat('d F Y') }}</div>
+						<div class="wallet__name">{{ __("cabinet/wallet.{$transaction->description}") }}</div>
 						{{-- <div class="wallet__description">123</div> --}}
 					</div>
 					<div class="flex self-end">
 						<div class="self-center mr-1 wallet__plus">
 							<img src="/images/greenPlus.svg" alt="">
 						</div>
-						<div class="wallet__num whitespace-nowrap"><span x-text="order.umt"></span> UMT</div>
+						<div class="wallet__num whitespace-nowrap">{{ $transaction->amount }} UMT</div>
 					</div>
 				</div>
-			</template>
+			@endforeach
+			{{-- <template x-for="transaction in user.transactions">
+				<div class="wallet__one">
+					<div class="wallet__info">
+						<div class="wallet__date" x-text="formatDate(transaction.created_at)"></div>
+						<div class="wallet__name">{{ __('cabinet/wallet.adding') }}</div>
+						<div class="wallet__description">123</div>
+					</div>
+					<div class="flex self-end">
+						<div class="self-center mr-1 wallet__plus">
+							<img src="/images/greenPlus.svg" alt="">
+						</div>
+						<div class="wallet__num whitespace-nowrap"><span x-text="transaction.amount"></span> UMT</div>
+					</div>
+				</div>
+			</template> --}}
 		</div>
 	</div>
 	<div data-page="wallet">
