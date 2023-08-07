@@ -1,10 +1,10 @@
 <div data-page="banners" class="flex w-full px-2 mb-10 mt-[-130px]" x-show="page === 'banners'" x-cloak x-data="banners">
 	<div class="flex flex-col w-full gap-y-2">
-		<div class="mt-8 text-xl text-center">Select a banner to see the code to insert on the site</div>
+		<div class="mt-8 text-xl text-center">{{ __('cabinet/banners.title') }}</div>
 		<div class="sticky top-[5px] w-full flex gap-x-2 px-5">
 			<div class="relative flex items-center justify-center px-2 bg-black rounded cursor-pointer" @pointerdown="copy">
 				<img width="30px" src="/images/copy.svg" alt="copy">
-				<div class="absolute p-2 rounded bg-grey left-[60px]" x-show="copyShow" x-transition>Copied</div>
+				<div class="absolute p-2 rounded bg-grey left-[60px]" x-show="copyShow" x-transition>{{ __('cabinet/banners.copied') }}</div>
 			</div>
 			<textarea class="w-full rounded resize-none" x-text="code" x-ref="textarea"></textarea>
 		</div>
@@ -45,7 +45,7 @@
 				this.active = this.$el.dataset.id;
 			},
 			copy() {
-				navigator.clipboard.writeText(this.$refs.textarea.value)
+				navigator.clipboard.writeText(this.code)
 					.then(() => {
 						this.copyShow = true;
 						setTimeout(() => this.copyShow = false, 600)
