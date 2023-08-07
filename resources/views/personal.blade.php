@@ -31,10 +31,10 @@
                     <x-personal.pages.password />
 					
                     <x-personal.pages.referral />
-
-					<div data-page="banners" x-show="page === 'banners'" x-cloak>
-						Banners
-					</div>
+					
+					@if (auth()->user()->activeRefLink)
+                    	<x-personal.pages.banners />
+					@endif
 
                     <div data-page="notifications" x-show="page === 'notifications'" x-cloak>
                         <div class="main__uved">

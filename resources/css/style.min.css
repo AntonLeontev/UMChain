@@ -1362,7 +1362,7 @@ body {
     color: #868686;
 }
 .main__inner {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -5296,7 +5296,7 @@ body {
         padding-bottom: 150px;
     }
     .main__inner {
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
     }
     .main__divOut {
         max-width: 370px;

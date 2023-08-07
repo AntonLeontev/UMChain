@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Banner;
 use App\Models\Setting;
 use Illuminate\Support\Collection;
 
@@ -15,5 +16,20 @@ if (! function_exists('settings')) {
 		cache(['settings' => $settings]);
 
 		return $settings;
+	}
+}
+
+if (! function_exists('banners')) {
+	function banners(): Collection
+	{
+		if (cache('banners', null)) {
+			return cache('banners');
+		}
+
+		$banners = Banner::where('is_active', true)->get();
+
+		cache(['banners' => $banners]);
+
+		return $banners;
 	}
 }
