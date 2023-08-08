@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ReferralLinkCreateRequest;
 use App\Models\ReferralLink;
+use App\Services\Telegram\TelegramService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class ReferralLinkController extends Controller
 {
@@ -16,6 +18,6 @@ class ReferralLinkController extends Controller
 			'usdt_percent' => settings()->usdt_percent,
 		]);
 
-		//TODO notify owner
+		TelegramService::sendMessage('Новая заявка на реф ссылку');
 	}
 }

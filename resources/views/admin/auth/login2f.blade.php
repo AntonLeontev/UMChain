@@ -47,8 +47,6 @@
 
                 </div>
 
-				{{ $code }}
-
                 <x-slot:button type="submit" class="w-full btn-lg">
                     Отправить
                 </x-slot:button>

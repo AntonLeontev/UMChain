@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OrderCreateRequest;
 use App\Http\Requests\OrderMakePaidRequest;
 use App\Models\Order;
+use App\Services\Telegram\TelegramService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class OrderController extends Controller
 {
@@ -29,5 +31,7 @@ class OrderController extends Controller
 		if(auth()->user()->email !== $request->email) {
 			auth()->user()->update(['email' => $request->email]);
 		}
+
+		TelegramService::sendMessage("Оплачен заказ $order->id. $order->usdt USDT");
 	}
 }

@@ -47,6 +47,7 @@
 					name='usdt' 
 					class="focus:border-b-pink !text-sm focus:ring-0"
                     x-model="form.usdt" 
+					autocomplete="off"
 					@input="inputUsdt"
 					@change="form.validate('usdt')"
 				>

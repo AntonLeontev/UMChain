@@ -39,8 +39,8 @@ class OrderResource extends Resource
 			Date::make('Заморожен до', 'freeze_to')
             	->format('d.m.Y'),
 			NoInput::make('Оплачен', 'is_paid')->boolean(hideTrue: false, hideFalse: false),
-			SwitchBoolean::make('Подтвердить', 'is_accepted')
-				->autoUpdate(true),
+			SwitchBoolean::make('Подтвержден', 'is_accepted')
+				->autoUpdate(false),
         ];
 	}
 
