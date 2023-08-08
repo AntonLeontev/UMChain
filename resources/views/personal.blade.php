@@ -95,7 +95,7 @@
 
                     <x-personal.pages.password />
 					
-                    <x-personal.pages.referral />
+                    <x-personal.pages.referral :$feeUmt :$feeUsdt :$purchaseNumber />
 					
 					@if (auth()->user()->activeRefLink)
                     	<x-personal.pages.banners />

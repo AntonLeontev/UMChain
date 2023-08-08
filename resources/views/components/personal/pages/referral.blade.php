@@ -1,3 +1,9 @@
+@props([
+	'feeUmt',
+	'feeUsdt',
+	'purchaseNumber',
+])
+
 <div data-page="referral" x-show="page === 'referral'" x-cloak>
     <div class="main__ref" x-data='referral'>
 
@@ -54,22 +60,33 @@
 					</div>
 
 					<div>
-						<div class="text-xl">Statistics</div>
-						<div class="flex">
-							<div>Clicks</div>
-							<div></div>
+						<div class="mb-5 text-xl font-bold">{{ __('cabinet/referral.metrics') }}</div>
+
+						<div class="flex justify-between py-1 mb-2 border-b border-grey">
+							<div>{{ __('cabinet/referral.clicks') }}</div>
+							<div>{{ auth()->user()->activeRefLink->loadCount('clicks')->clicks_count }}</div>
 						</div>
-						<div class="flex">
-							<div>Registrations</div>
-							<div></div>
+						
+						<div class="flex justify-between py-1 mb-2 border-b border-grey">
+							<div>{{ __('cabinet/referral.register') }}</div>
+							<div>{{ auth()->user()->loadCount('referrals')->referrals_count }}</div>
 						</div>
-						<div class="flex">
-							<div>Purchases</div>
-							<div></div>
+						
+						<div class="flex justify-between py-1 mb-2 border-b border-grey">
+							<div>{{ __('cabinet/referral.purchaces') }}</div>
+							<div>{{ $purchaseNumber }}</div>
 						</div>
-						<div class="flex">
-							<div>Purchases sum</div>
-							<div></div>
+
+						<div class="flex items-center justify-between py-1 mb-2 border-b border-grey">
+							<div>{{ __('cabinet/referral.fee') }}</div>
+							<div>
+								<div>
+									{{ $feeUmt / 100000000 }} UMCT 
+								</div>
+								<div class="text-right">
+									{{ $feeUsdt / 100000000 }} USDT
+								</div>
+							</div>
 						</div>
 					</div>
 				@endempty

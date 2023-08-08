@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\AccountType;
+use App\Enums\TransactionDirection;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -13,6 +16,27 @@ class PageController extends Controller
 
 	public function cabinet()
 	{
-		return view('personal');
+		$feeUmt = Transaction::query()
+			->where('user_id', auth()->id())
+			->where('direction', TransactionDirection::income)
+			->where('account_type', AccountType::umt)
+			->where('description', 'Referral fee')
+			->sum('amount');
+
+		$feeUsdt = Transaction::query()
+			->where('user_id', auth()->id())
+			->where('direction', TransactionDirection::income)
+			->where('account_type', AccountType::usdt)
+			->where('description', 'Referral fee')
+			->sum('amount');
+
+		$purchaseNumber = Transaction::query()
+			->where('user_id', auth()->id())
+			->where('direction', TransactionDirection::income)
+			->where('account_type', AccountType::umt)
+			->where('description', 'Referral fee')
+			->count();
+
+		return view('personal', compact('feeUmt', 'feeUsdt', 'purchaseNumber'));
 	}
 }
