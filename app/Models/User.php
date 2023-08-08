@@ -59,7 +59,6 @@ class User extends Authenticatable
 		'ethWallet',
 		'tronWallet',
 		'acceptedOrders',
-		'activeRefLink',
 		'umtTransactions',
 	];
 

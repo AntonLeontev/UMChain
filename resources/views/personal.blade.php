@@ -116,7 +116,7 @@
             Alpine.data('cabinet', () => ({
                 page: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1),
 				prevPage: null,
-				user: @json(auth()->user()->loadCount('refLink')),
+				user: @json(auth()->user()->loadCount('refLink')->load('activeRefLink')),
 				settings: @json(settings()),
 				order: null,
 

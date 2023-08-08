@@ -21,6 +21,8 @@ class ReferralLinkResource extends Resource
 
 	public static array $activeActions = ['edit'];
 
+	public static array $with = ['user'];
+
 	public function fields(): array
 	{
 		return [
