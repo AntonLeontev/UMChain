@@ -3,7 +3,7 @@
         <div class="main__balance">
             <div class="balance__text">{{ __('cabinet/portfolio.balance') }}</div>
             <div class="balance__count">
-                <div class="balance__umt">UMT</div>
+                <div class="balance__umt">UMCT</div>
                 <div class="balance__num" x-text="user.umt"></div>
             </div>
 			@if (auth()->user()->acceptedOrders->isNotEmpty())
@@ -34,7 +34,7 @@
                     <img src="/images/token.png" alt="">
                 </div>
                 <div class="token__info">
-                    <div class="token__name">UMT Token</div>
+                    <div class="token__name">UMCT Token</div>
                     <div class="token__count"><span x-text="formatRate(1 / settings.rate)"></span> USDT</div>
                 </div>
             </div>

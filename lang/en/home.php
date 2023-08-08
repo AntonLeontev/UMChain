@@ -3,7 +3,7 @@
 return [
 	'UMCHAIN – IT solutions for business based on blockchain' => 'UMCHAIN – IT solutions for business based on blockchain',
 	'Become one of the first. Take a step into a decentralized future' => 'Become one of the first. Take a step into a decentralized future',
-	'Sign up for the purchase of umt tokens' => 'Sign up for the purchase of umt tokens',
+	'Sign up for the purchase of umt tokens' => 'Sign up for the purchase of UMCT tokens',
 	'What is Umchain?' => 'What is Umchain?',
 	'menu' => [
 		'advantages' => 'Advantages of UMChain',
@@ -108,7 +108,7 @@ return [
 		'h1' => 'Benefit to Investor ',
 		'1' => 'Perpetual use of the service free of charge',
 		'2' => 'Staking',
-		'3' => 'Passive income from trading UMT tokens once the company enters into the cryptocurrency exchange',
+		'3' => 'Passive income from trading UMCT tokens once the company enters into the cryptocurrency exchange',
 		'btn' => 'Become an investor',
 	],
 ];

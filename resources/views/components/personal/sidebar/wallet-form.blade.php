@@ -57,7 +57,7 @@
             <img src="/images/change.svg" alt="">
         </div>
         <div class="rate__change">
-            <div class="rate__name" :class="form.invalid('umt') && 'text-danger'">UMT</div>
+            <div class="rate__name" :class="form.invalid('umt') && 'text-danger'">UMCT</div>
             <div class="rate__field rate__field--two">
                 <input 
 					type="text" 

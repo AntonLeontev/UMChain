@@ -101,7 +101,7 @@
                         </div>
                         <div class="append__item">
                             <div class="append__top">{{ __('cabinet/wallet.quantity') }}</div>
-                            <div class="append__num"><span x-text="order?.umt"></span> UMT</div>
+                            <div class="append__num"><span x-text="order?.umt"></span> UMCT</div>
                         </div>
                     </div>
                     <div class="append__input reg__one">

@@ -2,11 +2,11 @@
 
 return [
 	'balance' => 'Your balance',
-	'rate' => 'UMT rate',
+	'rate' => 'UMCT rate',
 	'adding' => 'Adding to wallet',
 	'Referral fee' => 'Referral fee',
-	'UMT purchase' => 'UMT purchase',
-	'buy' => 'You can buy UMT Tokens',
+	'UMT purchase' => 'UMCT purchase',
+	'buy' => 'You can buy UMCT Tokens',
 	'total' => 'Total',
 	'btn' => 'Buy',
 	'1' => 'If you don\'t have a cryptocurrency, you can use any',

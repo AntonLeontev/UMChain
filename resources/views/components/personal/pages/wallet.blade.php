@@ -1,16 +1,16 @@
 <div data-page="wallet" x-show="page === 'wallet'" x-cloak>
 	<div class="main__portfolio">
 		<div class="main__dop main__dop--wallet">
-			<a href="#" onclick="document.getElementById('main__btn').click()">Купить UMT Токены</a>
+			<a href="#" onclick="document.getElementById('main__btn').click()">Купить UMCT Токены</a>
 		</div>
 
 		<div class="main__balance">
 			{{-- <div class="balance__out balance__out--inactive" style="visibility: hidden">
-				<a href="#">Вывести UMT Token</a>
+				<a href="#">Вывести UMCT Token</a>
 			</div> --}}
 			<div class="balance__text">{{ __('cabinet/wallet.balance') }}</div>
 			<div class="balance__count">
-				<div class="balance__umt">UMT</div>
+				<div class="balance__umt">UMCT</div>
 				<div class="balance__num" x-text="user.umt"></div>
 			</div>
 			<div class="justify-center balance__flex">
@@ -39,25 +39,10 @@
 								<img src="/images/greenPlus.svg" alt="">
 							</div>
 						@endif
-						<div class="wallet__num whitespace-nowrap">{{ $transaction->amount }} UMT</div>
+						<div class="wallet__num whitespace-nowrap">{{ $transaction->amount }} UMCT</div>
 					</div>
 				</div>
 			@endforeach
-			{{-- <template x-for="transaction in user.transactions">
-				<div class="wallet__one">
-					<div class="wallet__info">
-						<div class="wallet__date" x-text="formatDate(transaction.created_at)"></div>
-						<div class="wallet__name">{{ __('cabinet/wallet.adding') }}</div>
-						<div class="wallet__description">123</div>
-					</div>
-					<div class="flex self-end">
-						<div class="self-center mr-1 wallet__plus">
-							<img src="/images/greenPlus.svg" alt="">
-						</div>
-						<div class="wallet__num whitespace-nowrap"><span x-text="transaction.amount"></span> UMT</div>
-					</div>
-				</div>
-			</template> --}}
 		</div>
 	</div>
 	<div data-page="wallet">

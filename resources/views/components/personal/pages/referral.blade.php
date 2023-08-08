@@ -63,7 +63,7 @@
 						<div class="font-bold">{{ __('cabinet/referral.percent') }}:</div>
 						<div class="flex mt-2 mb-5 gap-x-2 justify-evenly">
 							<div>
-								<div class="text-sm">UMT</div>
+								<div class="text-sm">UMCT</div>
 								<div class="text-center" x-text="user.active_ref_link.umt_percent + '%'"></div>
 							</div>
 							<div>
