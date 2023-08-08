@@ -2,6 +2,7 @@
     form: $form('post', route('orders.create'), {
         usdt: '',
         umt: '',
+        network: 'TRC20',
     }),
     submit() {
         this.form.submit()
@@ -61,7 +62,7 @@
             <div class="rate__field rate__field--two">
                 <input 
 					type="text" 
-					name="umt" 
+					name="umct" 
 					class="focus:border-b-pink !text-sm focus:ring-0"
                     x-model="form.umt" 
 					@input="inputUmt"
@@ -79,7 +80,7 @@
 		</template>
 	</div>
 
-    <div class="w-full rate__one rate__one--no rate__one--long">
+    <div class="w-full mb-8 rate__one rate__one--no rate__one--long">
         <div class="rate__line"></div>
         <div class="rate__boxing">
             <div class="rate__total">{{ __('cabinet/wallet.total') }}</div>
@@ -88,6 +89,19 @@
             </div>
         </div>
     </div>
+
+	<div class="flex flex-col items-center w-full">
+		<div class="reg__name">{{ __('cabinet/wallet.choose') }}</div>
+		<select 
+			name="network" 
+			class="text-white bg-black rounded focus:outline-none focus:ring-0 focus:border-pink"
+			x-model="form.network"
+		>
+			<option value="TRC20">TRON (TRC20)</option>
+			<option value="ERC20">Ethereum (ERC20)</option>
+		</select>
+	</div>
+
     <div class="rate__button">
         <x-primary-button>{{ __('cabinet/wallet.btn') }}</x-primary-button>
     </div>

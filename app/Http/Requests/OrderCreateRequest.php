@@ -23,7 +23,8 @@ class OrderCreateRequest extends FormRequest
     {
         return [
 			'usdt' => ['required', 'decimal:0,8', 'min:' . settings()->threshold, 'max:184467440737'],
-			'umt' => ['required', 'decimal:0,8', 'min:0', 'max:184467440737'],
+			'umt' => ['decimal:0,8', 'min:0', 'max:184467440737'],
+			'network' => ['required', 'string', 'in:TRC20,ERC20'],
         ];
     }
 }

@@ -32,13 +32,16 @@ class OrderResource extends Resource
 				->hideOnForm(),
 			NoInput::make('Пользователь', 'user_id', fn($item) => User::find($item->user_id)->name),
 			Number::make('USDT', 'usdt')->readonly(),
-			Number::make('UMT', 'umt')->readonly(),
+			Number::make('UMCT', 'umt')->readonly(),
+			Text::make('Сеть', 'network'),
 			Text::make('Кошелек', 'wallet')
 				->readonly()
-				->hideOnIndex(),
-			Date::make('Заморожен до', 'freeze_to')
-            	->format('d.m.Y'),
+				->hideOnIndex()
+				->readonly(),
 			NoInput::make('Оплачен', 'is_paid')->boolean(hideTrue: false, hideFalse: false),
+			Date::make('Дата оплаты', 'paid_at')
+				->readonly()
+				->format('d.m.Y H:i'),
 			SwitchBoolean::make('Подтвержден', 'is_accepted')
 				->autoUpdate(false),
         ];

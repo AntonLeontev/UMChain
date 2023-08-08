@@ -58,7 +58,6 @@ class User extends Authenticatable
 	protected $with = [
 		'ethWallet',
 		'tronWallet',
-		'acceptedOrders',
 		'umtTransactions',
 	];
 

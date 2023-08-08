@@ -3,6 +3,71 @@
 @section('title', 'Cabinet')
 
 @section('content')
+	<script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('cabinet', () => ({
+                page: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1),
+				prevPage: null,
+				user: @json(auth()->user()->loadCount('refLink')->load('activeRefLink')),
+				settings: @json(settings()),
+				order: null,
+
+                handleSwitch() {
+                    const menu = this.$event.detail.value;
+
+                    if (menu === 'wallet') {
+						if (this.page !== 'logout') {
+							this.prevPage = this.page;
+						}
+						
+                        this.page = 'wallet';
+						
+						this.pushState('wallet');
+                        return;
+                    }
+
+                    if (this.page === 'wallet') {
+                        this.page = this.prevPage ?? 'personal';
+						this.pushState(this.prevPage ?? 'personal');
+                        return;
+                    }
+                },
+                handlePage() {
+					this.prevPage = this.page;
+					this.page = this.$event.detail;
+
+					if (this.$event.detail === 'logout') return;
+
+					this.pushState(this.$event.detail);
+                },
+				pushState(path) {
+					let url = window.location.href.replace(/\/(?!.*\/).+/gm, '');
+					
+					window.history.pushState({}, '', `${url}/` + path);
+				},
+				formatRate(rate) {
+					return new Intl.NumberFormat('{{ app()->getLocale() }}', { minimumFractionDigits: 8 }).format(rate);
+				},
+				formatDate(date) {
+					date = new Date(date)
+					const options = {};
+					return date.toLocaleDateString('{{ app()->getLocale() }}', options);
+				},
+				dateDiff(date1, date2) {
+					let diff = new Date(date1.getTime() - date2.getTime());
+
+					return {
+						past: diff.getTime() < 0,
+						day: Math.floor(diff.getTime() / (1000 * 3600 * 24)),
+						hour: diff.getUTCHours(),
+						minute: diff.getUTCMinutes(),
+					}
+				},
+
+            }))
+        })
+    </script>
+
     <section class="main" x-data="cabinet">
         <div class="container container--full">
             <div class="main__inner" 
@@ -111,68 +176,5 @@
 
 	
 
-    <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('cabinet', () => ({
-                page: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1),
-				prevPage: null,
-				user: @json(auth()->user()->loadCount('refLink')->load('activeRefLink')),
-				settings: @json(settings()),
-				order: null,
-
-                handleSwitch() {
-                    const menu = this.$event.detail.value;
-
-                    if (menu === 'wallet') {
-						if (this.page !== 'logout') {
-							this.prevPage = this.page;
-						}
-						
-                        this.page = 'wallet';
-						
-						this.pushState('wallet');
-                        return;
-                    }
-
-                    if (this.page === 'wallet') {
-                        this.page = this.prevPage ?? 'personal';
-						this.pushState(this.prevPage ?? 'personal');
-                        return;
-                    }
-                },
-                handlePage() {
-					this.prevPage = this.page;
-					this.page = this.$event.detail;
-
-					if (this.$event.detail === 'logout') return;
-
-					this.pushState(this.$event.detail);
-                },
-				pushState(path) {
-					let url = window.location.href.replace(/\/(?!.*\/).+/gm, '');
-					
-					window.history.pushState({}, '', `${url}/` + path);
-				},
-				formatRate(rate) {
-					return new Intl.NumberFormat('{{ app()->getLocale() }}', { minimumFractionDigits: 8 }).format(rate);
-				},
-				formatDate(date) {
-					date = new Date(date)
-					const options = {};
-					return date.toLocaleDateString('{{ app()->getLocale() }}', options);
-				},
-				dateDiff(date1, date2) {
-					let diff = new Date(date1.getTime() - date2.getTime());
-
-					return {
-						past: diff.getTime() < 0,
-						day: Math.floor(diff.getTime() / (1000 * 3600 * 24)),
-						hour: diff.getUTCHours(),
-						minute: diff.getUTCMinutes(),
-					}
-				},
-
-            }))
-        })
-    </script>
+    
 @endsection

@@ -28,7 +28,9 @@ class SettingResource extends Resource
 				->expansion('USDT')
 				->min(0)
 				->hint('Сумма минимального заказа в USDT'),
-			Text::make('Номер кошелька', 'wallet')
+			Text::make('TRC20 кошелёк', 'tron_wallet')
+				->required(),
+			Text::make('ERC20 кошелёк', 'eth_wallet')
 				->required(),
 			Number::make('Курс', 'rate')
 				->hint('Стоимость 1 USDT в UMT')
@@ -37,9 +39,11 @@ class SettingResource extends Resource
 				->required(),
 			Date::make('Заморозка', 'default_freeze')
 				->format('d.m.Y'),
-			Number::make('UMT %', 'umt_percent')
+			Number::make('UMCT %', 'umt_percent')
+				->hint('% комисси по умолчанию для UMCT')
 				->expansion('%'),
 			Number::make('USDT %', 'usdt_percent')
+				->hint('% комисси по умолчанию для USDT')
 				->expansion('%'),
         ];
 	}

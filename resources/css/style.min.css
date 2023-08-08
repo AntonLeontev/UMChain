@@ -1046,7 +1046,7 @@ body {
     margin-bottom: 54px;
 }
 .reg__field {
-    max-width: 306px;
+    /* max-width: 340px; */
     width: 100%;
 }
 .reg__field input {
@@ -2367,7 +2367,7 @@ body {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    max-width: 380px;
+    /* max-width: 380px; */
 }
 .append__copy {
     cursor: pointer;

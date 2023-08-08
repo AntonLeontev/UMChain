@@ -13,7 +13,8 @@ class Setting extends Model
 	protected $fillable = [
 		'email',
 		'threshold',
-		'wallet',
+		'tron_wallet',
+		'eth_wallet',
 		'rate',
 		'default_freeze',
 	];

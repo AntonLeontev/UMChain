@@ -10,37 +10,6 @@
 						нами.</div>
 					<form class="ref__form" @submit.prevent="submit">
 						<div class="main__data">
-							{{-- <div class="reg__one">
-								<div class="reg__name">ФИО</div>
-								<div class="reg__field">
-									<input type="text" wire:model.debounce.500ms="name">
-								</div>
-							</div>
-							<div class="reg__one">
-								<div class="reg__name">Email</div>
-								<div class="reg__field">
-									<input type="email" wire:model.debounce.500ms="email">
-								</div>
-							</div>
-							<div class="reg__one">
-								<div class="reg__name">Телеграм</div>
-								<div class="reg__field">
-									<input type="text" required wire:model.debounce.500ms="telegram" placeholder="@user">
-								</div>
-							</div>
-							<div class="reg__one">
-								<div class="reg__name">Тип трафика</div>
-								<div class="reg__field">
-									<input type="text" wire:model.debounce.500ms="type_traffic"
-										placeholder="https://vk.com/unitedmarketorg">
-								</div>
-							</div>
-							<div class="reg__one">
-								<div class="reg__name">Желаемая ссылка для реферальной программы</div>
-								<div class="reg__field">
-									<input type="text" wire:model.debounce.500ms="want_link">
-								</div>
-							</div> --}}
 							<x-secondary-button type="submit">{{ __('cabinet/referral.send') }}</x-secondary-button>
 						</div>
 					</form>
@@ -83,53 +52,30 @@
 						</div>
 						<x-primary-button class="w-full" @click="$dispatch('page', 'banners')">See banners</x-primary-button>
 					</div>
+
+					<div>
+						<div class="text-xl">Statistics</div>
+						<div class="flex">
+							<div>Clicks</div>
+							<div></div>
+						</div>
+						<div class="flex">
+							<div>Registrations</div>
+							<div></div>
+						</div>
+						<div class="flex">
+							<div>Purchases</div>
+							<div></div>
+						</div>
+						<div class="flex">
+							<div>Purchases sum</div>
+							<div></div>
+						</div>
+					</div>
 				@endempty
 			</div>
 		</template>
 
-        <div class="mt-5 ref__list">
-            <div class="ref__item">
-                <div class="ref__name" @pointerdown="allowed = !allowed">Разрешенный тип трафика</div>
-                <div class="ref__hide" x-show="allowed" x-cloak x-transition>
-                    <div class="ref__text">Контекстная реклама: Разрешено, через сайты прокладки </div>
-                    <div class="ref__text">Баннерная реклама: Разрешено с использованием направленных
-                        заказчиком рекламных материалов</div>
-                    <div class="ref__text">RichMedia</div>
-                    <div class="ref__text">Социальные cети: Разрешено, без ссылок на официальные группы
-                        заказчиков</div>
-                    <div class="ref__text">Teasers (Content): Разрешено с использованием направленных
-                        заказчиком рекламных материалов</div>
-                    <div class="ref__text">Clickunder/Popunder</div>
-                    <div class="ref__text">Дорвеи</div>
-                    <div class="ref__text">Контентные сайты</div>
-                </div>
-            </div>
-            <div class="ref__item">
-                <div class="ref__name" @pointerdown="disallowed = !disallowed">Запрещенный тип трафика</div>
-                <div class="ref__hide" x-show="disallowed" x-cloak x-transition>
-                    <div class="ref__text">Контекст на бренд</div>
-                    <div class="ref__text">Cashback</div>
-                    <div class="ref__text">Price – Comparison</div>
-                    <div class="ref__text">Купоны/Промокоды</div>
-                    <div class="ref__text">Adult – трафик</div>
-                    <div class="ref__text">Toolbar</div>
-                    <div class="ref__text">Email – спам рассылка</div>
-                </div>
-            </div>
-            <div class="ref__item">
-                <div class="ref__name" @pointerdown="maybe = !maybe">Типы трафика по согласованию</div>
-                <div class="ref__hide" x-show="maybe" x-cloak x-transition>
-                    <div class="ref__text">Мотивированный трафик</div>
-                    <div class="ref__text">SMS</div>
-                    <div class="ref__text">Баннеры</div>
-                    <div class="ref__text">Email рассылка</div>
-                    <div class="ref__text">Email</div>
-                    <div class="ref__text">Брокерский трафик</div>
-                    <div class="ref__text">Дорвеи</div>
-                    <div class="ref__text">Pop – UP</div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -138,9 +84,6 @@
 		Alpine.data('referral', () => ({
 			formIsSent: false,
 			copyShow: false,
-			allowed: false,
-			disallowed: false,
-			maybe: false,
 			submit() {
 				axios
 					.post(route('reflinks.create'))

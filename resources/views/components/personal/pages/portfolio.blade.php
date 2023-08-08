@@ -7,7 +7,7 @@
                 <div class="balance__num" x-text="user.umt"></div>
             </div>
 			@if (auth()->user()->acceptedOrders->isNotEmpty())
-				<div x-data="{diff: dateDiff(new Date(user.accepted_orders?.find(el => el.freeze_to !== null).freeze_to), new Date())}">
+				<div x-data="{diff: dateDiff(new Date(settings.default_freeze), new Date())}">
 					<div class="balance__text" x-show="! diff.past">
 						{{ __('cabinet/portfolio.freeze') }}
 						<div class="balance__times" style="">

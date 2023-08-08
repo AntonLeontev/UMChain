@@ -24,7 +24,7 @@ class OrderMakePaidRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email', 'max:255', Rule::unique(User::class)->ignore(auth()->id())],
+            'email' => ['sometimes', 'email', 'max:255', Rule::unique(User::class)->ignore(auth()->id())],
         ];
     }
 }

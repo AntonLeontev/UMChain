@@ -59,12 +59,12 @@
                 
                 <form x-data="{
 						copyShow: false,
+						wallet: '',
+						network: '',
 
 						submit() {
-							const data = new FormData(this.$event.target);
-							console.log(data)
 							axios
-								.put('/orders/' + this.order.id + '/make-paid', {email: data.get('email')})
+								.put('/orders/' + this.order.id + '/make-paid', {})
 								.then(response => {
 									this.$dispatch('toast', { text: 'Thanks for order' });
 									this.$dispatch('order-confirmed');
@@ -80,7 +80,7 @@
 								});
 						},
 						copy() {
-							navigator.clipboard.writeText(this.settings.wallet)
+							navigator.clipboard.writeText(this.order?.wallet)
 								.then(() => {
 									this.copyShow = true;
 									setTimeout(() => this.copyShow = false, 600)
@@ -90,37 +90,57 @@
 					@submit.prevent="submit"
 				>
 					<div class="append__success" x-show="copyShow" x-cloak x-transition.opacity>{{ __('cabinet/wallet.copied') }}</div>
-                    <div class="justify-between append__table">
+                    <div class="justify-between mb-3 append__table">
                         <div class="append__item">
                             <div class="append__top">{{ __('cabinet/wallet.sum') }}</div>
                             <div class="append__num"><span x-text="order?.usdt"></span> USDT</div>
-                        </div>
-                        <div class="append__item">
-                            <div class="append__top">{{ __('cabinet/wallet.price') }}</div>
-                            <div class="append__num"><span x-text="formatRate(1 / settings.rate)"></span> USDT</div>
                         </div>
                         <div class="append__item">
                             <div class="append__top">{{ __('cabinet/wallet.quantity') }}</div>
                             <div class="append__num"><span x-text="order?.umt"></span> UMCT</div>
                         </div>
                     </div>
-                    <div class="append__input reg__one">
-                        <div class="reg__name">{{ __('cabinet/wallet.5') }}</div>
-                        <div class="relative append__flex">
-                            <div class="reg__field append__coppied">
-                                <input 
-									type="text" 
-									readonly 
-									class="focus:border-b-pink !text-sm focus:ring-0"
-									:value="settings.wallet"
-								>
-                            </div>
-                            <div class="absolute right-[25px]" @pointerdown="copy">
-                                <img width="35px" src="/images/copy.svg" alt="copy">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="append__input reg__one">
+
+					<div class="p-5 mb-10 text-white border rounded border-pink">
+						<div class="mb-5 text-xl text-center">{{ __('cabinet/wallet.transfer') }}</div> 
+						<div>
+							{{ __('cabinet/wallet.notice') }}
+						</div>
+						
+						<div class="append__input reg__one">
+							<div class="reg__name">{{ __('cabinet/wallet.network') }}</div>
+							<div class="relative w-full append__flex gap-x-2">
+								<div class="reg__field append__coppied">
+									<input 
+										type="text" 
+										readonly 
+										class="focus:border-b-pink !text-sm focus:ring-0 text-center"
+										:value="order?.network"
+									>
+								</div>
+							</div>
+						</div>
+						<div class="append__input reg__one">
+							<div class="reg__name">{{ __('cabinet/wallet.5') }}</div>
+							<div class="relative w-full append__flex gap-x-2">
+								<div class="reg__field append__coppied">
+									<input 
+										type="text" 
+										readonly 
+										class="focus:border-b-pink !text-sm focus:ring-0 text-center"
+										:value="order?.wallet"
+									>
+								</div>
+								<div class="text-white transition cursor-pointer hover:text-pink" @pointerdown="copy">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+                    {{-- <div class="append__input reg__one">
                         <div class="reg__name">{{ __('cabinet/wallet.6') }}</div>
                         <div class="reg__field">
                             <input 
@@ -131,22 +151,9 @@
 								:value="user.email"
 							>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="append__time">
-                        <div class="append__last">{{ __('cabinet/wallet.7') }}
-                            <div id="test" class="append__period">
-                                <div class="append__hours">00</div>
-                                <div class="append__point">:</div>
-                                <div class="append__minutes">20</div>
-                                <div class="append__point">:</div>
-                                <div class="append__seconds">00</div>
-                            </div>
-                        </div>
-                        <div class="append__subtitle">
-							{{ __('cabinet/wallet.8') }}
-                        </div>
                         <div class="append__buttons">
-
 							<x-primary-button type="submit">{{ __('cabinet/wallet.9') }}</x-primary-button>
                             <div class="append__no" @click="$dispatch('order-canceled')">
 								<x-btn-transparent>{{ __('cabinet/wallet.10') }}</x-btn-transparent>

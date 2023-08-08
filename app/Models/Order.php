@@ -22,7 +22,9 @@ class Order extends Model
 		'is_paid',
 		'is_accepted',
 		'wallet',
+		'network',
 		'freeze_to',
+		'paid_at',
 	];
 
 	protected $casts = [
@@ -30,6 +32,7 @@ class Order extends Model
 		'umt' => OrderAmountCast::class,
 		'is_paid' => 'boolean',
 		'is_accepted' => 'boolean',
+		'paid_at' => 'datetime',
 	];
 
 	public function user(): BelongsTo
