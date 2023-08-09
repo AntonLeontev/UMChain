@@ -23,5 +23,9 @@ class AppServiceProvider extends ServiceProvider
 		if (! app()->isProduction()) {
 			Model::shouldBeStrict();
 		}
+
+		if (app()->isProduction()) {
+			Model::preventAccessingMissingAttributes();
+		}
     }
 }
