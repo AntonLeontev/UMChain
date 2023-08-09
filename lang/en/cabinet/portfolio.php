@@ -7,4 +7,7 @@ return [
 	'days' => 'd',
 	'hours' => 'h',
 	'minutes' => 'm',
+	'withdraw' => 'Withdraw',
+	'exchange' => 'Exchange for UMCT',
+	'out' => 'Out',
 ];

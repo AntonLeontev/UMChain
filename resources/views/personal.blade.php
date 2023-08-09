@@ -6,7 +6,8 @@
 	<script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('cabinet', () => ({
-                page: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1),
+                // page: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1),
+                page: 'withdraw',
 				prevPage: null,
 				user: @json(auth()->user()->loadCount('refLink')->load('activeRefLink')),
 				settings: @json(settings()),
@@ -37,6 +38,7 @@
 					this.page = this.$event.detail;
 
 					if (this.$event.detail === 'logout') return;
+					if (this.$event.detail === 'withdraw') return;
 
 					this.pushState(this.$event.detail);
                 },
@@ -76,6 +78,8 @@
 				@order-created="order = $event.detail"
 				@order-canceled="order = null"
 				@order-confirmed="order = null"
+				@exchange="user.usdt = $event.detail.usdt; user.umt = $event.detail.umt"
+				@withdraw="user.usdt = $event.detail.usdt"
 			>
                 <x-personal.sidebar.index />
 
@@ -100,6 +104,8 @@
 					@if (auth()->user()->activeRefLink)
                     	<x-personal.pages.banners />
 					@endif
+
+					<x-personal.pages.withdraw />
 
                     <div data-page="notifications" x-show="page === 'notifications'" x-cloak>
                         <div class="main__uved">

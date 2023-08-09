@@ -28,7 +28,7 @@
 				</div>
 			@endif
         </div>
-        <div class="main__token">
+        <div class="relative main__token" x-data="{show: false}">
             <div class="token__major">
                 <div class="token__logo">
                     <img src="/images/token.png" alt="">
@@ -40,36 +40,28 @@
             </div>
             <div class="token__num">
                 <div class="token__rate">USDT <span x-text="user.usdt"></span></div>
-                {{-- <div class="token__percent" style="visibility: hidden">+3,25 %</div> --}}
             </div>
-            <div class="token__out out__inactive">
-
-
-            </div>
+			<div></div>
+			<button 
+				class="absolute p-1 text-xs text-white bg-black rounded top-1 right-1"
+				@click="show = true"
+				@click.outside="show = false"
+			>
+				{{ __('cabinet/portfolio.withdraw') }}
+			</button>
+			<div class="absolute right-0 flex p-1 bg-white border rounded -top-12 gap-x-2 border-pink" x-show="show" x-cloak x-transition>
+				<button 
+					class="p-1 text-white bg-black rounded" 
+					@click="$dispatch('page', 'withdraw')"
+					@click="$dispatch('withdraw', {value: 'umct'})"
+				>{{ __('cabinet/portfolio.exchange') }}</button>
+				<button 
+					class="p-1 text-white bg-black rounded"
+					@click="$dispatch('page', 'withdraw')"
+					@click="$dispatch('withdraw', {value: 'out'})"
+				>{{ __('cabinet/portfolio.out') }}</button>
+			</div>
         </div>
-        {{-- <div class="main__dividends" style="">
-            <div class="dividends__all">
-                <div class="dividends__main">
-                    <div class="dividends__name">
-                        <span>Дивиденды</span>
-                        <div class="dividends__arrow">
-                            <img src="https://ico.umchain.org/images/blackArrow.svg" alt="">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="dividends__rate" style="">
-                    <div class="dividends__rub">₽ 1 055,15</div>
-                    <div class="dividends__percent">+3,25 %</div>
-                </div>
-                <div class="dividends__out out__active">
-                    <a href="https://ico.umchain.org/ru/cabinet/profile/portfolio/out"></a>
-                </div>
-            </div>
-            <div class="dividends__graf">
-                <img src="https://ico.umchain.org/images/graf.png" alt="">
-            </div>
-        </div> --}}
         <div class="main__dop" @click="$dispatch('switch', {value: 'wallet'})">
 			<x-secondary-button class="w-full">{{ __('cabinet/portfolio.btn') }}</x-secondary-button>
         </div>

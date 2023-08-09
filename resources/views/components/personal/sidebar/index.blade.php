@@ -207,8 +207,12 @@
                     case 'logout':
                         return 'Logout';
                         break;
+                    case 'withdraw':
+                        return 'Withdraw USDT';
+                        break;
 
                     default:
+						return 'Cabinet';
                         break;
                 }
             },

@@ -5,6 +5,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReferralLinkController;
+use App\Http\Controllers\WithdrawalController;
 use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -58,6 +59,13 @@ Route::group([
 	Route::prefix('reflinks')
 		->group(function() {
 			Route::post('create', [ReferralLinkController::class, 'create'])->name('reflinks.create');
+		});
+
+	Route::prefix('withdraw')
+		->middleware(['precognitive'])
+		->group(function() {
+			Route::post('exchange', [WithdrawalController::class, 'exchange'])->name('withdraw.exchange');
+			Route::post('create', [WithdrawalController::class, 'create'])->name('withdraw.create');
 		});
 
 	

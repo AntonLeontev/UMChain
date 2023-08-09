@@ -3,26 +3,23 @@
 namespace App\Models;
 
 use App\Casts\OrderAmountCast;
-use App\Enums\AccountType;
-use App\Enums\TransactionDirection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Withdrawal extends Model
 {
     use HasFactory;
 
 	protected $fillable = [
 		'user_id',
-		'direction',
+		'network',
+		'wallet',
 		'amount',
-		'description',
-		'account_type',
+		'is_sent',
 	];
 
 	protected $casts = [
 		'amount' => OrderAmountCast::class,
-		'direction' => TransactionDirection::class,
-		'account_type' => AccountType::class,
+		'is_sent' => 'boolean',
 	];
 }

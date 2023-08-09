@@ -27,4 +27,5 @@ return [
 	'9' => 'Confirm Payment',
 	'10' => 'Cancel the order',
 	'choose' => 'Choose network',
+	'USDT exchange' => 'USDT exchange',
 ];

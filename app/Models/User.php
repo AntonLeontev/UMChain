@@ -108,6 +108,14 @@ class User extends Authenticatable
 
 	public function umtTransactions(): HasMany
 	{
-		return $this->hasMany(Transaction::class)->where('account_type', AccountType::umt);
+		return $this->hasMany(Transaction::class)
+			->where('account_type', AccountType::umt)
+			->orderByDesc('created_at')
+			->take(10);
+	}
+
+	public function withdrawals(): HasMany
+	{
+		return $this->hasMany(Withdrawal::class);
 	}
 }
