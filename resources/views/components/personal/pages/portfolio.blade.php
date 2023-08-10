@@ -52,13 +52,11 @@
 			<div class="absolute right-0 flex p-1 bg-white border rounded -top-12 gap-x-2 border-pink" x-show="show" x-cloak x-transition>
 				<button 
 					class="p-1 text-white bg-black rounded" 
-					@click="$dispatch('page', 'withdraw')"
-					@click="$dispatch('withdraw', {value: 'umct'})"
+					@click="$dispatch('page', 'withdraw'); $dispatch('withdraw-page', 'umct')"
 				>{{ __('cabinet/portfolio.exchange') }}</button>
 				<button 
 					class="p-1 text-white bg-black rounded"
-					@click="$dispatch('page', 'withdraw')"
-					@click="$dispatch('withdraw', {value: 'out'})"
+					@click="$dispatch('page', 'withdraw'); $dispatch('withdraw-page', 'out')"
 				>{{ __('cabinet/portfolio.out') }}</button>
 			</div>
         </div>

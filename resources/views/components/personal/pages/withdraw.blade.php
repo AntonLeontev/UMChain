@@ -1,35 +1,41 @@
-<div x-show="page === 'withdraw'" x-cloak>
-	<form class="flex flex-col items-center p-10 bg-black rounded" x-data="{
-    form: $form('post', route('withdraw.exchange'), {
-        usdt: '',
-        umt: '',
-    }),
-    submit() {
-        this.form.submit()
-            .then(response => {
-                this.$dispatch('exchange', response.data);
-                this.$dispatch('page', 'portfolio');
-                this.$dispatch('toast', {text: 'Success'});
-            })
-            .catch(error => {
-                let text = 'Error';
+<div 
+	class="w-[360px] md:w-[400px]"
+	x-show="page === 'withdraw'" 
+	x-cloak 
+	x-data="{wpage: 'out'}"
+	@withdraw-page.window="wpage = $event.detail"
+>
+	<form class="flex flex-col items-center p-10 bg-black rounded" x-show="wpage === 'umct'" x-data="{
+		form: $form('post', route('withdraw.exchange'), {
+			usdt: '',
+			umt: '',
+		}),
+		submit() {
+			this.form.submit()
+				.then(response => {
+					this.$dispatch('exchange', response.data);
+					this.$dispatch('page', 'portfolio');
+					this.$dispatch('toast', {text: 'Success'});
+				})
+				.catch(error => {
+					let text = 'Error';
 
-                if (error.response.data.message) {
-                    text = error.response.data.message
-                }
+					if (error.response.data.message) {
+						text = error.response.data.message
+					}
 
-                this.$dispatch('toast', { text: text, type: 'error' });
-            });
-    },
-    inputUsdt() {
-        this.form.usdt = this.$el.value.replace(/[^0-9.]/g, '');
-        this.form.umt = this.form.usdt * this.settings.rate;
-    },
-    inputUmt() {
-        this.form.umt = this.$el.value.replace(/[^0-9.]/g, '');
-        this.form.usdt = formatRate(this.form.umt / this.settings.rate);
-    },
-}" @submit.prevent="submit">
+					this.$dispatch('toast', { text: text, type: 'error' });
+				});
+		},
+		inputUsdt() {
+			this.form.usdt = this.$el.value.replace(/[^0-9.]/g, '');
+			this.form.umt = this.form.usdt * this.settings.rate;
+		},
+		inputUmt() {
+			this.form.umt = this.$el.value.replace(/[^0-9.]/g, '');
+			this.form.usdt = formatRate(this.form.umt / this.settings.rate);
+		},
+	}" @submit.prevent="submit">
     <div class="text-center rate__title rate__title--change">{{ __('cabinet/withdraw.exchange') }}</div>
     <div class="text-lg text-white">
 		{{ __('cabinet/withdraw.balance') }} <span x-text="user.usdt"></span> USDT
@@ -91,7 +97,7 @@
     </div>
 </form>
 
-<form class="flex flex-col items-center p-10 bg-black rounded" x-data="{
+<form class="flex flex-col items-center p-10 bg-black rounded" x-show="wpage === 'out'" x-data="{
     form: $form('post', route('withdraw.create'), {
         usdt: '',
 		network: 'TRC20',

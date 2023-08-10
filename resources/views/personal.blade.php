@@ -6,8 +6,7 @@
 	<script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('cabinet', () => ({
-                // page: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1),
-                page: 'withdraw',
+                page: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1),
 				prevPage: null,
 				user: @json(auth()->user()->loadCount('refLink')->load('activeRefLink')),
 				settings: @json(settings()),
