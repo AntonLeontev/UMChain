@@ -47,22 +47,26 @@ class UpdateAgentPortfolio
 				);
 
 				DB::table('transactions')
-					->create([
+					->insert([
 						'user_id' => $agent->id,
 						'direction' => TransactionDirection::income,
 						'amount' => $order->umt * 100000000 * $agent->activeRefLink->umt_percent / 100,
 						'description' => 'Referral fee',
 						'account_type' => AccountType::umt,
+						'created_at' => now(),
+						'updated_at' => now(),
 					]
 				);
 
 				DB::table('transactions')
-					->create([
+					->insert([
 						'user_id' => $agent->id,
 						'direction' => TransactionDirection::income,
 						'amount' => $order->usdt * 100000000 * $agent->activeRefLink->usdt_percent / 100,
 						'description' => 'Referral fee',
 						'account_type' => AccountType::usdt,
+						'created_at' => now(),
+						'updated_at' => now(),
 					]
 				);
 			});

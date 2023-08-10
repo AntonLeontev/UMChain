@@ -17,10 +17,13 @@ class WithdrawalController extends Controller
     public function exchange(ExchangeRequest $request, TransactionService $service)
 	{
 		DB::transaction(function() use ($request, $service) {
-			auth()->user()->update([
-				'usdt' => auth()->user()->usdt - $request->safe()->usdt,
-				'umt' => auth()->user()->umt + $request->safe()->umt,
-			]);
+			DB::table('users')
+				->where('id', auth()->id())
+				->update([
+					'usdt' => auth()->user()->usdt * 100000000 - $request->safe()->usdt * 100000000,
+					'umt' => auth()->user()->umt * 100000000 + $request->safe()->umt * 100000000,
+				]
+			);
 	
 			$service->createUmtExchange($request->safe()->umt);
 			$service->createUsdtExchange($request->safe()->usdt);
@@ -45,7 +48,12 @@ class WithdrawalController extends Controller
 				'amount' => $request->safe()->usdt,
 			]);
 
-			auth()->user()->update(['usdt' => auth()->user()->usdt - $request->safe()->usdt]);
+			DB::table('users')
+				->where('id', auth()->id())
+				->update([
+					'usdt' => auth()->user()->usdt * 100000000 - $request->safe()->usdt * 100000000,
+				]
+			);
 		}, 2);
 
 
@@ -68,6 +76,8 @@ class WithdrawalController extends Controller
 				);
 			}
 		}
+
+		auth()->user()->refresh();
 
 		return response()->json(['usdt' => auth()->user()->usdt]);
 	}
