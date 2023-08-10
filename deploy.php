@@ -6,6 +6,7 @@ require 'recipe/laravel.php';
 // Config
 
 set('repository', 'https://github.com/AntonLeontev/UMChain.git');
+set('keep_releases', 3);
 
 add('shared_files', []);
 add('shared_dirs', []);
