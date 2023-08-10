@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Events\OrderAccepted;
 use App\Events\WithdrawalSent;
 use App\Listeners\SendWithdrawSentNotification;
+use App\Listeners\UpdateAgentPortfolio;
+use App\Listeners\UpdateUserPortfolio;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -20,6 +23,11 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+		OrderAccepted::class => [
+			UpdateUserPortfolio::class,
+			UpdateAgentPortfolio::class,
+		],
 		
 		WithdrawalSent::class => [
 			SendWithdrawSentNotification::class
