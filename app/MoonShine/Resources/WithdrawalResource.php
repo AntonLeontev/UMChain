@@ -2,14 +2,19 @@
 
 namespace App\MoonShine\Resources;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Withdrawal;
+use Illuminate\Database\Eloquent\Builder;
 
-use MoonShine\Resources\Resource;
-use MoonShine\Fields\ID;
+use Illuminate\Database\Eloquent\Model;
 use MoonShine\Actions\FiltersAction;
+use MoonShine\Decorations\Flex;
+use MoonShine\Fields\ID;
 use MoonShine\Fields\NoInput;
 use MoonShine\Fields\SwitchBoolean;
+use MoonShine\Filters\DateRangeFilter;
+use MoonShine\ItemActions\ItemAction;
+use MoonShine\QueryTags\QueryTag;
+use MoonShine\Resources\Resource;
 
 class WithdrawalResource extends Resource
 {
@@ -17,17 +22,19 @@ class WithdrawalResource extends Resource
 
 	public static string $title = 'Заявки на вывод USDT';
 
-	public static array $activeActions = ['edit'];
+	public static array $activeActions = [];
 
 	public function fields(): array
 	{
 		return [
-			NoInput::make('Сеть', 'network'),
-			NoInput::make('Кошелек', 'wallet'),
-			NoInput::make('Сумма', '', fn($item) => "$item->amount USDT"),
-			NoInput::make('Создана', '', fn($item) => $item->created_at->translatedFormat('d.m.Y H:i')),
-			SwitchBoolean::make('Выплачено', 'is_sent')
-				->autoUpdate(false),
+			Flex::make([
+				NoInput::make('Сеть', 'network'),
+				NoInput::make('Кошелек', 'wallet'),
+				NoInput::make('Сумма', '', fn($item) => "$item->amount USDT"),
+				NoInput::make('Создана', '', fn($item) => $item->created_at->translatedFormat('d.m.Y H:i')),
+				SwitchBoolean::make('Выплачено', 'is_sent')
+					->autoUpdate(false),
+			]),
         ];
 	}
 
@@ -38,12 +45,14 @@ class WithdrawalResource extends Resource
 
     public function search(): array
     {
-        return ['id'];
+        return ['amount'];
     }
 
     public function filters(): array
     {
-        return [];
+        return [
+			DateRangeFilter::make('Создано', 'created_at'),
+		];
     }
 
     public function actions(): array
@@ -52,4 +61,24 @@ class WithdrawalResource extends Resource
             FiltersAction::make(trans('moonshine::ui.filters')),
         ];
     }
+
+	public function itemActions(): array
+	{
+		return [
+			ItemAction::make('Пометить выплаченным', function (Model $item) {
+				$item->update(['is_sent' => true]);
+			}, 'Выплачен')
+				->canSee(fn(Model $item) => ! $item->is_sent) 
+		];
+	}
+
+	public function queryTags(): array 
+    {
+        return [
+            QueryTag::make(
+                'Не выплаченные',
+                fn(Builder $query) => $query->where('is_sent', false)
+            )->icon('heroicons.bolt'),
+        ];
+    } 
 }

@@ -4,25 +4,29 @@ namespace App\MoonShine\Resources;
 
 use App\Models\Order;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
+use Illuminate\Database\Eloquent\Model;
 use MoonShine\Actions\FiltersAction;
 use MoonShine\Fields\BelongsTo;
 use MoonShine\Fields\Date;
 use MoonShine\Fields\ID;
 use MoonShine\Fields\NoInput;
 use MoonShine\Fields\Number;
-use MoonShine\Fields\Text;
 use MoonShine\Fields\SwitchBoolean;
+use MoonShine\Fields\Text;
+use MoonShine\Filters\DateRangeFilter;
+use MoonShine\ItemActions\ItemAction;
+use MoonShine\QueryTags\QueryTag;
 use MoonShine\Resources\Resource;
 
 class OrderResource extends Resource
 {
 	public static string $model = Order::class;
 
-	public static string $title = 'Orders';
+	public static string $title = 'Заказы';
 
-	public static array $activeActions = ['edit'];
+	public static array $activeActions = [];
 
 	public function fields(): array
 	{
@@ -59,7 +63,9 @@ class OrderResource extends Resource
 
     public function filters(): array
     {
-        return [];
+        return [
+			DateRangeFilter::make('Дата оплаты', 'paid_at'),
+		];
     }
 
     public function actions(): array
@@ -68,4 +74,24 @@ class OrderResource extends Resource
             FiltersAction::make(trans('moonshine::ui.filters')),
         ];
     }
+
+	public function itemActions(): array
+	{
+		return [
+			ItemAction::make('Подтвердить', function (Model $item) {
+				$item->update(['is_accepted' => true]);
+			}, 'Подтвержден')
+				->canSee(fn(Model $item) => ! $item->is_accepted) 
+		];
+	}
+
+	public function queryTags(): array 
+    {
+        return [
+            QueryTag::make(
+                'За сегодня',
+                fn(Builder $query) => $query->where('paid_at', '>=', now()->startOfDay())
+            )->icon('heroicons.bolt'),
+        ];
+    } 
 }

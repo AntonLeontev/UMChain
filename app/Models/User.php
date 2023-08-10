@@ -59,6 +59,7 @@ class User extends Authenticatable
 		'ethWallet',
 		'tronWallet',
 		'umtTransactions',
+		'unreadNotifications',
 	];
 
 	public function ethWallet(): HasOne
