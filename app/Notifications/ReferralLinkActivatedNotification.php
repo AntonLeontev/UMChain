@@ -2,20 +2,19 @@
 
 namespace App\Notifications;
 
-use App\Models\Withdrawal;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class WithdrawSent extends Notification implements ShouldQueue
+class ReferralLinkActivatedNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct(private Withdrawal $withdrawal)
+    public function __construct()
     {
         //
     }
@@ -49,8 +48,8 @@ class WithdrawSent extends Notification implements ShouldQueue
     public function toArray(object $notifiable): array
     {
         return [
-			'values' => ['amount' => $this->withdrawal->amount],
-			'lang' => 'withdraw sent'
+            'values' => [],
+			'lang' => 'ref link created',
         ];
     }
 }

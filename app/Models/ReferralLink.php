@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\ReferralLinkActivated;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -35,4 +36,19 @@ class ReferralLink extends Model
 	{
 		return $this->hasMany(ReferralLinkRegistration::class);
 	}
+
+	protected static function booted(): void
+    {
+        static::updated(function (ReferralLink $link) {
+			if (! $link->wasChanged('is_active')) {
+				return;
+			}
+
+			if (! $link->is_active) {
+				return;
+			}
+
+			event(new ReferralLinkActivated($link));
+        });
+    }
 }

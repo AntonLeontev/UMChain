@@ -37,8 +37,21 @@
 					</li>
 				@endif
 
-                <li class="tracking-widest" :class="{ 'active': page === 'notifications' }"
-                    @click="$dispatch('page', 'notifications')">{{ __('cabinet/sidebar.notifications') }}</li>
+                <li 
+					class="relative tracking-widest" 
+					:class="{ 'active': page === 'notifications' }"
+                    @click="$dispatch('page', 'notifications')"
+				>
+					<div class="relative">
+						{{ __('cabinet/sidebar.notifications') }}
+						<div 
+							class="absolute top-[50%] translate-y-[-50%] right-8 rounded bg-pink px-1 !text-white text-sm" 
+							x-show="user.unread_notifications_count > 0"
+							x-text="user.unread_notifications_count"
+						></div>
+					</div>
+				</li>
+
                 <li class="tracking-widest" :class="{ 'active': page === 'logout' }" @click="$dispatch('page', 'logout')">
                     {{ __('cabinet/sidebar.logout') }}</li>
 

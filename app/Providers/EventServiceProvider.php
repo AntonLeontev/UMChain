@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use App\Events\OrderAccepted;
+use App\Events\ReferralLinkActivated;
 use App\Events\WithdrawalSent;
+use App\Listeners\SendOrderAcceptedNotification;
+use App\Listeners\SendReferralLinkActivatedNotification;
 use App\Listeners\SendWithdrawSentNotification;
 use App\Listeners\UpdateAgentPortfolio;
 use App\Listeners\UpdateUserPortfolio;
@@ -27,10 +30,15 @@ class EventServiceProvider extends ServiceProvider
 		OrderAccepted::class => [
 			UpdateUserPortfolio::class,
 			UpdateAgentPortfolio::class,
+			SendOrderAcceptedNotification::class,
 		],
 		
 		WithdrawalSent::class => [
-			SendWithdrawSentNotification::class
+			SendWithdrawSentNotification::class,
+		],
+
+		ReferralLinkActivated::class => [
+			SendReferralLinkActivatedNotification::class,
 		],
     ];
 

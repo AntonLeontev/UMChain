@@ -2,22 +2,21 @@
 
 namespace App\Notifications;
 
-use App\Models\Withdrawal;
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class WithdrawSent extends Notification implements ShouldQueue
+class OrderAcceptedNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct(private Withdrawal $withdrawal)
+    public function __construct(private Order $order)
     {
-        //
     }
 
     /**
@@ -49,8 +48,8 @@ class WithdrawSent extends Notification implements ShouldQueue
     public function toArray(object $notifiable): array
     {
         return [
-			'values' => ['amount' => $this->withdrawal->amount],
-			'lang' => 'withdraw sent'
+            'values' => ['amount' => $this->order->umt],
+			'lang' => 'order accepted',
         ];
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
@@ -27,6 +28,12 @@ Route::group([
 {
 	Route::get('/', [PageController::class, 'home'])->name('home');
 
+	if (app()->isLocal()) {
+		Route::get('test', function() {
+			return __('notifications.test', ['value' => 125]);
+		});
+	}
+
 	Route::prefix('cabinet')
 		->middleware('auth')
 		->group(function() {
@@ -43,14 +50,14 @@ Route::group([
 	});
 
 	Route::prefix('users')
-		->middleware(HandlePrecognitiveRequests::class)
+		->middleware(['precognitive', 'auth'])
 		->group(function() {
 			Route::put('update', [ProfileController::class, 'update'])->name('users.update');
 			Route::put('update-password', [ProfileController::class, 'updatePassword'])->name('users.update-password');
 		});
 
 	Route::prefix('orders')
-		->middleware(HandlePrecognitiveRequests::class)
+		->middleware(['precognitive', 'auth'])
 		->group(function() {
 			Route::post('create', [OrderController::class, 'create'])->name('orders.create');
 			Route::put('{order}/make-paid', [OrderController::class, 'makePaid'])->name('orders.make-paid');
@@ -62,11 +69,15 @@ Route::group([
 		});
 
 	Route::prefix('withdraw')
-		->middleware(['precognitive'])
+		->middleware(['precognitive', 'auth'])
 		->group(function() {
 			Route::post('exchange', [WithdrawalController::class, 'exchange'])->name('withdraw.exchange');
 			Route::post('create', [WithdrawalController::class, 'create'])->name('withdraw.create');
 		});
+
+	Route::post('notifications/mark-as-read', [NotificationController::class, 'markRead'])
+		->middleware(['auth'])
+		->name('notifications.mark-read');
 
 	
 	

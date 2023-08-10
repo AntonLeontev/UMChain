@@ -8,7 +8,7 @@
             Alpine.data('cabinet', () => ({
                 page: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1),
 				prevPage: null,
-				user: @json(auth()->user()->loadCount('refLink')->load('activeRefLink')),
+				user: @json(auth()->user()->loadCount('refLink')->load('activeRefLink')->loadCount('unreadNotifications')),
 				settings: @json(settings()),
 				order: null,
 
@@ -108,47 +108,28 @@
 
                     <div data-page="notifications" x-show="page === 'notifications'" x-cloak>
                         <div class="main__uved">
-                            <div class="uved__title">
-                                <p>Сообщения</p>
-                                <div class="uved__count">1</div>
+                            <div class="flex justify-between uved__title">
+                                <p>{{ __('cabinet/notifications.title') }}</p>
+								<template x-if="user.unread_notifications_count > 0">
+									<button 
+										class="p-1 text-xs text-white bg-black rounded"
+										@click="axios.post(route('notifications.mark-read')).then(() => user.unread_notifications_count = 0)"
+									>
+										{{ __('cabinet/notifications.mark') }}
+									</button>
+								</template>
+                                {{-- <div class="uved__count">1</div> --}}
                             </div>
                             <div class="uved__wrapper">
-                                <a href="https://ico.umchain.org/ru/cabinet/profile/uved/one" class="uved__item">
-                                    <div class="uved__info">
-                                        <div class="uved__name uved__new">Новая транзакция</div>
-                                        <div class="uved__description">jbcshjch287625r4235hjfdh</div>
-                                    </div>
-                                    <div class="uved__date">07.10.2021</div>
-                                </a>
-                                <a href="https://ico.umchain.org/ru/cabinet/profile/uved/one" class="uved__item">
-                                    <div class="uved__info">
-                                        <div class="uved__name">Новая транзакция</div>
-                                        <div class="uved__description">jbcshjch287625r4235hjfdh</div>
-                                    </div>
-                                    <div class="uved__date">07.10.2021</div>
-                                </a>
-                                <a href="https://ico.umchain.org/ru/cabinet/profile/uved/one" class="uved__item">
-                                    <div class="uved__info">
-                                        <div class="uved__name">Новая транзакция</div>
-                                        <div class="uved__description">jbcshjch287625r4235hjfdh</div>
-                                    </div>
-                                    <div class="uved__date">07.10.2021</div>
-                                </a>
-                                <a href="https://ico.umchain.org/ru/cabinet/profile/uved/one" class="uved__item">
-                                    <div class="uved__info">
-                                        <div class="uved__name">Новая транзакция</div>
-                                        <div class="uved__description">jbcshjch287625r4235hjfdh d efew rger ge rg trg wrth
-                                            wwt gtrhtr gtgrt ge wtg tg tr gtrw gtga</div>
-                                    </div>
-                                    <div class="uved__date">07.10.2021</div>
-                                </a>
-                                <a href="https://ico.umchain.org/ru/cabinet/profile/uved/one" class="uved__item">
-                                    <div class="uved__info">
-                                        <div class="uved__name">Новая транзакция</div>
-                                        <div class="uved__description">jbcshjch287625r4235hjfdh</div>
-                                    </div>
-                                    <div class="uved__date">07.10.2021</div>
-                                </a>
+								@foreach (auth()->user()->unreadNotifications as $notification)
+									<div class="uved__item">
+										<div class="uved__info">
+											<div class="mb-0 uved__name uved__new">{{ __('notifications.' . $notification->data['lang'], $notification->data['values']) }}</div>
+											{{-- <div class="uved__description"></div> --}}
+										</div>
+										<div class="uved__date">{{ $notification->created_at->translatedFormat('d F Y') }}</div>
+									</div>
+								@endforeach
                             </div>
                         </div>
                     </div>
