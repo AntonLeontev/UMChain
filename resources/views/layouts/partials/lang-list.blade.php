@@ -2,12 +2,14 @@
     <div class="cursor-pointer lang__active" @click="show = true">{{ LaravelLocalization::getCurrentLocale() }}</div>
     <div class="lang__list" x-show="show" x-transition x-cloak>
         @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-            <div class="lang__item">
-                <a rel="alternate" hreflang="{{ $localeCode }}"
-                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                    {{ $localeCode }}
-                </a>
-            </div>
+			@unless ($localeCode === 'ru')
+				<div class="lang__item">
+					<a rel="alternate" hreflang="{{ $localeCode }}"
+						href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+						{{ $localeCode }}
+					</a>
+				</div>
+			@endunless
         @endforeach
     </div>
     <div class="transition lang__arrow" @click="show = !show" :class="{'rotate-180': show}">

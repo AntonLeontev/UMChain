@@ -76,6 +76,11 @@ class WithdrawalResource extends Resource
     {
         return [
             QueryTag::make(
+                'Все',
+                fn(Builder $query) => $query
+            )->icon('heroicons.bolt'),
+
+            QueryTag::make(
                 'Не выплаченные',
                 fn(Builder $query) => $query->where('is_sent', false)
             )->icon('heroicons.bolt'),

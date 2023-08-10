@@ -7,6 +7,7 @@ use App\Models\User;
 
 use Illuminate\Database\Eloquent\Model;
 use MoonShine\Actions\FiltersAction;
+use MoonShine\Decorations\Flex;
 use MoonShine\Fields\ID;
 use MoonShine\Fields\NoInput;
 use MoonShine\Fields\Number;
@@ -26,15 +27,21 @@ class ReferralLinkResource extends Resource
 	public function fields(): array
 	{
 		return [
-		    ID::make('Номер', 'id')->sortable(),
-			NoInput::make('Имя', 'user_id', fn($item) => $item->user->name),
-			NoInput::make('Почта', 'user_id', fn($item) => $item->user->email),
-			Number::make('UMT %', 'umt_percent'),
-			Number::make('USDT %', 'usdt_percent'),
-			SwitchBoolean::make('Активна', 'is_active')
-				->autoUpdate(true),
-			NoInput::make('Переходов', '', fn($item) => $item->loadCount('clicks')->clicks_count),
-			NoInput::make('Регистраций', '', fn($item) => $item->user->loadCount('referrals')->referrals_count),
+			Flex::make([
+				ID::make('Номер', 'id')->sortable(),
+				NoInput::make('Имя', 'user_id', fn($item) => $item->user->name),
+				NoInput::make('Почта', 'user_id', fn($item) => $item->user->email),
+				Number::make('UMT %', 'umt_percent')
+					->expansion('%'),
+				Number::make('USDT %', 'usdt_percent')
+					->expansion('%'),
+				SwitchBoolean::make('Активна', 'is_active')
+					->autoUpdate(true),
+			]),
+			NoInput::make('Переходов', '', fn($item) => $item->loadCount('clicks')->clicks_count)
+				->hideOnForm(),
+			NoInput::make('Регистраций', '', fn($item) => $item->user->loadCount('referrals')->referrals_count)
+				->hideOnForm(),
         ];
 	}
 

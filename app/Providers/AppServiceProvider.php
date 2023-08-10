@@ -27,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
 		if (app()->isProduction()) {
 			Model::preventAccessingMissingAttributes();
 		}
+
+		if (request()->is('admin/*')) {
+			app()->setLocale('ru');
+		}
     }
 }
