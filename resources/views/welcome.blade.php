@@ -299,12 +299,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bepartner__btn">
-                    @if(Auth::check())
+                    <div class="mx-auto bepartner__btn">
                         <a  href="{{ route('cabinet.personal') }}">{{ __('home.benefitPartner.btn') }}</a>
-                    @else
-                        <a   href="{{ route('login') }}">{{ __('home.benefitPartner.btn') }}</a>
-                    @endif
                     </div>
                 </div>
             </section>
@@ -334,12 +330,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bepartner__btn">
-                    @if(Auth::check())
+                    <div class="mx-auto bepartner__btn">
                         <a  href="{{ route('cabinet.personal') }}">{{ __('home.benefitInvestor.btn') }}</a>
-                    @else
-                        <a   href="{{ route('login') }}">{{ __('home.benefitInvestor.btn') }}</a>
-                    @endif
                     </div>
                 </div>
             </section>

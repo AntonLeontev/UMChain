@@ -214,6 +214,7 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+	column-gap: 10px;
     background-color: #e5e5e5;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
@@ -391,6 +392,10 @@ body {
 .header__before--close img {
     width: 100%;
 }
+.header__person.active {
+	display: flex;
+	align-items: center;
+}
 .header__person.active mask {
     fill: #ed0474;
 }
@@ -535,7 +540,7 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    grid-gap: 30px;
+    column-gap: 30px;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -6143,10 +6148,9 @@ body {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        grid-gap: 23px;
+		column-gap: 23px;
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
-        justify-content: space-between;
     }
     .benefit__item::before {
         height: 40px;
@@ -6157,6 +6161,12 @@ body {
     }
     .benefit__item:nth-child(3)::before {
         content: "";
+    }
+    .benefit__item:nth-child(6)::before {
+        content: "";
+    }
+    .benefit__item:last-child::before {
+        content: none;
     }
     .benefit__item + .benefit__item {
         margin-top: 7px;
@@ -6607,19 +6617,6 @@ three";
     }
     .header__btn {
         display: block;
-    }
-    .header__person.active mask {
-        fill: #2a2a2a;
-    }
-    .header__person.active rect {
-        stroke: #2a2a2a;
-        stroke-width: 2px;
-        fill: transparent;
-        -webkit-mask: none;
-        mask: none;
-    }
-    .header__person.active path {
-        stroke: #2a2a2a;
     }
     .reg {
         padding: 51px 0 300px;

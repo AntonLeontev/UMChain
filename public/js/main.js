@@ -471,9 +471,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    try {
-        showHideList(".lang__arrow", ".lang__list");
-    } catch {}
+    // try {
+    //     showHideList(".lang__arrow", ".lang__list");
+    // } catch {}
 
     try {
         showHideList(".order__arrow", ".order__list");
@@ -481,9 +481,9 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
         showHideList(".replenish__arrow", ".replenish__list");
     } catch {}
-    try {
-        showHideList(".header__btn", ".header__hide");
-    } catch {}
+    // try {
+    //     showHideList(".header__btn", ".header__hide");
+    // } catch {}
     try {
         showHideList(".overview__arrow", ".overview__spisok");
     } catch {}
@@ -615,7 +615,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             document.addEventListener("scroll", () => {
                 if (
-                    blockOne - 50 <= document.documentElement.scrollTop &&
+                    blockOne <= document.documentElement.scrollTop &&
                     blockOne + blockHeight >= document.documentElement.scrollTop
                 ) {
                     document.querySelector(menu).classList.add("active");
@@ -657,99 +657,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //     btnColor('.replenish__btn', '.replenish__input input', '.replenish__value input')
     // } catch{}
 
-    const timer20 = () => {
-        if (document.querySelector(".append__period")) {
-            const myHours = document.querySelector(".append__hours"),
-                myMinutes = document.querySelector(".append__minutes"),
-                mySeconds = document.querySelector(".append__seconds");
-            let secondsEnd = 60;
-            let minutesEnd = 19;
-            let hoursEnd = 0;
-            const secondsInterval = setInterval(() => {
-                secondsEnd--;
-                mySeconds.textContent = secondsEnd;
-                myMinutes.textContent = minutesEnd;
-                myHours.textContent = hoursEnd;
-                if (secondsEnd < 10) {
-                    mySeconds.textContent = `0${secondsEnd}`;
-                }
-                if (minutesEnd < 10) {
-                    myMinutes.textContent = `0${minutesEnd}`;
-                }
-                if (hoursEnd < 10) {
-                    myHours.textContent = `0${hoursEnd}`;
-                }
-                if (minutesEnd == 0 && hoursEnd == 0 && secondsEnd == 0) {
-                    clearInterval(secondsInterval);
-                    redirect();
-                } else if (secondsEnd == 0) {
-                    if (minutesEnd % 60 == 0) {
-                        hoursEnd--;
-                    }
-                    minutesEnd--;
-                    secondsEnd = 60;
-                }
-            }, 1000);
-        }
-    };
-
-    try {
-        timer20();
-    } catch {}
-
-    const copyText = (btn, input) => {
-        document.querySelector(btn).addEventListener("click", (e) => {
-            e.preventDefault();
-            if (
-                e.target.classList.contains("replenish__btn--active") ||
-                input == ".hide__address" ||
-                input == ".append__coppied input"
-            ) {
-                document.querySelector(input).select();
-                document.execCommand("copy");
-                if (btn == ".append__copy") {
-                    document.querySelector(".append__success").style.display =
-                        "inline-block";
-                    setTimeout(() => {
-                        document.querySelector(
-                            ".append__success"
-                        ).style.display = "none";
-                    }, 2000);
-                }
-                if (
-                    input == ".append__coppied input" &&
-                    document.documentElement.clientWidth < 500
-                ) {
-                    document.querySelector(".append__success").style.display =
-                        "inline-block";
-                    setTimeout(() => {
-                        document.querySelector(
-                            ".append__success"
-                        ).style.display = "none";
-                    }, 2000);
-                }
-                try {
-                    document.querySelector(".replenish__box").style.display =
-                        "block";
-                    setTimeout(() => {
-                        document.querySelector(
-                            ".replenish__box"
-                        ).style.display = "none";
-                    }, 1500);
-                } catch {}
-            }
-        });
-    };
-    try {
-        copyText(".append__copy", ".append__coppied input");
-    } catch {}
-    try {
-        copyText(".append__coppied input", ".append__coppied input");
-    } catch {}
-    try {
-        copyText(".divOut__copy", ".hide__address");
-    } catch {}
-
     if (localStorage.getItem("top") == "true") {
         document.querySelector(".header__top").style.display = "none";
     }
@@ -787,18 +694,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch {}
     try {
         closeWindow("#thanksClose", "#thanks");
-    } catch {}
-
-    const closeMenu = (items, btn) => {
-        document.querySelectorAll(items).forEach((one) => {
-            one.addEventListener("click", () => {
-                document.querySelector(btn).click();
-            });
-        });
-    };
-
-    try {
-        closeMenu(".header__item", ".header__btn");
     } catch {}
 
     const showCloseWindow = (trigger, block) => {

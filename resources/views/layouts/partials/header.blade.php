@@ -17,17 +17,36 @@
                     </svg>
                 </a>
             </div>
-            <div class="header__lang header__lang--mob">
-                @include('layouts.partials.lang-list')
-            </div>
-            <div class="header__btn" @click="menu = !menu" :class="{'active': menu}">
-                <div></div>
-                <div></div>
-                <div></div>
-                <img src="{{ asset('images/headerClose.svg') }}" alt="close">
-            </div>
+
+			<div class="flex items-center gap-x-5 md:gap-x-10">
+				<div class="header__lang">
+					@include('layouts.partials.lang-list')
+				</div>
+
+				@unless (request()->routeIs('cabinet.*'))
+					<div class="header__person active">
+						<a href="{{ LaravelLocalization::localizeUrl(route('cabinet.portfolio')) }}">
+							<svg width="38" height="34" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect width="37.4" height="34" rx="1.36" stroke="white" stroke-width="4"
+									mask="url(#path-1-inside-1_17:597)"/>
+								<path
+									d="M10.2002 25.8402C10.2002 22.5252 14.6202 22.5252 16.8302 20.3152C17.9352 19.2102 14.6202 19.2102 14.6202 13.6852C14.6202 10.0022 16.0932 8.16016 19.0402 8.16016C21.9872 8.16016 23.4602 10.0022 23.4602 13.6852C23.4602 19.2102 20.1452 19.2102 21.2502 20.3152C23.4602 22.5252 27.8802 22.5252 27.8802 25.8402"
+									stroke="white" stroke-width="2" stroke-linecap="round"/>
+							</svg>
+						</a>
+					</div>
+				@endif
+	
+				<div class="header__btn w-[30px]" @click="menu = !menu" :class="{'active': menu}">
+					<div></div>
+					<div></div>
+					<div></div>
+					<img src="{{ asset('images/headerClose.svg') }}" alt="close">
+				</div>
+			</div>
+
             <div class="header__hide" x-show="menu" x-cloak>
-                <div class="header__person active">
+                {{-- <div class="header__person active">
                     <a href="/login">
                         <svg width="38" height="34" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="path-1-inside-1_17:597" fill="white">
@@ -40,7 +59,7 @@
                                 stroke="white" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </a>
-                </div>
+                </div> --}}
                 <div class="header__list">
                     <nav>
                         <ul>
@@ -56,27 +75,7 @@
                     </nav>
                 </div>
             </div>
-            <div class="header__menu">
-                <div class="header__lang">
-					@include('layouts.partials.lang-list')
-                </div>
-				@unless (request()->routeIs('cabinet.*'))
-					<div class="header__person active">
-						<a href="{{ LaravelLocalization::localizeUrl(route('cabinet.portfolio')) }}">
-							<svg width="38" height="34" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<mask id="path-1-inside-1_17:597" fill="white">
-									<rect width="37.4" height="34" rx="1.36"/>
-								</mask>
-								<rect width="37.4" height="34" rx="1.36" stroke="white" stroke-width="4"
-									mask="url(#path-1-inside-1_17:597)"/>
-								<path
-									d="M10.2002 25.8402C10.2002 22.5252 14.6202 22.5252 16.8302 20.3152C17.9352 19.2102 14.6202 19.2102 14.6202 13.6852C14.6202 10.0022 16.0932 8.16016 19.0402 8.16016C21.9872 8.16016 23.4602 10.0022 23.4602 13.6852C23.4602 19.2102 20.1452 19.2102 21.2502 20.3152C23.4602 22.5252 27.8802 22.5252 27.8802 25.8402"
-									stroke="white" stroke-width="2" stroke-linecap="round"/>
-							</svg>
-						</a>
-					</div>
-				@endif
-            </div>
+
         </div>
     </div>
 </header>
