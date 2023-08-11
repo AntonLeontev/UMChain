@@ -18,6 +18,8 @@ host('45.146.165.254')
     ->set('remote_user', 'deployer')
     ->set('deploy_path', '~/umchain');
 
+// Tasks
+
 task('build', function () {
     cd('{{release_path}}');
     run('npm install');
