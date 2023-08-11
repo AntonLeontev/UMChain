@@ -24,7 +24,14 @@ task('build', function () {
     run('npm run build');
 });
 
+task('cache_routes', function () {
+    cd('{{release_path}}');
+    run('php artisan route:clear');
+    run('php artisan route:trans:cache');
+});
+
 // Hooks
-after('deploy:publish', 'build');
+after('deploy:vendors', 'build');
+after('artisan:route:cache', 'cache_routes');
 
 after('deploy:failed', 'deploy:unlock');

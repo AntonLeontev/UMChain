@@ -10,26 +10,15 @@ use App\Http\Controllers\WithdrawalController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-Route::group([
-	'prefix' => LaravelLocalization::setLocale(),
-	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ]
-], function()
+Route::middleware([ 'localeSessionRedirect', 'localizationRedirect' ])
+	->prefix(LaravelLocalization::setLocale())
+	->group(function()
 {
 	Route::get('/', [PageController::class, 'home'])->name('home');
 
 	if (app()->isLocal()) {
 		Route::get('test', function() {
-			return __('notifications.test', ['value' => 125]);
+			dd(LaravelLocalization::getSupportedLocales(), 'ru');
 		});
 	}
 
