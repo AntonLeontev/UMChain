@@ -228,6 +228,8 @@ body {
     max-width: 892px;
 }
 .content__list {
+	position: sticky;
+	top: 30px;
     padding-bottom: 30px;
     font-family: "Montserrat", sans-serif;
 }

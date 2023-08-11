@@ -1,9 +1,9 @@
 <?php
 
 return [
-	'UMCHAIN – IT solutions for business based on blockchain' => 'UMCHAIN – IT solutions for business based on blockchain',
+	'UMCHAIN – IT solutions for business based on blockchain' => 'UMCHAIN - IT Solutions for Creators White Paper',
 	'Become one of the first. Take a step into a decentralized future' => 'Become one of the first. Take a step into a decentralized future',
-	'Sign up for the purchase of umt tokens' => 'Sign up for the purchase of UMCT tokens',
+	'Sign up for the purchase of umt tokens' => 'Buy UMCT Tokens',
 	'What is Umchain?' => 'What is Umchain?',
 	'menu' => [
 		'advantages' => 'Advantages of UMChain',
@@ -21,34 +21,39 @@ return [
 		'6' => 'Make the system accessible to a wide range of Buyers by using cloud signature tools.',
 		'7' => 'For sellers, this platform offers the opportunity to create their own website, online store, add content, upload products, etc. Users will be able to access the service by making payments using our token.',
 		'8' => 'The objectives of the system are:',
-		'9' => 'making the system available to a wide range of Buyers through the use of cloud signature tools',
+		'9' => 'Making the system available to a wide range of Buyers through the use of cloud signature tools',
+		'10' => 'Creating simple and complex Web projects in a short period of time',
 	],
 	'partner' => [
 		'h1' => 'How to become a partner',
+		'step' => 'Step',
+		'1' => 'Register in the personal cabinet',
+		'2' => 'Select the number of Tokens',
+		'3' => 'Invest in tokens by exchanging USDT for UMCT Token',
+		'4' => 'You must be the owner of any cryptocurrency wallet to make transactions. If you don\'t have a cryptocurrency wallet yet, you can use our instructions on how to install the app on your smartphone',
 	],
 	'web' => [
 		'h1' => 'Web 3.0',
-		'1' => 'a decentralised Web 3.0 website builder',
-		'2' => 'Umchain is a decentralised optimised website builder. The project provides an opportunity to create a full-fledged website and engage in commerce, selling goods or services on the Internet.',
-		'3' => 'The personal cabinet has everything you need to manage your business: notification settings, statistics on orders, the amount of money earned.',
-		'4' => 'When creating a website, you can individually choose the way of making payments in the system: p2p, cryptoprocessing payments. or use Internet acquiring.',
-		'5' => 'When you select Internet e-charging, the system launches the UMChain smart contract.',
+		'1' => 'a decentralized neural constructor for Web 3.0 sites',
+		'2' => 'Umchain is a decentralized neural website builder. The project provides an opportunity to create a full-fledged website and engage in commerce, selling goods or services on the Internet.',
+		'3' => 'You can create a site from 5 minutes and get files for uploading to your hosting.',
+		'4' => 'In a personal cabinet has everything you need to manage your business: notification settings, statistics on orders, the amount of money earned.',
+		'5' => 'When creating a site individually choose the way of payments in the system: p2p, cryptoprocessing payments. or the use of Internet acquiring.',
 		'capabilities' => [
-			'title' => 'Capabilities:',
-			'1' => 'Tracking of all transactions on the site',
-			'2' => 'Withdrawal of funds 24/7',
-			'3' => 'Quick creation of a website, online shop in 15 minutes',
-			'4' => 'Possibility to create and sell NFT',
-			'5' => 'Peer to Peer Transaction',
+			'title' => 'Opportunities:',
+			'1' => 'Tracking of all transactions on the site;',
+			'2' => 'Quick creation of a website, online store, marketplace from 5 minutes;',
+			'3' => 'Ability to create and sell NFT',
+			'4' => 'Peer to Peer Transaction',
 		],
 		'advantages' => [
 			'title' => 'Advantages of UMChain',
 			'1' => [
 				'1' => 'CMS',
 				'2' => ' - constructor',
-				'3' => 'Interaction with the platform involves the placement of goods and services on an individually created site.',
+				'3' => 'Interaction with the platform involves placing goods and services on an individually created site using.',
 				'4' => 'Your domain, information about your company, your wallet number (in case of p2p interaction) are used to create a resource.',
-				'5' => 'Intuitive personal cabinet makes working with the site on DWB easy and pleasant, and internal SEO optimisation and user interface - convenient for your clients and site visitors.',
+				'5' => 'Intuitive personal cabinet makes working with the site on UMCHAIN easy and pleasant, and internal SEO optimization and user interface - convenient for your clients and site visitors.',
 			],
 			'2' => [
 				'1' => 'Individual',
@@ -67,7 +72,7 @@ return [
 			'4' => [
 				'1' => 'Own',
 				'2' => ' marketplace',
-				'3' => 'Possibility to create your own marketplace, with a referral programme',
+				'3' => 'Possibility to create your own marketplace, with referral program, registration of sellers, etc.. ',
 				'4' => '',
 				'5' => '',
 			],
@@ -106,9 +111,27 @@ return [
 	],
 	'benefitInvestor' => [
 		'h1' => 'Benefit to Investor ',
-		'1' => 'Perpetual use of the service free of charge',
+		'1' => 'Indefinite free use of the service',
 		'2' => 'Staking',
-		'3' => 'Passive income from trading UMCT tokens once the company enters into the cryptocurrency exchange',
+		'3' => 'Passive income from UMCT token trading after the company goes public on a cryptocurrency exchange',
 		'btn' => 'Become an investor',
+	],
+	'utilityFunction' => [
+		'title' => 'UMCT utility-token function',
+		'1' => 'Function of the UMChain Utility-Token The Umchain functions UMCT (Utility-Token), an infrastructure unit that serves the economic model of the ecosystem.',
+		'2' => 'The ability to use the Umchain ecosystem implies that all mutual settlements take place only in the native UMCT token.',
+		'3' => 'With each new transaction, the system contacts the Utility token for confirmation. In case of a positive response, a new blockchain is formed, where a product card with quantity and price is created. The price is recorded in the blockchain and a stacktoken equal to this amount is created. When the created item is sold, the amount in the form of the stabletoken is transferred to the seller\'s wallet.',
+		'4' => 'Utility-token holders receive remuneration from each transaction in the network: from the creation of goods to their sale.',
+	],
+	'technicalFunction' => [
+		'title' => 'UMT technical token function',
+		'1' => 'The UMT Token functions in Umchain - it is a stable token and is generated when the method of mutual settlements via crypto-processing or internet acquiring is chosen during the creation of a website.',
+		'2' => 'When creating a product card in the UMChain platform, a block with the price of this card is created, and upon a successful UMT transaction, the UMT token is distributed across the network (to the seller, referrer, etc.).',
+	],
+	'roadmap' => [
+		'title' => 'Roadmap',
+	],
+	'feedback' => [
+		'title' => 'Contact us',
 	],
 ];

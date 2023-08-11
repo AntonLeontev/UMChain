@@ -14,10 +14,10 @@
 
                         @if(Auth::check())
 {{--                            <a href="{{ route('cabinet.personal.data') }}">Записаться на покупку umt токенов</a>--}}
-                            <a href="#" id="majorBtn">{{ __('Sign up for the purchase of umt tokens') }}</a>
+                            <a href="#" id="majorBtn">{{ __('home.Sign up for the purchase of umt tokens') }}</a>
                         @else
 {{--                            <a href="{{ route('register') }}">Записаться на покупку umt токенов</a>--}}
-                            <a href="#" id="majorBtn">{{ __('Sign up for the purchase of umt tokens') }}</a>
+                            <a href="#" id="majorBtn">{{ __('home.Sign up for the purchase of umt tokens') }}</a>
                         @endif
                     </div>
                     <div class="major__img-block">
@@ -58,11 +58,11 @@
                     <li><a href="#distribution">{{ __('home.menu.forWhom') }}</a></li>
                     <li><a href="#benefit-partner">{{ __('home.menu.benefitPartner') }}</a></li>
                     <li><a href="#benefit-investor">{{ __('home.menu.benefitInvestor') }}</a></li>
-                    <li><a href="#team">Функция utility-токена UMC</a></li>
-                    <li><a href="#reg">Функция технического токена UMT</a></li>
+                    <li><a href="#team">{{ __('home.utilityFunction.title') }}</a></li>
+                    <li><a href="#reg">{{ __('home.technicalFunction.title') }}</a></li>
                     <li><a href="#tok">Tokenomics</a></li>
-                    <li><a href="#map">Дорожная карта</a></li>
-                    <li><a href="#feedback">Свяжитесь с нами</a></li>
+                    <li><a href="#map">{{ __('home.roadmap.title') }}</a></li>
+                    {{-- <li><a href="#feedback">{{ __('home.feedback.title') }}</a></li> --}}
                 </ul>
             </div>
         </div>
@@ -100,9 +100,13 @@
 					<p>
                         <strong>-	{{ __('home.what.9') }}</strong>
                     </p>
+					<p>
+                        <strong>-	{{ __('home.what.10') }}</strong>
+                    </p>
                 </div>
             </section>
-            <div class="bepartner" id="bepartner">
+
+            <section class="bepartner" id="bepartner">
                 <div class="bepartner__inner">
                     <h3 class="common__title">{{ __('home.partner.h1') }}</h3>
                     <div class="bepartner__wrapper">
@@ -110,62 +114,59 @@
                             <div class="bepartner__image">
                                 <img src="{{asset('images/bepartnerOne.svg')}}" alt="">
                             </div>
-                            <div class="bepartner__step">Шаг1</div>
-                            <div class="bepartner__description">1. Зарегистрироваться в личном кабинете</div>
+                            <div class="bepartner__step">{{ __('home.partner.step') }} 1</div>
+                            <div class="bepartner__description">1. {{ __('home.partner.1') }}</div>
                         </div>
                         <div class="bepartner__item">
                             <div class="bepartner__image">
                                 <img src="{{asset('images/bepartnerTwo.svg')}}" alt="">
                             </div>
-                            <div class="bepartner__step">Шаг2</div>
-                            <div class="bepartner__description">2. Выбрать количество Токенов</div>
+                            <div class="bepartner__step">{{ __('home.partner.step') }} 2</div>
+                            <div class="bepartner__description">2. {{ __('home.partner.2') }}</div>
                         </div>
                         <div class="bepartner__item">
                             <div class="bepartner__image">
                                 <img src="{{asset('images/bepartnerThree.svg')}}" alt="">
                             </div>
-                            <div class="bepartner__step">Шаг3</div>
-                            <div class="bepartner__description">3. Инвестировать в токены, совершив обмен USDT на UMС Токен
+                            <div class="bepartner__step">{{ __('home.partner.step') }} 3</div>
+                            <div class="bepartner__description">3. {{ __('home.partner.3') }}
                             </div>
                         </div>
                     </div>
-                    <div class="bepartner__addition">*Для совершения транзакций необходимо быть владельцем любого
-                        криптокошелька. Если у вас еще нет криптокошелька, вы можете воспользоваться нашей <a href="">инструкцией
-                            по установке</a> приложения на ваш смартфон
+                    <div class="bepartner__addition">*{{ __('home.partner.4') }}
                     </div>
-                    <div class="bepartner__btn">
-                        @if(Auth::check())
-                            <a href="{{ route('cabinet.personal') }}">Купить по стартовой цене</a>
-                        @else
-                            <a href="{{ route('login') }}">Купить по стартовой цене</a>
-                        @endif
-                    </div>
-                    <div class="bepartner__small">(!) Инвестиционная криптовалютная деятельность, включая получение Токенов UMC, подвержена рыночному риску. Мы предоставляем вам простые и удобные способы получения Токенов UMC. Мы прилагаем все усилия, чтобы исчерпывающе информировать пользователей о предложенных на бирже криптовалютах, но не несем ответственности за последствия, которые могут возникнуть в результате получения Токенов UMC. Любая информация, изложенная на данной странице, несет исключительно информационный характер относительно конкретных Токенов или способа их получения.</div>
+                    {{-- <div class="bepartner__btn">
+						<a href="{{ route('cabinet.wallet') }}">Купить по стартовой цене</a>
+                    </div> --}}
+                    {{-- <div class="bepartner__small">(!) Инвестиционная криптовалютная деятельность, включая получение Токенов UMC, подвержена рыночному риску. Мы предоставляем вам простые и удобные способы получения Токенов UMC. Мы прилагаем все усилия, чтобы исчерпывающе информировать пользователей о предложенных на бирже криптовалютах, но не несем ответственности за последствия, которые могут возникнуть в результате получения Токенов UMC. Любая информация, изложенная на данной странице, несет исключительно информационный характер относительно конкретных Токенов или способа их получения.</div> --}}
                 </div>
-            </div>
+            </section>
+			
             <section class="overview" id="overview">
                 <div class="overview__inner">
-                    <h3 class="common__title">{{ __('home.web.h1') }}</h3>
-                    <p class="common__text"><span class="text--ping">Umchain</span> {{ __('home.web.1') }}</p>
-                    <div class="overview__box">
-                        <div class="overview__info">
-                            <p> {{ __('home.web.2') }}</p>
-                            <p>{{ __('home.web.3') }}</p>
-                            <p>{{ __('home.web.4') }}</p>
-                            <p>{{ __('home.web.5') }}</p>
-                        </div>
-                        <div class="overview__right">
-                            <div class="overview__task">{{ __('home.web.capabilities.title') }}</div>
-                            <ul class="overview__list">
-                                <li class="overview__item">{{ __('home.web.capabilities.1') }}</li>
-                                <li class="overview__item">{{ __('home.web.capabilities.2') }}</li>
-                                <li class="overview__item">{{ __('home.web.capabilities.3') }}</li>
-                                <li class="overview__item">{{ __('home.web.capabilities.4') }}</li>
-                                <li class="overview__item">{{ __('home.web.capabilities.5') }}</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="overview__competition" id="benefit">
+					<div class="web">
+						<h3 class="common__title">{{ __('home.web.h1') }}</h3>
+						<p class="common__text"><span class="text--ping">Umchain</span> {{ __('home.web.1') }}</p>
+						<div class="overview__box">
+							<div class="overview__info">
+								<p> {{ __('home.web.2') }}</p>
+								<p>{{ __('home.web.3') }}</p>
+								<p>{{ __('home.web.4') }}</p>
+								<p>{{ __('home.web.5') }}</p>
+							</div>
+							<div class="overview__right">
+								<div class="overview__task">{{ __('home.web.capabilities.title') }}</div>
+								<ul class="overview__list">
+									<li class="overview__item">{{ __('home.web.capabilities.1') }}</li>
+									<li class="overview__item">{{ __('home.web.capabilities.2') }}</li>
+									<li class="overview__item">{{ __('home.web.capabilities.3') }}</li>
+									<li class="overview__item">{{ __('home.web.capabilities.4') }}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+                    <div class="overview__competition advantages" id="benefit">
                         <h4 class="overview__title">{{ __('home.web.advantages.title') }}</h4>
                         <div class="overview__wrapper">
                             <div class="overview__one">
@@ -204,7 +205,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="overview__trouble" id="distribution">
+					
+                    <div class="overview__trouble for-whom" id="distribution">
                         <h4 class="overview__title">{{ __('home.forWhom.h1') }}</h4>
                         <div class="overview__box">
                             <div class="overview__info">
@@ -306,7 +308,8 @@
                     </div>
                 </div>
             </section>
-            <section id="benefit-investor" class="benefit mb-98" id="about ">
+
+            <section id="benefit-investor" class="benefit-investor mb-98" id="about ">
                 <div class="benefit__inner">
                     <h3 class="common__title">{{ __('home.benefitInvestor.h1') }}</h3>
                     <div class="mb-20 benefit__wrapper">
@@ -340,34 +343,36 @@
                     </div>
                 </div>
             </section>
-            <section class="mb-56" id="team">
+
+            <section class="mb-56 utility" id="team">
                  <div >
-                    <h3 class="common__title">Функция Utility-токена UMC</h3>
+                    <h3 class="common__title">{{ __('home.utilityFunction.title') }}</h3>
                     <div class="what__text">
                         <p>
-                            В Umchain функционирует UMC (Utility-Token) – инфраструктурная единица, которая обслуживает экономическую модель экосистемы.
+                            {{ __('home.utilityFunction.1') }}
                         </p>
                         <p>
-                            Возможность пользования экосистемой Umchain предполагает, что все взаиморасчеты происходят только в нативном токене UMC.
+                            {{ __('home.utilityFunction.2') }}
                         </p>
                         <p>
-                            При каждой новой транзакции, система обращается к Utility-токену за подтверждением. В случае положительного ответа формируется новый блок, в котором создается карточка товара с количеством и ценой. Цена записывается в блокчейн и создается стейблтокен равный этой сумме. При продаже созданного товара сумма в виде стейблтокена поступает на кошелек продавца.
+                            {{ __('home.utilityFunction.3') }}
                         </p>
                         <p>
-                            Владельцы Utility-токена получают вознаграждение с каждой транзации в сети: от создания товара до его продажи.
+                            {{ __('home.utilityFunction.4') }}
                         </p>
                     </div>
                 </div>
             </section>
-            <section class="mb-56" id="reg">
+
+            <section class="mb-56 technical" id="reg">
                  <div>
-                    <h3 class="common__title">Функция Технического токена UMT</h3>
+                    <h3 class="common__title">{{ __('home.technicalFunction.title') }}</h3>
                     <div class="mb-56 what__text">
                         <p>
-                           В Umchain функционирует UMT Token – он явлеятся стейбл токеном и вырабатывается в случае, когда при создании сайта выбран способ взаиморасчетов через нашу платежную систему.</p>
-
+                           {{ __('home.technicalFunction.1') }}
+                        </p>
                         <p>
-                           При создании карточки товара в платформе DWB, создается блок с ценой этой картчочки, при успешной транзакции UMT токен распределяется по сети (продавцу, реферералу и тд.)</p>
+                           {{ __('home.technicalFunction.2') }}
                         </p>
                     </div>
 
@@ -380,7 +385,7 @@
                 </div>
             </section>
 
-            <section class="mb-56">
+            <section class="mb-56 distribution">
                 <div class="distribution__table">
                     <div class="distribution__left">
                         <div class="distribution__wrapper">
@@ -545,7 +550,7 @@
             </section>
 
 
-            <section id="tok">
+            <section id="tok" class="tokenomics">
                 <div class="about__inner mb-44">
                     <h4 class="tok__title mb-44">Tokenomics</h4>
                     <picture>
@@ -824,9 +829,9 @@
 
             </section>
 
-            <section class="about" id="map">
+            <section class="about roadmap" id="map">
                 <div class="about__inner">
-                    <h4 class="overview__title">Дорожная карта</h4>
+                    <h4 class="overview__title">{{ __('home.roadmap.title') }}</h4>
                     <div class="overview__choose">
                         <div class="overview__num">2022</div>
                         <div class="overview__arrow">
@@ -1178,10 +1183,10 @@
                 </div>
             </section>
             <div>
-				<section class="reg reg--small" id="reg">
+				{{-- <section class="reg reg--small" id="reg">
 					<div class="container">
 						<div class="reg__inner">
-							<h1 class="reg__title">{{__('Contact us')}}</h1>
+							<h1 class="reg__title">{{ __('home.feedback.title') }}</h1>
 							<div class="reg__wrapper">
 								<div class="reg__info">
 									<div class="reg__form">
@@ -1229,7 +1234,7 @@
 							</div>
 						</div>
 					</div>
-				</section>
+				</section> --}}
 			</div>
         </div>
     </div>
