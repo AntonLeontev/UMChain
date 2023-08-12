@@ -378,166 +378,209 @@
             </section>
 
             <section class="mb-56 distribution">
-                <div class="distribution__table">
-                    <div class="distribution__left">
-                        <div class="distribution__wrapper">
-                            <div class="distribution__round"><span>Бизнес Роли</span></div>
-                        </div>
-                    </div>
-                    <div class="distribution__middle">
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                                Оператор платформы
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                                Продавец (Поставщик)
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                                Покупатель
-                            </div>
-                        </div>
-                    </div>
-                    <div class="distribution__right">
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Оператор платформы, обеспечивающий ввод фиатных средств в систему, и, как следствие, эмиссию и сжигание токенов UMT
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Пользователь экосистемы, осуществляющий загрузку товаров на контракт Umchain
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Пользователь маркетплейса, осуществляющий покупку товаров на маркетплейс за UM токен
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+				<div class="relative grid grid-flow-row grid-cols-1 mb-2 md:grid-cols-3 md:grid-rows-1">
+					<div class="relative p-[18px] before:absolute before:left-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:absolute after:top-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+						<div class="distribution__round before:absolute before:right-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px] ">
+							<span class="font-[Montserrat]">Бизнес Роли</span>
+						</div>
+					</div>
+
+					<div class="relative md:col-span-2 after:absolute before:absolute before:right-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+
+						<div class="after:absolute after:left-0 after:w-[1px] after:bg-black after:top-[13px] after:bottom-[13px] md:after:w-auto md:after:top-0 md:after:h-[1px] md:after:left-[13px] md:after:right-[13px]">
+							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										Оператор платформы
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										Оператор платформы, обеспечивающий ввод фиатных средств в систему, и, как следствие, эмиссию и сжигание токенов UMT 
+									</div>
+								</div>
+							</div>
+
+							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										Продавец (Поставщик)
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										Пользователь экосистемы, осуществляющий загрузку товаров на контракт Umchain
+									</div>
+								</div>
+							</div>
+							
+							<div class="flex py-1">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										Покупатель
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										Пользователь маркетплейса, осуществляющий покупку товаров на маркетплейс за UM токен
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
 
             </section>
 
             <section class='mb-56'>
-                <div class="distribution__table">
-                    <div class="distribution__left">
-                        <div class="distribution__wrapper">
-                            <div class="distribution__round"><span>Описание компонентов системы</span></div>
-                        </div>
-                    </div>
-                    <div class="distribution__middle">
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            UMT Token Contract
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            UMC Token Contract
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Access Control
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Seller Contract
-                            </div>
-                        </div>
-                        <div class="distribution__item distribution__item-a">
-                            <div class="distribution__wrapper">
+				<div class="relative grid grid-flow-row grid-cols-1 mb-2 md:grid-cols-3 md:grid-rows-1">
+					<div class="relative p-[18px] before:absolute before:left-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:absolute after:top-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+						<div class="distribution__round before:absolute before:right-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px] ">
+							<span class="font-[Montserrat]">Описание компонентов системы</span>
+						</div>
+					</div>
 
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Magic Wallet
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Seller-service
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            App DB
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Alchemy Poygon Node
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Gateway
-                            </div>
-                        </div>
-                    </div>
-                    <div class="distribution__right">
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Прикладной контракт, реализующий функции эмиссии, оборота и сжигания токенов UMT
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Прикладной контракт, реализующий функции эмиссии, оборота и сжигания токенов UMC
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            ACL Contract	Прикладной контракт, реализующий ролевую модель участников
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                                <div>Прикладной контракт, реализующий функции:</div>
-                                <div>- создания, редактирования, удаления партнеров</div>
-                            </div>
-                        </div>
-                        <div class="distribution__item distribution__item-a">
-                            <div class="distribution__wrapper">
-                                <ul>
-                                    <li>- создания, редактирования, удаления товаров</li>
-                                    <li>- расщепление платежа в соответствии с правилами</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Внешний сервис, реализующий аутентификацию и выдачу адреса в блокчейне через SMS/Email/Social Login
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            ACL Contract	Прикладной контракт, реализующий ролевую модель участников
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Системный компонент, база данных, обеспечивающая хранение витрин данных
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Системный компонент, узел блокчейна Polygon в Alchemy BaaS (Blockchain-as-a-Service)
-                            </div>
-                        </div>
-                        <div class="distribution__item">
-                            <div class="distribution__wrapper">
-                            Системный компонент, nginx, реализующий единую точку входа в API системы
-                            </div>
-                        </div>
-                    </div>
-                </div>
+					<div class="relative md:col-span-2 after:absolute before:absolute before:right-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+
+						<div class="after:absolute after:left-0 after:w-[1px] after:bg-black after:top-[13px] after:bottom-[13px] md:after:w-auto md:after:top-0 md:after:h-[1px] md:after:left-[13px] md:after:right-[13px]">
+							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										UMT Token Contract
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										Прикладной контракт, реализующий функции эмиссии, оборота и сжигания токенов UMT 
+									</div>
+								</div>
+							</div>
+
+							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										UMC Token Contract
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										Прикладной контракт, реализующий функции эмиссии, оборота и сжигания токенов UMC
+									</div>
+								</div>
+							</div>
+
+							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										Access Control
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										ACL Contract	Прикладной контракт, реализующий ролевую модель участников
+									</div>
+								</div>
+							</div>
+
+							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										Seller Contract
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										<div>Прикладной контракт, реализующий функции:</div>
+                                		<div>- создания, редактирования, удаления партнеров</div>
+										<div>- создания, редактирования, удаления товаров</div>
+                                    	<div>- расщепление платежа в соответствии с правилами</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										Magic Wallet
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										Внешний сервис, реализующий аутентификацию и выдачу адреса в блокчейне через SMS/Email/Social Login
+									</div>
+								</div>
+							</div>
+
+							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										Seller-service
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										ACL Contract	Прикладной контракт, реализующий ролевую модель участников
+									</div>
+								</div>
+							</div>
+
+							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										App DB
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										Системный компонент, база данных, обеспечивающая хранение витрин данных
+									</div>
+								</div>
+							</div>
+
+							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										Alchemy Poygon Node
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										Системный компонент, узел блокчейна Polygon в Alchemy BaaS (Blockchain-as-a-Service)
+									</div>
+								</div>
+							</div>
+							
+							<div class="flex py-1">
+								<div class="w-1/2 shrink-0 distribution__item">
+									<div class="distribution__wrapper">
+										Gateway
+									</div>
+								</div>
+
+								<div class="distribution__item">
+									<div class="distribution__wrapper">
+										Системный компонент, nginx, реализующий единую точку входа в API системы
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
             </section>
 
