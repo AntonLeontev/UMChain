@@ -21,10 +21,15 @@
     <body 
 		class="flex flex-col min-h-screen font-sans antialiased" 
 		x-data="{
-			unscroll: false
+			unscroll: false,
+
+			toTop() {
+				window.scrollTo(0, 0);
+				document.getElementById('mobile-menu').scrollTo(0, 0);
+			}
 		}" 
-		@menu-click="unscroll = !unscroll"
-		@buy-click="unscroll = true"
+		@menu-click="unscroll = !unscroll;toTop()"
+		@buy-click="unscroll = true;toTop()"
 		:class="unscroll && 'overflow-hidden'"
 	>
 		@include('layouts.partials.header')
