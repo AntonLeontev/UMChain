@@ -18,7 +18,15 @@
 			[x-cloak] {display: none;}
 		</style>
     </head>
-    <body class="flex flex-col min-h-screen font-sans antialiased">
+    <body 
+		class="flex flex-col min-h-screen font-sans antialiased" 
+		x-data="{
+			unscroll: false
+		}" 
+		@menu-click="unscroll = !unscroll"
+		@buy-click="unscroll = true"
+		:class="unscroll && 'overflow-hidden'"
+	>
 		@include('layouts.partials.header')
 
 		@yield('content')

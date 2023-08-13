@@ -1,4 +1,5 @@
-<div class="main__left" 
+<div 
+	{{ $attributes->class(['main__left'])->merge() }}
 	x-data="sidebar" 
 	x-init="$watch('page', value => title = getTitle(value))"
 	@order-created="menu = 'order'"

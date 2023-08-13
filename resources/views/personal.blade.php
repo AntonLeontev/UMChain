@@ -11,6 +11,7 @@
 				user: @json(auth()->user()->loadCount('refLink')->load('activeRefLink')->loadCount('unreadNotifications')),
 				settings: @json(settings()),
 				order: null,
+				menu: false,
 
                 handleSwitch() {
                     const menu = this.$event.detail.value;
@@ -72,23 +73,20 @@
     <section class="main" x-data="cabinet">
         <div class="container container--full">
             <div class="main__inner" 
-				x-on:switch="handleSwitch" 
-				x-on:page="handlePage"
-				@order-created="order = $event.detail"
-				@order-canceled="order = null"
-				@order-confirmed="order = null"
-				@exchange="user.usdt = $event.detail.usdt; user.umt = $event.detail.umt"
-				@withdraw="user.usdt = $event.detail.usdt"
+				x-on:switch.window="handleSwitch" 
+				x-on:page.window="handlePage"
+				@order-created.window="order = $event.detail"
+				@order-canceled.window="order = null"
+				@order-confirmed.window="order = null"
+				@exchange.window="user.usdt = $event.detail.usdt; user.umt = $event.detail.umt"
+				@withdraw.window="user.usdt = $event.detail.usdt"
+				@menu-click.window="menu = !menu"
+				@buy-click.window="menu = true"
 			>
                 <x-personal.sidebar.index />
 
 
                 <div class="main__right main__right--right">
-                    <div class="main__btn">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
 
                     <x-personal.pages.profile />
 					
@@ -156,6 +154,10 @@
                     </div>
                 </div>
             </div>
+
+			<div class="absolute top-0 w-full h-full pt-[100px] bg-black overflow-y-auto z-50" x-show="menu" x-cloak>
+				<x-personal.sidebar class="block" />
+			</div>
     </section>
 
 	<x-common.toast-panel />

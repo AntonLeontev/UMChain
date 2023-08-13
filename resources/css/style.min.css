@@ -1512,6 +1512,7 @@ body {
 .main__token,
 .main__dividends {
     max-width: 440px;
+	min-width: 280px;
     width: 100%;
     background: -o-linear-gradient(356.89deg, #e8e8e8 0%, #dbdbdb 100%);
     background: linear-gradient(93.11deg, #e8e8e8 0%, #dbdbdb 100%);
@@ -1533,7 +1534,7 @@ body {
 }
 .main__portfolio {
     max-width: 440px;
-    width: 400px;
+    /* width: 400px; */
     padding-bottom: 100px;
 }
 .main__dop {
@@ -2427,6 +2428,7 @@ body {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+	column-gap: 10px;
 }
 .wallet__one + .wallet__one {
     margin-top: 20px;
@@ -5569,23 +5571,24 @@ body {
         max-width: 450px;
     }
     .main__menu {
-        position: absolute;
+        /* position: absolute; */
         background: #2a2a2a;
         left: 0;
         top: 189px;
         padding: 82px 25px 0;
         max-height: calc(100% - 185px);
         height: 100%;
-        max-width: 210px;
+        /* max-width: 210px; */
         width: 100%;
         overflow-y: scroll;
     }
     .main__inner {
         display: block;
         position: relative;
-        overflow-y: hidden;
+        /* overflow-y: hidden; */
     }
     .main__left {
+		display: none;
         padding: 20px 30px 0 30px;
     }
     .main__top {
@@ -5599,8 +5602,8 @@ body {
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
-        margin-left: auto;
-        width: calc(100% - 200px);
+        /* margin-left: auto; */
+        width: 100%;
     }
     .main__right--rate {
         width: calc(100% - 290px);
@@ -5611,14 +5614,14 @@ body {
     .main__rate,
     .main__replenish,
     .main__orders {
-        position: absolute;
+        /* position: absolute; */
         background: #2a2a2a;
         left: 0;
         top: 189px;
         padding: 82px 25px 0;
         max-height: calc(100% - 185px);
         height: 100%;
-        max-width: 290px;
+        /* max-width: 290px; */
         width: 100%;
         margin-top: 0;
     }
@@ -6773,15 +6776,15 @@ three";
     .main__rate,
     .main__replenish,
     .main__orders {
-        display: none;
-        position: absolute;
+        /* display: none; */
+        /* position: absolute; */
         background: #2a2a2a;
         left: 0;
         top: 189px;
         padding: 20px 15px 0;
         max-height: calc(100% - 185px);
         height: 100%;
-        max-width: 291px;
+        /* max-width: 291px; */
         width: 100%;
     }
     .main__replenish {
@@ -6832,7 +6835,7 @@ three";
         width: 100%;
     }
     .main__menu {
-        display: none;
+        /* display: none; */
     }
     .main__btn {
         position: absolute;

@@ -1,9 +1,5 @@
 <div data-page="wallet" x-show="page === 'wallet'" x-cloak>
 	<div class="main__portfolio">
-		<div class="main__dop main__dop--wallet">
-			<a href="#" onclick="document.getElementById('main__btn').click()">Купить UMCT Токены</a>
-		</div>
-
 		<div class="main__balance">
 			{{-- <div class="balance__out balance__out--inactive" style="visibility: hidden">
 				<a href="#">Вывести UMCT Token</a>

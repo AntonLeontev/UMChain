@@ -60,7 +60,7 @@
 				>{{ __('cabinet/portfolio.out') }}</button>
 			</div>
         </div>
-        <div class="main__dop" @click="$dispatch('switch', {value: 'wallet'})">
+        <div class="main__dop" @click="$dispatch('switch', {value: 'wallet'});$dispatch('buy-click')">
 			<x-secondary-button class="w-full">{{ __('cabinet/portfolio.btn') }}</x-secondary-button>
         </div>
     </div>
