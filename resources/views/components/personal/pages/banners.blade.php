@@ -2,7 +2,7 @@
 	<div class="flex flex-col w-full gap-y-2">
 		<div class="mt-[100px] md:mt-8 text-xl text-center">{{ __('cabinet/banners.title') }}</div>
 		<div class="sticky top-[5px] w-full flex gap-x-2 px-5 z-[10]">
-			<div class="relative flex items-center justify-center px-2 text-white transition bg-black rounded cursor-pointer hover:text-pink" @pointerdown="copy">
+			<div class="relative flex items-center justify-center px-2 text-white transition bg-black rounded cursor-pointer md:hover:text-pink" @pointerdown="copy">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
 				</svg>
@@ -40,7 +40,7 @@
 						<a 
 							href="{{ '/storage/' . $banner->image }}" 
 							download 
-							class="flex items-center px-3 py-2 text-white transition bg-black rounded hover:text-pink"
+							class="flex items-center px-3 py-2 text-white transition bg-black rounded md:hover:text-pink"
 							@click.stop
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -48,7 +48,7 @@
 							</svg>
 						</a>
 						<button 
-							class="flex items-center px-3 py-2 text-white transition bg-black rounded hover:text-pink" 
+							class="flex items-center px-3 py-2 text-white transition bg-black rounded md:hover:text-pink" 
 							data-text="{{ $banner->url . '?ref=' . auth()->user()->activeRefLink->id }}"
 							@click.stop="copy" 
 						>
