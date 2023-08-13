@@ -186,35 +186,35 @@
             getTitle() {
                 switch (this.page) {
                     case 'wallet':
-                        return 'Wallet';
+                        return "{{ __('cabinet/sidebar.wallet') }}";
                         break;
-                    case 'personal':
-                        return 'Profile data';
+                    case "personal":
+                        return "{{ __('cabinet/sidebar.personal') }}";
                         break;
-                    case 'referral':
-                        return 'Referral';
+                    case "referral":
+                        return "{{ __('cabinet/sidebar.referral') }}";
                         break;
-                    case 'banners':
-                        return 'Banners';
+                    case "banners":
+                        return "{{ __('cabinet/sidebar.banners') }}";
                         break;
-                    case 'portfolio':
-                        return 'Portfolio';
+                    case "portfolio":
+                        return "{{ __('cabinet/sidebar.portfolio') }}";
                         break;
-                    case 'password':
-                        return 'Password';
+                    case "password":
+                        return "{{ __('cabinet/sidebar.password') }}";
                         break;
-                    case 'notifications':
-                        return 'Notifications';
+                    case "notifications":
+                        return "{{ __('cabinet/sidebar.notifications') }}";
                         break;
-                    case 'logout':
-                        return 'Logout';
+                    case "logout":
+                        return "{{ __('cabinet/sidebar.logout') }}";
                         break;
-                    case 'withdraw':
-                        return 'Withdraw USDT';
+                    case "withdraw":
+                        return "{{ __('cabinet/sidebar.withdraw') }}";
                         break;
 
                     default:
-						return 'Cabinet';
+						return "Cabinet";
                         break;
                 }
             },
