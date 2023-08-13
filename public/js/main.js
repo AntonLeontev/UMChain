@@ -696,49 +696,49 @@ document.addEventListener('DOMContentLoaded', () => {
         closeWindow("#thanksClose", "#thanks");
     } catch {}
 
-    const showCloseWindow = (trigger, block) => {
-        document.querySelector(trigger).addEventListener("click", () => {
-            if (document.querySelector(trigger).classList.contains("active")) {
-                document.querySelector(block).style.display = "none";
-                document.querySelector(trigger).classList.remove("active");
-                if (trigger == ".main__btn") {
-                    document.querySelector(".main__right").style.transform =
-                        "translateX(0)";
-                }
-            } else {
-                document.querySelector(block).style.display = "block";
-                document.querySelector(trigger).classList.add("active");
-                if (trigger == ".main__btn") {
-                    document.querySelector(".main__right").style.transform =
-                        "translateX(210px)";
-                    if (
-                        document
-                            .querySelector(trigger)
-                            .classList.contains("main__btn--big")
-                    ) {
-                        document.querySelector(".main__right").style.transform =
-                            "translateX(290px)";
-                    }
-                }
-            }
-        });
-    };
+    // const showCloseWindow = (trigger, block) => {
+    //     document.querySelector(trigger).addEventListener("click", () => {
+    //         if (document.querySelector(trigger).classList.contains("active")) {
+    //             document.querySelector(block).style.display = "none";
+    //             document.querySelector(trigger).classList.remove("active");
+    //             if (trigger == ".main__btn") {
+    //                 document.querySelector(".main__right").style.transform =
+    //                     "translateX(0)";
+    //             }
+    //         } else {
+    //             document.querySelector(block).style.display = "block";
+    //             document.querySelector(trigger).classList.add("active");
+    //             if (trigger == ".main__btn") {
+    //                 document.querySelector(".main__right").style.transform =
+    //                     "translateX(210px)";
+    //                 if (
+    //                     document
+    //                         .querySelector(trigger)
+    //                         .classList.contains("main__btn--big")
+    //                 ) {
+    //                     document.querySelector(".main__right").style.transform =
+    //                         "translateX(290px)";
+    //                 }
+    //             }
+    //         }
+    //     });
+    // };
 
-    try {
-        showCloseWindow(".dividends__arrow", ".dividends__graf");
-    } catch {}
-    try {
-        showCloseWindow(".main__btn", ".main__menu");
-    } catch {}
-    try {
-        showCloseWindow(".main__btn", ".main__rate");
-    } catch {}
-    try {
-        showCloseWindow(".main__btn", ".main__replenish");
-    } catch {}
-    try {
-        showCloseWindow(".main__btn", ".main__orders");
-    } catch {}
+    // try {
+    //     showCloseWindow(".dividends__arrow", ".dividends__graf");
+    // } catch {}
+    // try {
+    //     showCloseWindow(".main__btn", ".main__menu");
+    // } catch {}
+    // try {
+    //     showCloseWindow(".main__btn", ".main__rate");
+    // } catch {}
+    // try {
+    //     showCloseWindow(".main__btn", ".main__replenish");
+    // } catch {}
+    // try {
+    //     showCloseWindow(".main__btn", ".main__orders");
+    // } catch {}
 
     const allInputs = (one) => {
         document.querySelectorAll(one).forEach((item, index, array) => {
