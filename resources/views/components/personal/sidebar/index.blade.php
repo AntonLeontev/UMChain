@@ -168,7 +168,7 @@
                     </div> --}}
                     <div class="append__time">
                         <div class="append__buttons">
-							<x-primary-button type="submit">{{ __('cabinet/wallet.9') }}</x-primary-button>
+							<x-primary-button class="w-full md:w-auto" type="submit">{{ __('cabinet/wallet.9') }}</x-primary-button>
                             <div class="append__no" @click="$dispatch('order-canceled')">
 								<x-btn-transparent>{{ __('cabinet/wallet.10') }}</x-btn-transparent>
                             </div>

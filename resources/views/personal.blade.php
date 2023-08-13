@@ -155,7 +155,7 @@
                 </div>
             </div>
 
-			<div class="absolute top-0 w-full h-full pt-[100px] bg-black overflow-y-auto z-50" x-show="menu" x-cloak>
+			<div class="absolute top-0 w-full h-full pt-[100px] pb-[100px] bg-black overflow-y-auto z-50" x-show="menu" x-cloak>
 				<x-personal.sidebar class="block" />
 			</div>
     </section>
