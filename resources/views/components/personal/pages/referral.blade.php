@@ -10,10 +10,8 @@
 		<template x-if="user.ref_link_count === 0">
 			<div>
 				<div x-show="! formIsSent">
-					<div class="ref__title">Партнерская программа UMChain. Возможность зарабатывать от 10% выплат
-						от всех приведенных к нам партнеров.</div>
-					<div class="ref__description">Заполни анкету, получи реферальную ссылку, зарабатывай вместе с
-						нами.</div>
+					<div class="ref__title">{{ __('cabinet/referral.1') }}</div>
+					<div class="ref__description">{{ __('cabinet/referral.2') }}</div>
 					<form class="ref__form" @submit.prevent="submit">
 						<div class="main__data">
 							<x-secondary-button type="submit">{{ __('cabinet/referral.send') }}</x-secondary-button>
@@ -22,7 +20,7 @@
 				</div>
 	
 				<div x-show="formIsSent">
-					Заявка принята! Ожидайте одобрения
+					{{ __('cabinet/referral.3') }}
 				</div>
 			</div>
 		</template>
@@ -31,7 +29,7 @@
 			<div>
 				@empty (auth()->user()->activeRefLink)
 					<div x-show="user.active_ref_link === null">
-						Заявка в работе! Ожидайте одобрения
+						{{ __('cabinet/referral.4') }}
 					</div>
 				@else
 					<div class="mb-20" x-show="user.active_ref_link">
@@ -56,7 +54,7 @@
 								{{ __('cabinet/referral.copied') }}
 							</div>
 						</div>
-						<x-primary-button class="w-full" @click="$dispatch('page', 'banners')">See banners</x-primary-button>
+						<x-primary-button class="w-full" @click="$dispatch('page', 'banners')">{{ __('cabinet/referral.see banners') }}</x-primary-button>
 					</div>
 
 					<div>
