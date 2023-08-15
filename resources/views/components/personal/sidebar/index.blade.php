@@ -78,7 +78,7 @@
 
 						submit() {
 							axios
-								.put('/orders/' + this.order.id + '/make-paid', {})
+								.put(route('orders.make-paid', this.order.id), {})
 								.then(response => {
 									this.$dispatch('toast', { text: 'Thanks for order' });
 									this.$dispatch('order-confirmed');
