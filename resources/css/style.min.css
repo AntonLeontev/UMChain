@@ -3804,6 +3804,7 @@ body {
 }
 .distribution__wrapper {
     padding-left: 37px;
+	padding-right: 5px;
     font-size: 14px;
     line-height: 140%;
     letter-spacing: 0.03em;
