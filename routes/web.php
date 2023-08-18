@@ -7,10 +7,11 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\WithdrawalController;
+use App\Http\Middleware\ChangeRussianLocale;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::middleware([ 'localeSessionRedirect', 'localizationRedirect' ])
+Route::middleware([ 'localeSessionRedirect', 'localizationRedirect', ChangeRussianLocale::class ])
 	->prefix(LaravelLocalization::setLocale())
 	->group(function()
 {
