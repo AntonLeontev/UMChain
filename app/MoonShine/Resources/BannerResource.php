@@ -24,10 +24,11 @@ class BannerResource extends Resource
 			Flex::make([
 
 				Image::make('Баннер', 'image')
+					->hint('Размер фото не более 1024кб')
 					->dir('banners')
 					->disk('public')
 					->allowedExtensions(['jpg', 'gif', 'png', 'webp', 'jpeg']),
-				Url::make('Лендинг', 'url')
+				Url::make('Ссылка на лендинг', 'url')
 					->required()
 					->copy(),
 				SwitchBoolean::make('Активен', 'is_active')
