@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Gate;
 use Laravel\Telescope\IncomingEntry;
 use Laravel\Telescope\Telescope;
 use Laravel\Telescope\TelescopeApplicationServiceProvider;
+use MoonShine\Models\MoonshineUser;
 
 class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 {
@@ -56,9 +57,13 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
      */
     protected function gate(): void
     {
-        Gate::define('viewTelescope', function ($user) {
+		if ($this->app->environment('local')) {
+            return;
+        }
+		
+        Gate::define('viewTelescope', function (MoonshineUser $user) {
             return in_array($user->email, [
-                //
+                'admin',
             ]);
         });
     }

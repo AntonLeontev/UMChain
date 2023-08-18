@@ -15,9 +15,9 @@ add('writable_dirs', []);
 // Hosts
 
 // test.server
-host('45.146.165.254')
-    ->set('remote_user', 'deployer')
-    ->set('deploy_path', '~/umchain');
+// host('45.146.165.254')
+//     ->set('remote_user', 'deployer')
+//     ->set('deploy_path', '~/umchain');
 
 //production
 host('81.177.139.224')
