@@ -20,10 +20,10 @@
                             <a href="#" id="majorBtn">{{ __('home.Sign up for the purchase of umt tokens') }}</a>
                         @endif
                     </div>
-                    <div class="major__img-block">
+                    {{-- <div class="major__img-block">
                         <img class="one" src="{{asset('images/logo01.png')}}" alt="">
                         <img class="two" src="{{asset('images/logo02.png')}}" alt="">
-                    </div>
+                    </div> --}}
                 </div>
 {{--                <div class="major__right">--}}
 {{--                    <div class="major__timer">До конца 1 раунда осталось:</div>--}}

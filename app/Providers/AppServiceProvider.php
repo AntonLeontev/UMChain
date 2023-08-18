@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
 			Model::preventAccessingMissingAttributes();
 		}
 
+		if (request()->is('/ru/*')) {
+			app()->setLocale('en');
+		}
+		
 		if (request()->is('admin/*')) {
 			app()->setLocale('ru');
 		}
