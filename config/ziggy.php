@@ -1,5 +1,13 @@
 <?php
 
 return [
-    'except' => ['clockwork.*', '__clockwork*', 'telescope.*', 'admin.*'],
+    'except' => [
+		'clockwork.*', 
+		'__clockwork*', 
+		'telescope*', 
+		'telescope.*', 
+		'admin.*',
+		'moonshine*',
+		'moonshine.*',
+	],
 ];
