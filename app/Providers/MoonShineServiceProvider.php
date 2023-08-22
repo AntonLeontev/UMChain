@@ -6,6 +6,7 @@ use App\MoonShine\Resources\BannerResource;
 use App\MoonShine\Resources\OrderResource;
 use App\MoonShine\Resources\ReferralLinkResource;
 use App\MoonShine\Resources\SettingResource;
+use App\MoonShine\Resources\UserResource;
 use App\MoonShine\Resources\WithdrawalResource;
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Menu\MenuDivider;
@@ -29,6 +30,8 @@ class MoonShineServiceProvider extends ServiceProvider
             //         ->icon('bookmark'),
             // ])->translatable(),
 
+            MenuItem::make('Пользователи', new UserResource())
+                ->icon('heroicons.user-group'),
             MenuItem::make('Заказы', new OrderResource())
                 ->icon('heroicons.banknotes'),
             MenuItem::make('Заявки на вывод USDT', new WithdrawalResource())
