@@ -12,13 +12,7 @@
                     <div class="major__description">{{ __('home.Become one of the first. Take a step into a decentralized future') }}</div>
                     <div class="major__btn">
 
-                        @if(Auth::check())
-{{--                            <a href="{{ route('cabinet.personal.data') }}">Записаться на покупку umt токенов</a>--}}
-                            <a href="#" id="majorBtn">{{ __('home.Sign up for the purchase of umt tokens') }}</a>
-                        @else
-{{--                            <a href="{{ route('register') }}">Записаться на покупку umt токенов</a>--}}
-                            <a href="#" id="majorBtn">{{ __('home.Sign up for the purchase of umt tokens') }}</a>
-                        @endif
+						<a href="{{ route('register') }}">{{ __('home.Sign up for the purchase of umt tokens') }}</a>
                     </div>
                     {{-- <div class="major__img-block">
                         <img class="one" src="{{asset('images/logo01.png')}}" alt="">
@@ -989,7 +983,7 @@
 </div>
 <script src="/js/main.js"></script>
 
-<div class="popup" id="popup">
+{{-- <div class="popup" id="popup">
     <div class="popup__title">{{__('Submit a request for the purchase of UMT Tokens')}}</div>
     <div class="reg__info">
         <div class="reg__form">
@@ -1031,7 +1025,7 @@
     <div class="popup__close" id="popupClose">
         <img src="{{asset('images/close.svg')}}" alt="">
     </div>
-</div>
+</div> --}}
 @if(session()->has('message_sent_success'))
     <div class="thanks" id="thanks">
         <div class="thanks__title">{{__('Thank you for your application, our managers will contact you')}}</div>

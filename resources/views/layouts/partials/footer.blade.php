@@ -44,14 +44,19 @@
                 </div>
                 <div class="footer__social">
                     <ul class="footer__media">
-                        <li><a target="_blank" href="https://www.instagram.com/unitedmarketorg/"><img
+                        {{-- <li><a target="_blank" href="https://www.instagram.com/unitedmarketorg/"><img
                                     src="{{ asset('images/instagram.svg') }}" alt="instagram"></a></li>
                         <li><a target="_blank" href="https://www.youtube.com/channel/UCns7aIJwqWZFPPwWXd6iq6g"><img
-                                    src="{{ asset('images/youtube.svg') }}" alt="youtube"></a></li>
-                        <li><a target="_blank" href="https://twitter.com/umchainorg"><img
-                                    src="{{ asset('images/twitter.svg') }}" alt="twitter"></a></li>
-                        <li><a target="_blank" href="https://www.facebook.com/United-Market-160182772502217"><img
-                                    src="{{ asset('images/facebook.svg') }}" alt="facebook"></a></li>
+                                    src="{{ asset('images/youtube.svg') }}" alt="youtube"></a></li> --}}
+
+                        <li>
+							<a target="_blank" href="https://twitter.com/umchainorg">
+								<img src="{{ asset('images/twitter.svg') }}" alt="twitter">
+							</a>
+						</li>
+
+                        {{-- <li><a target="_blank" href="https://www.facebook.com/United-Market-160182772502217"><img
+                                    src="{{ asset('images/facebook.svg') }}" alt="facebook"></a></li> --}}
                     </ul>
                 </div>
             </div>
