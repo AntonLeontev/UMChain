@@ -44,24 +44,26 @@
     <div class="content__grid">
         <div class="content__left">
             <div class="content__list">
-                <ul>
-                    <li><a href="#what">{{ __('home.What is Umchain?') }}</a></li>
-                    <li><a href="#bepartner">{{ __('home.partner.h1') }}</a></li>
-                    <li><a href="#overview">Web 3.0</a></li>
-                    <li><a href="#benefit">{{ __('home.menu.advantages') }}</a></li>
-                    <li><a href="#distribution">{{ __('home.menu.forWhom') }}</a></li>
-                    <li><a href="#benefit-partner">{{ __('home.menu.benefitPartner') }}</a></li>
-                    <li><a href="#benefit-investor">{{ __('home.menu.benefitInvestor') }}</a></li>
-                    <li><a href="#team">{{ __('home.utilityFunction.title') }}</a></li>
-                    <li><a href="#reg">{{ __('home.technicalFunction.title') }}</a></li>
-                    <li><a href="#tok">Tokenomics</a></li>
-                    <li><a href="#map">{{ __('home.roadmap.title') }}</a></li>
+                <ul class="pcmenu">
+                    <li class="pcmenu-item" data-id="what"><a href="#what">{{ __('home.What is Umchain?') }}</a></li>
+                    <li class="pcmenu-item" data-id="bepartner"><a href="#bepartner">{{ __('home.partner.h1') }}</a></li>
+                    <li class="pcmenu-item" data-id="overview"><a href="#overview">Web 3.0</a></li>
+                    <li class="pcmenu-item" data-id="benefit"><a href="#benefit">{{ __('home.menu.advantages') }}</a></li>
+                    <li class="pcmenu-item" data-id="distribution"><a href="#distribution">{{ __('home.menu.forWhom') }}</a></li>
+                    <li class="pcmenu-item" data-id="benefit-partner"><a href="#benefit-partner">{{ __('home.menu.benefitPartner') }}</a></li>
+                    <li class="pcmenu-item" data-id="benefit-investor"><a href="#benefit-investor">{{ __('home.menu.benefitInvestor') }}</a></li>
+                    <li class="pcmenu-item" data-id="team"><a href="#team">{{ __('home.utilityFunction.title') }}</a></li>
+                    <li class="pcmenu-item" data-id="reg"><a href="#reg">{{ __('home.technicalFunction.title') }}</a></li>
+                    <li class="pcmenu-item" data-id="tok"><a href="#tok">Tokenomics</a></li>
+                    <li class="pcmenu-item" data-id="map"><a href="#map">{{ __('home.roadmap.title') }}</a></li>
                     {{-- <li><a href="#feedback">{{ __('home.feedback.title') }}</a></li> --}}
                 </ul>
             </div>
         </div>
         <div class="content__right">
-            <section class="what" id="what">
+            <section class="relative what">
+				<div class="absolute anchor -top-3" id="what"></div>
+
                 <div class="what__inner">
                     <h3 class="common__title">{{ __('home.what.h1') }}</h3>
                 </div>
@@ -100,7 +102,9 @@
                 </div>
             </section>
 
-            <section class="bepartner" id="bepartner">
+            <section class="relative bepartner">
+				<div class="absolute anchor -top-3" id="bepartner"></div>
+
                 <div class="bepartner__inner">
                     <h3 class="common__title">{{ __('home.partner.h1') }}</h3>
                     <div class="bepartner__wrapper">
@@ -136,7 +140,9 @@
                 </div>
             </section>
 			
-            <section class="overview" id="overview">
+            <section class="relative overview">
+				<div class="absolute anchor -top-3" id="overview"></div>
+
                 <div class="overview__inner">
 					<div class="web">
 						<h3 class="common__title">{{ __('home.web.h1') }}</h3>
@@ -160,7 +166,9 @@
 						</div>
 					</div>
 
-                    <div class="overview__competition advantages" id="benefit">
+                    <div class="relative overview__competition advantages">
+						<div class="absolute anchor -top-3" id="benefit"></div>
+
                         <h4 class="overview__title">{{ __('home.web.advantages.title') }}</h4>
                         <div class="overview__wrapper">
                             <div class="overview__one">
@@ -200,7 +208,9 @@
                         </div>
                     </div>
 					
-                    <div class="overview__trouble for-whom" id="distribution">
+                    <div class="relative overview__trouble for-whom">
+						<div class="absolute anchor -top-3" id="distribution"></div>
+
                         <h4 class="overview__title">{{ __('home.forWhom.h1') }}</h4>
                         <div class="overview__box">
                             <div class="overview__info">
@@ -241,7 +251,9 @@
                 </div>
             </section>
 
-            <section id="benefit-partner" class="benefit mb-98" id="about ">
+            <section class="relative benefit mb-98">
+				<div class="absolute anchor -top-3" id="benefit-partner"></div>
+
                 <div class="benefit__inner">
                     <h3 class="common__title">{{ __('home.benefitPartner.h1') }}</h3>
                     <div class="mb-20 benefit__wrapper">
@@ -299,7 +311,9 @@
                 </div>
             </section>
 
-            <section id="benefit-investor" class="benefit-investor mb-98" id="about ">
+            <section class="relative benefit-investor mb-98" id="about ">
+				<div class="absolute anchor -top-3" id="benefit-investor"></div>
+
                 <div class="benefit__inner">
                     <h3 class="common__title">{{ __('home.benefitInvestor.h1') }}</h3>
                     <div class="mb-20 benefit__wrapper">
@@ -330,7 +344,9 @@
                 </div>
             </section>
 
-            <section class="mb-56 utility" id="team">
+            <section class="relative mb-56 utility">
+				<div class="absolute anchor -top-3" id="team"></div>
+
                  <div >
                     <h3 class="common__title">{{ __('home.utilityFunction.title') }}</h3>
                     <div class="what__text">
@@ -350,7 +366,9 @@
                 </div>
             </section>
 
-            <section class="mb-56 technical" id="reg">
+            <section class="relative mb-56 technical">
+				<div class="absolute anchor -top-3" id="reg"></div>
+
                  <div>
                     <h3 class="common__title">{{ __('home.technicalFunction.title') }}</h3>
                     <div class="mb-56 what__text">
@@ -579,7 +597,9 @@
             </section>
 
 
-            <section id="tok" class="tokenomics">
+            <section class="relative tokenomics">
+				<div class="absolute anchor -top-3" id="tok"></div>
+
                 <div class="about__inner mb-44">
                     <h4 class="tok__title mb-44">Tokenomics</h4>
                     <picture>
@@ -930,7 +950,9 @@
 
             </section>
 
-            <section class="about roadmap" id="map">
+            <section class="relative about roadmap">
+				<div class="absolute anchor -top-3" id="map"></div>
+
                 <div class="about__inner">
                     <h4 class="overview__title">{{ __('home.roadmap.title') }}</h4>
                     <div class="overview__choose">
@@ -971,13 +993,7 @@
                         </div>
                 </div>
             </section>
-            <section class="team" id="feedback">
-                <div class="team__inner">
 
-                </div>
-            </section>
-            <div>
-			</div>
         </div>
     </div>
 </div>

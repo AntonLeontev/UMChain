@@ -46,7 +46,9 @@
 					<div class="header__list">
 						<nav>
 							<ul>
-								<li class="header__item active" @click="menu =false; $dispatch('menu-click')"><a href="#what">{{ __('home.What is Umchain?') }}</a></li>
+								<li class="header__item active" @click="menu =false; $dispatch('menu-click')">
+									<a href="#what">{{ __('home.What is Umchain?') }}</a>
+								</li>
 								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#bepartner">{{ __('home.partner.h1') }}</a></li>
 								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#overview">Web 3.0</a></li>
 								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#benefit">{{ __('home.menu.advantages') }}</a></li>

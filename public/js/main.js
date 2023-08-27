@@ -609,53 +609,59 @@ document.addEventListener('DOMContentLoaded', () => {
         clickCard(".card__neo");
     } catch {}
 
-    const checkPosition = (block, menu) => {
-        let blockOne = document.querySelector(block).offsetTop;
-        let blockHeight = document.querySelector(block).offsetHeight;
-        try {
-            document.addEventListener("scroll", () => {
-                if (
-                    blockOne <= document.documentElement.scrollTop &&
-                    blockOne + blockHeight >= document.documentElement.scrollTop
-                ) {
-                    document.querySelector(menu).classList.add("active");
-                } else {
-                    document.querySelector(menu).classList.remove("active");
-                }
+    /**
+     *  Изменение активного пункта в меню
+     */
+
+    let anchors = document.querySelectorAll(".anchor");
+    let menuItems = document.querySelectorAll(".pcmenu-item");
+    let menu = document.querySelector(".pcmenu");
+
+    document.addEventListener("scroll", () => {
+        let anchorInView = null;
+        let closestY = null;
+
+        anchors.forEach((el) => {
+            let y = el.getBoundingClientRect().y;
+
+            if (y > 0) return;
+
+            if (anchorInView === null) {
+                anchorInView = el;
+                closestY = y;
+                return;
+            }
+
+            if (closestY < y) {
+                anchorInView = el;
+                closestY = y;
+                return;
+            }
+        });
+
+        menuItems.forEach((el) => {
+            if (el.dataset.id === anchorInView.id) {
+                el.classList.add("active");
+                return;
+            }
+
+            el.classList.remove("active");
+        });
+    });
+
+    menu.addEventListener("click", (event) => {
+        if (!event.target.closest(".pcmenu-item")) return;
+
+        setTimeout(() => {
+            menuItems.forEach((el) => {
+                el.classList.remove("active");
             });
-        } catch {}
-    };
 
-    checkPosition(".what", ".content__list li:nth-child(1)");
-    checkPosition(".bepartner", ".content__list li:nth-child(2)");
-    checkPosition(".web", ".content__list li:nth-child(3)");
-    checkPosition(".advantages", ".content__list li:nth-child(4)");
-    checkPosition(".for-whom", ".content__list li:nth-child(5)");
-    checkPosition(".benefit", ".content__list li:nth-child(6)");
-    checkPosition(".benefit-investor", ".content__list li:nth-child(7)");
-    checkPosition(".utility", ".content__list li:nth-child(8)");
-    checkPosition(".technical", ".content__list li:nth-child(9)");
-    checkPosition(".tokenomics", ".content__list li:nth-child(10)");
-    checkPosition(".roadmap", ".content__list li:nth-child(11)");
+            event.target.closest("li").classList.add("active");
+        }, 100);
+    });
 
-    // checkPosition(".distribution", ".content__list li:nth-child(8)");
-
-    // checkPosition(".about", ".content__list li:nth-child(6)");
-
-    // const btnColor = (btn, twoInputs, thirdInput) => {
-    //     const twoValues = document.querySelectorAll(twoInputs);
-    //     document.querySelector(thirdInput).addEventListener('input', () => {
-    //         if (twoValues[0].value && twoValues[1].value && document.querySelector(thirdInput).value){
-    //             document.querySelector(btn).classList.add('replenish__btn--active');
-    //         } else {
-    //             document.querySelector(btn).classList.remove('replenish__btn--active');
-    //         }
-    //     });
-    // }
-
-    // try{
-    //     btnColor('.replenish__btn', '.replenish__input input', '.replenish__value input')
-    // } catch{}
+    /**------------------ */
 
     if (localStorage.getItem("top") == "true") {
         document.querySelector(".header__top").style.display = "none";
@@ -696,50 +702,6 @@ document.addEventListener('DOMContentLoaded', () => {
         closeWindow("#thanksClose", "#thanks");
     } catch {}
 
-    // const showCloseWindow = (trigger, block) => {
-    //     document.querySelector(trigger).addEventListener("click", () => {
-    //         if (document.querySelector(trigger).classList.contains("active")) {
-    //             document.querySelector(block).style.display = "none";
-    //             document.querySelector(trigger).classList.remove("active");
-    //             if (trigger == ".main__btn") {
-    //                 document.querySelector(".main__right").style.transform =
-    //                     "translateX(0)";
-    //             }
-    //         } else {
-    //             document.querySelector(block).style.display = "block";
-    //             document.querySelector(trigger).classList.add("active");
-    //             if (trigger == ".main__btn") {
-    //                 document.querySelector(".main__right").style.transform =
-    //                     "translateX(210px)";
-    //                 if (
-    //                     document
-    //                         .querySelector(trigger)
-    //                         .classList.contains("main__btn--big")
-    //                 ) {
-    //                     document.querySelector(".main__right").style.transform =
-    //                         "translateX(290px)";
-    //                 }
-    //             }
-    //         }
-    //     });
-    // };
-
-    // try {
-    //     showCloseWindow(".dividends__arrow", ".dividends__graf");
-    // } catch {}
-    // try {
-    //     showCloseWindow(".main__btn", ".main__menu");
-    // } catch {}
-    // try {
-    //     showCloseWindow(".main__btn", ".main__rate");
-    // } catch {}
-    // try {
-    //     showCloseWindow(".main__btn", ".main__replenish");
-    // } catch {}
-    // try {
-    //     showCloseWindow(".main__btn", ".main__orders");
-    // } catch {}
-
     const allInputs = (one) => {
         document.querySelectorAll(one).forEach((item, index, array) => {
             item.addEventListener("change", (e) => {
@@ -757,23 +719,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     allInputs(".main__data .reg__one input");
 
-    // const mainScroll = () => {
-    //     document.addEventListener("scroll", () => {
-    //         // try{
-    //         //     if (document.documentElement.scrollTop > 910) {
-    //         //         document.querySelector('.content__list').style.position = 'sticky';
-    //         //         document.querySelector('.content__list').style.top = 30 + 'px';
-    //         //     } else {
-    //         //         document.querySelector('.content__list').style.position = 'static';
-    //         //     }
-    //         // } catch {}
-    //     });
-    // };
-
-    // try{
-    //     mainScroll()
-    // } catch{}
-
     const cleanTextContent = (item) => {
         if (document.documentElement.clientWidth < 769) {
             document.querySelectorAll(item).forEach((one) => {
@@ -784,21 +729,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
         cleanTextContent(".about__data");
-    } catch {}
-
-    const makeActive = (items) => {
-        document.querySelectorAll(items).forEach((one) => {
-            one.addEventListener("click", () => {
-                document.querySelectorAll(items).forEach((one) => {
-                    one.classList.remove("active");
-                });
-                one.classList.add("active");
-            });
-        });
-    };
-
-    try {
-        makeActive(".content__list li");
     } catch {}
 
     const shooseList = (item, block, list, map, arrow) => {
