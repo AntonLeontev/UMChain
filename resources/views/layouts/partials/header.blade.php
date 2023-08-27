@@ -46,14 +46,17 @@
 					<div class="header__list">
 						<nav>
 							<ul>
-								<li class="header__item active"><a href="/#what">{{__('header.What is a UMT token?')}}</a></li>
-								<li class="header__item"><a href="/#bepartner">{{__('header.How to become a partner')}}</a></li>
-								<li class="header__item"><a href="/#overview">{{__('header.Project overview')}}</a></li>
-								<li class="header__item"><a href="/#benefit">{{__('header.Benefits to investors')}}</a></li>
-								<li class="header__item"><a href="/#distribution">{{__('header.UMT token distribution')}}</a></li>
-								<li class="header__item"><a href="/#about">{{__('header.About us')}}</a></li>
-								<li class="header__item"><a href="/#team">{{__('header.Our team')}}</a></li>
-								<li class="header__item"><a href="/#reg">{{__('header.Contact us')}}</a></li>
+								<li class="header__item active" @click="menu =false; $dispatch('menu-click')"><a href="#what">{{ __('home.What is Umchain?') }}</a></li>
+								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#bepartner">{{ __('home.partner.h1') }}</a></li>
+								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#overview">Web 3.0</a></li>
+								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#benefit">{{ __('home.menu.advantages') }}</a></li>
+								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#distribution">{{ __('home.menu.forWhom') }}</a></li>
+								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#benefit-partner">{{ __('home.menu.benefitPartner') }}</a></li>
+								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#benefit-investor">{{ __('home.menu.benefitInvestor') }}</a></li>
+								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#team">{{ __('home.utilityFunction.title') }}</a></li>
+								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#reg">{{ __('home.technicalFunction.title') }}</a></li>
+								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#tok">Tokenomics</a></li>
+								<li class="header__item" @click="menu =false; $dispatch('menu-click')"><a href="#map">{{ __('home.roadmap.title') }}</a></li>
 							</ul>
 						</nav>
 					</div>
