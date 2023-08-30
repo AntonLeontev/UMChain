@@ -634,13 +634,13 @@
 						<div class="distribution__round before:absolute before:right-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px] ">
 							<span class="font-[Montserrat]">Seed</span>
 						</div>
-						<div class="distribution__target">{{ __('home.seed.target') }}:</div>
+						{{-- <div class="distribution__target">{{ __('home.seed.target') }}:</div>
 						<div class="distribution__description">
 							<p>{{ __('home.seed.1') }}</p>
-						</div>
+						</div> --}}
 						<ul class="distribution__data">
 							<li>{{ __('home.seed.date') }}</li>
-							<li>11.02.2023</li>
+							<li>1.09.2023 - 09.09.2023</li>
 						</ul>
 					</div>
 
@@ -739,13 +739,13 @@
 						<div class="distribution__round before:absolute before:right-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px] ">
 							<span class="font-[Montserrat]">Private</span>
 						</div>
-						<div class="distribution__target">{{ __('home.private.target') }}:</div>
+						{{-- <div class="distribution__target">{{ __('home.private.target') }}:</div>
 						<div class="distribution__description">
 							<p>{{ __('home.private.1') }}</p>
-						</div>
+						</div> --}}
 						<ul class="distribution__data">
 							<li>{{ __('home.private.date') }}</li>
-							<li>12.15.2023</li>
+							<li>20.09.2023-30.09.2023</li>
 						</ul>
 					</div>
 
@@ -846,13 +846,13 @@
 						<div class="distribution__round before:absolute before:right-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px] ">
 							<span class="font-[Montserrat]">Public</span>
 						</div>
-						<div class="distribution__target">{{ __('home.public.target') }}:</div>
+						{{-- <div class="distribution__target">{{ __('home.public.target') }}:</div>
 						<div class="distribution__description">
 							<p>{{ __('home.public.1') }}</p>
-						</div>
+						</div> --}}
 						<ul class="distribution__data">
 							<li>{{ __('home.public.date') }}</li>
-							<li>12.15.2023</li>
+							<li>25.10.2023-30.10.2023</li>
 						</ul>
 					</div>
 
@@ -956,7 +956,7 @@
                 <div class="about__inner">
                     <h4 class="overview__title">{{ __('home.roadmap.title') }}</h4>
                     <div class="overview__choose">
-                        <div class="overview__num">2022</div>
+                        <div class="overview__num">2023</div>
                         <div class="overview__arrow">
                             <img src="{{asset('images/arrow.svg')}}" alt="">
                         </div>
@@ -965,30 +965,37 @@
                             <div class="overview__uno">2021</div>
                             <div class="overview__uno">2022</div>
                             <div class="overview__uno">2023</div>
+                            <div class="overview__uno">2024</div>
                         </div>
                     </div>
-                        <div class="about__map about__map--four" style="display: none;">
+                        <div class="about__map about__map--one" style="display: none;">
                             <picture>
-                                <source srcset="{{asset('images/сhart1-dest.png')}}" media="(min-width: 768px)">
-                                <img class="distribution__img" src="{{asset('images/сhart1-mob.png')}}" alt="фото">
+                                <source srcset="{{Vite::asset('resources/images/сhart1-dest.png')}}" media="(min-width: 768px)">
+                                <img class="distribution__img" src="{{Vite::asset('resources/images/сhart1-mob.png')}}" alt="фото">
                             </picture>
                         </div>
-                         <div class="about__map about__map--three">
+                         <div class="about__map about__map--two">
                             <picture>
-                                <source srcset="{{asset('images/сhart2-dest.png')}}" media="(min-width: 768px)">
-                                <img class="distribution__img" src="{{asset('images/сhart2-mob.png')}}" alt="фото">
+                                <source srcset="{{Vite::asset('resources/images/сhart2-dest.png')}}" media="(min-width: 768px)">
+                                <img class="distribution__img" src="{{Vite::asset('resources/images/сhart2-mob.png')}}" alt="фото">
                             </picture>
                         </div>
-                        <div class="about__map about__map--two">
+                        <div class="about__map about__map--three">
                             <picture>
-                                <source srcset="{{asset('images/сhart4-dest.png')}}" media="(min-width: 768px)">
-                                <img class="distribution__img" src="{{asset('images/сhart2-mob-mob.png')}}" alt="фото">
+                                <source srcset="{{Vite::asset('resources/images/сhart3-dest.png')}}" media="(min-width: 768px)">
+                                <img class="distribution__img" src="{{Vite::asset('resources/images/сhart3-mob.png')}}" alt="фото">
                             </picture>
                         </div>
-                        <div class="about__map about__map--one">
+                        <div class="about__map about__map--four">
                             <picture>
-                                <source srcset="{{asset('images/сhart3-dest.png')}}" media="(min-width: 768px)">
-                                <img class="distribution__img" src="{{asset('images/сhart3-mob.png')}}" alt="фото">
+                                <source srcset="{{Vite::asset('resources/images/сhart4-dest.png')}}" media="(min-width: 768px)">
+                                <img class="distribution__img" src="{{Vite::asset('resources/images/сhart4-mob.png')}}" alt="фото">
+                            </picture>
+                        </div>
+                        <div class="about__map about__map--five">
+                            <picture>
+                                <source srcset="{{Vite::asset('resources/images/сhart5-dest.png')}}" media="(min-width: 768px)">
+                                <img class="distribution__img" src="{{Vite::asset('resources/images/сhart5-mob.png')}}" alt="фото">
                             </picture>
                         </div>
                 </div>

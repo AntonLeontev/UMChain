@@ -13,7 +13,7 @@ return [
 	],
 	'what' => [
 		'h1' => 'Umchain - Digital ecosystem for e-commerce on the blockchain.',
-		'1' => 'Umchain was formed in the summer of 2020. From 2021 to 2022 we developed the design, frontend and backend. We wrote a smart contract. In spring 2022 we registered Umchain OU in Estonia. In the summer of 2022, like many people, we got immersed in cryptozyme and froze the project.',
+		'1' => 'Umchain was formed in the summer of 2020. From 2021 to 2022 we developed the design, frontend and backend. We wrote a smart contract. In spring 2022 we registered Umchain OU in Estonia. The stages of development can be found in the roadmap.',
 		'2' => 'The project\'s mission is to develop a decentralized system for e-commerce, ensuring full transparency of all processes within the system by utilizing public network technology.',
 		'3' => 'The objectives of creating the system are as follows:',
 		'4' => 'Develop a decentralized website builder, online stores, web applications, and marketplaces.',

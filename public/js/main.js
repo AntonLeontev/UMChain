@@ -640,7 +640,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         menuItems.forEach((el) => {
-            if (el.dataset.id === anchorInView.id) {
+            if (el?.dataset.id === anchorInView?.id) {
                 el.classList.add("active");
                 return;
             }

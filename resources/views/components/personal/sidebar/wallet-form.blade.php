@@ -97,8 +97,8 @@
 			class="text-white bg-black rounded focus:outline-none focus:ring-0 focus:border-pink"
 			x-model="form.network"
 		>
-			<option value="TRC20">TRON (TRC20)</option>
-			<option value="ERC20">Ethereum (ERC20)</option>
+			<option value="TRC20">USDT (TRC20)</option>
+			<option value="ERC20">USDT (ERC20)</option>
 		</select>
 	</div>
 

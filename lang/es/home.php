@@ -13,7 +13,7 @@ return [
 	],
 	'what' => [
 		'h1' => 'Umchain - Ecosistema digital para el comercio electrónico en la cadena de bloques.',
-		'1' => 'Umchain se formó en el verano de 2020. De 2021 a 2022 desarrollamos el diseño, el frontend y el backend. Escribimos un contrato inteligente. En la primavera de 2022 registramos Umchain OU en Estonia. En el verano de 2022, como mucha gente, nos sumergimos en la criptozima y congelamos el proyecto.',
+		'1' => 'Umchain se formó en el verano de 2020. De 2021 a 2022 desarrollamos el diseño, el frontend y el backend. Escribimos un contrato inteligente. En la primavera de 2022 registramos Umchain OU en Estonia. Las etapas de desarrollo se pueden encontrar en la hoja de ruta.',
 		'2' => 'La misión del proyecto es desarrollar sistema descentralizado de comercio electrónico con total transparencia de todos los procedimientos realizados en el sistema mediante el uso de tecnología de red pública.',
 		'3' => 'Los objetivos de la creación del sistema son:',
 		'4' => 'Desarrollo de un constructor neuronal descentralizado de sitios web, tiendas online, aplicaciones web y marketplaces',

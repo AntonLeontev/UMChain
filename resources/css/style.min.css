@@ -445,9 +445,9 @@ body {
     position: fixed;
     width: 100vw;
     background: #e5e5e5;
-    height: calc(100vh - 136.5px);
+    height: calc(100vh - 71.5px);
     left: 0;
-    top: 136.5px;
+    top: 71.5px;
     padding: 32px 13px 50px;
     overflow-y: scroll;
 }
@@ -4796,6 +4796,9 @@ body {
     border-radius: 50%;
 }
 .about__map--three {
+    display: none;
+}
+.about__map--five {
     display: none;
 }
 .about__map--three .about__dates {
