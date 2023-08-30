@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'UMCHAIN – IT solutions for business based on blockchain' => 'UMCHAIN - Soluciones informáticas para creadores Libro Blanco',
+	'UMCHAIN – IT solutions for business based on blockchain' => 'UMCHAIN - Soluciones informáticas para creadores',
 	'Become one of the first. Take a step into a decentralized future' => 'Conviértase en uno de los primeros. Dé un paso hacia un futuro descentralizado',
 	'Sign up for the purchase of umt tokens' => 'Comprar fichas UMCT ',
 	'What is Umchain?' => 'Qué es Umchain?',
