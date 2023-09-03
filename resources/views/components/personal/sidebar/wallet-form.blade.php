@@ -47,6 +47,7 @@
 					type="text" 
 					name='usdt' 
 					class="focus:border-b-pink !text-sm focus:ring-0"
+					inputmode="decimal"
                     x-model="form.usdt" 
 					autocomplete="off"
 					@input="inputUsdt"
@@ -64,6 +65,7 @@
 					type="text" 
 					name="umct" 
 					class="focus:border-b-pink !text-sm focus:ring-0"
+					inputmode="decimal"
                     x-model="form.umt" 
 					@input="inputUmt"
 					@change="form.validate('umt')"
