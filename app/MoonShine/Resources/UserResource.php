@@ -9,6 +9,8 @@ use MoonShine\Resources\Resource;
 use MoonShine\Fields\ID;
 use MoonShine\Actions\FiltersAction;
 use MoonShine\Fields\Email;
+use MoonShine\Fields\HasOne;
+use MoonShine\Fields\NoInput;
 use MoonShine\Fields\Text;
 
 class UserResource extends Resource
@@ -31,6 +33,10 @@ class UserResource extends Resource
 			Text::make('USDT', 'usdt'),
 			Text::make('ID агента', 'agent_id')
 				->sortable(),
+			NoInput::make('TRON кошелёк', '', fn($user) => $user->tronWallet?->address)
+				->hideOnIndex(),
+			NoInput::make('ETH кошелёк', '', fn($user) => $user->ethWallet?->address)
+				->hideOnIndex(),
         ];
 	}
 
