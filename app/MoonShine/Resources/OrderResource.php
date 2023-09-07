@@ -16,6 +16,7 @@ use MoonShine\Fields\Number;
 use MoonShine\Fields\SwitchBoolean;
 use MoonShine\Fields\Text;
 use MoonShine\Filters\DateRangeFilter;
+use MoonShine\Filters\SwitchBooleanFilter;
 use MoonShine\ItemActions\ItemAction;
 use MoonShine\QueryTags\QueryTag;
 use MoonShine\Resources\Resource;
@@ -65,6 +66,8 @@ class OrderResource extends Resource
     {
         return [
 			DateRangeFilter::make('Дата оплаты', 'paid_at'),
+			SwitchBooleanFilter::make('Оплачен', 'is_paid'),
+			SwitchBooleanFilter::make('Подтвержден', 'is_accepted'),
 		];
     }
 
@@ -79,9 +82,14 @@ class OrderResource extends Resource
 	{
 		return [
 			ItemAction::make('Подтвердить', function (Model $item) {
-				$item->update(['is_accepted' => true]);
+				$item->update(['is_accepted' => true, 'is_viewed' => true]);
 			}, 'Подтвержден')
-				->canSee(fn(Model $item) => ! $item->is_accepted) 
+				->canSee(fn(Order $order) => ! $order->is_viewed),
+
+			ItemAction::make('Отклонить', function (Model $item) {
+				$item->update(['is_viewed' => true]);
+			}, 'Отклонен')
+				->canSee(fn(Order $order) => ! $order->is_viewed),
 		];
 	}
 
@@ -89,8 +97,18 @@ class OrderResource extends Resource
     {
         return [
             QueryTag::make(
+                'Все',
+                fn(Builder $query) => $query
+			)->icon('heroicons.bolt'),
+
+            QueryTag::make(
                 'За сегодня',
                 fn(Builder $query) => $query->where('paid_at', '>=', now()->startOfDay())
+            )->icon('heroicons.bolt'),
+
+            QueryTag::make(
+                'Не обработаны',
+                fn(Builder $query) => $query->where('is_viewed', false)
             )->icon('heroicons.bolt'),
         ];
     } 

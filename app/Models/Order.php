@@ -22,6 +22,7 @@ class Order extends Model
 		'umt',
 		'is_paid',
 		'is_accepted',
+		'is_viewed',
 		'wallet',
 		'network',
 		'freeze_to',
@@ -33,6 +34,7 @@ class Order extends Model
 		'umt' => OrderAmountCast::class,
 		'is_paid' => 'boolean',
 		'is_accepted' => 'boolean',
+		'is_viewed' => 'boolean',
 		'paid_at' => 'datetime',
 	];
 
