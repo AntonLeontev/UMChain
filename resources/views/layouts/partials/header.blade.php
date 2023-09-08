@@ -3,7 +3,7 @@
         <div class="header__inner" x-data="{menu: false}" @buy-click.window="menu = true">
             <div class="header__logo">
                 <a href="/">
-					<img src="{{ Vite::asset('resources/images/logo.png') }}" alt="">
+					<img src="{{ Vite::asset('resources/images/logo_bg.png') }}" alt="logo" width="116"> 
                 </a>
             </div>
 

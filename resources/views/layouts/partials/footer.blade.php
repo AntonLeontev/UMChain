@@ -3,7 +3,7 @@
         <div class="footer__inner">
             <div class="footer__logo">
                 <a href="{{ LaravelLocalization::localizeUrl('/') }}">
-                    <img src="{{ Vite::asset('resources/images/logo.png') }}" alt="">
+                    <img src="{{ Vite::asset('resources/images/logo_bg.png') }}" alt="logo" width="116">
                 </a>
             </div>
             <div class="footer__col">
