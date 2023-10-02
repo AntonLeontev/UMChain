@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use App\Models\AuthCode;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\ValidationException;
 use MoonShine\Http\Requests\LoginFormRequest as MoonshineLoginFormRequest;
@@ -16,7 +15,7 @@ class SecondFactorRequest extends MoonshineLoginFormRequest
      */
     public function authorize(): bool
     {
-        return MoonShineAuth::guard()->guest();;
+        return MoonShineAuth::guard()->guest();
     }
 
     /**
@@ -33,7 +32,7 @@ class SecondFactorRequest extends MoonshineLoginFormRequest
         ];
     }
 
-	/**
+    /**
      * Attempt to authenticate the request's credentials.
      *
      *
@@ -43,18 +42,18 @@ class SecondFactorRequest extends MoonshineLoginFormRequest
     {
         $this->ensureIsNotRateLimited();
 
-		$code = AuthCode::query()
-			->where('code', $this->get('code'))
-			->where('username', $this->get('username'))
-			->first();
+        $code = AuthCode::query()
+            ->where('code', $this->get('code'))
+            ->where('username', $this->get('username'))
+            ->first();
 
-		if (! $code) {
-			RateLimiter::hit($this->throttleKey());
+        if (! $code) {
+            RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
                 'code' => __('moonshine::auth.failed'),
             ]);
-		}
+        }
 
         $credentials = [
             config('moonshine.auth.fields.username', 'email') => $this->get(
@@ -66,9 +65,9 @@ class SecondFactorRequest extends MoonshineLoginFormRequest
         ];
 
         if (! MoonShineAuth::guard()->attempt(
-			$credentials,
-			$this->boolean('remember')
-		)) {
+            $credentials,
+            $this->boolean('remember')
+        )) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([

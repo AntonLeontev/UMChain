@@ -22,28 +22,28 @@ class WithdrawalCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'usdt' => ['required', 'decimal:0,8', 'min:1', 'max:' . auth()->user()->usdt],
-			'network' => ['string', 'required', 'in:TRC20,ERC20'],
-			'tron_wallet' => ['required_if:network,TRC20', 'exclude_if:network,ERC20', 'starts_with:T', 'string', 'size:34', 'nullable'],
-			'eth_wallet' => ['required_if:network,ERC20', 'exclude_if:network,TRC20', 'string', 'starts_with:0x', 'size:42', 'nullable'],
+            'usdt' => ['required', 'decimal:0,8', 'min:1', 'max:'.auth()->user()->usdt],
+            'network' => ['string', 'required', 'in:TRC20,ERC20'],
+            'tron_wallet' => ['required_if:network,TRC20', 'exclude_if:network,ERC20', 'starts_with:T', 'string', 'size:34', 'nullable'],
+            'eth_wallet' => ['required_if:network,ERC20', 'exclude_if:network,TRC20', 'string', 'starts_with:0x', 'size:42', 'nullable'],
         ];
     }
 
-	public function attributes(): array
-	{
-		return [
-			'eth_wallet' => 'ETH wallet',
-			'tron_wallet' => 'TRON wallet'
-		];
-	}
+    public function attributes(): array
+    {
+        return [
+            'eth_wallet' => 'ETH wallet',
+            'tron_wallet' => 'TRON wallet',
+        ];
+    }
 
-	public function messages(): array
-	{
-		return [
-			'tron_wallet.starts_with' => 'Field :attribute must start with :values character',
-			'tron_wallet.required_if' => 'The :attribute field is required',
-			'eth_wallet.starts_with' => 'Field :attribute must start with :values character',
-			'eth_wallet.required_if' => 'The :attribute field is required',
-		];
-	}
+    public function messages(): array
+    {
+        return [
+            'tron_wallet.starts_with' => 'Field :attribute must start with :values character',
+            'tron_wallet.required_if' => 'The :attribute field is required',
+            'eth_wallet.starts_with' => 'Field :attribute must start with :values character',
+            'eth_wallet.required_if' => 'The :attribute field is required',
+        ];
+    }
 }

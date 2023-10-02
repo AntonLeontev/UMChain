@@ -1,6 +1,6 @@
 <?php
 
 return [
-	'title' => 'Notifications',
-	'mark' => 'Mark all read',
+    'title' => 'Notifications',
+    'mark' => 'Mark all read',
 ];

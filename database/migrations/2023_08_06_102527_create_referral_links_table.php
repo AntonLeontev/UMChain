@@ -14,10 +14,10 @@ return new class extends Migration
     {
         Schema::create('referral_links', function (Blueprint $table) {
             $table->id()->startingValue(111115);
-			$table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-			$table->boolean('is_active')->default(0);
-			$table->unsignedSmallInteger('umt_percent')->default(0);
-			$table->unsignedSmallInteger('usdt_percent')->default(0);
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->boolean('is_active')->default(0);
+            $table->unsignedSmallInteger('umt_percent')->default(0);
+            $table->unsignedSmallInteger('usdt_percent')->default(0);
             $table->timestamps();
         });
     }

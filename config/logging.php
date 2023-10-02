@@ -2,7 +2,6 @@
 
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
-use Monolog\Handler\SyslogUdpHandler;
 use Monolog\Processor\PsrLogMessageProcessor;
 
 return [
@@ -73,11 +72,11 @@ return [
             'replace_placeholders' => true,
         ],
 
-		'telegram' => [
-			'driver' => 'custom',
-			'via'    => Logger\TelegramLogger::class,
-			'level'  => 'debug',
-		],
+        'telegram' => [
+            'driver' => 'custom',
+            'via' => Logger\TelegramLogger::class,
+            'level' => 'debug',
+        ],
 
         'stderr' => [
             'driver' => 'monolog',

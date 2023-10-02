@@ -12,17 +12,17 @@ class Transaction extends Model
 {
     use HasFactory;
 
-	protected $fillable = [
-		'user_id',
-		'direction',
-		'amount',
-		'description',
-		'account_type',
-	];
+    protected $fillable = [
+        'user_id',
+        'direction',
+        'amount',
+        'description',
+        'account_type',
+    ];
 
-	protected $casts = [
-		'amount' => OrderAmountCast::class,
-		'direction' => TransactionDirection::class,
-		'account_type' => AccountType::class,
-	];
+    protected $casts = [
+        'amount' => OrderAmountCast::class,
+        'direction' => TransactionDirection::class,
+        'account_type' => AccountType::class,
+    ];
 }

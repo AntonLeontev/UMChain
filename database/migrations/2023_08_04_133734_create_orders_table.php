@@ -14,12 +14,12 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-			$table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-			$table->unsignedBigInteger('usdt')->comment('Amount in usdt');
-			$table->unsignedBigInteger('umt')->comment('Amount in umt');
-			$table->boolean('is_paid')->default(0);
-			$table->boolean('is_accepted')->default(0);
-			$table->string('wallet')->comment('Wallet to pay');
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger('usdt')->comment('Amount in usdt');
+            $table->unsignedBigInteger('umt')->comment('Amount in umt');
+            $table->boolean('is_paid')->default(0);
+            $table->boolean('is_accepted')->default(0);
+            $table->string('wallet')->comment('Wallet to pay');
             $table->timestamps();
         });
     }

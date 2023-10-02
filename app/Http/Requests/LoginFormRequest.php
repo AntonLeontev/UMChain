@@ -2,16 +2,14 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\ValidationException;
 use MoonShine\Http\Requests\LoginFormRequest as MoonshineLoginFormRequest;
-use MoonShine\Models\MoonshineUser;
 use MoonShine\MoonShineAuth;
 
 class LoginFormRequest extends MoonshineLoginFormRequest
 {
-	/**
+    /**
      * Attempt to authenticate the request's credentials.
      *
      *

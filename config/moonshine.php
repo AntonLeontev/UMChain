@@ -12,7 +12,7 @@ return [
     'logo_small' => env('MOONSHINE_LOGO_SMALL'),
 
     'route' => [
-        'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'admin'),
+        'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'trx7Bn'),
         'index_route' => env('MOONSHINE_INDEX_ROUTE', 'moonshine.index'),
         'middleware' => ['moonshine'],
         'custom_page_slug' => 'custom_page',

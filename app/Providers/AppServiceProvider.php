@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,16 +20,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-		if (! app()->isProduction()) {
-			Model::shouldBeStrict();
-		}
+        if (! app()->isProduction()) {
+            Model::shouldBeStrict();
+        }
 
-		if (app()->isProduction()) {
-			Model::preventAccessingMissingAttributes();
-		}
+        if (app()->isProduction()) {
+            Model::preventAccessingMissingAttributes();
+        }
 
-		if (request()->is('admin*')) {
-			app()->setLocale('ru');
-		}
+        if (request()->is('admin*')) {
+            app()->setLocale('ru');
+        }
     }
 }

@@ -14,11 +14,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-			$table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-			$table->string('direction');
-			$table->unsignedBigInteger('amount');
-			$table->string('description')->nullable();
-			$table->string('account_type');
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->string('direction');
+            $table->unsignedBigInteger('amount');
+            $table->string('description')->nullable();
+            $table->string('account_type');
             $table->timestamps();
         });
     }

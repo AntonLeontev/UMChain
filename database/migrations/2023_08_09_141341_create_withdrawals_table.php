@@ -14,11 +14,11 @@ return new class extends Migration
     {
         Schema::create('withdrawals', function (Blueprint $table) {
             $table->id();
-			$table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-			$table->string('network');
-			$table->string('wallet');
-			$table->unsignedBigInteger('amount');
-			$table->boolean('is_sent')->default(0);
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->string('network');
+            $table->string('wallet');
+            $table->unsignedBigInteger('amount');
+            $table->boolean('is_sent')->default(0);
             $table->timestamps();
         });
     }

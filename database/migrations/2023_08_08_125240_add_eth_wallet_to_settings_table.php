@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('settings', function (Blueprint $table) {
-			$table->string('eth_wallet')->after('tron_wallet');
+            $table->string('eth_wallet')->after('tron_wallet');
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('settings', function (Blueprint $table) {
-			$table->dropColumn('eth_wallet');
+            $table->dropColumn('eth_wallet');
         });
     }
 };

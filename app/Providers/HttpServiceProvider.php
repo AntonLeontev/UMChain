@@ -23,12 +23,12 @@ class HttpServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Http::macro('telegram', function () {
-			return Http::baseUrl('https://api.telegram.org/bot' . config('services.telegram.bot'))
-				->retry(3, 100)
-				->timeout(10)
-				->throw(function (Response $response) {
+            return Http::baseUrl('https://api.telegram.org/bot'.config('services.telegram.bot'))
+                ->retry(3, 100)
+                ->timeout(10)
+                ->throw(function (Response $response) {
                     throw new TelegramException();
                 });
-		});
+        });
     }
 }

@@ -35,9 +35,9 @@ class ReferralLinkActivatedNotification extends Notification implements ShouldQu
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->line('The introduction to the notification.')
+            ->action('Notification Action', url('/'))
+            ->line('Thank you for using our application!');
     }
 
     /**
@@ -49,7 +49,7 @@ class ReferralLinkActivatedNotification extends Notification implements ShouldQu
     {
         return [
             'values' => [],
-			'lang' => 'ref link created',
+            'lang' => 'ref link created',
         ];
     }
 }

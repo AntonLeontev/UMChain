@@ -10,16 +10,16 @@ class Setting extends Model
 {
     use HasFactory;
 
-	protected $fillable = [
-		'email',
-		'threshold',
-		'tron_wallet',
-		'eth_wallet',
-		'rate',
-		'default_freeze',
-	];
+    protected $fillable = [
+        'email',
+        'threshold',
+        'tron_wallet',
+        'eth_wallet',
+        'rate',
+        'default_freeze',
+    ];
 
-	protected $casts = [
-		'rate' => RateCast::class,
-	];
+    protected $casts = [
+        'rate' => RateCast::class,
+    ];
 }

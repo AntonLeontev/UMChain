@@ -22,8 +22,8 @@ class ExchangeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'usdt' => ['required', 'decimal:0,8', 'min:1', 'max:' . auth()->user()->usdt],
-			'umt' => ['decimal:0,8', 'min:0', 'max:184467440737'],
+            'usdt' => ['required', 'decimal:0,8', 'min:1', 'max:'.auth()->user()->usdt],
+            'umt' => ['decimal:0,8', 'min:0', 'max:184467440737'],
         ];
     }
 }

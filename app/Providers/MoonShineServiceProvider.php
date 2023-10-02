@@ -38,14 +38,14 @@ class MoonShineServiceProvider extends ServiceProvider
                 ->icon('heroicons.arrow-uturn-up'),
             MenuItem::make('Реф ссылки', new ReferralLinkResource())
                 ->icon('heroicons.link'),
-			MenuItem::make('Баннеры', new BannerResource())
+            MenuItem::make('Баннеры', new BannerResource())
                 ->icon('heroicons.photo'),
-			MenuItem::make('Настройки', new SettingResource())
-				->icon('heroicons.cog-8-tooth'),
+            MenuItem::make('Настройки', new SettingResource())
+                ->icon('heroicons.cog-8-tooth'),
 
-			MenuDivider::make(),
+            MenuDivider::make(),
 
-			MenuItem::make('На сайт', '/')->icon('heroicons.home'),
+            MenuItem::make('На сайт', '/')->icon('heroicons.home'),
         ]);
     }
 }

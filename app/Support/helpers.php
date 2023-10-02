@@ -5,31 +5,31 @@ use App\Models\Setting;
 use Illuminate\Support\Collection;
 
 if (! function_exists('settings')) {
-	function settings(): Setting
-	{
-		if (cache('settings', null)) {
-			return cache('settings');
-		}
+    function settings(): Setting
+    {
+        if (cache('settings', null)) {
+            return cache('settings');
+        }
 
-		$settings = Setting::first();
+        $settings = Setting::first();
 
-		cache(['settings' => $settings]);
+        cache(['settings' => $settings]);
 
-		return $settings;
-	}
+        return $settings;
+    }
 }
 
 if (! function_exists('banners')) {
-	function banners(): Collection
-	{
-		if (cache('banners', null)) {
-			return cache('banners');
-		}
+    function banners(): Collection
+    {
+        if (cache('banners', null)) {
+            return cache('banners');
+        }
 
-		$banners = Banner::where('is_active', true)->get();
+        $banners = Banner::where('is_active', true)->get();
 
-		cache(['banners' => $banners]);
+        cache(['banners' => $banners]);
 
-		return $banners;
-	}
+        return $banners;
+    }
 }

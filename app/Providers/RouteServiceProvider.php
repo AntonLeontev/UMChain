@@ -11,8 +11,8 @@ use Mcamara\LaravelLocalization\Traits\LoadsTranslatedCachedRoutes;
 
 class RouteServiceProvider extends ServiceProvider
 {
-	use LoadsTranslatedCachedRoutes;
-	
+    use LoadsTranslatedCachedRoutes;
+
     /**
      * The path to your application's "home" route.
      *

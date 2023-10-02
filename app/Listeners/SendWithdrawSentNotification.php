@@ -4,8 +4,6 @@ namespace App\Listeners;
 
 use App\Models\User;
 use App\Notifications\WithdrawSent;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class SendWithdrawSentNotification
 {
@@ -24,6 +22,6 @@ class SendWithdrawSentNotification
     {
         $withdrawal = $event->withdrawal;
 
-		User::find($withdrawal->user_id)->notify(new WithdrawSent($withdrawal));
+        User::find($withdrawal->user_id)->notify(new WithdrawSent($withdrawal));
     }
 }

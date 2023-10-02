@@ -27,9 +27,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-		'umt',
-		'usdt',
-		'agent_id',
+        'umt',
+        'usdt',
+        'agent_id',
     ];
 
     /**
@@ -50,73 +50,73 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-		'umt' => OrderAmountCast::class,
-		'usdt' => OrderAmountCast::class,
-		'hasLinkRequest' => 'boolean',
+        'umt' => OrderAmountCast::class,
+        'usdt' => OrderAmountCast::class,
+        'hasLinkRequest' => 'boolean',
     ];
 
-	protected $with = [
-		'ethWallet',
-		'tronWallet',
-		'umtTransactions',
-		'unreadNotifications',
-	];
+    protected $with = [
+        'ethWallet',
+        'tronWallet',
+        'umtTransactions',
+        'unreadNotifications',
+    ];
 
-	public function ethWallet(): HasOne
-	{
-		return $this->hasOne(EthWallet::class);
-	}
+    public function ethWallet(): HasOne
+    {
+        return $this->hasOne(EthWallet::class);
+    }
 
-	public function tronWallet(): HasOne
-	{
-		return $this->hasOne(TronWallet::class);
-	}
+    public function tronWallet(): HasOne
+    {
+        return $this->hasOne(TronWallet::class);
+    }
 
-	public function orders(): HasMany
-	{
-		return $this->hasMany(Order::class);
-	}
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
 
-	public function acceptedOrders(): HasMany
-	{
-		return $this->hasMany(Order::class)->where('is_accepted', true)->orderByDesc('created_at');
-	}
+    public function acceptedOrders(): HasMany
+    {
+        return $this->hasMany(Order::class)->where('is_accepted', true)->orderByDesc('created_at');
+    }
 
-	public function activeRefLink(): HasOne
-	{
-		return $this->hasOne(ReferralLink::class)->where('is_active', true);
-	}
+    public function activeRefLink(): HasOne
+    {
+        return $this->hasOne(ReferralLink::class)->where('is_active', true);
+    }
 
-	public function refLink(): HasOne
-	{
-		return $this->hasOne(ReferralLink::class);
-	}
+    public function refLink(): HasOne
+    {
+        return $this->hasOne(ReferralLink::class);
+    }
 
-	public function agent(): BelongsTo
-	{
-		return $this->belongsTo(User::class, 'agent_id');
-	}
+    public function agent(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'agent_id');
+    }
 
-	public function referrals(): HasMany
-	{
-		return $this->hasMany(User::class, 'agent_id');
-	}
+    public function referrals(): HasMany
+    {
+        return $this->hasMany(User::class, 'agent_id');
+    }
 
-	public function transactions(): HasMany
-	{
-		return $this->hasMany(Transaction::class);
-	}
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class);
+    }
 
-	public function umtTransactions(): HasMany
-	{
-		return $this->hasMany(Transaction::class)
-			->where('account_type', AccountType::umt)
-			->orderByDesc('created_at')
-			->take(10);
-	}
+    public function umtTransactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class)
+            ->where('account_type', AccountType::umt)
+            ->orderByDesc('created_at')
+            ->take(10);
+    }
 
-	public function withdrawals(): HasMany
-	{
-		return $this->hasMany(Withdrawal::class);
-	}
+    public function withdrawals(): HasMany
+    {
+        return $this->hasMany(Withdrawal::class);
+    }
 }

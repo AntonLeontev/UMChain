@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('eth_wallets', function (Blueprint $table) {
             $table->id();
-			$table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-			$table->string('address');
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->string('address');
             $table->timestamps();
         });
     }

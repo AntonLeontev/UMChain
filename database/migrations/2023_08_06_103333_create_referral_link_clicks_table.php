@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('referral_link_clicks', function (Blueprint $table) {
             $table->id();
-			$table->foreignIdFor(ReferralLink::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(ReferralLink::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

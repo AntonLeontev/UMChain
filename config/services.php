@@ -15,8 +15,8 @@ return [
     */
 
     'telegram' => [
-		'bot' => env('TELEGRAM_BOT_TOKEN'),
-		'chat' => env('TELEGRAM_CHAT_ID'),
-	],
+        'bot' => env('TELEGRAM_BOT_TOKEN'),
+        'chat' => env('TELEGRAM_CHAT_ID'),
+    ],
 
 ];

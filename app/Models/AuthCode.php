@@ -9,8 +9,8 @@ class AuthCode extends Model
 {
     use HasFactory;
 
-	protected $fillable = [
-		'username',
-		'code',
-	];
+    protected $fillable = [
+        'username',
+        'code',
+    ];
 }

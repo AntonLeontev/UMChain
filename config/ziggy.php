@@ -2,12 +2,12 @@
 
 return [
     'except' => [
-		'clockwork.*', 
-		'__clockwork*', 
-		'telescope*', 
-		'telescope.*', 
-		'admin.*',
-		'moonshine*',
-		'moonshine.*',
-	],
+        'clockwork.*',
+        '__clockwork*',
+        'telescope*',
+        'telescope.*',
+        'admin.*',
+        'moonshine*',
+        'moonshine.*',
+    ],
 ];

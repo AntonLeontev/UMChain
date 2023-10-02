@@ -27,19 +27,19 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
 
-		OrderAccepted::class => [
-			UpdateUserPortfolio::class,
-			UpdateAgentPortfolio::class,
-			SendOrderAcceptedNotification::class,
-		],
-		
-		WithdrawalSent::class => [
-			SendWithdrawSentNotification::class,
-		],
+        OrderAccepted::class => [
+            UpdateUserPortfolio::class,
+            UpdateAgentPortfolio::class,
+            SendOrderAcceptedNotification::class,
+        ],
 
-		ReferralLinkActivated::class => [
-			SendReferralLinkActivatedNotification::class,
-		],
+        WithdrawalSent::class => [
+            SendWithdrawSentNotification::class,
+        ],
+
+        ReferralLinkActivated::class => [
+            SendReferralLinkActivatedNotification::class,
+        ],
     ];
 
     /**

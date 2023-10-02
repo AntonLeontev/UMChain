@@ -10,12 +10,12 @@ class ReferralLinkClick extends Model
 {
     use HasFactory;
 
-	protected $fillable = [
-		'referral_link_id',
-	];
+    protected $fillable = [
+        'referral_link_id',
+    ];
 
-	public function link(): BelongsTo
-	{
-		return $this->belongsTo(ReferralLink::class);
-	}
+    public function link(): BelongsTo
+    {
+        return $this->belongsTo(ReferralLink::class);
+    }
 }

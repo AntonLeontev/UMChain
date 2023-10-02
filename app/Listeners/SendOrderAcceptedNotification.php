@@ -5,8 +5,6 @@ namespace App\Listeners;
 use App\Events\OrderAccepted;
 use App\Models\User;
 use App\Notifications\OrderAcceptedNotification;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class SendOrderAcceptedNotification
 {

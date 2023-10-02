@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('auth_codes', function (Blueprint $table) {
             $table->id();
-			$table->string('username');
-			$table->unsignedInteger('code');
+            $table->string('username');
+            $table->unsignedInteger('code');
             $table->timestamps();
         });
     }

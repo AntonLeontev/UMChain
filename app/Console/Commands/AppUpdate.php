@@ -27,12 +27,12 @@ class AppUpdate extends Command
     public function handle()
     {
         Order::query()
-			->where('is_accepted', true)
-			->get()
-			->each(function(Order $order) {
-				$order->update(['is_viewed' => true]);
-			});
+            ->where('is_accepted', true)
+            ->get()
+            ->each(function (Order $order) {
+                $order->update(['is_viewed' => true]);
+            });
 
-		return Command::SUCCESS;
+        return Command::SUCCESS;
     }
 }

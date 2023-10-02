@@ -17,15 +17,15 @@ class ChangeRussianLocale extends LaravelLocalizationMiddlewareBase
      */
     public function handle(Request $request, Closure $next): Response
     {
-		if (session('locale') === 'ru' || request()->is('ru*')) {
-			session(['locale' => 'en']);
+        if (session('locale') === 'ru' || request()->is('ru*')) {
+            session(['locale' => 'en']);
 
-			$redirection = app('laravellocalization')->getNonLocalizedURL();
+            $redirection = app('laravellocalization')->getNonLocalizedURL();
 
-			app('session')->reflash();
+            app('session')->reflash();
 
-			return new RedirectResponse($redirection, 302, ['Vary' => 'Accept-Language']);
-		}
+            return new RedirectResponse($redirection, 302, ['Vary' => 'Accept-Language']);
+        }
 
         return $next($request);
     }

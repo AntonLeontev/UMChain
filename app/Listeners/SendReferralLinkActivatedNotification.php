@@ -5,8 +5,6 @@ namespace App\Listeners;
 use App\Events\ReferralLinkActivated;
 use App\Models\User;
 use App\Notifications\ReferralLinkActivatedNotification;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class SendReferralLinkActivatedNotification
 {
