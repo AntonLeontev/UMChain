@@ -8,6 +8,7 @@
         <div class="container">
             <div class="major__inner">
                 <div class="major__left">
+					<div class="major__description">Whitepaper</div>
                     <h1 class="major__title">{{ __('home.UMCHAIN – IT solutions for business based on blockchain') }}</h1>
                     <div class="major__description">{{ __('home.Become one of the first. Take a step into a decentralized future') }}</div>
                     <div class="major__btn">
@@ -317,12 +318,12 @@
                 <div class="benefit__inner">
                     <h3 class="common__title">{{ __('home.benefitInvestor.h1') }}</h3>
                     <div class="mb-20 benefit__wrapper">
-                        <div class="benefit__item">
+                        {{-- <div class="benefit__item">
                             <div class="benefit__cube">
                                 <img src="{{asset('images/cubeOne.svg')}}" alt="">
                             </div>
                             <div class="benefit__description">{{ __('home.benefitInvestor.1') }}</div>
-                        </div>
+                        </div> --}}
                         <div class="benefit__item">
                             <div class="benefit__cube">
                                 <img src="{{asset('images/cubeOne.svg')}}" alt="">
@@ -362,93 +363,76 @@
                         <p>
                             {{ __('home.utilityFunction.4') }}
                         </p>
+                        <p>
+                            {{ __('home.utilityFunction.5') }}
+                        </p>
+                        <p>
+                            {{ __('home.utilityFunction.6') }}
+                        </p>
+                        <p>
+                            {{ __('home.utilityFunction.7') }}
+                        </p>
+                        <p>
+                            {{ __('home.utilityFunction.8') }}
+                        </p>
+                        <p>
+                            {{ __('home.utilityFunction.9') }}
+                        </p>
+                        <p>
+                            {{ __('home.utilityFunction.10') }}
+                        </p>
                     </div>
                 </div>
             </section>
 
-            <section class="relative mb-56 technical">
+            <section class="relative mb-16 technical">
 				<div class="absolute anchor -top-3" id="reg"></div>
 
                  <div>
                     <h3 class="common__title">{{ __('home.technicalFunction.title') }}</h3>
-                    <div class="mb-56 what__text">
+                    <div class="mb-10 what__text">
                         <p>
                            {{ __('home.technicalFunction.1') }}
                         </p>
                         <p>
                            {{ __('home.technicalFunction.2') }}
                         </p>
+                        <p>
+                           {{ __('home.technicalFunction.3') }}
+                        </p>
+                        <p>
+                           {{ __('home.technicalFunction.4') }}
+                        </p>
+                        <p>
+                           {{ __('home.technicalFunction.5') }}
+                        </p>
+                        <p>
+                           {{ __('home.technicalFunction.6') }}
+                        </p>
+                        <p>
+                           {{ __('home.technicalFunction.7') }}
+                        </p>
+                        <p>
+                           {{ __('home.technicalFunction.8') }}
+                        </p>
+                        <p>
+                           {{ __('home.technicalFunction.9') }}
+                        </p>
+                        <p>
+                           {{ __('home.technicalFunction.10') }}
+                        </p>
+                        <p>
+                           {{ __('home.technicalFunction.11') }}
+                        </p>
                     </div>
 
-                    <div class="mb-98">
+                    <div class="mb-10">
                         <picture>
                             <source srcset="{{asset('images/sxema-dest.png')}}" media="(min-width: 768px)">
-                            <img class="distribution__img" src="{{asset('images/sxema-mob.png')}}" alt="фото">
+                            <img class="distribution__img" src="{{asset('images/sxema-mob.svg')}}" alt="фото">
                         </picture>
                     </div>
                 </div>
-            </section>
-
-            <section class="mb-56 distribution">
-
-				<div class="relative grid grid-flow-row grid-cols-1 mb-2 md:grid-cols-3 md:grid-rows-1">
-					<div class="relative p-[18px] before:absolute before:left-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:absolute after:top-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
-						<div class="distribution__round before:absolute before:right-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px] ">
-							<span class="font-[Montserrat]">{{ __('home.roles.title') }}</span>
-						</div>
-					</div>
-
-					<div class="relative md:col-span-2 after:absolute before:absolute before:right-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
-
-						<div class="after:absolute after:left-0 after:w-[1px] after:bg-black after:top-[13px] after:bottom-[13px] md:after:w-auto md:after:top-0 md:after:h-[1px] md:after:left-[13px] md:after:right-[13px]">
-							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
-								<div class="w-1/2 shrink-0 distribution__item">
-									<div class="distribution__wrapper">
-										{{ __('home.roles.operator') }}
-									</div>
-								</div>
-
-								<div class="distribution__item">
-									<div class="distribution__wrapper">
-										{{ __('home.roles.operator-text') }} 
-									</div>
-								</div>
-							</div>
-
-							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
-								<div class="w-1/2 shrink-0 distribution__item">
-									<div class="distribution__wrapper">
-										{{ __('home.roles.seller') }}
-									</div>
-								</div>
-
-								<div class="distribution__item">
-									<div class="distribution__wrapper">
-										{{ __('home.roles.seller-text') }}
-									</div>
-								</div>
-							</div>
-							
-							<div class="flex py-1">
-								<div class="w-1/2 shrink-0 distribution__item">
-									<div class="distribution__wrapper">
-										{{ __('home.roles.buyer') }}
-									</div>
-								</div>
-
-								<div class="distribution__item">
-									<div class="distribution__wrapper">
-										{{ __('home.roles.buyer-text') }}
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-
-
             </section>
 
             <section class='mb-56'>
@@ -465,7 +449,7 @@
 							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
 								<div class="w-1/2 shrink-0 distribution__item">
 									<div class="distribution__wrapper">
-										UMT Token Contract
+										Umchain Contract
 									</div>
 								</div>
 
@@ -485,7 +469,12 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										{{ __('home.components.2') }}
+										<div>
+											{{ __('home.components.2') }}
+										</div>
+										<div>
+											{{ __('home.components.3') }}
+										</div>
 									</div>
 								</div>
 							</div>
@@ -493,13 +482,18 @@
 							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
 								<div class="w-1/2 shrink-0 distribution__item">
 									<div class="distribution__wrapper">
-										Access Control
+										WebsiteDatabaseContract
 									</div>
 								</div>
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										{{ __('home.components.3') }}
+										<div>
+											{{ __('home.components.4') }}
+										</div>
+										<div>
+											{{ __('home.components.5') }}
+										</div>
 									</div>
 								</div>
 							</div>
@@ -507,16 +501,15 @@
 							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
 								<div class="w-1/2 shrink-0 distribution__item">
 									<div class="distribution__wrapper">
-										Seller Contract
+										StakingContract
 									</div>
 								</div>
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										<div>{{ __('home.components.4') }}</div>
-                                		<div>- {{ __('home.components.5') }}</div>
-										<div>- {{ __('home.components.6') }}</div>
-                                    	<div>- {{ __('home.components.7') }}</div>
+										<div>{{ __('home.components.6') }}</div>
+										<div>{{ __('home.components.7') }}</div>
+                                		<div>{{ __('home.components.8') }}</div>
 									</div>
 								</div>
 							</div>
@@ -524,13 +517,16 @@
 							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
 								<div class="w-1/2 shrink-0 distribution__item">
 									<div class="distribution__wrapper">
-										Magic Wallet
+										NFT Module for UMCT (NFTM)
 									</div>
 								</div>
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										{{ __('home.components.8') }}
+										<div>{{ __('home.components.9') }}</div>
+										<div>{{ __('home.components.10') }}</div>
+										<div>{{ __('home.components.11') }}</div>
+										<div>{{ __('home.components.12') }}</div>
 									</div>
 								</div>
 							</div>
@@ -538,13 +534,15 @@
 							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
 								<div class="w-1/2 shrink-0 distribution__item">
 									<div class="distribution__wrapper">
-										Seller-service
+										GasSubsidizerContract
 									</div>
 								</div>
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										{{ __('home.components.9') }}
+										<div>{{ __('home.components.13') }}</div>
+										<div>{{ __('home.components.14') }}</div>
+										<div>{{ __('home.components.15') }}</div>
 									</div>
 								</div>
 							</div>
@@ -552,44 +550,21 @@
 							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
 								<div class="w-1/2 shrink-0 distribution__item">
 									<div class="distribution__wrapper">
-										App DB
+										Umchain Full Stack Web Generator (UFSWG)
 									</div>
 								</div>
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										{{ __('home.components.10') }}
+										<div>{{ __('home.components.16') }}</div>
+										<div>{{ __('home.components.17') }}</div>
+										<div>{{ __('home.components.18') }}</div>
+										<div>{{ __('home.components.19') }}</div>
+										<div>{{ __('home.components.20') }}</div>
 									</div>
 								</div>
 							</div>
 
-							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
-								<div class="w-1/2 shrink-0 distribution__item">
-									<div class="distribution__wrapper">
-										Alchemy Poygon Node
-									</div>
-								</div>
-
-								<div class="distribution__item">
-									<div class="distribution__wrapper">
-										{{ __('home.components.11') }}
-									</div>
-								</div>
-							</div>
-							
-							<div class="flex py-1">
-								<div class="w-1/2 shrink-0 distribution__item">
-									<div class="distribution__wrapper">
-										Gateway
-									</div>
-								</div>
-
-								<div class="distribution__item">
-									<div class="distribution__wrapper">
-										{{ __('home.components.12') }}
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -625,9 +600,15 @@
 
             <section>
 
-                <p class="text-p mb-44 text-i">
+                <p class="mb-5 text-p text-i">
                     {{ __('home.total-tokens') }}
                 </p>
+
+				<div class="w-full mb-5">
+					<a href="tokens calculation.pdf" target="_blank">
+						<img src="images/tokens_calc.jpg" alt="tokens calculation">
+					</a>
+				</div>
 
 				<div class="relative grid grid-flow-row grid-cols-1 mb-8 md:grid-cols-3 md:grid-rows-1">
 					<div class="relative p-[18px] before:absolute before:left-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:absolute after:top-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
@@ -640,7 +621,7 @@
 						</div> --}}
 						<ul class="distribution__data">
 							<li>{{ __('home.seed.date') }}</li>
-							<li>1.09.2023 - 09.09.2023</li>
+							<li>4.10.2023</li>
 						</ul>
 					</div>
 
@@ -656,7 +637,7 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										22 200 000
+										17 760 000
 									</div>
 								</div>
 							</div>
@@ -670,7 +651,7 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										5,00 %
+										4 %
 									</div>
 								</div>
 							</div>
@@ -684,7 +665,7 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										$ 33 300,00
+										$ 13 320,00
 									</div>
 								</div>
 							</div>
@@ -698,7 +679,7 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										0,0015 USDT
+										0,00075 USDT
 									</div>
 								</div>
 							</div>
@@ -706,27 +687,13 @@
 							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
 								<div class="w-1/2 shrink-0 distribution__item">
 									<div class="distribution__wrapper">
-										Lock
+										Vesting
 									</div>
 								</div>
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										3 month
-									</div>
-								</div>
-							</div>
-
-							<div class="flex py-1">
-								<div class="w-1/2 shrink-0 distribution__item">
-									<div class="distribution__wrapper">
-										Vesting (linear)
-									</div>
-								</div>
-
-								<div class="distribution__item">
-									<div class="distribution__wrapper">
-										10% each month for 10 months after 6 month cliff from listing
+										Freezing: 6 months. Unfreezing: 8% per month from DEX listing date
 									</div>
 								</div>
 							</div>
@@ -745,7 +712,7 @@
 						</div> --}}
 						<ul class="distribution__data">
 							<li>{{ __('home.private.date') }}</li>
-							<li>20.09.2023-30.09.2023</li>
+							<li>31.10.2023</li>
 						</ul>
 					</div>
 
@@ -761,7 +728,7 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										44 400 000
+										31 080 000
 									</div>
 								</div>
 							</div>
@@ -775,7 +742,7 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										10,00 %
+										7 %
 									</div>
 								</div>
 							</div>
@@ -789,7 +756,7 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										$ 111 100,00
+										$ 46 620,00
 									</div>
 								</div>
 							</div>
@@ -803,13 +770,13 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										<div class="distribution__one distribution__one--normal">0,0025 USDT</div>
-                                		<div class="distribution__one distribution__one--pink">0,001 USDT</div>
+										<div class="distribution__one distribution__one--normal">0,0015 USDT</div>
+                                		{{-- <div class="distribution__one distribution__one--pink">0,001 USDT</div> --}}
 									</div>
 								</div>
 							</div>
 
-							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+							{{-- <div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
 								<div class="w-1/2 shrink-0 distribution__item">
 									<div class="distribution__wrapper">
 										Lock
@@ -821,18 +788,18 @@
 										0
 									</div>
 								</div>
-							</div>
+							</div> --}}
 
 							<div class="flex py-1">
 								<div class="w-1/2 shrink-0 distribution__item">
 									<div class="distribution__wrapper">
-										Vesting (linear)
+										Vesting
 									</div>
 								</div>
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										10% each month for 10 months after 6 month cliff from listing
+										Freezing: 8 months. Unfreezing: 8% per month from DEX listing date
 									</div>
 								</div>
 							</div>
@@ -852,7 +819,7 @@
 						</div> --}}
 						<ul class="distribution__data">
 							<li>{{ __('home.public.date') }}</li>
-							<li>25.10.2023-30.10.2023</li>
+							<li>12.12.2023</li>
 						</ul>
 					</div>
 
@@ -896,7 +863,7 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										$ 77 700,00
+										$ 66 660,00
 									</div>
 								</div>
 							</div>
@@ -911,12 +878,12 @@
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
 										<div class="distribution__one distribution__one--normal">0,0035 USDT</div>
-                                		<div class="distribution__one distribution__one--pink">0,001 USDT</div>
+                                		{{-- <div class="distribution__one distribution__one--pink">0,001 USDT</div> --}}
 									</div>
 								</div>
 							</div>
 
-							<div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
+							{{-- <div class="relative flex py-1 after:absolute after:bottom-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
 								<div class="w-1/2 shrink-0 distribution__item">
 									<div class="distribution__wrapper">
 										Lock
@@ -928,18 +895,18 @@
 										0
 									</div>
 								</div>
-							</div>
+							</div> --}}
 
 							<div class="flex py-1">
 								<div class="w-1/2 shrink-0 distribution__item">
 									<div class="distribution__wrapper">
-										Vesting (linear)
+										Vesting
 									</div>
 								</div>
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										10% each month for 10 months after 6 month cliff from listing
+										Freezing: 8 months. Unfreezing: 8% per month from DEX listing date
 									</div>
 								</div>
 							</div>

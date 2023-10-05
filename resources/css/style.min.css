@@ -3803,6 +3803,9 @@ body {
     margin-top: 35px;
 }
 .distribution__wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
     padding-left: 37px;
 	padding-right: 5px;
     font-size: 14px;
