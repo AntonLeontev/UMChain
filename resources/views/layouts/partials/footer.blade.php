@@ -34,8 +34,21 @@
                                     src="{{ asset('images/youtube.svg') }}" alt="youtube"></a></li> --}}
 
                         <li>
+							
+							<a target="_blank" href="https://instagram.com/umchainorg">
+								<img src="/images/social/instagram.png" alt="instagram" width="40px">
+							</a>
 							<a target="_blank" href="https://twitter.com/umchainorg">
-								<img src="{{ asset('images/twitter.svg') }}" alt="twitter">
+								<img src="/images/social/twitter.png" alt="twitter" width="40px">
+							</a>
+							<a target="_blank" href="https://t.me/umchain">
+								<img src="/images/social/telegram.png" alt="telegram" width="40px">
+							</a>
+							<a target="_blank" href="#">
+								<img src="/images/social/linkedin.png" alt="linkedin" width="40px">
+							</a>
+							<a target="_blank" href="https://discord.gg/GgNJzN37">
+								<img src="/images/social/discord.png" alt="instagram" width="40px">
 							</a>
 						</li>
 
