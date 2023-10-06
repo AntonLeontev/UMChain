@@ -906,7 +906,7 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										Freezing: 8 months. Unfreezing: 8% per month from DEX listing date
+										Freezing: 10 months. Unfreezing: 8% per month from DEX listing date
 									</div>
 								</div>
 							</div>
@@ -920,7 +920,160 @@
             <section class="relative about roadmap">
 				<div class="absolute anchor -top-3" id="map"></div>
 
-                <div class="about__inner">
+				<h4 class="mb-10 tok__title">Roadmap</h4>
+
+				<div class="p-1 overflow-hidden rounded" x-data="roadmap">
+					<div class="p-2 mt-0 overview__uno" @click="active = 1">
+						2020 Q4
+					</div>
+					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 1 && 'grid-rows-[1fr]'">
+						<div class="overflow-hidden rounded-xl">
+							<ul class="pl-7">
+								<li>Start of IT development of the UMChain marketplace platform</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="p-2 mt-0 overview__uno" @click="active = 2">
+						2021 Q1 - Q4
+					</div>
+					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 2 && 'grid-rows-[1fr]'">
+						<div class="overflow-hidden rounded-xl">
+							<ul class="pl-7">
+								<li>Development of marketplace architecture</li>
+								<li>Development of online store and marketplace design </li>
+								<li>Development of online store and marketplace frontend</li>
+								<li>Development of online store and marketplace backend</li>
+								<li>Development of online store and marketplace</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="p-2 mt-0 overview__uno" @click="active = 3">
+						2022 Q1 - Q2 
+					</div>
+					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 3 && 'grid-rows-[1fr]'">
+						<div class="overflow-hidden rounded-xl">
+							<ul class="pl-7">
+								<li>Development of terms of reference for smart contract</li>
+								<li>Development of smart contract for marketplace</li>
+								<li>Registration of UMChain OU in Estonia</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="p-2 mt-0 overview__uno" @click="active = 4">
+						2022 Q3 - Q4
+					</div>
+					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 4 && 'grid-rows-[1fr]'">
+						<div class="overflow-hidden rounded-xl">
+							<ul class="pl-7">
+								<li>Integration of smart contract into marketplace</li>
+								<li>Development of Terms of Reference for online store builder (CMS UMCHAIN)</li>
+								<li>Development of CMS Umchain</li>
+								<li>Launch of online flower store on CMS umchain</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="p-2 mt-0 overview__uno" @click="active = 5">
+						2023 Q1
+					</div>
+					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 5 && 'grid-rows-[1fr]'">
+						<div class="overflow-hidden rounded-xl">
+							<ul class="pl-7">
+								<li>Start of Development of Decentralized Website Builder, Umchain Full Stack Web Generator (UFSWG)</li>
+								<li>Formation of backend development department</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="p-2 mt-0 overview__uno" @click="active = 6">
+						2023 Q2
+					</div>
+					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 6 && 'grid-rows-[1fr]'">
+						<div class="overflow-hidden rounded-xl">
+							<ul class="pl-7">
+								<li>Develop project architecture </li>
+								<li>Development of the Umchain Full Stack Web Generator (UFSWG)</li>
+								<li>Terms of Reference</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="p-2 mt-0 overview__uno" @click="active = 7">
+						2023 Q3
+					</div>
+					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 7 && 'grid-rows-[1fr]'">
+						<div class="overflow-hidden rounded-xl">
+							<ul class="pl-7">
+								<li>Integration with neural networks </li>
+								<li>Umchain Ecosystem logic development</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="p-2 mt-0 overview__uno" @click="active = 8">
+						2023 Q4
+					</div>
+					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 8 && 'grid-rows-[1fr]'">
+						<div class="overflow-hidden rounded-xl">
+							<ul class="pl-7">
+								<li>Development Umchain Token Contract Smart Contract</li>
+								<li>Development FeezeContract </li>
+								<li>Test run of Umchain Full Stack Web Generator (Landing page) prototype</li>
+								<li>Seed Round Development of design templates for Umchain Full Stack Web Generator (Landing page)</li>
+								<li>Template layout Umchain Full Stack Web Generator (Landing page) </li>
+								<li>Private round Development of StakingContract Development of WebsiteDatabaseContract Development of GasSubsidizerContract</li>
+								<li>Contract Audit</li>
+								<li>Launch of Umchain Full Stack Web Generator (Landing page)</li>
+								<li>Landing page Integration of StakingContract with Umchain Full Stack Web Generator (Landing page)</li>
+								<li>Launch of Bounty program Public round Launch of Umchain Full Stack Web Generator (Landing page)</li>
+								<li>Listing DEX</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="p-2 mt-0 overview__uno" @click="active = 9">
+						2024 Q1 - Q2
+					</div>
+					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 9 && 'grid-rows-[1fr]'">
+						<div class="overflow-hidden rounded-xl">
+							<ul class="pl-7">
+								<li>Development of Umchain Full Stack Web Generator (Online Store) </li>
+								<li>Test run of Umchain Full Stack Web Generator (Online Store) </li>
+								<li>Intgeration of StakingContract in Umchain Full Stack Web Generator (Online Store) </li>
+								<li>Launch of Umchain Full Stack Web Generator (Online Store)</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="p-2 mt-0 overview__uno" @click="active = 10">
+						2024 Q3 - Q4
+					</div>
+					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 10 && 'grid-rows-[1fr]'">
+						<div class="overflow-hidden rounded-xl">
+							<ul class="pl-7">
+								<li>Development of NFT Module for UMCT (NFTM) </li>
+								<li>Development of Umchain Full Stack Web Generator (Marketplace)</li>
+								<li>Integration of NFT Module for UMCT (NFTM) into Umchain Full Stack Web Generator (Marketplace)</li>
+								<li>Test run of Umchain Full Stack Web Generator (Marketplace) </li>
+								<li>Launch of Umchain Full Stack Web Generator (Marketplace) </li>
+								<li>CEX Listing</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<script>
+					document.addEventListener('alpine:init', () => {
+						Alpine.data('roadmap', () => ({
+							active: null,
+						}))
+					})
+				</script>
+
+                {{-- <div class="about__inner">
                     <h4 class="overview__title">{{ __('home.roadmap.title') }}</h4>
                     <div class="overview__choose">
                         <div class="overview__num">2023</div>
@@ -965,7 +1118,7 @@
                                 <img class="distribution__img" src="{{Vite::asset('resources/images/сhart5-mob.png')}}" alt="фото">
                             </picture>
                         </div>
-                </div>
+                </div> --}}
             </section>
 
         </div>

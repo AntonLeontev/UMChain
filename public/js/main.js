@@ -749,7 +749,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     try {
         shooseList(
-            ".overview__uno",
             ".overview__num",
             ".overview__spisok",
             ".about__map",
