@@ -593,7 +593,7 @@
                     <h4 class="tok__title mb-44">UMC Token emission</h4>
                     <picture>
                         <source srcset="{{asset('images/c-dest.png')}}" media="(min-width: 768px)">
-                        <img class="distribution__img" src="{{asset('images/c-mob.png')}}" alt="фото">
+                        <img class="distribution__img" src="{{asset('images/c-dest.png')}}" alt="фото">
                     </picture>
                 </div>
             </section>
