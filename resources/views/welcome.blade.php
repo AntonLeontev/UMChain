@@ -928,8 +928,8 @@
 					</div>
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 1 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
-							<ul class="pl-7">
-								<li>Start of IT development of the UMChain marketplace platform</li>
+							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item checked>Start of IT development of the UMChain marketplace platform</x-roadmap-item>
 							</ul>
 						</div>
 					</div>
@@ -939,12 +939,12 @@
 					</div>
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 2 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
-							<ul class="pl-7">
-								<li>Development of marketplace architecture</li>
-								<li>Development of online store and marketplace design </li>
-								<li>Development of online store and marketplace frontend</li>
-								<li>Development of online store and marketplace backend</li>
-								<li>Development of online store and marketplace</li>
+							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item checked>Development of marketplace architecture</x-roadmap-item>
+								<x-roadmap-item checked>Development of online store and marketplace design </x-roadmap-item>
+								<x-roadmap-item checked>Development of online store and marketplace frontend</x-roadmap-item>
+								<x-roadmap-item checked>Development of online store and marketplace backend</x-roadmap-item>
+								<x-roadmap-item checked>Development of online store and marketplace</x-roadmap-item>
 							</ul>
 						</div>
 					</div>
@@ -954,10 +954,10 @@
 					</div>
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 3 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
-							<ul class="pl-7">
-								<li>Development of terms of reference for smart contract</li>
-								<li>Development of smart contract for marketplace</li>
-								<li>Registration of UMChain OU in Estonia</li>
+							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item checked>Development of terms of reference for smart contract</x-roadmap-item>
+								<x-roadmap-item checked>Development of smart contract for marketplace</x-roadmap-item>
+								<x-roadmap-item checked>Registration of UMChain OU in Estonia</x-roadmap-item>
 							</ul>
 						</div>
 					</div>
@@ -967,11 +967,11 @@
 					</div>
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 4 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
-							<ul class="pl-7">
-								<li>Integration of smart contract into marketplace</li>
-								<li>Development of Terms of Reference for online store builder (CMS UMCHAIN)</li>
-								<li>Development of CMS Umchain</li>
-								<li>Launch of online flower store on CMS umchain</li>
+							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item checked>Integration of smart contract into marketplace</x-roadmap-item>
+								<x-roadmap-item checked>Development of Terms of Reference for online store builder (CMS UMCHAIN)</x-roadmap-item>
+								<x-roadmap-item checked>Development of CMS Umchain</x-roadmap-item>
+								<x-roadmap-item checked>Launch of online flower store on CMS umchain</x-roadmap-item>
 							</ul>
 						</div>
 					</div>
@@ -981,9 +981,9 @@
 					</div>
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 5 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
-							<ul class="pl-7">
-								<li>Start of Development of Decentralized Website Builder, Umchain Full Stack Web Generator (UFSWG)</li>
-								<li>Formation of backend development department</li>
+							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item checked>Start of Development of Decentralized Website Builder, Umchain Full Stack Web Generator (UFSWG)</x-roadmap-item>
+								<x-roadmap-item checked>Formation of backend development department</x-roadmap-item>
 							</ul>
 						</div>
 					</div>
@@ -993,10 +993,10 @@
 					</div>
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 6 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
-							<ul class="pl-7">
-								<li>Develop project architecture </li>
-								<li>Development of the Umchain Full Stack Web Generator (UFSWG)</li>
-								<li>Terms of Reference</li>
+							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item checked>Develop project architecture </x-roadmap-item>
+								<x-roadmap-item checked>Development of the Umchain Full Stack Web Generator (UFSWG)</x-roadmap-item>
+								<x-roadmap-item checked>Terms of Reference</x-roadmap-item>
 							</ul>
 						</div>
 					</div>
@@ -1006,9 +1006,9 @@
 					</div>
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 7 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
-							<ul class="pl-7">
-								<li>Integration with neural networks </li>
-								<li>Umchain Ecosystem logic development</li>
+							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item checked>Integration with neural networks </x-roadmap-item>
+								<x-roadmap-item checked>Umchain Ecosystem logic development</x-roadmap-item>
 							</ul>
 						</div>
 					</div>
@@ -1018,18 +1018,18 @@
 					</div>
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 8 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
-							<ul class="pl-7">
-								<li>Development Umchain Token Contract Smart Contract</li>
-								<li>Development FeezeContract </li>
-								<li>Test run of Umchain Full Stack Web Generator (Landing page) prototype</li>
-								<li>Seed Round Development of design templates for Umchain Full Stack Web Generator (Landing page)</li>
-								<li>Template layout Umchain Full Stack Web Generator (Landing page) </li>
-								<li>Private round Development of StakingContract Development of WebsiteDatabaseContract Development of GasSubsidizerContract</li>
-								<li>Contract Audit</li>
-								<li>Launch of Umchain Full Stack Web Generator (Landing page)</li>
-								<li>Landing page Integration of StakingContract with Umchain Full Stack Web Generator (Landing page)</li>
-								<li>Launch of Bounty program Public round Launch of Umchain Full Stack Web Generator (Landing page)</li>
-								<li>Listing DEX</li>
+							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item checked>Development Umchain Token Contract Smart Contract</x-roadmap-item>
+								<x-roadmap-item checked>Development FeezeContract </x-roadmap-item>
+								<x-roadmap-item checked>Test run of Umchain Full Stack Web Generator (Landing page) prototype</x-roadmap-item>
+								<x-roadmap-item checked>Seed Round Development of design templates for Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
+								<x-roadmap-item checked>Template layout Umchain Full Stack Web Generator (Landing page) </x-roadmap-item>
+								<x-roadmap-item>Private round Development of StakingContract Development of WebsiteDatabaseContract Development of GasSubsidizerContract</x-roadmap-item>
+								<x-roadmap-item>Contract Audit</x-roadmap-item>
+								<x-roadmap-item>Launch of Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
+								<x-roadmap-item>Landing page Integration of StakingContract with Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
+								<x-roadmap-item>Launch of Bounty program Public round Launch of Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
+								<x-roadmap-item>Listing DEX</x-roadmap-item>
 							</ul>
 						</div>
 					</div>
@@ -1039,11 +1039,11 @@
 					</div>
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 9 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
-							<ul class="pl-7">
-								<li>Development of Umchain Full Stack Web Generator (Online Store) </li>
-								<li>Test run of Umchain Full Stack Web Generator (Online Store) </li>
-								<li>Intgeration of StakingContract in Umchain Full Stack Web Generator (Online Store) </li>
-								<li>Launch of Umchain Full Stack Web Generator (Online Store)</li>
+							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item>Development of Umchain Full Stack Web Generator (Online Store) </x-roadmap-item>
+								<x-roadmap-item>Test run of Umchain Full Stack Web Generator (Online Store) </x-roadmap-item>
+								<x-roadmap-item>Intgeration of StakingContract in Umchain Full Stack Web Generator (Online Store) </x-roadmap-item>
+								<x-roadmap-item>Launch of Umchain Full Stack Web Generator (Online Store)</x-roadmap-item>
 							</ul>
 						</div>
 					</div>
@@ -1053,13 +1053,13 @@
 					</div>
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 10 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
-							<ul class="pl-7">
-								<li>Development of NFT Module for UMCT (NFTM) </li>
-								<li>Development of Umchain Full Stack Web Generator (Marketplace)</li>
-								<li>Integration of NFT Module for UMCT (NFTM) into Umchain Full Stack Web Generator (Marketplace)</li>
-								<li>Test run of Umchain Full Stack Web Generator (Marketplace) </li>
-								<li>Launch of Umchain Full Stack Web Generator (Marketplace) </li>
-								<li>CEX Listing</li>
+							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item>Development of NFT Module for UMCT (NFTM) </x-roadmap-item>
+								<x-roadmap-item>Development of Umchain Full Stack Web Generator (Marketplace)</x-roadmap-item>
+								<x-roadmap-item>Integration of NFT Module for UMCT (NFTM) into Umchain Full Stack Web Generator (Marketplace)</x-roadmap-item>
+								<x-roadmap-item>Test run of Umchain Full Stack Web Generator (Marketplace) </x-roadmap-item>
+								<x-roadmap-item>Launch of Umchain Full Stack Web Generator (Marketplace) </x-roadmap-item>
+								<x-roadmap-item>CEX Listing</x-roadmap-item>
 							</ul>
 						</div>
 					</div>
@@ -1068,7 +1068,7 @@
 				<script>
 					document.addEventListener('alpine:init', () => {
 						Alpine.data('roadmap', () => ({
-							active: null,
+							active: 8,
 						}))
 					})
 				</script>
