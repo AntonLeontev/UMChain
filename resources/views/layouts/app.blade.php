@@ -12,6 +12,16 @@
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@400;500;600&amp;family=Roboto&amp;display=swap" rel="stylesheet">
 
         <!-- Scripts -->
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGDCSBFMM6"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-SGDCSBFMM6');
+		</script>
+
 		@routes
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 		<style>
