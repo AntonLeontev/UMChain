@@ -877,7 +877,7 @@
 
 								<div class="distribution__item">
 									<div class="distribution__wrapper">
-										<div class="distribution__one distribution__one--normal">0,0035 USDT</div>
+										<div class="distribution__one distribution__one--normal">0,003 USDT</div>
                                 		{{-- <div class="distribution__one distribution__one--pink">0,001 USDT</div> --}}
 									</div>
 								</div>
