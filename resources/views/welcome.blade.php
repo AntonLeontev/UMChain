@@ -428,8 +428,8 @@
 
                     <div class="mb-10">
                         <picture>
-                            <source srcset="{{asset('images/sxema-dest.png')}}" media="(min-width: 768px)">
-                            <img class="distribution__img" src="{{asset('images/sxema-mob.svg')}}" alt="фото">
+                            <source srcset="{{asset('images/sxema-dest.jpg')}}" media="(min-width: 768px)">
+                            <img class="distribution__img" src="{{asset('images/sxema-dest.jpg')}}" alt="фото">
                         </picture>
                     </div>
                 </div>
