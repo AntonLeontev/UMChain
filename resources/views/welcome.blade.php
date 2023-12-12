@@ -621,7 +621,7 @@
 						</div> --}}
 						<ul class="distribution__data">
 							<li>{{ __('home.seed.date') }}</li>
-							<li>27.11.2023</li>
+							<li>12.12.2023</li>
 						</ul>
 					</div>
 
@@ -714,7 +714,7 @@
 						</div> --}}
 						<ul class="distribution__data">
 							<li>{{ __('home.private.date') }}</li>
-							<li>07.12.2023</li>
+							<li>25.12.2023</li>
 						</ul>
 					</div>
 
