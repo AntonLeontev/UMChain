@@ -621,7 +621,7 @@
 						</div> --}}
 						<ul class="distribution__data">
 							<li>{{ __('home.seed.date') }}</li>
-							<li>12.12.2023</li>
+							<li>20.01.2024</li>
 						</ul>
 					</div>
 
@@ -714,7 +714,7 @@
 						</div> --}}
 						<ul class="distribution__data">
 							<li>{{ __('home.private.date') }}</li>
-							<li>25.12.2023</li>
+							<li>???</li>
 						</ul>
 					</div>
 
@@ -821,7 +821,7 @@
 						</div> --}}
 						<ul class="distribution__data">
 							<li>{{ __('home.public.date') }}</li>
-							<li>25.01.2024</li>
+							<li>???</li>
 						</ul>
 					</div>
 
@@ -1026,12 +1026,6 @@
 								<x-roadmap-item checked>Test run of Umchain Full Stack Web Generator (Landing page) prototype</x-roadmap-item>
 								<x-roadmap-item checked>Seed Round Development of design templates for Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
 								<x-roadmap-item checked>Template layout Umchain Full Stack Web Generator (Landing page) </x-roadmap-item>
-								<x-roadmap-item>Private round Development of StakingContract Development of WebsiteDatabaseContract Development of GasSubsidizerContract</x-roadmap-item>
-								<x-roadmap-item>Contract Audit</x-roadmap-item>
-								<x-roadmap-item>Launch of Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
-								<x-roadmap-item>Landing page Integration of StakingContract with Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
-								<x-roadmap-item>Launch of Bounty program Public round Launch of Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
-								<x-roadmap-item>Listing DEX</x-roadmap-item>
 							</ul>
 						</div>
 					</div>
@@ -1042,6 +1036,12 @@
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 9 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
 							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item>Private round Development of StakingContract Development of WebsiteDatabaseContract Development of GasSubsidizerContract</x-roadmap-item>
+								<x-roadmap-item>Contract Audit</x-roadmap-item>
+								<x-roadmap-item>Launch of Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
+								<x-roadmap-item>Landing page Integration of StakingContract with Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
+								<x-roadmap-item>Launch of Bounty program Public round Launch of Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
+								<x-roadmap-item>Listing DEX</x-roadmap-item>
 								<x-roadmap-item>Development of Umchain Full Stack Web Generator (Online Store) </x-roadmap-item>
 								<x-roadmap-item>Test run of Umchain Full Stack Web Generator (Online Store) </x-roadmap-item>
 								<x-roadmap-item>Intgeration of StakingContract in Umchain Full Stack Web Generator (Online Store) </x-roadmap-item>

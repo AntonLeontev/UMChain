@@ -40,7 +40,7 @@ task('cache_routes', function () {
 });
 
 // Hooks
-after('deploy:success', 'build');
+after('deploy:vendors', 'build');
 after('artisan:route:cache', 'cache_routes');
 
 after('deploy:failed', 'deploy:unlock');
