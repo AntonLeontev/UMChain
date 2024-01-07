@@ -1070,7 +1070,7 @@
 				<script>
 					document.addEventListener('alpine:init', () => {
 						Alpine.data('roadmap', () => ({
-							active: 8,
+							active: 9,
 						}))
 					})
 				</script>
