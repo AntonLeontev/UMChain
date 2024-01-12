@@ -15,31 +15,8 @@
 
 						<a href="{{ route('register') }}">{{ __('home.Sign up for the purchase of umt tokens') }}</a>
                     </div>
-                    {{-- <div class="major__img-block">
-                        <img class="one" src="{{asset('images/logo01.png')}}" alt="">
-                        <img class="two" src="{{asset('images/logo02.png')}}" alt="">
-                    </div> --}}
                 </div>
-{{--                <div class="major__right">--}}
-{{--                    <div class="major__timer">До конца 1 раунда осталось:</div>--}}
-{{--                    <div class="major__time">--}}
-{{--                        <div class="major__one">--}}
-{{--                            <div class="major__top">Токенов</div>--}}
-{{--                            <div class="major__box">0 <span>млн.</span></div>--}}
-{{--                            <div class="major__box">0<span></span></div>--}}
-{{--                        </div>--}}
-{{--                        <div class="major__one">--}}
-{{--                            <div class="major__top">Модулей</div>--}}
-{{--                            <div class="major__box">600</div>--}}
-{{--                            <div class="major__box">0</div>--}}
-{{--                        </div>--}}
-{{--                        <div class="major__one">--}}
-{{--                            <div class="major__top">Блоков</div>--}}
-{{--                            <div class="major__box">12000</div>--}}
-{{--                            <div class="major__box">0</div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--            </div>--}}
+			</div>
         </div>
     </section>
     <div class="content__grid">
@@ -1024,7 +1001,6 @@
 								<x-roadmap-item checked>Development Umchain Token Contract Smart Contract</x-roadmap-item>
 								<x-roadmap-item checked>Development FeezeContract </x-roadmap-item>
 								<x-roadmap-item checked>Test run of Umchain Full Stack Web Generator (Landing page) prototype</x-roadmap-item>
-								<x-roadmap-item checked>Seed Round Development of design templates for Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
 								<x-roadmap-item checked>Template layout Umchain Full Stack Web Generator (Landing page) </x-roadmap-item>
 							</ul>
 						</div>
@@ -1036,6 +1012,7 @@
 					<div class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-500" :class="active === 9 && 'grid-rows-[1fr]'">
 						<div class="overflow-hidden rounded-xl">
 							<ul class="flex flex-col gap-2 pl-7">
+								<x-roadmap-item>Seed Round Development of design templates for Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
 								<x-roadmap-item>Private round Development of StakingContract Development of WebsiteDatabaseContract Development of GasSubsidizerContract</x-roadmap-item>
 								<x-roadmap-item>Contract Audit</x-roadmap-item>
 								<x-roadmap-item>Launch of Umchain Full Stack Web Generator (Landing page)</x-roadmap-item>
