@@ -405,8 +405,8 @@
 
                     <div class="mb-10">
                         <picture>
-                            <source srcset="{{asset('images/sxema-dest.jpg')}}" media="(min-width: 768px)">
-                            <img class="distribution__img" src="{{asset('images/sxema-dest.jpg')}}" alt="фото">
+                            <source srcset="{{Vite::asset('resources/images/sxema-dest.png')}}" media="(min-width: 768px)">
+                            <img class="distribution__img" src="{{Vite::asset('resources/images/sxema-dest.png')}}" alt="фото">
                         </picture>
                     </div>
                 </div>
@@ -569,8 +569,8 @@
                 <div class="about__inner mb-98">
                     <h4 class="tok__title mb-44">UMC Token emission</h4>
                     <picture>
-                        <source srcset="{{asset('images/c-dest.png')}}" media="(min-width: 768px)">
-                        <img class="distribution__img" src="{{asset('images/c-dest.png')}}" alt="фото">
+                        <source srcset="{{Vite::asset('resources/images/c-dest.png')}}" media="(min-width: 768px)">
+                        <img class="distribution__img" src="{{Vite::asset('resources/images/c-dest.png')}}" alt="фото">
                     </picture>
                 </div>
             </section>
@@ -580,12 +580,6 @@
                 <p class="mb-5 text-p text-i">
                     {{ __('home.total-tokens') }}
                 </p>
-
-				<div class="w-full mb-5">
-					<a href="tokens calculation.pdf" target="_blank">
-						<img src="images/tokens_calc.jpg" alt="tokens calculation">
-					</a>
-				</div>
 
 				<div class="relative grid grid-flow-row grid-cols-1 mb-8 md:grid-cols-3 md:grid-rows-1">
 					<div class="relative p-[18px] before:absolute before:left-0 before:w-[1px] before:bg-black before:top-[13px] before:bottom-[13px] after:absolute after:top-0 after:h-[1px] after:bg-black after:left-[13px] after:right-[13px]">
@@ -893,6 +887,9 @@
 					</div>
 				</div>
 
+				<div class="mx-auto mt-5 bepartner__btn">
+					<a href="tokens calculation.pdf" target="_blank">{{ __('home.learn_more') }}</a>
+				</div>
 
             </section>
 

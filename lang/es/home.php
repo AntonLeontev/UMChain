@@ -185,6 +185,7 @@ Staking garantiza la seguridad de las transacciones al crear soluciones basadas 
         '1' => 'Lanzamiento de un creador de sitios web para una plataforma de negociación descentralizada ',
         'date' => 'Date',
     ],
+    'learn_more' => 'Aprende más',
     'roadmap' => [
         'title' => 'Roadmap',
     ],

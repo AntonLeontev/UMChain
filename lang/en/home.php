@@ -193,6 +193,7 @@ Staking ensures transaction security when creating web-based solutions.',
         '1' => 'Launch of website builder for decentralized trading platform ',
         'date' => 'Date',
     ],
+    'learn_more' => 'Learn more',
     'roadmap' => [
         'title' => 'Roadmap',
     ],
