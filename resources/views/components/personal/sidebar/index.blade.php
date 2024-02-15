@@ -103,7 +103,7 @@
 					}"
 					@submit.prevent="submit"
 				>
-					<div class="append__success" x-show="copyShow" x-cloak x-transition.opacity>{{ __('cabinet/wallet.copied') }}</div>
+					
                     <div class="justify-between mb-3 append__table">
                         <div class="append__item">
                             <div class="append__top">{{ __('cabinet/wallet.sum') }}</div>
@@ -134,7 +134,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="append__input reg__one">
+						<div class="relative append__input reg__one">
+							<div class="append__success top-0 left-0 right-[30px] bottom-0 z-10" x-show="copyShow" x-cloak x-transition.opacity>{{ __('cabinet/wallet.copied') }}</div>
 							<div class="reg__name">{{ __('cabinet/wallet.5') }}</div>
 							<div class="relative w-full append__flex gap-x-2">
 								<div class="reg__field append__coppied">
