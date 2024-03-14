@@ -68,6 +68,26 @@
             <x-personal.sidebar.wallet-form />
         </div>
 
+        <div 
+			class="main__rate" 
+			x-show="menu === 'fit'" 
+			x-transition 
+			x-cloak
+		>
+            <ul class="flex flex-col items-center main__menu--list">
+                <li class="tracking-widest" :class="{ 'active': page === 'fitProfile' }"
+                    @click="$dispatch('page', 'fitProfile')">
+                    {{ __('cabinet/sidebar.profile') }}
+                </li>
+			</ul>
+            <ul class="flex flex-col items-center main__menu--list">
+                <li class="tracking-widest" :class="{ 'active': page === 'fitCalculator' }"
+                    @click="$dispatch('page', 'fitCalculator')">
+                    {{ __('cabinet/sidebar.fitCalculator') }}
+                </li>
+			</ul>
+        </div>
+
         <div class="main__replenish" x-show="menu === 'order'" x-transition x-cloak>
             <div class="append__wrapper">
                 
@@ -172,14 +192,40 @@
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.data('sidebar', () => ({
-            menu: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') +
-                1) == 'wallet' ? 'wallet' : 'profile',
+            menu: null,
             title: 'Profile data',
 			
+			init() {
+				this.initMenu()
+			},
+			initMenu() {
+				let path = window.location.pathname
+					.substring(window.location.pathname.lastIndexOf('/') + 1)
+
+				if (path === 'wallet') {
+					this.menu = 'wallet'
+					return
+				}
+
+				if (path.includes('fit')) {
+					this.menu = 'fit'
+					return
+				}
+				
+				this.menu = 'profile'
+			},
 			switchMenu() {
 				if (this.$event.detail.value === 'wallet' && this.order) {
 					this.menu = 'order';
 					return;
+				}
+
+				if (this.$event.detail.value === 'fit') {
+					this.$dispatch('page', 'fitProfile')
+				}
+
+				if (this.$event.detail.value === 'profile') {
+					this.$dispatch('page', 'personal')
 				}
 				
 				this.menu = this.$event.detail.value;
@@ -212,6 +258,12 @@
                         break;
                     case "withdraw":
                         return "{{ __('cabinet/sidebar.withdraw') }}";
+                        break;
+                    case "fitProfile":
+                        return "{{ __('cabinet/sidebar.fit') }}";
+                        break;
+                    case "fitCalculator":
+                        return "{{ __('cabinet/sidebar.fitCalculator') }}";
                         break;
 
                     default:

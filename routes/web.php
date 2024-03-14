@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\GoogleFitController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
@@ -8,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\WithdrawalController;
 use App\Http\Middleware\ChangeRussianLocale;
+use App\Services\Fit\FitApi;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -18,7 +21,11 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', ChangeRussia
 
         if (app()->isLocal()) {
             Route::get('test', function () {
-                dd(LaravelLocalization::getSupportedLocales(), 'ru');
+                $bucket = 3600 * 24 * 1000;
+                $start = now()->startOfDay()->timestamp * 1000;
+                $end = now()->endOfDay()->timestamp * 1000;
+
+                dd(FitApi::aggregateCalories($bucket, $start, $end)->json());
             });
         }
 
@@ -35,6 +42,8 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', ChangeRussia
                 Route::get('referral', [PageController::class, 'cabinet'])->name('cabinet.referral');
                 Route::get('banners', [PageController::class, 'cabinet'])->name('cabinet.banners');
                 Route::get('notifications', [PageController::class, 'cabinet'])->name('cabinet.notifications');
+                Route::get('fitProfile', [PageController::class, 'cabinet'])->name('cabinet.fit.profile');
+                Route::get('fitCalculator', [PageController::class, 'cabinet'])->name('cabinet.fit.calculator');
 
                 Route::prefix('users')
                     ->middleware(['precognitive', 'auth'])
@@ -63,12 +72,21 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', ChangeRussia
                     });
 
                 Route::post('notifications/mark-as-read', [NotificationController::class, 'markRead'])
-                    ->middleware(['auth'])
                     ->name('notifications.mark-read');
+
+                Route::get('google/auth', [GoogleAuthController::class, 'auth'])
+                    ->name('google.auth');
+
+                Route::any('google/code', [GoogleAuthController::class, 'code'])
+                    ->name('google.code');
             });
 
         require __DIR__.'/auth.php';
     });
+
+Route::middleware(['auth'])
+    ->get('user/calories', [GoogleFitController::class, 'calories'])
+    ->name('user.google.calories');
 
 Route::prefix(config('moonshine.route.prefix', ''))
     ->as('moonshine.')

@@ -30,6 +30,9 @@ class User extends Authenticatable
         'umt',
         'usdt',
         'agent_id',
+        'google_access_token',
+        'google_refresh_token',
+        'google_expires',
     ];
 
     /**
@@ -53,6 +56,7 @@ class User extends Authenticatable
         'umt' => OrderAmountCast::class,
         'usdt' => OrderAmountCast::class,
         'hasLinkRequest' => 'boolean',
+        'google_expires' => 'datetime',
     ];
 
     protected $with = [

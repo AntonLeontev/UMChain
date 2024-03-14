@@ -19,4 +19,8 @@ return [
         'chat' => env('TELEGRAM_CHAT_ID'),
     ],
 
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'secret' => env('GOOGLE_SECRET'),
+    ],
 ];

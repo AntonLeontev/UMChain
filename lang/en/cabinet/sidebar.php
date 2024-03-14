@@ -3,6 +3,8 @@
 return [
     'profile' => 'Profile',
     'wallet' => 'Wallet',
+    'fit' => 'Fit',
+    'fitCalculator' => 'Calculator',
     'personal' => 'Personal',
     'portfolio' => 'Portfolio',
     'password' => 'Password change',
