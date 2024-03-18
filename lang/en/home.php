@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'UMCHAIN – IT solutions for business based on blockchain' => 'UMCHAIN - IT Solutions for Creators',
+    'UMCHAIN – IT solutions for business based on blockchain' => 'UMCHAIN - IT Solutions',
     'Become one of the first. Take a step into a decentralized future' => 'Become one of the first. Take a step into a decentralized future',
-    'Sign up for the purchase of umt tokens' => 'Buy UMCT Tokens',
+    'Sign up for the purchase of umt tokens' => 'Registration',
     'What is Umchain?' => 'What is Umchain?',
     'menu' => [
         'advantages' => 'Advantages of UMChain',

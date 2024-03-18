@@ -8,9 +8,9 @@
         <div class="container">
             <div class="major__inner">
                 <div class="major__left">
-					<div class="major__description">Whitepaper</div>
-                    <h1 class="major__title">{{ __('home.UMCHAIN – IT solutions for business based on blockchain') }}</h1>
-                    <div class="major__description">{{ __('home.Become one of the first. Take a step into a decentralized future') }}</div>
+					{{-- <div class="major__description">Whitepaper</div> --}}
+                    <h1 class="mb-24 major__title">{{ __('home.UMCHAIN – IT solutions for business based on blockchain') }}</h1>
+                    {{-- <div class="major__description">{{ __('home.Become one of the first. Take a step into a decentralized future') }}</div> --}}
                     <div class="major__btn">
 
 						<a href="{{ route('register') }}">{{ __('home.Sign up for the purchase of umt tokens') }}</a>

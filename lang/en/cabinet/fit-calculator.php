@@ -26,7 +26,7 @@ return [
         'Proteins' => 'Proteins',
         'Fats' => 'Fats',
         'Carbohydrates' => 'Carbohydrates',
-        '' => '',
+        'gramms' => 'g',
         '' => '',
         '' => '',
         '' => '',

@@ -26,7 +26,7 @@
 					}); --}}
 			},
 			calcCalories() {
-				let activity, level;
+				let activity, level, activityBase;
 
 				if (this.form.activity == 0) activity = 1.2
 				if (this.form.activity == 1) activity = 1.375
@@ -36,20 +36,27 @@
 				if (this.form.level == 1) level = 0.15
 				if (this.form.level == 2) level = 0.2
 
-				let base = (10 * this.form.weight + 6.25 * this.form.height - 5 * this.form.age + 5) * activity;
+				let base = 10 * this.form.weight + 6.25 * this.form.height - 5 * this.form.age
 
-				if (this.form.direction == 0) return Math.round(base - base * level) 
-				if (this.form.direction == 1) return Math.round(base)
-				if (this.form.direction == 2) return Math.round(base + base * level)
+				if (this.form.gender == 0) {
+					activityBase = (base + 5) * activity
+				}
+				if (this.form.gender == 1) {
+					activityBase = (base - 161) * activity
+				}
+
+				if (this.form.direction == 0) return Math.round(activityBase - activityBase * level) 
+				if (this.form.direction == 1) return Math.round(activityBase)
+				if (this.form.direction == 2) return Math.round(activityBase + activityBase * level)
 			},
 			proteins() {
 				return this.form.weight * 2
 			},
 			fats() {
-				return this.form.weight * 9
+				return this.form.weight
 			},
 			carbohydrates() {
-				return this.proteins() + this.fats()
+				return Math.round((this.calcCalories() - (this.proteins() * 4 + this.fats() * 9)) / 4)
 			},
 			cleanNumber() {
 				this.$event.target.value = this.$event.target.value.replaceAll(/[\D]/g, '')
@@ -134,15 +141,24 @@
 					<div class="text-center">{{ __('cabinet/fit-calculator.form.PFC') }}</div>
 					<div class="flex justify-between gap-1">
 						<span>{{ __('cabinet/fit-calculator.form.Proteins') }}</span>
-						<span x-text="proteins"></span>
+						<div>
+							<span x-text="proteins"></span>
+							<span>{{ __('cabinet/fit-calculator.form.gramms') }}</span>
+						</div>
 					</div>
 					<div class="flex justify-between gap-1">
 						<span>{{ __('cabinet/fit-calculator.form.Fats') }}</span>
-						<span x-text="fats"></span>
+						<div>
+							<span x-text="fats"></span>
+							<span>{{ __('cabinet/fit-calculator.form.gramms') }}</span>
+						</div>
 					</div>
 					<div class="flex justify-between gap-1">
 						<span>{{ __('cabinet/fit-calculator.form.Carbohydrates') }}</span>
-						<span x-text="carbohydrates"></span>
+						<div>
+							<span x-text="carbohydrates"></span>
+							<span>{{ __('cabinet/fit-calculator.form.gramms') }}</span>
+						</div>
 					</div>
 				</div>
 			</div>

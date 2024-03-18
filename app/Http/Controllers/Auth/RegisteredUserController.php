@@ -52,6 +52,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(LaravelLocalization::localizeUrl(route('cabinet.portfolio')));
+        return redirect(LaravelLocalization::localizeUrl(route('cabinet.personal')));
     }
 }

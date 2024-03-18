@@ -26,5 +26,6 @@ return [
         'Proteins' => 'Белки',
         'Fats' => 'Жиры',
         'Carbohydrates' => 'Углеводы',
+        'gramms' => 'г',
     ],
 ];
