@@ -66,8 +66,7 @@
             <div class="reg__one">
                 <div class="reg__name">Age</div>
                 <div class="reg__field">
-                    <input type="number" name="age" class="focus:border-b-pink focus:ring-0" x-model="form.age"
-                        @input="form.validate('age')">
+                    <input type="number" name="age" class="focus:border-b-pink focus:ring-0" x-model="form.age">
                     <template x-if="form.invalid('age')">
                         <div class="text-danger" x-text="form.errors.age"></div>
                     </template>
@@ -77,7 +76,7 @@
                 <div class="reg__name">Height, cm</div>
                 <div class="reg__field">
                     <input type="text" name="height" class="focus:border-b-pink focus:ring-0"
-                        x-model="form.height" @change="form.validate('height')">
+                        x-model="form.height">
                     <template x-if="form.invalid('height')">
                         <div class="text-danger" x-text="form.errors.height"></div>
                     </template>
@@ -87,7 +86,7 @@
                 <div class="reg__name">Weight, kg</div>
                 <div class="reg__field">
                     <input type="text" name="weight" class="focus:border-b-pink focus:ring-0"
-                        x-model="form.weight" @change="form.validate('weight')">
+                        x-model="form.weight">
                     <template x-if="form.invalid('weight')">
                         <div class="text-danger" x-text="form.errors.weight"></div>
                     </template>

@@ -1,6 +1,6 @@
 <div data-page="banners" class="flex w-full px-2 mb-10 mt-[-130px]" x-show="page === 'banners'" x-cloak x-data="banners">
 	<div class="flex flex-col w-full gap-y-2">
-		<div class="mt-[100px] md:mt-8 text-xl text-center">{{ __('cabinet/banners.title') }}</div>
+		<div class="mt-[100px] md:mt-16 text-xl text-center">{{ __('cabinet/banners.title') }}</div>
 		<div class="sticky top-[5px] w-full flex gap-x-2 px-5 z-[10]">
 			<div class="relative flex items-center justify-center px-2 text-white transition bg-black rounded cursor-pointer md:hover:text-pink" @pointerdown="copy">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

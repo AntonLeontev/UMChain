@@ -18,8 +18,9 @@
                     @click="$dispatch('page', 'personal')">
                     {{ __('cabinet/sidebar.personal') }}
                 </li>
-                <li class="tracking-widest" :class="{ 'active': page === 'portfolio' }"
-                    @click="$dispatch('page', 'portfolio')">{{ __('cabinet/sidebar.portfolio') }}</li>
+                {{-- <li class="tracking-widest" :class="{ 'active': page === 'portfolio' }"
+                    @click="$dispatch('page', 'portfolio')">{{ __('cabinet/sidebar.portfolio') }}
+				</li> --}}
 
                 <li class="tracking-widest" :class="{ 'active': page === 'password' }"
                     @click="$dispatch('page', 'password')">
