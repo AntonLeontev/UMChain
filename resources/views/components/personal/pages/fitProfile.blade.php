@@ -13,6 +13,7 @@
 					axios
 						.get(route('user.google.calories'))
 						.then(response => this.calories = response.data)
+						.catch(error => this.$dispatch('toast', {type: 'error', text: error.data.response.message}))
 				},
 			}"
 		>

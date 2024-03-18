@@ -6,6 +6,10 @@ namespace App\Models;
 
 use App\Casts\OrderAmountCast;
 use App\Enums\AccountType;
+use App\Enums\Activity;
+use App\Enums\Gender;
+use App\Enums\Level;
+use App\Enums\WeightDirection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -33,6 +37,13 @@ class User extends Authenticatable
         'google_access_token',
         'google_refresh_token',
         'google_expires',
+        'gender',
+        'age',
+        'height',
+        'weight',
+        'activity',
+        'level',
+        'direction',
     ];
 
     /**
@@ -57,6 +68,10 @@ class User extends Authenticatable
         'usdt' => OrderAmountCast::class,
         'hasLinkRequest' => 'boolean',
         'google_expires' => 'datetime',
+        'gender' => Gender::class,
+        'activity' => Activity::class,
+        'level' => Level::class,
+        'direction' => WeightDirection::class,
     ];
 
     protected $with = [

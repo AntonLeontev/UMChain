@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\FitController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\GoogleFitController;
 use App\Http\Controllers\NotificationController;
@@ -10,24 +11,18 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\WithdrawalController;
 use App\Http\Middleware\ChangeRussianLocale;
-use App\Services\Fit\FitApi;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+if (app()->isLocal()) {
+    Route::get('test', function () {
+    });
+}
 
 Route::middleware(['localeSessionRedirect', 'localizationRedirect', ChangeRussianLocale::class])
     ->prefix(LaravelLocalization::setLocale())
     ->group(function () {
         Route::get('/', [PageController::class, 'home'])->name('home');
-
-        if (app()->isLocal()) {
-            Route::get('test', function () {
-                $bucket = 3600 * 24 * 1000;
-                $start = now()->startOfDay()->timestamp * 1000;
-                $end = now()->endOfDay()->timestamp * 1000;
-
-                dd(FitApi::aggregateCalories($bucket, $start, $end)->json());
-            });
-        }
 
         Route::prefix('cabinet')
             ->middleware(['auth'])
@@ -50,6 +45,7 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', ChangeRussia
                     ->group(function () {
                         Route::put('update', [ProfileController::class, 'update'])->name('users.update');
                         Route::put('update-password', [ProfileController::class, 'updatePassword'])->name('users.update-password');
+                        Route::put('fit-update', [FitController::class, 'update'])->name('users.fit.update');
                     });
 
                 Route::prefix('orders')
@@ -73,15 +69,18 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', ChangeRussia
 
                 Route::post('notifications/mark-as-read', [NotificationController::class, 'markRead'])
                     ->name('notifications.mark-read');
-
-                Route::get('google/auth', [GoogleAuthController::class, 'auth'])
-                    ->name('google.auth');
-
-                Route::any('google/code', [GoogleAuthController::class, 'code'])
-                    ->name('google.code');
             });
 
         require __DIR__.'/auth.php';
+    });
+
+Route::middleware(['auth'])
+    ->group(function () {
+        Route::get('google/auth', [GoogleAuthController::class, 'auth'])
+            ->name('google.auth');
+
+        Route::any('google/code', [GoogleAuthController::class, 'code'])
+            ->name('google.code');
     });
 
 Route::middleware(['auth'])

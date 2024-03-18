@@ -125,7 +125,15 @@ textarea {
 }
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
-    height: auto;
+    -webkit-appearance: none;
+	appearance: none;
+    margin: 0;
+}
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
 }
 [type="search"] {
     -webkit-appearance: textfield;
@@ -133,6 +141,42 @@ textarea {
 }
 [type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
+}
+input[type='radio'],
+input[type='radio']:checked,
+input[type='radio']:active,
+input[type='radio']:focus,
+input[type='radio']:focus-visible {
+	width: 0;
+	height: 0;
+	border: none;
+	outline: none;
+	box-shadow: none;
+}
+input[type='radio']:after {
+	width: 15px;
+	height: 15px;
+	left: -2px;
+	position: absolute;
+	background-color: #d1d3d1;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid white;
+	transform: translateY(-50%);
+}
+
+input[type='radio']:checked:after {
+	width: 15px;
+	height: 15px;
+	left: -2px;
+	position: absolute;
+	background-color: #ed0474;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid white;
+	transform: translateY(-50%);
 }
 ::-webkit-file-upload-button {
     -webkit-appearance: button;
@@ -1377,6 +1421,7 @@ body {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+	min-height: calc(100vh - 70px);
 }
 .main__left {
     max-width: 620px;
@@ -1392,7 +1437,7 @@ body {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    padding-top: 147px;
+    padding-top: 80px;
 }
 .main__right--uved {
     -webkit-box-pack: left;
@@ -1648,7 +1693,7 @@ body {
     display: flex;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
-    justify-content: end;
+    justify-content: flex-end;
     margin-bottom: 21px;
 }
 .balance__out a {

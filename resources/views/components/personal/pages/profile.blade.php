@@ -1,6 +1,6 @@
 <div data-page="profile" x-show="page === 'personal'" x-cloak>
     <div class="main__settings">
-        <form method="PUT" action="{{ route('users.update') }}" class="flex flex-col items-center" x-data="
+        <form action="{{ route('users.update') }}" class="flex flex-col items-center" x-data="
 			{
 				form: $form('put', route('users.update'), {
 					name: user.name,
