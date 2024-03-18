@@ -51,69 +51,72 @@
 			carbohydrates() {
 				return this.proteins() + this.fats()
 			},
+			cleanNumber() {
+				this.$event.target.value = this.$event.target.value.replaceAll(/[\D]/g, '')
+			},
 		}"
 		@change.debounce.500ms="submit"
 	>
         <div class="mb-8 main__data">
             <div class="mb-3">
-				<div class="reg__name">Gender</div>
+				<div class="reg__name">{{ __('cabinet/fit-calculator.form.Gender') }}</div>
 				<div class="flex flex-col gap-1">
-					<x-check type="radio" name="gender" value="0" model="form.gender">Man</x-check>
-					<x-check type="radio" name="gender" value="1" model="form.gender">Woman</x-check>
+					<x-check type="radio" name="gender" value="0" model="form.gender">{{ __('cabinet/fit-calculator.form.Man') }}</x-check>
+					<x-check type="radio" name="gender" value="1" model="form.gender">{{ __('cabinet/fit-calculator.form.Woman') }}</x-check>
 				</div>
 			</div>
 
             <div class="reg__one">
-                <div class="reg__name">Age</div>
+                <div class="reg__name">{{ __('cabinet/fit-calculator.form.Age') }}</div>
                 <div class="reg__field">
-                    <input type="number" name="age" class="focus:border-b-pink focus:ring-0" x-model="form.age">
+                    <input type="number" name="age" class="focus:border-b-pink focus:ring-0" x-model="form.age" @input="cleanNumber">
                     <template x-if="form.invalid('age')">
                         <div class="text-danger" x-text="form.errors.age"></div>
                     </template>
                 </div>
             </div>
             <div class="reg__one">
-                <div class="reg__name">Height, cm</div>
+                <div class="reg__name">{{ __('cabinet/fit-calculator.form.Height') }}</div>
                 <div class="reg__field">
-                    <input type="text" name="height" class="focus:border-b-pink focus:ring-0"
-                        x-model="form.height">
+                    <input type="number" name="height" class="focus:border-b-pink focus:ring-0"
+                        x-model="form.height" @input="cleanNumber">
                     <template x-if="form.invalid('height')">
                         <div class="text-danger" x-text="form.errors.height"></div>
                     </template>
                 </div>
             </div>
             <div class="mb-3 reg__one">
-                <div class="reg__name">Weight, kg</div>
+                <div class="reg__name">{{ __('cabinet/fit-calculator.form.Weight') }}</div>
                 <div class="reg__field">
-                    <input type="text" name="weight" class="focus:border-b-pink focus:ring-0"
-                        x-model="form.weight">
+                    <input type="number" name="weight" class="focus:border-b-pink focus:ring-0"
+                        x-model="form.weight" @input="cleanNumber">
                     <template x-if="form.invalid('weight')">
                         <div class="text-danger" x-text="form.errors.weight"></div>
                     </template>
                 </div>
             </div>
 			<div class="mb-3">
-				<div class="reg__name">Activity</div>
+				<div class="reg__name">{{ __('cabinet/fit-calculator.form.Activity') }}</div>
 				<div class="flex flex-col gap-1">
-					<x-check type="radio" name="activity" value="0" model="form.activity">Minimum</x-check>
-					<x-check type="radio" name="activity" value="1" model="form.activity">Moderate</x-check>
-					<x-check type="radio" name="activity" value="2" model="form.activity">Active</x-check>
+					<x-check type="radio" name="activity" value="0" model="form.activity">{{ __('cabinet/fit-calculator.form.Minimum') }}</x-check>
+					<x-check type="radio" name="activity" value="1" model="form.activity">{{ __('cabinet/fit-calculator.form.Moderate') }}</x-check>
+					<x-check type="radio" name="activity" value="2" model="form.activity">{{ __('cabinet/fit-calculator.form.Active') }}</x-check>
 				</div>
 			</div>
 			<div class="mb-3">
-				<div class="reg__name">Level</div>
+				<div class="reg__name">{{ __('cabinet/fit-calculator.form.Level') }}</div>
 				<div class="flex flex-col gap-1">
-					<x-check type="radio" name="level" value="0" model="form.level">Weak</x-check>
-					<x-check type="radio" name="level" value="1" model="form.level">Normal</x-check>
-					<x-check type="radio" name="level" value="2" model="form.level">Strong</x-check>
+					<x-check type="radio" name="level" value="0" model="form.level">{{ __('cabinet/fit-calculator.form.Weak') }}</x-check>
+					<x-check type="radio" name="level" value="1" model="form.level">{{ __('cabinet/fit-calculator.form.Normal') }}</x-check>
+					<x-check type="radio" name="level" value="2" model="form.level">{{ __('cabinet/fit-calculator.form.Strong') }}</x-check>
 				</div>
 			</div>
 			<div>
-				<div class="reg__name">Direction</div>
+				<div class="reg__name">{{ __('cabinet/fit-calculator.form.Direction') }}</div>
 				<div class="flex flex-col gap-1">
-					<x-check type="radio" name="direction" value="0" model="form.direction">Weight loss</x-check>
-					<x-check type="radio" name="direction" value="1" model="form.direction">Keeping weight</x-check>
-					<x-check type="radio" name="direction" value="2" model="form.direction">Weight gain</x-check>
+					<x-check type="radio" name="direction" value="0" model="form.direction">{{ __('cabinet/fit-calculator.form.loss') }}</x-check>
+					<x-check type="radio" name="direction" value="1" model="form.direction">{{ __('cabinet/fit-calculator.form.keep') }}</x-check>
+					<x-check type="radio" name="direction" value="2" model="form.direction">{{ __('cabinet/fit-calculator.form.gain') }}</x-check>
 				</div>
 			</div>
         </div>
@@ -121,24 +124,24 @@
 		<template x-if="form?.age && form?.height && form?.weight">
 			<div class="">
 				<div class="mb-3">
-					<div class="text-center">Recommended daily calories income:</div>
+					<div class="text-center">{{ __('cabinet/fit-calculator.form.income') }}</div>
 					<div class="text-center text-[25px]">
 						<span x-text="calcCalories"></span>
-						<span class="">kCal</span>
+						<span class="">{{ __('cabinet/fit-calculator.form.kCal') }}</span>
 					</div>
 				</div>
 				<div class="mb-6">
-					<div class="text-center">PFC calculation:</div>
+					<div class="text-center">{{ __('cabinet/fit-calculator.form.PFC') }}</div>
 					<div class="flex justify-between gap-1">
-						<span>Proteins</span>
+						<span>{{ __('cabinet/fit-calculator.form.Proteins') }}</span>
 						<span x-text="proteins"></span>
 					</div>
 					<div class="flex justify-between gap-1">
-						<span>Fats</span>
+						<span>{{ __('cabinet/fit-calculator.form.Fats') }}</span>
 						<span x-text="fats"></span>
 					</div>
 					<div class="flex justify-between gap-1">
-						<span>Carbohydrates</span>
+						<span>{{ __('cabinet/fit-calculator.form.Carbohydrates') }}</span>
 						<span x-text="carbohydrates"></span>
 					</div>
 				</div>
