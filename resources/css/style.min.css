@@ -5648,7 +5648,7 @@ body {
     }
     .main__right {
         min-height: 630px;
-        padding: 50px 0 150px;
+        padding: 50px 10px 50px;
     }
     .main__right--right {
         -webkit-box-pack: center;
@@ -6912,7 +6912,6 @@ three";
     }
     .main__right {
         width: 100%;
-        margin-left: 0;
     }
     .main__right--uved {
         -webkit-box-pack: left;
