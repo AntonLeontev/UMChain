@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Services\GoogleOAuthApi;
+use App\Services\GoogleOAuth\GoogleOAuthApi;
 use Illuminate\Http\Request;
 
 class GoogleAuthController extends Controller

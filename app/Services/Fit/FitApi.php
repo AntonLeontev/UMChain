@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 class FitApi
 {
     /**
-     * @param  int  $bucketByTime На какие промежутки времени разбить данные, мс
+     * @param  int  $bucketByTime  На какие промежутки времени разбить данные, мс
      */
     public static function aggregateCalories(int $bucketByTime, int $startTimeMillis, int $endTimeMillis): Response
     {

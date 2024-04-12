@@ -3,7 +3,7 @@
 use App\Models\Banner;
 use App\Models\Setting;
 use App\Models\User;
-use App\Services\GoogleOAuthApi;
+use App\Services\GoogleOAuth\GoogleOAuthApi;
 use Illuminate\Support\Collection;
 
 if (! function_exists('settings')) {

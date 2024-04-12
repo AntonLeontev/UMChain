@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\GoogleOAuth;
 
+use App\Services\GoogleOAuth\Exceptions\InvalidGrantException;
 use Illuminate\Http\Client\Response;
+use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Support\Facades\Http;
 
 class GoogleOAuthApi
@@ -27,6 +29,13 @@ class GoogleOAuthApi
                 'client_id' => config('services.google.client_id'),
                 'client_secret' => config('services.google.secret'),
                 'grant_type' => 'refresh_token',
-            ]);
+            ])
+            ->throw(function (HttpResponse $response) {
+                if ($response->status() === 400 && $response->json('error') === 'invalid_grant') {
+                    throw new InvalidGrantException();
+                }
+
+                throw new \Exception($response->body());
+            });
     }
 }
