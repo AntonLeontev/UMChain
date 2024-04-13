@@ -37,20 +37,15 @@ if (! function_exists('banners')) {
 }
 
 if (! function_exists('google_access_token')) {
-    function google_access_token(): ?string
+    function google_access_token(User $user): ?string
     {
-        if (! auth()->check()) {
+        if (is_null($user->google_access_token)) {
             return null;
         }
 
-        if (is_null(auth()->user()->google_access_token)) {
-            return null;
-        }
+        if ($user->google_expires->isPast()) {
+            $response = GoogleOAuthApi::getTokenByRefresh($user->google_refresh_token);
 
-        if (auth()->user()->google_expires->isPast()) {
-            $response = GoogleOAuthApi::getTokenByRefresh(auth()->user()->google_refresh_token);
-
-            $user = User::find(auth()->id());
             $user->update([
                 'google_access_token' => $response->json('access_token'),
                 'google_expires' => now()->addSeconds($response->json('expires_in') - 15),
@@ -59,6 +54,6 @@ if (! function_exists('google_access_token')) {
             return $user->google_access_token;
         }
 
-        return auth()->user()->google_access_token;
+        return $user->google_access_token;
     }
 }

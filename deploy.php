@@ -39,8 +39,13 @@ task('cache_routes', function () {
     run('php artisan route:trans:cache');
 });
 
+task('reboot', function () {
+    run('sudo reboot');
+});
+
 // Hooks
 after('deploy:vendors', 'build');
 after('artisan:route:cache', 'cache_routes');
+after('deploy:success', 'reload');
 
 after('deploy:failed', 'deploy:unlock');

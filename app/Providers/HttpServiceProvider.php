@@ -34,8 +34,7 @@ class HttpServiceProvider extends ServiceProvider
         Http::macro('fit', function () {
             return Http::baseUrl('https://www.googleapis.com/fitness/v1/')
                 ->retry(2, 200)
-                ->timeout(10)
-                ->withHeader('Authorization', 'Bearer '.google_access_token());
+                ->timeout(10);
         });
     }
 }

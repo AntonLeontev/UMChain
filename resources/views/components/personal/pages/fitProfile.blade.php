@@ -2,6 +2,7 @@
 	<div x-data="{
 		calories: null,
 		authenticated: {{ !!auth()->user()->google_refresh_token }},
+		tokens: {{ auth()->user()->umt }},
 
 		init() {
 			axios
@@ -24,9 +25,15 @@
 			</a>
 		</template>
 		<template x-if="authenticated">
-			<div class="p-5 rounded bg-pink">
-				Spent for today:
-				<span x-text="calories"></span> Cal
+			<div>
+				<div class="p-5 mb-3 rounded bg-pink">
+					Spent for today:
+					<span x-text="calories"></span> Cal
+				</div>
+				<div class="p-5 rounded bg-pink">
+					Total tokens:
+					<span x-text="tokens"></span>
+				</div>
 			</div>
 		</template>
 	</div>
