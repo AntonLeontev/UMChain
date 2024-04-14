@@ -5,6 +5,13 @@
 		tokens: {{ auth()->user()->umt }},
 
 		init() {
+			this.getCalories()
+		},
+		getCalories() {
+			if (!this.authenticated) {
+				return
+			}
+
 			axios
 				.get(route('user.google.calories'))
 				.then(response => this.calories = response.data)
@@ -17,7 +24,7 @@
 
 					this.$dispatch('toast', {type: 'error', text: error.response.data.message})
 				})
-		},
+		}
 	}">
 		<template x-if="!authenticated">
 			<a href="{{ route('google.auth') }}" class="inline-flex items-center justify-center px-6 py-4 font-semibold tracking-widest text-white transition duration-150 ease-in-out border rounded bg-pink border-pink hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none">
