@@ -1,7 +1,7 @@
 <div data-page="fitProfile" x-show="page === 'fitProfile'" x-cloak>
 	<div x-data="{
 		calories: null,
-		authenticated: {{ !!auth()->user()->google_refresh_token }},
+		authenticated: {{ auth()->user()->google_refresh_token ? 'true' : 'false' }},
 		tokens: {{ auth()->user()->umt }},
 
 		init() {
