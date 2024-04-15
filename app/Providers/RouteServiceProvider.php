@@ -20,7 +20,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/cabinet/wallet';
+    public const HOME = '/cabinet/fitProfile';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
