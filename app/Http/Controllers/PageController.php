@@ -36,6 +36,14 @@ class PageController extends Controller
             ->where('description', 'Referral fee')
             ->count();
 
-        return view('personal', compact('feeUmt', 'feeUsdt', 'purchaseNumber'));
+        $transactions = Transaction::query()
+            ->where('user_id', auth()->id())
+            ->where('direction', TransactionDirection::income)
+            ->where('account_type', AccountType::umt)
+            ->orderByDesc('created_at')
+            ->take(10)
+            ->get();
+
+        return view('personal', compact('feeUmt', 'feeUsdt', 'purchaseNumber', 'transactions'));
     }
 }

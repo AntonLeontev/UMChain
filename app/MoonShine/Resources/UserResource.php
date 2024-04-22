@@ -8,6 +8,7 @@ use MoonShine\Actions\FiltersAction;
 use MoonShine\Fields\Email;
 use MoonShine\Fields\ID;
 use MoonShine\Fields\NoInput;
+use MoonShine\Fields\Number;
 use MoonShine\Fields\Text;
 use MoonShine\Resources\Resource;
 
@@ -17,23 +18,30 @@ class UserResource extends Resource
 
     public static string $title = 'Пользователи';
 
-    public static array $activeActions = ['show'];
+    public static array $activeActions = ['show', 'edit'];
 
     public function fields(): array
     {
         return [
             ID::make()->sortable(),
             Text::make('Имя', 'name')
+                ->hideOnForm()
                 ->sortable(),
             Email::make('Почта', 'email')
+                ->hideOnForm()
                 ->sortable(),
-            Text::make('UMCT', 'umt'),
-            Text::make('USDT', 'usdt'),
+            Text::make('UMCT', 'umt')->hideOnForm(),
+            Text::make('USDT', 'usdt')->hideOnForm(),
             Text::make('ID агента', 'agent_id')
+                ->hideOnForm()
                 ->sortable(),
+            Number::make('Коэффициент', 'token_coef')
+                ->step(0.01),
             NoInput::make('TRON кошелёк', '', fn ($user) => $user->tronWallet?->address)
+                ->hideOnForm()
                 ->hideOnIndex(),
             NoInput::make('ETH кошелёк', '', fn ($user) => $user->ethWallet?->address)
+                ->hideOnForm()
                 ->hideOnIndex(),
         ];
     }

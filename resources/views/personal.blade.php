@@ -100,7 +100,7 @@
 					<x-personal.pages.withdraw />
 					<x-personal.pages.notifications />
 
-					<x-personal.pages.fitProfile />
+					<x-personal.pages.fitProfile :$transactions />
 					<x-personal.pages.fitCalculator />
 
                     <div data-page="logout" x-show="page === 'logout'" x-cloak>
