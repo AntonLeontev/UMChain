@@ -20,7 +20,7 @@
                 <ul>
                 </ul>
             </div>
-            <div class="footer__contacts">
+            {{-- <div class="footer__contacts">
                 <div class="footer__connect">{{ __('footer.Contact us') }}</div>
                 <div class="footer__how">{{ __('footer.If you have any questions, please email us:') }}</div>
                 <div class="footer__mail">
@@ -28,10 +28,6 @@
                 </div>
                 <div class="footer__social">
                     <ul class="footer__media">
-                        {{-- <li><a target="_blank" href="https://www.instagram.com/unitedmarketorg/"><img
-                                    src="{{ asset('images/instagram.svg') }}" alt="instagram"></a></li>
-                        <li><a target="_blank" href="https://www.youtube.com/channel/UCns7aIJwqWZFPPwWXd6iq6g"><img
-                                    src="{{ asset('images/youtube.svg') }}" alt="youtube"></a></li> --}}
 
                         <li>
 							
@@ -52,11 +48,9 @@
 							</a>
 						</li>
 
-                        {{-- <li><a target="_blank" href="https://www.facebook.com/United-Market-160182772502217"><img
-                                    src="{{ asset('images/facebook.svg') }}" alt="facebook"></a></li> --}}
                     </ul>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="footer__rights">
             © UMChain OU, Estonia, {{ date('Y') }}г.
