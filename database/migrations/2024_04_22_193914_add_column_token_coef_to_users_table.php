@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedFloat('token_coef')->default(1.0);
+            $table->float('token_coef')->default(1.0);
         });
     }
 

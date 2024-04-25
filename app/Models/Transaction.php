@@ -20,9 +20,12 @@ class Transaction extends Model
         'account_type',
     ];
 
-    protected $casts = [
-        'amount' => OrderAmountCast::class,
-        'direction' => TransactionDirection::class,
-        'account_type' => AccountType::class,
-    ];
+    public function casts(): array
+    {
+        return [
+            'amount' => OrderAmountCast::class,
+            'direction' => TransactionDirection::class,
+            'account_type' => AccountType::class,
+        ];
+    }
 }
