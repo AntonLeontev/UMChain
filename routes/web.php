@@ -21,7 +21,10 @@ if (app()->isLocal()) {
 Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
     ->prefix(LaravelLocalization::setLocale())
     ->group(function () {
-        Route::get('/', [PageController::class, 'home'])->name('home');
+        // Route::get('/', [PageController::class, 'home'])->name('home');
+        Route::get('/{vue_capture?}', function () {
+            return view('home');
+        })->where('vue_capture', '[\/\w\.-]*');
 
         Route::prefix('cabinet')
             ->middleware(['auth'])
