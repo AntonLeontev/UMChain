@@ -10,6 +10,11 @@ export default [
         name: "login",
     },
     {
+        path: "/cabinet/personal",
+        component: () => import("../Pages/Login.vue"),
+        name: "personal",
+    },
+    {
         path: "/:pathMatch(.*)*",
         component: () => import("../Pages/NotFound.vue"),
     },

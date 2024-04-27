@@ -18,7 +18,7 @@ import LangSwitch from './LangSwitch.vue';
 				</div>
 
 				<div class="header__person active">
-					<router-link to="/cabinet/personal">
+					<router-link :to="{name: 'personal'}">
 						<svg width="38" height="34" viewBox="0 0 38 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<rect width="37.4" height="34" rx="1.36" stroke="white" stroke-width="4"
 								mask="url(#path-1-inside-1_17:597)"/>
