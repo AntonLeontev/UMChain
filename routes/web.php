@@ -72,8 +72,6 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
                 Route::post('notifications/mark-as-read', [NotificationController::class, 'markRead'])
                     ->name('notifications.mark-read');
             });
-
-        require __DIR__.'/auth.php';
     });
 
 Route::middleware(['auth'])

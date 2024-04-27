@@ -1,0 +1,300 @@
+<script setup>
+import useUserStore from "@/stores/user";
+
+const user = useUserStore().user;
+</script>
+
+<template>
+    <div
+        x-data="sidebar"
+        x-init="$watch('page', value => title = getTitle(value))"
+        @order-created="menu = 'order'"
+        @order-canceled="menu = 'wallet'"
+        @order-confirmed="menu = 'wallet'"
+    >
+        <h2 class="main__title" x-text="title"></h2>
+        <div class="main__wrapper">
+            <div class="main__top" x-on:switch.window="switchMenu">
+                <ul class="relative main__top--list">
+                    <x-personal.sidebar.switch.button
+                        x-on:click="$dispatch('switch', {value: 'profile'})"
+                        x-bind:class="{'!text-pink': menu === 'profile'}"
+                    >
+                        {{ __("cabinet/sidebar.profile") }}
+                    </x-personal.sidebar.switch.button>
+
+                    <x-personal.sidebar.switch.button
+                        x-on:click="$dispatch('switch', {value: 'fit'})"
+                        x-bind:class="{'!text-pink': menu === 'fit'}"
+                    >
+                        {{ __("cabinet/sidebar.fit") }}
+                    </x-personal.sidebar.switch.button>
+
+                    <div
+                        class="absolute bottom-0 w-full border-b-4 border-[#555] z-1"
+                    ></div>
+                    <div
+                        class="absolute bottom-0 w-1/2 transition-all duration-300 border-b-4 border-pink z-2"
+                        :class="{
+                            'left-0': menu === 'profile',
+                            'left-[33.3%]':
+                                menu === 'wallet' || menu === 'order',
+                            'left-[50%]': menu === 'fit',
+                        }"
+                    ></div>
+                </ul>
+            </div>
+
+            <div class="main__menu" x-show="menu === 'profile'" x-transition>
+                <ul class="flex flex-col items-center main__menu--list">
+                    <li
+                        class="tracking-widest"
+                        :class="{ active: page === 'personal' }"
+                        @click="$dispatch('page', 'personal')"
+                    >
+                        {{ __("cabinet/sidebar.personal") }}
+                    </li>
+
+                    <li
+                        class="tracking-widest"
+                        :class="{ active: page === 'password' }"
+                        @click="$dispatch('page', 'password')"
+                    >
+                        {{ __("cabinet/sidebar.password") }}
+                    </li>
+
+                    <li
+                        class="tracking-widest"
+                        :class="{ active: page === 'referral' }"
+                        @click="$dispatch('page', 'referral')"
+                    >
+                        {{ __("cabinet/sidebar.referral") }}
+                    </li>
+
+                    <li
+                        v-if="user.activeRefLink"
+                        class="tracking-widest"
+                        :class="{ active: page === 'banners' }"
+                        @click="$dispatch('page', 'banners')"
+                    >
+                        {{ __("cabinet/sidebar.banners") }}
+                    </li>
+
+                    <li
+                        class="relative tracking-widest"
+                        :class="{ active: page === 'notifications' }"
+                        @click="$dispatch('page', 'notifications')"
+                    >
+                        <div class="relative">
+                            {{ __("cabinet/sidebar.notifications") }}
+                            <div
+                                class="absolute top-[50%] translate-y-[-50%] right-8 rounded bg-pink px-1 !text-white text-sm"
+                                x-show="user.unread_notifications_count > 0"
+                                x-text="user.unread_notifications_count"
+                            ></div>
+                        </div>
+                    </li>
+
+                    <li
+                        class="tracking-widest"
+                        :class="{ active: page === 'logout' }"
+                        @click="$dispatch('page', 'logout')"
+                    >
+                        {{ __("cabinet/sidebar.logout") }}
+                    </li>
+                </ul>
+            </div>
+
+            <div
+                class="main__rate"
+                x-show="menu === 'wallet'"
+                x-transition
+                x-cloak
+            >
+                <x-personal.sidebar.wallet-form />
+            </div>
+
+            <div
+                class="main__rate"
+                x-show="menu === 'fit'"
+                x-transition
+                x-cloak
+            >
+                <ul class="flex flex-col items-center main__menu--list">
+                    <li
+                        class="tracking-widest"
+                        :class="{ active: page === 'fitProfile' }"
+                        @click="$dispatch('page', 'fitProfile')"
+                    >
+                        {{ __("cabinet/sidebar.profile") }}
+                    </li>
+                </ul>
+                <ul class="flex flex-col items-center main__menu--list">
+                    <li
+                        class="tracking-widest"
+                        :class="{ active: page === 'fitCalculator' }"
+                        @click="$dispatch('page', 'fitCalculator')"
+                    >
+                        {{ __("cabinet/sidebar.fitCalculator") }}
+                    </li>
+                </ul>
+            </div>
+
+            <div
+                class="main__replenish"
+                x-show="menu === 'order'"
+                x-transition
+                x-cloak
+            >
+                <div class="append__wrapper">
+                    <form
+                        x-data="{
+						copyShow: false,
+						wallet: '',
+						network: '',
+
+						submit() {
+							axios
+								.put(route('orders.make-paid', this.order.id), {})
+								.then(response => {
+									this.$dispatch('toast', { text: 'Thanks for order' });
+									this.$dispatch('order-confirmed');
+								})
+								.catch(error => {
+									let text = 'Error';
+
+									if (error.response.data.message) {
+										text = error.response.data.message
+									}
+
+									this.$dispatch('toast', { text: text, type: 'error' });
+								});
+						},
+						copy() {
+							navigator.clipboard.writeText(this.order?.wallet)
+								.then(() => {
+									this.copyShow = true;
+									setTimeout(() => this.copyShow = false, 600)
+								})
+						},
+					}"
+                        @submit.prevent="submit"
+                    >
+                        <div class="justify-between mb-3 append__table">
+                            <div class="append__item">
+                                <div class="append__top">
+                                    {{ __("cabinet/wallet.sum") }}
+                                </div>
+                                <div class="append__num">
+                                    <span x-text="order?.usdt"></span> USDT
+                                </div>
+                            </div>
+                            <div class="append__item">
+                                <div class="append__top">
+                                    {{ __("cabinet/wallet.quantity") }}
+                                </div>
+                                <div class="append__num">
+                                    <span x-text="order?.umt"></span> UMCT
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="p-5 mb-10 text-white border rounded border-pink"
+                        >
+                            <div class="mb-5 text-xl text-center">
+                                {{ __("cabinet/wallet.transfer") }}
+                            </div>
+                            <div>
+                                {{ __("cabinet/wallet.notice") }}
+                            </div>
+
+                            <div class="append__input reg__one">
+                                <div class="reg__name">
+                                    {{ __("cabinet/wallet.network") }}
+                                </div>
+                                <div
+                                    class="relative w-full append__flex gap-x-2"
+                                >
+                                    <div class="reg__field append__coppied">
+                                        <input
+                                            type="text"
+                                            readonly
+                                            class="focus:border-b-pink !text-sm focus:ring-0 text-center"
+                                            :value="order?.network"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative append__input reg__one">
+                                <div
+                                    class="append__success top-0 left-0 right-[30px] bottom-0 z-10"
+                                    x-show="copyShow"
+                                    x-cloak
+                                    x-transition.opacity
+                                >
+                                    {{ __("cabinet/wallet.copied") }}
+                                </div>
+                                <div class="reg__name">
+                                    {{ __("cabinet/wallet.5") }}
+                                </div>
+                                <div
+                                    class="relative w-full append__flex gap-x-2"
+                                >
+                                    <div class="reg__field append__coppied">
+                                        <input
+                                            type="text"
+                                            readonly
+                                            class="focus:border-b-pink !text-sm focus:ring-0 text-center"
+                                            :value="order?.wallet"
+                                        />
+                                    </div>
+                                    <div
+                                        class="text-white transition cursor-pointer md:hover:text-pink"
+                                        @pointerdown="copy"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="1.5"
+                                            stroke="currentColor"
+                                            class="w-7 h-7"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="append__time">
+                            <div class="append__buttons">
+                                <x-primary-button
+                                    class="w-full md:w-auto"
+                                    type="submit"
+                                    >{{
+                                        __("cabinet/wallet.9")
+                                    }}</x-primary-button
+                                >
+                                <div
+                                    class="append__no"
+                                    @click="$dispatch('order-canceled')"
+                                >
+                                    <x-btn-transparent>{{
+                                        __("cabinet/wallet.10")
+                                    }}</x-btn-transparent>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

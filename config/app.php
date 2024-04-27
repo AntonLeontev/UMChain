@@ -171,6 +171,7 @@ return [
         App\Providers\MoonShineServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\HttpServiceProvider::class,
+        App\Providers\FortifyServiceProvider::class,
     ])->toArray(),
 
     /*

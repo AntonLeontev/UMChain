@@ -8,10 +8,12 @@ export default [
         path: "/login",
         component: () => import("../Pages/Login.vue"),
         name: "login",
+        meta: { requiresGuest: true },
     },
     {
         path: "/cabinet/personal",
-        component: () => import("../Pages/Login.vue"),
+        component: () => import("../Pages/Personal.vue"),
+        meta: { requiresAuth: true },
         name: "personal",
     },
     {
