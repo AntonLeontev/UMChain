@@ -2,8 +2,10 @@
 import AppLayout from "@/Layouts/AppLayout.vue";
 import ButtonSecondary from "@/Components/Common/ButtonSecondary.vue";
 import Loader from "@/Components/Common/Loader.vue";
-import axios from "axios";
 import useUserStore from "@/stores/user";
+import useToastsStore from "@/stores/toasts";
+
+import axios from "axios";
 import { useRouter } from "vue-router";
 import { ref, reactive } from "vue";
 
@@ -28,7 +30,7 @@ function login(event) {
 			if (error.response.status === 422) {
 				Object.assign(errors, error.response.data.errors)
 			} else {
-				alert(error.response.data.message)
+				useToastsStore().handleError(error)
 			}
 		})
 		.finally(() => {

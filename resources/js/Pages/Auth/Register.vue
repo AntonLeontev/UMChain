@@ -3,6 +3,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import ButtonSecondary from "@/Components/Common/ButtonSecondary.vue";
 import Loader from "@/Components/Common/Loader.vue";
 import useUserStore from "@/stores/user";
+import useToastsStore from "@/stores/toasts";
 
 import axios from "axios";
 import { ref, reactive } from "vue";
@@ -15,7 +16,6 @@ const errors = reactive({})
 
 function register(event) {
 	loader.value = true
-
     axios
         .post("/register", new FormData(event.target))
         .then(async (response) => {
@@ -28,7 +28,7 @@ function register(event) {
 			if (error.response.status === 422) {
 				Object.assign(errors, error.response.data.errors)
 			} else {
-				alert(error.response.data.message)
+				useToastsStore().handleError(error)
 			}
 		})
 		.finally(() => {
