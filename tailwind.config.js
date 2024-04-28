@@ -20,11 +20,16 @@ export default {
         },
         colors: {
             transparent: "transparent",
+
             black: "#292929",
-            white: "#ffffff",
-            pink: "#ED0474",
-            grey: "#868686",
             danger: "#aa0000",
+
+            grey: "#868686",
+            pink: "#ED0474",
+            white: "#ffffff",
+            accent: "#ed0474",
+            "bg-dark": "#2A2A2A",
+            "bg-light": "#e5e5e5",
         },
         fontFamily: {
             sans: ["Inter", "sans-serif"],

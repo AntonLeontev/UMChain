@@ -5,7 +5,16 @@ import PersonalNavigation from "../Components/Personal/Sidebar/PersonalNavigatio
 
 <template>
 	<AppLayout>
-		<PersonalNavigation />
-		<slot />
+		<div class="container container--full">
+            <div class="main__inner">
+				<div class="main__left bg-bg-dark">
+					<PersonalNavigation />
+				</div>
+
+				<div class="main__right main__right--right">
+					<slot />
+				</div>
+			</div>
+		</div> 
 	</AppLayout>
 </template>
