@@ -2,5 +2,33 @@
     "home": {
         "h1": "UMCHAIN – IT solutions",
         "register": "Register"
+    },
+    "auth": {
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "repeat": "Repeat password"
+    },
+    "login": {
+        "h1": "Login",
+        "forget": "Forget password?",
+        "login": "Login",
+        "not": "Not registered yet?",
+        "register": "Register now",
+        "remember": "Remember me"
+    },
+    "register": {
+        "h1": "Registration",
+        "agree": "I agree to",
+        "to": "the processing of personal data.",
+        "btn": "Register now",
+        "have": "Already have an account?",
+        "login": "Login"
+    },
+    "personal": {
+        "name": "Name",
+        "email": "Email",
+        "tron": "Tron wallet number",
+        "eth": "ETH wallet number"
     }
 }
