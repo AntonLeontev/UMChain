@@ -6,9 +6,21 @@ export default [
     },
     {
         path: "/login",
-        component: () => import("../Pages/Login.vue"),
+        component: () => import("../Pages/Auth/Login.vue"),
         name: "login",
         meta: { requiresGuest: true },
+    },
+    {
+        path: "/register",
+        component: () => import("../Pages/Auth/Register.vue"),
+        name: "register",
+        meta: { requiresGuest: true },
+    },
+    {
+        path: "/logout",
+        component: () => import("../Pages/Auth/Logout.vue"),
+        name: "logout",
+        meta: { requiresAuth: true },
     },
     {
         path: "/cabinet/personal",

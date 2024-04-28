@@ -1,5 +1,6 @@
 {
-    "message": {
-        "hello": "Приветище!"
+    "home": {
+        "h1": "UMCHAIN – IT решения",
+        "register": "Регистрация"
     }
 }

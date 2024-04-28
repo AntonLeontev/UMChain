@@ -1,22 +1,38 @@
 <script setup>
-import AppLayout from "../Layouts/AppLayout.vue";
+import AppLayout from "@/Layouts/AppLayout.vue";
+import ButtonSecondary from "@/Components/Common/ButtonSecondary.vue";
+import Loader from "@/Components/Common/Loader.vue";
 import axios from "axios";
-import useUserStore from "../stores/user";
+import useUserStore from "@/stores/user";
 import { useRouter } from "vue-router";
+import { ref, reactive } from "vue";
 
 const router = useRouter()
 
+const loader = ref(false)
+const errors = reactive({})
+
 function login(event) {
+	loader.value = true
+
 	axios
-		.post("/login", {
+		.post('/login', {
 			email: event.target.email.value,
 			password: event.target.password.value,
 		})
-		.then((response) => {
-			axios.get("/api/user").then((response) => {
-				useUserStore().user = response.data
-				router.push({ name: "home" })
-			})
+		.then(async (response) => {
+			await useUserStore().getUser()
+			router.push({ name: "personal" })
+		})
+		.catch((error) => {
+			if (error.response.status === 422) {
+				Object.assign(errors, error.response.data.errors)
+			} else {
+				alert(error.response.data.message)
+			}
+		})
+		.finally(() => {
+			loader.value = false
 		})
 }
 </script>
@@ -39,6 +55,7 @@ function login(event) {
                                 class="focus:border-b-pink focus:ring-0"
                             />
                         </div>
+						<div class="text-pink" v-text="errors.email?.join(' ')"></div>
                     </div>
                     <div class="reg__one">
                         <div class="reg__name">Password</div>
@@ -59,15 +76,14 @@ function login(event) {
                             >Forget password</a
                         >
                     </div>
-					<button class="reg__btn">Login</button>
+					<ButtonSecondary>
+						Login
+						<Loader v-if="loader" />
+					</ButtonSecondary>
                 </form>
                 <div class="reg__have">
                     Not registered yet?
-					<a
-                        href="{{ LaravelLocalization::localizeUrl(route('register')) }}"
-                        class="reg__signin"
-                        >&nbsp;Register
-                    </a>
+					<router-link :to="{ name: 'register' }" class="reg__signin">Register</router-link>
                 </div>
             </div>
         </div>

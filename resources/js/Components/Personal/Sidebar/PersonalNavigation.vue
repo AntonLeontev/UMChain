@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import useUserStore from "@/stores/user";
+import usePersonalNavigationStore from "@/stores/personalNav";
 import Switch from "./Switch.vue";
 
 const tabs = [
@@ -12,7 +13,7 @@ const tabs = [
     },
 ];
 
-const activeTab = ref("fit");
+const nav = usePersonalNavigationStore();
 
 const user = useUserStore().user;
 </script>
@@ -21,30 +22,22 @@ const user = useUserStore().user;
     <div>
         <h2 class="main__title">Title page</h2>
         <div class="main__wrapper">
-            <Switch :buttons="tabs" :activeButton="activeTab" @tab-switch="(tab) => activeTab = tab" />
+            <Switch :buttons="tabs" :activeButton="nav.activeTab" @tab-switch="(tab) => nav.activeTab = tab" />
 
-            <div class="main__menu" v-show="activeTab === 'profile'">
+            <div class="main__menu" v-show="nav.activeTab === 'profile'">
                 <ul class="flex flex-col items-center main__menu--list">
-                    <li
-                        class="tracking-widest"
-                        :class="{ active: page === 'personal' }"
-                        @click="$dispatch('page', 'personal')"
-                    >
-                        Personal
+                    <li class="tracking-widest">
+						<router-link :to="{ name: 'personal' }">Personal</router-link>
                     </li>
 
                     <li
                         class="tracking-widest"
-                        :class="{ active: page === 'password' }"
-                        @click="$dispatch('page', 'password')"
                     >
                         Change password
                     </li>
 
                     <li
                         class="tracking-widest"
-                        :class="{ active: page === 'referral' }"
-                        @click="$dispatch('page', 'referral')"
                     >
                         Referral
                     </li>
@@ -52,16 +45,12 @@ const user = useUserStore().user;
                     <li
                         v-if="user.activeRefLink"
                         class="tracking-widest"
-                        :class="{ active: page === 'banners' }"
-                        @click="$dispatch('page', 'banners')"
                     >
                         Banners
                     </li>
 
                     <li
                         class="relative tracking-widest"
-                        :class="{ active: page === 'notifications' }"
-                        @click="$dispatch('page', 'notifications')"
                     >
                         <div class="relative">
                             Notifications
@@ -73,32 +62,24 @@ const user = useUserStore().user;
                         </div>
                     </li>
 
-                    <li
-                        class="tracking-widest"
-                        :class="{ active: page === 'logout' }"
-                        @click="$dispatch('page', 'logout')"
-                    >
-                        Logout
+                    <li class="tracking-widest">
+						<router-link :to="{ name: 'logout' }">Logout</router-link>
                     </li>
                 </ul>
             </div>
 
             <div
                 class="main__rate"
-                v-show="activeTab === 'fit'"
+                v-show="nav.activeTab === 'fit'"
             >
                 <ul class="flex flex-col items-center main__menu--list">
                     <li
                         class="tracking-widest"
-                        :class="{ active: page === 'fitProfile' }"
-                        @click="$dispatch('page', 'fitProfile')"
                     >
                         Profile
                     </li>
                     <li
                         class="tracking-widest"
-                        :class="{ active: page === 'fitCalculator' }"
-                        @click="$dispatch('page', 'fitCalculator')"
                     >
                         Calculator
                     </li>

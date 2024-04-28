@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <footer class="mt-auto footer">
+    <footer class="footer shrink-0 basis-auto">
         <div class="container">
             <div class="footer__inner">
                 <div class="footer__logo">

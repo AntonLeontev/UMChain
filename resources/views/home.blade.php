@@ -11,6 +11,9 @@
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@400;500;600&amp;family=Roboto&amp;display=swap" rel="stylesheet">
 
         <!-- Scripts -->
+		@vite(['resources/css/app.css', 'resources/js/app.js'])
+		@routes
+
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGDCSBFMM6"></script>
 		<script>
@@ -20,10 +23,8 @@
 
 			gtag('config', 'G-SGDCSBFMM6');
 		</script>
-
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
-		<div id="app" class="flex flex-col min-h-screen font-sans antialiased"></div>
+    <body class="h-[100%]">
+		<div id="app" class="h-[100%]"></div>
     </body>
 </html>
