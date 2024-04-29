@@ -14,7 +14,7 @@ class ProfileController extends Controller
 {
     public function current(): JsonResponse
     {
-        return response()->json(auth()->user());
+        return response()->json(auth()->user()->loadCount('unreadNotifications'));
     }
 
     public function update(ProfileUpdateRequest $request): void

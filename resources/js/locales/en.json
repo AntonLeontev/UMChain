@@ -49,6 +49,11 @@
         "confirm": "Confirm new password",
         "btn": "Save"
     },
+    "notifications": {
+        "h1": "Notifications",
+        "btn": "Read all",
+        "no": "There is no unread notifications"
+    },
     "personal": {
         "name": "Name",
         "email": "Email",

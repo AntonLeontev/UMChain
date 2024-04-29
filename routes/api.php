@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,11 +19,14 @@ Route::middleware('auth:sanctum')
     ->prefix('v1')
     ->group(function () {
 
-        Route::prefix('users')
+        Route::prefix('user')
             ->controller(ProfileController::class)
             ->group(function () {
-                Route::get('current', 'current')->name('api.user');
-                Route::put('update', 'update')->name('api.users.update');
+                Route::get('/', 'current')->name('api.user');
+                Route::put('update', 'update')->name('api.user.update');
                 Route::put('update-password', 'updatePassword')->name('api.password.update');
+                Route::get('notifications', [NotificationController::class, 'index'])->name('api.user.notifications.index');
+                Route::post('notifications/mark-as-read', [NotificationController::class, 'markRead'])
+                    ->name('api.user.notifications.mark-read');
             });
     });

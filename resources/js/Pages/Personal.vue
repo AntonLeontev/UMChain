@@ -18,7 +18,7 @@
 		loading.value = true
 		useResetErrors(errors)
 
-        axios.put(route('api.users.update'), Object.fromEntries(new FormData(event.target)))
+        axios.put(route('api.user.update'), Object.fromEntries(new FormData(event.target)))
 			.catch((error) => useCatch(error, errors))
 			.finally(() => {
 				loading.value = false
@@ -28,7 +28,7 @@
 
 <template>
     <PersonalLayout>
-        <div data-page="profile" x-show="page === 'personal'" x-cloak>
+        <div data-page="profile">
             <div class="main__settings">
                 <form class="flex flex-col items-center" @submit.prevent="submit">
                     <div class="mb-8 main__data">

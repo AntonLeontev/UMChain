@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^5.0.4",
+        "luxon": "^3.4.4",
         "pinia": "^2.1.7",
         "vue": "^3.4.25",
         "vue-i18n": "^9.13.1",

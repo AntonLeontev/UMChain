@@ -4,7 +4,6 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\FitController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\GoogleFitController;
-use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
@@ -75,8 +74,6 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
                         Route::post('create', [WithdrawalController::class, 'create'])->name('withdraw.create');
                     });
 
-                Route::post('notifications/mark-as-read', [NotificationController::class, 'markRead'])
-                    ->name('notifications.mark-read');
             });
     });
 

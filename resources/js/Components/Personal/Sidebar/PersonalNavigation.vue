@@ -3,6 +3,7 @@ import { ref } from "vue";
 import useUserStore from "@/stores/user";
 import usePersonalNavigationStore from "@/stores/personalNav";
 import Switch from "./Switch.vue";
+import FadeTransition from "@/Components/Common/FadeTransition.vue";
 
 const tabs = [
     {
@@ -24,67 +25,63 @@ const user = useUserStore().user;
         <div class="main__wrapper">
             <Switch :buttons="tabs" :activeButton="nav.activeTab" @tab-switch="(tab) => nav.activeTab = tab" />
 
-            <div class="main__menu" v-show="nav.activeTab === 'profile'">
-                <ul class="flex flex-col items-center main__menu--list">
-                    <li class="tracking-widest">
-						<router-link :to="{ name: 'personal' }">Personal</router-link>
-                    </li>
+			<FadeTransition mode="out-in">
+				<div class="main__menu" v-if="nav.activeTab === 'profile'">
+					<ul class="flex flex-col items-center main__menu--list">
+						<li class="tracking-widest">
+							<router-link :to="{ name: 'personal' }">Personal</router-link>
+						</li>
 
-                    <li
-                        class="tracking-widest"
-                    >
-						<router-link :to="{ name: 'change-password' }">Change password</router-link>
-                    </li>
+						<li class="tracking-widest">
+							<router-link :to="{ name: 'change-password' }">Change password</router-link>
+						</li>
 
-                    <li
-                        class="tracking-widest"
-                    >
-                        Referral
-                    </li>
+						<li class="tracking-widest">
+							Referral
+						</li>
 
-                    <li
-                        v-if="user.activeRefLink"
-                        class="tracking-widest"
-                    >
-                        Banners
-                    </li>
+						<li
+							v-if="user.activeRefLink"
+							class="tracking-widest"
+						>
+							Banners
+						</li>
 
-                    <li
-                        class="relative tracking-widest"
-                    >
-                        <div class="relative">
-                            Notifications
-                            <div
-                                class="absolute top-[50%] translate-y-[-50%] right-8 rounded bg-pink px-1 !text-white text-sm"
-                                x-show="user.unread_notifications_count > 0"
-                                x-text="user.unread_notifications_count"
-                            ></div>
-                        </div>
-                    </li>
+						<li class="relative tracking-widest">
+							<router-link class="flex items-center justify-center gap-2" :to="{ name: 'notifications' }">
+								Notifications
+								<div
+									class="rounded bg-pink px-1 !text-white text-sm text-center"
+									v-show="user.unread_notifications_count > 0"
+									v-text="user.unread_notifications_count"
+								></div>
+							</router-link>
+						</li>
 
-                    <li class="tracking-widest">
-						<router-link :to="{ name: 'logout' }">Logout</router-link>
-                    </li>
-                </ul>
-            </div>
+						<li class="tracking-widest">
+							<router-link :to="{ name: 'logout' }">Logout</router-link>
+						</li>
+					</ul>
+				</div>
 
-            <div
-                class="main__rate"
-                v-show="nav.activeTab === 'fit'"
-            >
-                <ul class="flex flex-col items-center main__menu--list">
-                    <li
-                        class="tracking-widest"
-                    >
-                        Profile
-                    </li>
-                    <li
-                        class="tracking-widest"
-                    >
-                        Calculator
-                    </li>
-                </ul>
-            </div>
+				<div
+					class="main__rate"
+					v-else-if="nav.activeTab === 'fit'"
+				>
+					<ul class="flex flex-col items-center main__menu--list">
+						<li
+							class="tracking-widest"
+						>
+							Profile
+						</li>
+						<li
+							class="tracking-widest"
+						>
+							Calculator
+						</li>
+					</ul>
+				</div>
+			</FadeTransition>
         </div>
     </div>
 </template>

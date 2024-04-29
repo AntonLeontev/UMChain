@@ -7,10 +7,7 @@
     import useResetErrors from "@/composables/resetErrors";
 
     import axios from "axios";
-    import {
-        ref,
-        reactive
-    } from "vue";
+    import { ref, reactive } from "vue";
 
     const errors = reactive({})
     const loading = ref(false)

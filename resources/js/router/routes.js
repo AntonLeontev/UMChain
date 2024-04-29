@@ -47,6 +47,12 @@ export default [
         name: "change-password",
     },
     {
+        path: "/cabinet/notifications",
+        component: () => import("../Pages/Notifications.vue"),
+        meta: { requiresAuth: true },
+        name: "notifications",
+    },
+    {
         path: "/:pathMatch(.*)*",
         component: () => import("../Pages/NotFound.vue"),
     },
