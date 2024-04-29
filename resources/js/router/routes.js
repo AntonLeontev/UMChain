@@ -17,6 +17,18 @@ export default [
         meta: { requiresGuest: true },
     },
     {
+        path: "/forgot-password",
+        component: () => import("../Pages/Auth/ForgotPassword.vue"),
+        name: "forgot-password",
+        meta: { requiresGuest: true },
+    },
+    {
+        path: "/reset-password",
+        component: () => import("../Pages/Auth/ResetPassword.vue"),
+        name: "reset-password",
+        meta: { requiresGuest: true },
+    },
+    {
         path: "/logout",
         component: () => import("../Pages/Auth/Logout.vue"),
         name: "logout",

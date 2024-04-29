@@ -11,7 +11,7 @@
     },
     "login": {
         "h1": "Login",
-        "forget": "Forget password?",
+        "forget": "Forgot password?",
         "login": "Login",
         "not": "Not registered yet?",
         "register": "Register now",
@@ -24,6 +24,20 @@
         "btn": "Register now",
         "have": "Already have an account?",
         "login": "Login"
+    },
+    "forgot": {
+        "h1": "Forgot password",
+        "text": "Enter the Email you entered during registration, we will send you a link to change your password",
+        "btn": "Submit",
+        "not": "Not registered yet?",
+        "register": "Register now",
+        "success": "If email exists, we will send you a link to change your password"
+    },
+    "reset": {
+        "h1": "Reset password",
+        "btn": "Reset password",
+        "password": "New password",
+        "repeat": "Repeat new password"
     },
     "personal": {
         "name": "Name",

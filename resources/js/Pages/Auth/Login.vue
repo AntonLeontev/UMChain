@@ -75,10 +75,7 @@ function login(event) {
 								</Checkbox>
 							</div>
 							<div class="mb-8 reg__forget">
-								<a
-									href="{{ LaravelLocalization::localizeUrl(route('password.email')) }}"
-									>{{ $t("login.forget") }}</a
-								>
+								<router-link :to="{ name: 'forgot-password' }">{{ $t("login.forget") }}</router-link>
 							</div>
 							<ButtonSecondary :disabled="loader">
 								{{ $t("login.login") }}

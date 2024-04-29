@@ -1,22 +1,23 @@
 @extends('layouts.auth')
 
-@section('title', __('auth.titles.login'))
+@section('title', __('auth.titles.reset-password'))
 
-@section('h1', __('auth.titles.login'))
+@section('h1', __('auth.titles.reset-password'))
 
 @section('content')
     <div class="reg__info">
         <div class="reg__form">
-            <form method="POST" action="{{ LaravelLocalization::localizeUrl(route('password.store')) }}">
+            <form method="POST" action="{{ route('password.update') }}">
                 {{ session()->get('ref_master_slug') }}
                 @csrf
                 @if (session()->has('package_message'))
                     <div class="reg__have">{{ session()->get('package_message') }}</div>
                 @endif
+				<input type="hidden" name="token" value="{{ $request->get('token') }}">
                 <div class="reg__one">
                     <div class="reg__name">{{ __('Email') }}</div>
                     <div class="reg__field">
-                        <input type="email" name="email" value="{{ old('email') }}" required>
+                        <input type="email" name="email" value="{{ old('email') ?? $request->email }}" required>
                     </div>
 					@error('email')
                         <div>
@@ -41,14 +42,8 @@
                         <input type="password" name="password_confirmation" required autocomplete="new-password">
                     </div>
                 </div>
-                <div class="mb-8 reg__agreement">
-                    <input id="happy" type="checkbox" class="custom-checkbox" name="happy" value="yes" required>
-                    <label for="happy"><span>{{ __('I agree to') }}&nbsp;<a
-                                href=""
-                                class="happy__hide">{{ __('the processing of personal data.') }}</a></span></label>
-                </div>
 				
-				<x-secondary-button type="submit">{{ __('Reset Password') }}</x-secondary-button>
+				<x-secondary-button class="mt-4" type="submit">{{ __('Reset Password') }}</x-secondary-button>
             </form>
         </div>
     </div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\WithdrawalController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -18,14 +19,17 @@ if (app()->isLocal()) {
     });
 }
 
+Route::get('/{vue_capture?}', function () {
+    return view('home');
+})->where('vue_capture', '[\/\w\.-]*');
+
+Route::get('/reset-password', function (Request $request) {
+    return view('auth.reset-password', ['request' => $request]);
+})->name('password.reset');
+
 Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
     ->prefix(LaravelLocalization::setLocale())
     ->group(function () {
-        // Route::get('/', [PageController::class, 'home'])->name('home');
-        Route::get('/{vue_capture?}', function () {
-            return view('home');
-        })->where('vue_capture', '[\/\w\.-]*');
-
         Route::prefix('cabinet')
             ->middleware(['auth'])
             ->group(function () {

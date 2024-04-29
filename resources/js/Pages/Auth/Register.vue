@@ -2,6 +2,7 @@
 import AuthLayout from "@/Layouts/AuthLayout.vue";
 import ButtonSecondary from "@/Components/Common/ButtonSecondary.vue";
 import Loader from "@/Components/Common/Loader.vue";
+import Checkbox from "@/Components/Common/Checkbox.vue";
 import useUserStore from "@/stores/user";
 import useResetErrors from "@/composables/resetErrors";
 import useCatch from "@/composables/catch";
@@ -93,21 +94,13 @@ function register(event) {
 								</div>
 							</div>
 							<div class="mb-8 reg__agreement">
-								<input
-									id="happy"
-									type="checkbox"
-									class="custom-checkbox"
-									name="happy"
-									checked
-									required
-								/>
-								<label for="happy">
+								<Checkbox name="agree" checked>
 									<span class="happy__show">{{ $t("register.agree") }}&nbsp;
 										<a href="" class="happy__hide" >
 											{{ $t("register.to") }}
 										</a>
 									</span>
-								</label>
+								</Checkbox>
 							</div>
 
 							<ButtonSecondary :disabled="loader">
