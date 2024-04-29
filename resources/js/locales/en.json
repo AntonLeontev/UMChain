@@ -39,6 +39,10 @@
         "password": "New password",
         "repeat": "Repeat new password"
     },
+    "404": {
+        "h1": "Page not found",
+        "btn": "To home page"
+    },
     "personal": {
         "name": "Name",
         "email": "Email",
