@@ -1,103 +1,76 @@
 <script setup>
-import ButtonSecondary from "@/Components/Common/ButtonSecondary.vue";
-import PersonalLayout from "@/Layouts/PersonalLayout.vue";
+    import ButtonSecondary from "@/Components/Common/ButtonSecondary.vue";
+    import Loader from "@/Components/Common/Loader.vue";
+    import PersonalLayout from "@/Layouts/PersonalLayout.vue";
+    import useUserStore from "@/stores/user";
+	import useCatch from "@/composables/catch";
+	import useResetErrors from "@/composables/resetErrors";
+	
+    import axios from "axios";
+    import { ref, reactive } from "vue";
+
+    const user = useUserStore().user;
+
+    const errors = reactive({})
+	const loading = ref(false)
+
+    function submit(event) {
+		loading.value = true
+		useResetErrors(errors)
+
+        axios.put(route('api.users.update'), Object.fromEntries(new FormData(event.target)))
+			.catch((error) => useCatch(error, errors))
+			.finally(() => {
+				loading.value = false
+			})
+    }
 </script>
 
 <template>
-	<PersonalLayout>
-		<div data-page="profile" x-show="page === 'personal'" x-cloak>
-    <div class="main__settings">
-        <form action="{{ route('users.update') }}" class="flex flex-col items-center" x-data="
-			{
-				form: $form('put', route('users.update'), {
-					name: user.name,
-					email: user.email,
-					tron: user.tron_wallet?.address,
-					eth: user.eth_wallet?.address,
-				}),
-				submit() {
-					this.form.submit()
-						.then(response => {
-							this.$dispatch('toast', {text: 'Success'});
-						})
-						.catch(error => {
-							let text = 'Error';
-
-							if (error.response.data.message) {
-								text = error.response.data.message
-							}
-
-							this.$dispatch('toast', {text: text, type: 'error'});
-						});
-				},
-			}"
-			@submit.prevent="submit"
-		>
-            <div class="mb-8 main__data">
-                <div class="reg__one">
-                    <div class="reg__name">{{ $t('cabinet/personal.name') }}</div>
-                    <div class="reg__field">
-                        <input 
-							type="text" 
-							name="name" 
-							class="focus:border-b-pink focus:ring-0"
-							x-model="form.name"
-							@change="form.validate('name')"
-						>
-						<template x-if="form.invalid('name')">
-							<div class="text-danger" x-text="form.errors.name"></div>
-						</template>
+    <PersonalLayout>
+        <div data-page="profile" x-show="page === 'personal'" x-cloak>
+            <div class="main__settings">
+                <form class="flex flex-col items-center" @submit.prevent="submit">
+                    <div class="mb-8 main__data">
+                        <div class="reg__one">
+                            <div class="reg__name">{{ $t('personal.name') }}</div>
+                            <div class="reg__field">
+                                <input type="text" name="name" class="focus:border-b-pink focus:ring-0"
+                                    :value="user.name">
+                                <div v-if="errors.name" class="text-danger" v-text="errors.name"></div>
+                            </div>
+                        </div>
+                        <div class="reg__one">
+                            <div class="reg__name">{{ $t('personal.email') }}</div>
+                            <div class="reg__field">
+                                <input type="email" name="email" class="focus:border-b-pink focus:ring-0"
+                                    :value="user.email">
+                                <div v-if="errors.email" class="text-danger" v-text="errors.email"></div>
+                            </div>
+                        </div>
+                        <div class="reg__one">
+                            <div class="reg__name">{{ $t('personal.tron') }}</div>
+                            <div class="reg__field">
+                                <input type="text" name="tron" class="focus:border-b-pink !text-xs focus:ring-0"
+                                    :value="user.tron_wallet?.address">
+								<div v-if="errors.tron" class="text-danger" v-text="errors.tron"></div>
+                            </div>
+                        </div>
+                        <div class="reg__one">
+                            <div class="reg__name">{{ $t('personal.eth') }}</div>
+                            <div class="reg__field">
+                                <input type="text" name="eth" class="focus:border-b-pink !text-xs focus:ring-0"
+                                    :value="user.eth_wallet?.address">
+								<div v-if="errors.eth" class="text-danger" v-text="errors.eth"></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="reg__one">
-                    <div class="reg__name">{{ $t('cabinet/personal.email') }}</div>
-                    <div class="reg__field">
-                        <input 
-							type="email" 
-							name="email" 
-							class="focus:border-b-pink focus:ring-0"
-							x-model="form.email"
-							@input="form.validate('email')"
-						>
-						<template x-if="form.invalid('email')">
-							<div class="text-danger" x-text="form.errors.email"></div>
-						</template>
-                    </div>
-                </div>
-                <div class="reg__one">
-                    <div class="reg__name">{{ $t('cabinet/personal.tron') }}</div>
-                    <div class="reg__field">
-                        <input 
-							type="text" 
-							name="tron" 
-							class="focus:border-b-pink !text-xs focus:ring-0"
-                            x-model="form.tron"
-							@change="form.validate('tron')"
-						>
-						<template x-if="form.invalid('tron')">
-							<div class="text-danger" x-text="form.errors.tron"></div>
-						</template>
-                    </div>
-                </div>
-                <div class="reg__one">
-                    <div class="reg__name">{{ $t('cabinet/personal.eth') }}</div>
-                    <div class="reg__field">
-                        <input 
-							type="text" 
-							name="eth" 
-							class="focus:border-b-pink !text-xs focus:ring-0"
-                            x-model="form.eth"
-							@change="form.validate('eth')"
-						>
-						<template x-if="form.invalid('eth')">
-							<div class="text-danger" x-text="form.errors.eth"></div>
-						</template>
-                    </div>
-                </div>
+                    <ButtonSecondary>
+						{{ $t('personal.btn') }}
+						<Loader v-show="loading"></Loader>
+					</ButtonSecondary>
+                </form>
             </div>
-			<ButtonSecondary>{{ $t('cabinet/personal.btn') }}</ButtonSecondary>
-        </form>
-    </div>
-</div>
-	</PersonalLayout>
+        </div>
+    </PersonalLayout>
 </template>

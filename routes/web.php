@@ -19,9 +19,11 @@ if (app()->isLocal()) {
     });
 }
 
-Route::get('/{vue_capture?}', function () {
-    return view('home');
-})->where('vue_capture', '[\/\w\.-]*');
+if (! request()->ajax()) {
+    Route::get('/{vue_capture?}', function () {
+        return view('home');
+    })->where('vue_capture', '[\/\w\.-]*');
+}
 
 Route::get('/reset-password', function (Request $request) {
     return view('auth.reset-password', ['request' => $request]);

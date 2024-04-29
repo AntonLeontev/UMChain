@@ -12,7 +12,7 @@ const router = createRouter({
 router.beforeEach(async (to, from) => {
     if (useUserStore().isAuthenticated === null) {
         await axios
-            .get("/api/user")
+            .get(route("api.user"))
             .then((res) => {
                 useUserStore().user = res.data;
                 useUserStore().isAuthenticated = true;

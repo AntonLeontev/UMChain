@@ -43,6 +43,7 @@
         "name": "Name",
         "email": "Email",
         "tron": "Tron wallet number",
-        "eth": "ETH wallet number"
+        "eth": "ETH wallet number",
+        "btn": "Update"
     }
 }

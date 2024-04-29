@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-})->name('api.user');
+Route::middleware('auth:sanctum')
+    ->prefix('v1')
+    ->group(function () {
+
+        Route::prefix('users')
+            ->controller(ProfileController::class)
+            ->group(function () {
+                Route::get('current', 'current')->name('api.user');
+                Route::put('update', 'update')->name('api.users.update');
+            });
+    });

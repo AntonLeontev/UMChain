@@ -54,7 +54,7 @@ function register(event) {
 										autocomplete="off"
 									/>
 								</div>
-								<div class="text-pink" v-text="errors.name?.join(' ')"></div>
+								<div class="text-pink" v-text="errors.name"></div>
 							</div>
 							<div class="reg__one">
 								<div class="reg__name">{{ $t("auth.email") }}</div>
@@ -66,7 +66,7 @@ function register(event) {
 										autocomplete="off"
 									/>
 								</div>
-								<div class="text-pink" v-text="errors.email?.join(' ')"></div>
+								<div class="text-pink" v-text="errors.email"></div>
 							</div>
 							<div class="reg__one">
 								<div class="reg__name">{{ $t("auth.password") }}</div>
@@ -78,7 +78,7 @@ function register(event) {
 										autocomplete="new-password"
 									/>
 								</div>
-								<div class="text-pink" v-text="errors.password?.join(' ')"></div>
+								<div class="text-pink" v-text="errors.password"></div>
 							</div>
 							<div class="reg__one">
 								<div class="reg__name">

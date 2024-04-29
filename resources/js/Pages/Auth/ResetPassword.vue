@@ -49,14 +49,14 @@
                     <div class="reg__field">
                         <input type="email" name="email" class="focus:border-b-pink focus:ring-0" :value="query.get('email')" required>
                     </div>
-					<div class="text-pink" v-text="errors.email?.join(' ')"></div>
+					<div class="text-pink" v-text="errors.email"></div>
                 </div>
                 <div class="reg__one">
                     <div class="reg__name">{{ $t('reset.password') }}</div>
                     <div class="reg__field">
                         <input type="password" name="password" class="focus:border-b-pink focus:ring-0" required autocomplete="new-password">
                     </div>
-					<div class="text-pink" v-text="errors.password?.join(' ')"></div>
+					<div class="text-pink" v-text="errors.password"></div>
                 </div>
                 <div class="reg__one">
                     <div class="reg__name">{{ $t('reset.repeat') }}</div>

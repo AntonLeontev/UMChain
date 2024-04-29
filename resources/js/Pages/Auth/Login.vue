@@ -54,7 +54,7 @@ function login(event) {
 										class="focus:border-b-pink focus:ring-0"
 									/>
 								</div>
-								<div class="text-pink" v-text="errors.email?.join(' ')"></div>
+								<div class="text-pink" v-text="errors.email"></div>
 							</div>
 							<div class="reg__one">
 								<div class="reg__name">{{ $t("auth.password") }}</div>
