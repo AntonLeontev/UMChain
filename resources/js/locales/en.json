@@ -43,6 +43,12 @@
         "h1": "Page not found",
         "btn": "To home page"
     },
+    "change-pass": {
+        "pass-old": "Old password",
+        "pass-new": "New password",
+        "confirm": "Confirm new password",
+        "btn": "Save"
+    },
     "personal": {
         "name": "Name",
         "email": "Email",

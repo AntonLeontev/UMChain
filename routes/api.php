@@ -23,5 +23,6 @@ Route::middleware('auth:sanctum')
             ->group(function () {
                 Route::get('current', 'current')->name('api.user');
                 Route::put('update', 'update')->name('api.users.update');
+                Route::put('update-password', 'updatePassword')->name('api.password.update');
             });
     });

@@ -8,6 +8,7 @@ use App\Models\EthWallet;
 use App\Models\TronWallet;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class ProfileController extends Controller
 {
@@ -40,6 +41,12 @@ class ProfileController extends Controller
 
     public function updatePassword(ProfilePasswordUpdate $request): void
     {
+        if (! Hash::check($request->old_password, auth()->user()->password)) {
+            throw ValidationException::withMessages([
+                'old_password' => [__('auth.password')],
+            ]);
+        }
+
         auth()->user()->updateOrFail(['password' => Hash::make($request->new_password)]);
     }
 }

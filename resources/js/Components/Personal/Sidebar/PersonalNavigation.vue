@@ -33,7 +33,7 @@ const user = useUserStore().user;
                     <li
                         class="tracking-widest"
                     >
-                        Change password
+						<router-link :to="{ name: 'change-password' }">Change password</router-link>
                     </li>
 
                     <li

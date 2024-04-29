@@ -41,6 +41,12 @@ export default [
         name: "personal",
     },
     {
+        path: "/cabinet/password",
+        component: () => import("../Pages/ChangePassword.vue"),
+        meta: { requiresAuth: true },
+        name: "change-password",
+    },
+    {
         path: "/:pathMatch(.*)*",
         component: () => import("../Pages/NotFound.vue"),
     },
