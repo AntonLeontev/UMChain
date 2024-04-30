@@ -37,7 +37,7 @@ const user = useUserStore().user;
 						</li>
 
 						<li class="tracking-widest">
-							Referral
+							<router-link :to="{ name: 'referral' }">Referral</router-link>
 						</li>
 
 						<li

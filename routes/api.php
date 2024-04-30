@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReferralLinkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +30,6 @@ Route::middleware('auth:sanctum')
                 Route::post('notifications/mark-as-read', [NotificationController::class, 'markRead'])
                     ->name('api.user.notifications.mark-read');
             });
+
+        Route::post('reflinks/create', [ReferralLinkController::class, 'create'])->name('api.reflinks.create');
     });

@@ -54,6 +54,17 @@
         "btn": "Read all",
         "no": "There is no unread notifications"
     },
+    "referral": {
+        "send": "Send",
+        "percent": "Your percent",
+        "link": "Your link",
+        "copied": "Copied",
+        "generate": "Send request",
+        "1": "UMChain partner program. The opportunity to earn from 10% of payments from all partners brought to us.",
+        "2": "Send a request, get a referral link, earn with us",
+        "3": "Your request is accepted! Expect approval",
+        "4": "Your request is in progress! Expect approval"
+    },
     "personal": {
         "name": "Name",
         "email": "Email",

@@ -47,6 +47,12 @@ export default [
         name: "change-password",
     },
     {
+        path: "/cabinet/referral",
+        component: () => import("../Pages/Referral.vue"),
+        meta: { requiresAuth: true },
+        name: "referral",
+    },
+    {
         path: "/cabinet/notifications",
         component: () => import("../Pages/Notifications.vue"),
         meta: { requiresAuth: true },
