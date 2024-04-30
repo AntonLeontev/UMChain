@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Events\RegisteredByReferral;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -20,6 +21,7 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         Validator::make($input, [
+            'referral' => ['nullable', 'int'],
             'name' => ['required', 'string', 'max:255'],
             'email' => [
                 'required',
@@ -31,10 +33,16 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
+        if (! is_null($input['referral'])) {
+            event(new RegisteredByReferral($input['referral'], $input['email']));
+        }
+
+        return $user;
     }
 }

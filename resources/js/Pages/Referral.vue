@@ -38,7 +38,6 @@
 				}, 600)
 			})
 	}
-
 </script>
 
 <template>

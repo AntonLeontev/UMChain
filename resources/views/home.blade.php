@@ -26,5 +26,15 @@
     </head>
     <body class="h-[100%]">
 		<div id="app" class="h-[100%]"></div>
+
+		<script>
+			let queryParams = new URLSearchParams(window.location.search);
+
+			if(queryParams.has('ref')) {
+				let ref = queryParams.get('ref');
+				
+				localStorage.setItem('referral', ref);
+			}
+		</script>
     </body>
 </html>

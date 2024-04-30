@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use App\Events\OrderAccepted;
 use App\Events\ReferralLinkActivated;
+use App\Events\RegisteredByReferral;
 use App\Events\WithdrawalSent;
+use App\Listeners\BindReferral;
 use App\Listeners\SendOrderAcceptedNotification;
 use App\Listeners\SendReferralLinkActivatedNotification;
 use App\Listeners\SendWithdrawSentNotification;
@@ -39,6 +41,10 @@ class EventServiceProvider extends ServiceProvider
 
         ReferralLinkActivated::class => [
             SendReferralLinkActivatedNotification::class,
+        ],
+
+        RegisteredByReferral::class => [
+            BindReferral::class,
         ],
     ];
 

@@ -8,7 +8,7 @@ import useResetErrors from "@/composables/resetErrors";
 import useCatch from "@/composables/catch";
 
 import axios from "axios";
-import { ref, reactive } from "vue";
+import { ref, reactive, computed } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -23,7 +23,6 @@ function register(event) {
     axios
         .post("/register", new FormData(event.target))
         .then(async (response) => {
-			console.log(response);
 			await useUserStore().login(event.target.email.value, event.target.password.value)
             await useUserStore().getUser()
 			router.push({ name: "personal" });
@@ -33,6 +32,10 @@ function register(event) {
 			loader.value = false
 		})
 }
+
+	const getReferral = computed(() => {
+		return localStorage.getItem('referral')
+	})
 </script>
 
 <template>
@@ -44,6 +47,7 @@ function register(event) {
 				<div class="reg__info">
 					<div class="reg__form">
 						<form method="POST" @submit.prevent="register">
+							<input type="hidden" name="referral" :value="getReferral">
 							<div class="reg__one">
 								<div class="reg__name">{{ $t("auth.name") }}</div>
 								<div class="reg__field">
