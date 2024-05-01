@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
-use App\Http\Controllers\FitController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\GoogleFitController;
 use App\Http\Controllers\OrderController;
@@ -52,7 +51,6 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
                     ->group(function () {
                         Route::put('update', [ProfileController::class, 'update'])->name('users.update');
                         Route::put('update-password', [ProfileController::class, 'updatePassword'])->name('users.update-password');
-                        Route::put('fit-update', [FitController::class, 'update'])->name('users.fit.update');
                     });
 
                 Route::prefix('orders')
