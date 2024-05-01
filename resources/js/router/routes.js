@@ -59,6 +59,18 @@ export default [
         name: "notifications",
     },
     {
+        path: "/cabinet/fit/profile",
+        component: () => import("../Pages/Fit/Profile.vue"),
+        meta: { requiresAuth: true },
+        name: "fit.profile",
+    },
+    {
+        path: "/cabinet/fit/calculator",
+        component: () => import("../Pages/Fit/Calculator.vue"),
+        meta: { requiresAuth: true },
+        name: "fit.calculator",
+    },
+    {
         path: "/:pathMatch(.*)*",
         component: () => import("../Pages/NotFound.vue"),
     },

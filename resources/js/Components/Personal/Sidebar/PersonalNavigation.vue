@@ -40,12 +40,12 @@ const user = useUserStore().user;
 							<router-link :to="{ name: 'referral' }">Referral</router-link>
 						</li>
 
-						<li
+						<!-- <li
 							v-if="user.activeRefLink"
 							class="tracking-widest"
 						>
 							Banners
-						</li>
+						</li> -->
 
 						<li class="relative tracking-widest">
 							<router-link class="flex items-center justify-center gap-2" :to="{ name: 'notifications' }">
@@ -69,15 +69,11 @@ const user = useUserStore().user;
 					v-else-if="nav.activeTab === 'fit'"
 				>
 					<ul class="flex flex-col items-center main__menu--list">
-						<li
-							class="tracking-widest"
-						>
-							Profile
+						<li class="tracking-widest">
+							<router-link :to="{ name: 'fit.profile' }">Profile</router-link>
 						</li>
-						<li
-							class="tracking-widest"
-						>
-							Calculator
+						<li class="tracking-widest">
+							<router-link :to="{ name: 'fit.calculator' }">Calculator</router-link>
 						</li>
 					</ul>
 				</div>

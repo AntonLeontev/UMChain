@@ -27,13 +27,5 @@ return [
         'Fats' => 'Fats',
         'Carbohydrates' => 'Carbohydrates',
         'gramms' => 'g',
-        '' => '',
-        '' => '',
-        '' => '',
-        '' => '',
-        '' => '',
-        '' => '',
-        '' => '',
-        '' => '',
     ],
 ];

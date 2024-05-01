@@ -65,6 +65,35 @@
         "3": "Your request is accepted! Expect approval",
         "4": "Your request is in progress! Expect approval"
     },
+    "fit-calculator": {
+        "form": {
+            "Gender": "Gender",
+            "Man": "Man",
+            "Woman": "Woman",
+            "Age": "Age",
+            "Height": "Height, cm",
+            "Weight": "Weight, kg",
+            "Activity": "Activity",
+            "Minimum": "Minimum",
+            "Moderate": "Moderate",
+            "Active": "Active",
+            "Level": "Level",
+            "Weak": "Weak",
+            "Normal": "Normal",
+            "Strong": "Strong",
+            "Direction": "Direction",
+            "loss": "Weight loss",
+            "keep": "Keeping weight",
+            "gain": "Weight gain",
+            "income": "Recommended daily calories income:",
+            "kCal": "kCal",
+            "PFC": "PFC calculation:",
+            "Proteins": "Proteins",
+            "Fats": "Fats",
+            "Carbohydrates": "Carbohydrates",
+            "gramms": "g"
+        }
+    },
     "personal": {
         "name": "Name",
         "email": "Email",
