@@ -2,12 +2,17 @@
 import FadeTransition from "@/Components/Common/FadeTransition.vue";
 import Check from "@/Components/Common/Check.vue";
 import PersonalLayout from "@/Layouts/PersonalLayout.vue";
+
 import useUserStore from "@/stores/user";
+import useToastsStore from "@/stores/toasts";
+
 import useCatch from "@/composables/catch";
 import useResetErrors from "@/composables/resetErrors";
 
 import axios from "axios";
-import { ref, reactive, computed } from "vue";
+import { reactive, computed } from "vue";
+import { useI18n } from "vue-i18n";
+const { t: $t } = useI18n();
 
 const user = useUserStore().user;
 const errors = reactive({});
@@ -30,6 +35,10 @@ function submit(event) {
       route("api.user.update"),
       Object.fromEntries(new FormData(event.target.closest("form")))
     )
+    .then((resp) => {
+      //TODO use translation
+      useToastsStore().toastInfo($t("fit-calculator.updated"), 1500);
+    })
     .catch((error) => useCatch(error, errors));
 }
 const calcCalories = computed(() => {

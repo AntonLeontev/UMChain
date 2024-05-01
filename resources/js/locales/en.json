@@ -92,7 +92,8 @@
             "Fats": "Fats",
             "Carbohydrates": "Carbohydrates",
             "gramms": "g"
-        }
+        },
+        "updated": "Profile updated"
     },
     "personal": {
         "name": "Name",

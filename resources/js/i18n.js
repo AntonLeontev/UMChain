@@ -4,7 +4,7 @@ import { createI18n } from "vue-i18n";
 export const SUPPORT_LOCALES = ["en", "ru"];
 
 export const i18n = createI18n({
-    // legacy: false,
+    legacy: false,
     locale: "ru",
     fallbackLocale: "en",
 });
