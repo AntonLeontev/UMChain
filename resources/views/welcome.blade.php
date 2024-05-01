@@ -3,7 +3,7 @@
 @section('title', 'Main')
 
 @section('content')
-	<div class="bg-[#E5E5E5]">
+<div class="bg-[#E5E5E5]">
     <section class="major">
         <div class="container">
             <div class="major__inner">

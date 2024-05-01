@@ -16,7 +16,7 @@
 
     <!-- Scripts -->
     @routes
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css'])
     <style>
         [x-cloak] {
             display: none;
@@ -41,10 +41,10 @@
                     @yield('content')
 
                     <div class="reg__img reg__img--desc">
-                        <img src="{{ asset('images/cube.svg') }}" alt="">
+                        <img src="{{ asset('resources/images/svg/cube.svg') }}" alt="">
                     </div>
                     <div class="reg__img reg__img--mob">
-                        <img src="{{ asset('images/cubeMob.svg') }}" alt="">
+                        <img src="{{ asset('resources/images/svg/cubeMob.svg') }}" alt="">
                     </div>
                 </div>
             </div>

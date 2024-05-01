@@ -4,10 +4,11 @@ import forms from '@tailwindcss/forms';
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
-        "./storage/framework/views/*.php",
+        // "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+        // "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
-        "./resources/**/*.js",
+        "./resources/js/**/*.js",
+        "./resources/js/**/*.vue",
     ],
 
     theme: {
@@ -19,11 +20,16 @@ export default {
         },
         colors: {
             transparent: "transparent",
+
             black: "#292929",
-            white: "#ffffff",
-            pink: "#ED0474",
-            grey: "#868686",
             danger: "#aa0000",
+
+            grey: "#868686",
+            pink: "#ED0474",
+            white: "#ffffff",
+            accent: "#ed0474",
+            "bg-dark": "#2A2A2A",
+            "bg-light": "#e5e5e5",
         },
         fontFamily: {
             sans: ["Inter", "sans-serif"],

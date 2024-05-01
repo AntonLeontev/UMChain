@@ -3,6 +3,7 @@
 /public/build
 /public/hot
 /public/storage
+/resources/images_old
 /storage/*.key
 resources/images_old
 /vendor

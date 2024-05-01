@@ -1,0 +1,131 @@
+{
+    "home": {
+        "h1": "UMCHAIN – IT solutions",
+        "register": "Register"
+    },
+    "auth": {
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "repeat": "Repeat password"
+    },
+    "login": {
+        "h1": "Login",
+        "forget": "Forgot password?",
+        "login": "Login",
+        "not": "Not registered yet?",
+        "register": "Register now",
+        "remember": "Remember me"
+    },
+    "register": {
+        "h1": "Registration",
+        "agree": "I agree to",
+        "to": "the processing of personal data.",
+        "btn": "Register now",
+        "have": "Already have an account?",
+        "login": "Login"
+    },
+    "forgot": {
+        "h1": "Forgot password",
+        "text": "Enter the Email you entered during registration, we will send you a link to change your password",
+        "btn": "Submit",
+        "not": "Not registered yet?",
+        "register": "Register now",
+        "success": "If email exists, we will send you a link to change your password"
+    },
+    "reset": {
+        "h1": "Reset password",
+        "btn": "Reset password",
+        "password": "New password",
+        "repeat": "Repeat new password"
+    },
+    "logout": {
+        "sure": "Do you really want to log out?",
+        "dont": "Cancel",
+        "btn": "Log out"
+    },
+    "404": {
+        "h1": "Page not found",
+        "btn": "To home page"
+    },
+    "change-pass": {
+        "pass-old": "Old password",
+        "pass-new": "New password",
+        "confirm": "Confirm new password",
+        "btn": "Save"
+    },
+    "notifications": {
+        "h1": "Notifications",
+        "btn": "Read all",
+        "no": "There is no unread notifications"
+    },
+    "referral": {
+        "send": "Send",
+        "percent": "Your percent",
+        "link": "Your link",
+        "copied": "Copied",
+        "generate": "Send request",
+        "1": "UMChain partner program. The opportunity to earn from 10% of payments from all partners brought to us.",
+        "2": "Send a request, get a referral link, earn with us",
+        "3": "Your request is accepted! Expect approval",
+        "4": "Your request is in progress! Expect approval"
+    },
+    "fit-calculator": {
+        "form": {
+            "Gender": "Gender",
+            "Man": "Man",
+            "Woman": "Woman",
+            "Age": "Age",
+            "Height": "Height, cm",
+            "Weight": "Weight, kg",
+            "Activity": "Activity",
+            "Minimum": "Minimum",
+            "Moderate": "Moderate",
+            "Active": "Active",
+            "Level": "Level",
+            "Weak": "Weak",
+            "Normal": "Normal",
+            "Strong": "Strong",
+            "Direction": "Direction",
+            "loss": "Weight loss",
+            "keep": "Keeping weight",
+            "gain": "Weight gain",
+            "income": "Recommended daily calories income:",
+            "kCal": "kCal",
+            "PFC": "PFC calculation:",
+            "Proteins": "Proteins",
+            "Fats": "Fats",
+            "Carbohydrates": "Carbohydrates",
+            "gramms": "g"
+        },
+        "updated": "Profile updated"
+    },
+    "fit-profile": {
+        "google-error": "Google authentication error. Please authenticate again",
+        "auth-btn": "Google authentication",
+        "spent": "Spent for today:",
+        "cal": "Cal",
+        "tokens": "Total tokens:",
+        "no-transactions": "There are no transactions yet"
+    },
+    "sidebar": {
+        "tabs": {
+            "profile": "Profile",
+            "fit": "Fit"
+        },
+        "profile": "Profile",
+        "calculator": "Calculator",
+        "personal": "personal",
+        "change-pass": "Change password",
+        "referral": "Referral",
+        "notifications": "Notifications",
+        "logout": "Log out"
+    },
+    "personal": {
+        "name": "Name",
+        "email": "Email",
+        "tron": "Tron wallet number",
+        "eth": "ETH wallet number",
+        "btn": "Update"
+    }
+}

@@ -6,7 +6,6 @@
 
 @section('content')
     <div class="reg__info">
-        {{--                        <div class="reg__littletitle">Вы сможете приобрести выбранный сертификат после регистрации</div> --}}
         <div class="reg__form">
             <form method="POST" action="{{ LaravelLocalization::localizeUrl(route('register')) }}">
                 {{ session()->get('ref_master_slug') }}

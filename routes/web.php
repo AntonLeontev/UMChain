@@ -1,77 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
-use App\Http\Controllers\FitController;
 use App\Http\Controllers\GoogleAuthController;
-use App\Http\Controllers\GoogleFitController;
-use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ReferralLinkController;
-use App\Http\Controllers\WithdrawalController;
 use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 if (app()->isLocal()) {
     Route::get('test', function () {
     });
 }
-
-Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
-    ->prefix(LaravelLocalization::setLocale())
-    ->group(function () {
-        Route::get('/', [PageController::class, 'home'])->name('home');
-
-        Route::prefix('cabinet')
-            ->middleware(['auth'])
-            ->group(function () {
-                Route::get('/', [PageController::class, 'cabinet'])->name('cabinet');
-
-                Route::get('/wallet', [PageController::class, 'cabinet'])->name('cabinet.wallet');
-
-                Route::get('personal', [PageController::class, 'cabinet'])->name('cabinet.personal');
-                Route::get('portfolio', [PageController::class, 'cabinet'])->name('cabinet.portfolio');
-                Route::get('password', [PageController::class, 'cabinet'])->name('cabinet.password');
-                Route::get('referral', [PageController::class, 'cabinet'])->name('cabinet.referral');
-                Route::get('banners', [PageController::class, 'cabinet'])->name('cabinet.banners');
-                Route::get('notifications', [PageController::class, 'cabinet'])->name('cabinet.notifications');
-                Route::get('fitProfile', [PageController::class, 'cabinet'])->name('cabinet.fit.profile');
-                Route::get('fitCalculator', [PageController::class, 'cabinet'])->name('cabinet.fit.calculator');
-
-                Route::prefix('users')
-                    ->middleware(['precognitive', 'auth'])
-                    ->group(function () {
-                        Route::put('update', [ProfileController::class, 'update'])->name('users.update');
-                        Route::put('update-password', [ProfileController::class, 'updatePassword'])->name('users.update-password');
-                        Route::put('fit-update', [FitController::class, 'update'])->name('users.fit.update');
-                    });
-
-                Route::prefix('orders')
-                    ->middleware(['precognitive', 'auth'])
-                    ->group(function () {
-                        Route::post('create', [OrderController::class, 'create'])->name('orders.create');
-                        Route::put('{order}/make-paid', [OrderController::class, 'makePaid'])->name('orders.make-paid');
-                    });
-
-                Route::prefix('reflinks')
-                    ->group(function () {
-                        Route::post('create', [ReferralLinkController::class, 'create'])->name('reflinks.create');
-                    });
-
-                Route::prefix('withdraw')
-                    ->middleware(['precognitive', 'auth'])
-                    ->group(function () {
-                        Route::post('exchange', [WithdrawalController::class, 'exchange'])->name('withdraw.exchange');
-                        Route::post('create', [WithdrawalController::class, 'create'])->name('withdraw.create');
-                    });
-
-                Route::post('notifications/mark-as-read', [NotificationController::class, 'markRead'])
-                    ->name('notifications.mark-read');
-            });
-
-        require __DIR__.'/auth.php';
-    });
 
 Route::middleware(['auth'])
     ->group(function () {
@@ -82,9 +18,36 @@ Route::middleware(['auth'])
             ->name('google.code');
     });
 
-Route::middleware(['auth'])
-    ->get('user/calories', [GoogleFitController::class, 'calories'])
-    ->name('user.google.calories');
+if (! request()->ajax()) {
+    Route::get('/{vue_capture?}', function () {
+        return view('home');
+    })->where('vue_capture', '(?!'.config('moonshine.route.prefix').")[\/\w\.-]*");
+}
+
+// TODO удалить если не нужны
+// Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
+//     ->prefix(LaravelLocalization::setLocale())
+//     ->group(function () {
+//         Route::prefix('cabinet')
+//             ->middleware(['auth'])
+//             ->group(function () {
+
+//                 Route::prefix('orders')
+//                     ->middleware(['precognitive', 'auth'])
+//                     ->group(function () {
+//                         Route::post('create', [OrderController::class, 'create'])->name('orders.create');
+//                         Route::put('{order}/make-paid', [OrderController::class, 'makePaid'])->name('orders.make-paid');
+//                     });
+
+//                 Route::prefix('withdraw')
+//                     ->middleware(['precognitive', 'auth'])
+//                     ->group(function () {
+//                         Route::post('exchange', [WithdrawalController::class, 'exchange'])->name('withdraw.exchange');
+//                         Route::post('create', [WithdrawalController::class, 'create'])->name('withdraw.create');
+//                     });
+
+//             });
+//     });
 
 Route::prefix(config('moonshine.route.prefix', ''))
     ->as('moonshine.')
