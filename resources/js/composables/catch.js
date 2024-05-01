@@ -1,7 +1,7 @@
 import useToastsStore from "@/stores/toasts";
 
-export default function useCatch(error, errors) {
-    if (error.response?.status === 422) {
+export default function useCatch(error, errors = null) {
+    if (error.response?.status === 422 && errors !== null) {
         let newErrors = {};
 
         for (const key in error.response?.data.errors) {
@@ -12,17 +12,21 @@ export default function useCatch(error, errors) {
         }
 
         Object.assign(errors, newErrors);
-    } else if (
+        return;
+    }
+
+    if (
         error.response?.status === 419 &&
         error.response?.data?.message === "CSRF token mismatch."
     ) {
         location.reload();
+        return;
+    }
+
+    if (import.meta.env.PROD) {
+        useToastsStore().toastError(error.message);
     } else {
-		if (import.meta.env.PROD) {
-            useToastsStore().toastError(error.message);
-        } else {
-            console.log(error);
-            useToastsStore().toastError(error.response.data.message);
-        }
+        console.log(error);
+        useToastsStore().toastError(error.response?.data.message);
     }
 }

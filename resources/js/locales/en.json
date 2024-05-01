@@ -95,6 +95,14 @@
         },
         "updated": "Profile updated"
     },
+    "fit-profile": {
+        "google-error": "Google authentication error. Please authenticate again",
+        "auth-btn": "Google authentication",
+        "spent": "Spent for today:",
+        "cal": "Cal",
+        "tokens": "Total tokens:",
+        "no-transactions": "There are no transactions yet"
+    },
     "personal": {
         "name": "Name",
         "email": "Email",

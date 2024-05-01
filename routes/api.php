@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\GoogleFitController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReferralLinkController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,10 +28,17 @@ Route::middleware('auth:sanctum')
                 Route::get('/', 'current')->name('api.user');
                 Route::put('update', 'update')->name('api.user.update');
                 Route::put('update-password', 'updatePassword')->name('api.password.update');
+
                 Route::get('notifications', [NotificationController::class, 'index'])->name('api.user.notifications.index');
                 Route::post('notifications/mark-as-read', [NotificationController::class, 'markRead'])
                     ->name('api.user.notifications.mark-read');
+
+                Route::get('user/calories', [GoogleFitController::class, 'calories'])
+                    ->name('api.user.google.calories');
             });
 
         Route::post('reflinks/create', [ReferralLinkController::class, 'create'])->name('api.reflinks.create');
+
+        Route::get('transactions', [TransactionController::class, 'index'])->name('api.transactions.index');
+
     });
