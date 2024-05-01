@@ -88,7 +88,7 @@ function cleanNumber(event) {
           <div class="reg__name">{{ $t("fit-calculator.form.Age") }}</div>
           <div class="reg__field">
             <input
-              type="number"
+              type="text"
               name="age"
               class="focus:border-b-pink focus:ring-0"
               v-model="form.age"
@@ -101,7 +101,7 @@ function cleanNumber(event) {
           <div class="reg__name">{{ $t("fit-calculator.form.Height") }}</div>
           <div class="reg__field">
             <input
-              type="number"
+              type="text"
               name="height"
               class="focus:border-b-pink focus:ring-0"
               v-model="form.height"
@@ -114,7 +114,7 @@ function cleanNumber(event) {
           <div class="reg__name">{{ $t("fit-calculator.form.Weight") }}</div>
           <div class="reg__field">
             <input
-              type="number"
+              type="text"
               name="weight"
               class="focus:border-b-pink focus:ring-0"
               v-model="form.weight"
