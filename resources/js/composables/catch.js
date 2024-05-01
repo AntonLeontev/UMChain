@@ -18,6 +18,11 @@ export default function useCatch(error, errors) {
     ) {
         location.reload();
     } else {
-        useToastsStore().handleError(error);
+		if (import.meta.env.PROD) {
+            useToastsStore().toastError(error.message);
+        } else {
+            console.log(error);
+            useToastsStore().toastError(error.response.data.message);
+        }
     }
 }

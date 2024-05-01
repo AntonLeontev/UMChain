@@ -5,15 +5,6 @@ const useToastsStore = defineStore("toasts", () => {
 	const ai = ref(1);
     const toasts = reactive([]);
 
-    function handleError(error) {
-        if (import.meta.env.PROD) {
-            toastError(error.message);
-        } else {
-            console.log(error);
-            toastError(error.response.data.message);
-        }
-    }
-
     function toastError(message, duration = 0) {
         addToast(message, duration, "error");
     }
@@ -38,7 +29,6 @@ const useToastsStore = defineStore("toasts", () => {
 
     return {
         toasts,
-        handleError,
         toastError,
         toastInfo,
         removeToast,
