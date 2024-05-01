@@ -39,6 +39,11 @@
         "password": "New password",
         "repeat": "Repeat new password"
     },
+    "logout": {
+        "sure": "Do you really want to log out?",
+        "dont": "Cancel",
+        "btn": "Log out"
+    },
     "404": {
         "h1": "Page not found",
         "btn": "To home page"
@@ -102,6 +107,19 @@
         "cal": "Cal",
         "tokens": "Total tokens:",
         "no-transactions": "There are no transactions yet"
+    },
+    "sidebar": {
+        "tabs": {
+            "profile": "Profile",
+            "fit": "Fit"
+        },
+        "profile": "Profile",
+        "calculator": "Calculator",
+        "personal": "personal",
+        "change-pass": "Change password",
+        "referral": "Referral",
+        "notifications": "Notifications",
+        "logout": "Log out"
     },
     "personal": {
         "name": "Name",

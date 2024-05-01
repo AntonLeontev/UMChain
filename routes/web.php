@@ -2,10 +2,7 @@
 
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\GoogleAuthController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\WithdrawalController;
 use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 if (app()->isLocal()) {
     Route::get('test', function () {
@@ -27,29 +24,30 @@ if (! request()->ajax()) {
     })->where('vue_capture', '(?!'.config('moonshine.route.prefix').")[\/\w\.-]*");
 }
 
-Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
-    ->prefix(LaravelLocalization::setLocale())
-    ->group(function () {
-        Route::prefix('cabinet')
-            ->middleware(['auth'])
-            ->group(function () {
+// TODO удалить если не нужны
+// Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
+//     ->prefix(LaravelLocalization::setLocale())
+//     ->group(function () {
+//         Route::prefix('cabinet')
+//             ->middleware(['auth'])
+//             ->group(function () {
 
-                Route::prefix('orders')
-                    ->middleware(['precognitive', 'auth'])
-                    ->group(function () {
-                        Route::post('create', [OrderController::class, 'create'])->name('orders.create');
-                        Route::put('{order}/make-paid', [OrderController::class, 'makePaid'])->name('orders.make-paid');
-                    });
+//                 Route::prefix('orders')
+//                     ->middleware(['precognitive', 'auth'])
+//                     ->group(function () {
+//                         Route::post('create', [OrderController::class, 'create'])->name('orders.create');
+//                         Route::put('{order}/make-paid', [OrderController::class, 'makePaid'])->name('orders.make-paid');
+//                     });
 
-                Route::prefix('withdraw')
-                    ->middleware(['precognitive', 'auth'])
-                    ->group(function () {
-                        Route::post('exchange', [WithdrawalController::class, 'exchange'])->name('withdraw.exchange');
-                        Route::post('create', [WithdrawalController::class, 'create'])->name('withdraw.create');
-                    });
+//                 Route::prefix('withdraw')
+//                     ->middleware(['precognitive', 'auth'])
+//                     ->group(function () {
+//                         Route::post('exchange', [WithdrawalController::class, 'exchange'])->name('withdraw.exchange');
+//                         Route::post('create', [WithdrawalController::class, 'create'])->name('withdraw.create');
+//                     });
 
-            });
-    });
+//             });
+//     });
 
 Route::prefix(config('moonshine.route.prefix', ''))
     ->as('moonshine.')
