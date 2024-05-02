@@ -21,7 +21,7 @@ const user = useUserStore().user;
 
 <template>
   <div>
-    <h2 class="main__title">Title page</h2>
+    <h2 class="main__title">{{ $t($route.meta.title ?? 'Cabinet') }}</h2>
     <div class="main__wrapper">
       <Switch
         :buttons="tabs"
@@ -34,7 +34,7 @@ const user = useUserStore().user;
           <ul class="flex flex-col items-center main__menu--list">
             <li class="tracking-widest">
               <router-link :to="{ name: 'personal' }">{{
-                $t("sidebar.profile")
+                $t("sidebar.personal")
               }}</router-link>
             </li>
 

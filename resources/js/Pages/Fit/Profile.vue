@@ -1,7 +1,6 @@
 <script setup>
 import FadeTransition from "@/Components/Common/FadeTransition.vue";
 import Loader from "@/Components/Common/Loader.vue";
-import PersonalLayout from "@/Layouts/PersonalLayout.vue";
 
 import useUserStore from "@/stores/user";
 import useToastsStore from "@/stores/toasts";
@@ -61,12 +60,11 @@ const getTransactions = () => {
 </script>
 
 <template>
-  <PersonalLayout>
     <div>
       <FadeTransition mode="out-in">
         <div
           v-if="caloriesLoading"
-          class="p-5 mt-3 mb-3 rounded bg-pink flex justify-center"
+          class="flex justify-center p-5 mt-3 mb-3 rounded bg-pink"
         >
           <Loader class="w-8 h-8" />
         </div>
@@ -74,7 +72,7 @@ const getTransactions = () => {
           <a
             v-if="!user.google_authenticated"
             :href="route('google.auth')"
-            class="inline-flex items-center justify-center px-6 py-4 mb-3 font-semibold tracking-widest text-white transition duration-150 ease-in-out border rounded bg-pink border-pink hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none w-full"
+            class="inline-flex items-center justify-center w-full px-6 py-4 mb-3 font-semibold tracking-widest text-white transition duration-150 ease-in-out border rounded bg-pink border-pink hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none"
           >
             {{ $t("fit-profile.auth-btn") }}
           </a>
@@ -95,7 +93,7 @@ const getTransactions = () => {
       <FadeTransition mode="out-in">
         <div
           v-if="trasactionsLoading"
-          class="p-5 mt-3 mb-3 rounded bg-pink flex justify-center"
+          class="flex justify-center p-5 mt-3 mb-3 rounded bg-pink"
         >
           <Loader class="w-8 h-8" />
         </div>
@@ -110,5 +108,4 @@ const getTransactions = () => {
         </div>
       </FadeTransition>
     </div>
-  </PersonalLayout>
 </template>

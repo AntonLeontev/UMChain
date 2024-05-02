@@ -12,7 +12,7 @@ import PersonalNavigation from "@/Components/Personal/Sidebar/PersonalNavigation
 				</div>
 
 				<div class="main__right main__right--right">
-					<slot />
+					<router-view />
 				</div>
 			</div>
 		</div> 

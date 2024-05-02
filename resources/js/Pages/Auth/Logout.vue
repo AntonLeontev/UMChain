@@ -1,5 +1,4 @@
 <script setup>
-import PersonalLayout from "@/Layouts/PersonalLayout.vue";
 import ButtonSecondary from "@/Components/Common/ButtonSecondary.vue";
 import ButtonTransparent from "@/Components/Common/ButtonTransparent.vue";
 import useUserStore from "@/stores/user";
@@ -10,7 +9,6 @@ function logout() {
 </script>
 
 <template>
-  <PersonalLayout>
     <div data-page="logout">
       <div class="main__out">
         <div class="out__box">
@@ -32,5 +30,4 @@ function logout() {
         </div>
       </div>
     </div>
-  </PersonalLayout>
 </template>

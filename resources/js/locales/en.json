@@ -1,4 +1,13 @@
 {
+    "titles": {
+        "profile": "Profile",
+        "calculator": "Calculator",
+        "personal": "Personal",
+        "password": "Change password",
+        "referral": "Referral",
+        "notifications": "Notifications",
+        "logout": "Log out"
+    },
     "home": {
         "h1": "UMCHAIN – IT solutions",
         "register": "Register"
@@ -115,7 +124,7 @@
         },
         "profile": "Profile",
         "calculator": "Calculator",
-        "personal": "personal",
+        "personal": "Personal",
         "change-pass": "Change password",
         "referral": "Referral",
         "notifications": "Notifications",

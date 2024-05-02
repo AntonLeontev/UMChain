@@ -10,7 +10,6 @@ export default function useISOToLocaleString(
         minute: "numeric",
     }
 ) {
-	console.log(i18n.global.locale);
     return dt
         .fromISO(time)
         .setLocale(i18n.global.locale.value)
