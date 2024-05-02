@@ -16,13 +16,15 @@ add('writable_dirs', []);
 // Hosts
 
 // test.server
-// host('45.146.165.254')
-//     ->set('remote_user', 'deployer')
-//     ->set('deploy_path', '~/umchain');
+host('94.241.174.226')
+    ->set('remote_user', 'deployer')
+    ->set('branch', 'dev')
+    ->set('deploy_path', '~/umfit');
 
 //production
 host('81.177.139.224')
     ->set('remote_user', 'deployer')
+    ->set('branch', 'master')
     ->set('deploy_path', '~/umchain');
 
 // Tasks
