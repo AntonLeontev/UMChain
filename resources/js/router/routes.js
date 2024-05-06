@@ -39,42 +39,67 @@ export default [
                 meta: {
                     requiresAuth: true,
                     title: "titles.logout",
+                    tab: "profile",
                 },
             },
             {
                 path: "/personal",
                 component: () => import("@/Pages/Personal.vue"),
-                meta: { requiresAuth: true, title: "titles.personal" },
+                meta: {
+                    requiresAuth: true,
+                    title: "titles.personal",
+                    tab: "profile",
+                },
                 name: "personal",
             },
             {
                 path: "/password",
                 component: () => import("@/Pages/ChangePassword.vue"),
-                meta: { requiresAuth: true, title: "titles.password" },
+                meta: {
+                    requiresAuth: true,
+                    title: "titles.password",
+                    tab: "profile",
+                },
                 name: "change-password",
             },
             {
                 path: "/referral",
                 component: () => import("@/Pages/Referral.vue"),
-                meta: { requiresAuth: true, title: "titles.referral" },
+                meta: {
+                    requiresAuth: true,
+                    title: "titles.referral",
+                    tab: "profile",
+                },
                 name: "referral",
             },
             {
                 path: "/notifications",
                 component: () => import("@/Pages/Notifications.vue"),
-                meta: { requiresAuth: true, title: "titles.notifications" },
+                meta: {
+                    requiresAuth: true,
+                    title: "titles.notifications",
+                    tab: "profile",
+                },
                 name: "notifications",
             },
             {
                 path: "/fit/profile",
                 component: () => import("@/Pages/Fit/Profile.vue"),
-                meta: { requiresAuth: true, title: "titles.profile" },
+                meta: {
+                    requiresAuth: true,
+                    title: "titles.profile",
+                    tab: "fit",
+                },
                 name: "fit.profile",
             },
             {
                 path: "/fit/calculator",
                 component: () => import("@/Pages/Fit/Calculator.vue"),
-                meta: { requiresAuth: true, title: "titles.calculator" },
+                meta: {
+                    requiresAuth: true,
+                    title: "titles.calculator",
+                    tab: "fit",
+                },
                 name: "fit.calculator",
             },
         ],

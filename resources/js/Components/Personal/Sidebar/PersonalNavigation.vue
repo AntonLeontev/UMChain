@@ -5,6 +5,9 @@ import usePersonalNavigationStore from "@/stores/personalNav";
 import Switch from "./Switch.vue";
 import FadeTransition from "@/Components/Common/FadeTransition.vue";
 
+import { useRoute } from "vue-router";
+import { onMounted } from "vue";
+
 const tabs = [
   {
     name: "profile",
@@ -14,14 +17,20 @@ const tabs = [
   },
 ];
 
+const route = useRoute();
+
 const nav = usePersonalNavigationStore();
 
 const user = useUserStore().user;
+
+onMounted(() => {
+  nav.activeTab = route.meta.tab ?? "profile";
+});
 </script>
 
 <template>
   <div>
-    <h2 class="main__title">{{ $t($route.meta.title ?? 'Cabinet') }}</h2>
+    <h2 class="main__title">{{ $t($route.meta.title ?? "Cabinet") }}</h2>
     <div class="main__wrapper">
       <Switch
         :buttons="tabs"
