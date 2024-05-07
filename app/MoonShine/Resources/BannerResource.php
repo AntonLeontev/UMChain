@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use MoonShine\Actions\FiltersAction;
 use MoonShine\Decorations\Flex;
 use MoonShine\Fields\Image;
-use MoonShine\Fields\SwitchBoolean;
+use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Url;
-use MoonShine\Resources\Resource;
+use MoonShine\Resources\ModelResource;
 
-class BannerResource extends Resource
+class BannerResource extends ModelResource
 {
-    public static string $model = Banner::class;
+    protected string $model = Banner::class;
 
-    public static string $title = 'Баннеры';
+    protected string $title = 'Баннеры';
 
     public function fields(): array
     {
@@ -30,7 +30,7 @@ class BannerResource extends Resource
                 Url::make('Ссылка на лендинг', 'url')
                     ->required()
                     ->copy(),
-                SwitchBoolean::make('Активен', 'is_active')
+                Switcher::make('Активен', 'is_active')
                     ->default(true),
             ]),
         ];
@@ -58,26 +58,32 @@ class BannerResource extends Resource
     public function actions(): array
     {
         return [
-            FiltersAction::make(trans('moonshine::ui.filters')),
+            // FiltersAction::make(trans('moonshine::ui.filters')),
         ];
     }
 
-    protected function afterCreated(Model $item)
+    protected function afterCreated(Model $item): Model
     {
         cache()->forget('banners');
+
+        return $item;
     }
 
-    protected function afterUpdated(Model $item)
+    protected function afterUpdated(Model $item): Model
     {
         cache()->forget('banners');
+
+        return $item;
     }
 
-    protected function afterDeleted(Model $item)
+    protected function afterDeleted(Model $item): Model
     {
         cache()->forget('banners');
+
+        return $item;
     }
 
-    protected function afterMassDeleted(array $ids)
+    protected function afterMassDeleted(array $ids): void
     {
         cache()->forget('banners');
     }

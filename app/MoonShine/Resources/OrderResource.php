@@ -6,35 +6,37 @@ use App\Models\Order;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use MoonShine\ActionButtons\ActionButton;
 use MoonShine\Actions\FiltersAction;
-use MoonShine\Fields\BelongsTo;
 use MoonShine\Fields\Date;
 use MoonShine\Fields\ID;
-use MoonShine\Fields\NoInput;
 use MoonShine\Fields\Number;
-use MoonShine\Fields\SwitchBoolean;
+use MoonShine\Fields\Preview;
+use MoonShine\Fields\Relationships\BelongsTo;
+use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Text;
 use MoonShine\Filters\DateRangeFilter;
 use MoonShine\Filters\SwitchBooleanFilter;
-use MoonShine\ItemActions\ItemAction;
 use MoonShine\QueryTags\QueryTag;
-use MoonShine\Resources\Resource;
+use MoonShine\Resources\ModelResource;
 
-class OrderResource extends Resource
+class OrderResource extends ModelResource
 {
-    public static string $model = Order::class;
+    protected string $model = Order::class;
 
-    public static string $title = 'Заказы';
+    protected string $title = 'Заказы';
 
-    public static array $activeActions = [];
+    protected array $activeActions = [];
+
+    protected array $with = ['user'];
 
     public function fields(): array
     {
         return [
             ID::make()->sortable(),
-            BelongsTo::make('Пользователь', 'user_id', 'email')
+            BelongsTo::make('Пользователь', 'user')
                 ->hideOnForm(),
-            NoInput::make('Пользователь', 'user_id', fn ($item) => User::find($item->user_id)->name),
+            Preview::make('Пользователь', 'user_id', fn ($item) => User::find($item->user_id)->name),
             Number::make('USDT', 'usdt')->readonly(),
             Number::make('UMCT', 'umt')->readonly(),
             Text::make('Сеть', 'network'),
@@ -42,12 +44,12 @@ class OrderResource extends Resource
                 ->readonly()
                 ->hideOnIndex()
                 ->readonly(),
-            NoInput::make('Оплачен', 'is_paid')->boolean(hideTrue: false, hideFalse: false),
+            Preview::make('Оплачен', 'is_paid')->boolean(hideTrue: false, hideFalse: false),
             Date::make('Дата оплаты', 'paid_at')
                 ->readonly()
                 ->format('d.m.Y H:i'),
-            SwitchBoolean::make('Подтвержден', 'is_accepted')
-                ->autoUpdate(false),
+            Switcher::make('Подтвержден', 'is_accepted')
+                ->updateOnPreview(),
         ];
     }
 
@@ -64,28 +66,28 @@ class OrderResource extends Resource
     public function filters(): array
     {
         return [
-            DateRangeFilter::make('Дата оплаты', 'paid_at'),
-            SwitchBooleanFilter::make('Оплачен', 'is_paid'),
-            SwitchBooleanFilter::make('Подтвержден', 'is_accepted'),
+            // DateRangeFilter::make('Дата оплаты', 'paid_at'),
+            // SwitchBooleanFilter::make('Оплачен', 'is_paid'),
+            // SwitchBooleanFilter::make('Подтвержден', 'is_accepted'),
         ];
     }
 
     public function actions(): array
     {
         return [
-            FiltersAction::make(trans('moonshine::ui.filters')),
+            // FiltersAction::make(trans('moonshine::ui.filters')),
         ];
     }
 
     public function itemActions(): array
     {
         return [
-            ItemAction::make('Подтвердить', function (Model $item) {
+            ActionButton::make('Подтвердить', function (Model $item) {
                 $item->update(['is_accepted' => true, 'is_viewed' => true]);
             }, 'Подтвержден')
                 ->canSee(fn (Order $order) => ! $order->is_viewed),
 
-            ItemAction::make('Отклонить', function (Model $item) {
+            ActionButton::make('Отклонить', function (Model $item) {
                 $item->update(['is_viewed' => true]);
             }, 'Отклонен')
                 ->canSee(fn (Order $order) => ! $order->is_viewed),

@@ -4,21 +4,17 @@ namespace App\MoonShine\Resources;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use MoonShine\Actions\FiltersAction;
 use MoonShine\Fields\Email;
 use MoonShine\Fields\ID;
-use MoonShine\Fields\NoInput;
 use MoonShine\Fields\Number;
 use MoonShine\Fields\Text;
-use MoonShine\Resources\Resource;
+use MoonShine\Resources\ModelResource;
 
-class UserResource extends Resource
+class UserResource extends ModelResource
 {
-    public static string $model = User::class;
+    protected string $model = User::class;
 
-    public static string $title = 'Пользователи';
-
-    public static array $activeActions = ['show', 'edit'];
+    protected string $title = 'Пользователи';
 
     public function fields(): array
     {
@@ -37,10 +33,10 @@ class UserResource extends Resource
                 ->sortable(),
             Number::make('Коэффициент', 'token_coef')
                 ->step(0.01),
-            NoInput::make('TRON кошелёк', '', fn ($user) => $user->tronWallet?->address)
+            Text::make('TRON кошелёк', '', fn ($user) => $user->tronWallet?->address)
                 ->hideOnForm()
                 ->hideOnIndex(),
-            NoInput::make('ETH кошелёк', '', fn ($user) => $user->ethWallet?->address)
+            Text::make('ETH кошелёк', '', fn ($user) => $user->ethWallet?->address)
                 ->hideOnForm()
                 ->hideOnIndex(),
         ];
@@ -63,8 +59,11 @@ class UserResource extends Resource
 
     public function actions(): array
     {
-        return [
-            FiltersAction::make(trans('moonshine::ui.filters')),
-        ];
+        return [];
+    }
+
+    public function getActiveActions(): array
+    {
+        return ['view', 'update'];
     }
 }

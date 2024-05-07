@@ -1,7 +1,12 @@
 <?php
 
+use App\MoonShine\MoonshineLayout;
 use MoonShine\Exceptions\MoonShineNotFoundException;
+use MoonShine\Forms\LoginForm;
+use MoonShine\Http\Middleware\Authenticate;
+use MoonShine\Http\Middleware\SecurityHeadersMiddleware;
 use MoonShine\Models\MoonshineUser;
+use MoonShine\Pages\ProfilePage;
 
 return [
     'dir' => 'app/MoonShine',
@@ -12,16 +17,58 @@ return [
     'logo_small' => env('MOONSHINE_LOGO_SMALL'),
 
     'route' => [
-        'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'trx7Bn'),
-        'index_route' => env('MOONSHINE_INDEX_ROUTE', 'moonshine.index'),
-        'middleware' => ['moonshine'],
-        'custom_page_slug' => 'custom_page',
+        'domain' => env('MOONSHINE_URL', ''),
+        'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'admin'),
+        'single_page_prefix' => 'page',
+        'index' => 'moonshine.index',
+        'middlewares' => [
+            SecurityHeadersMiddleware::class,
+        ],
         'notFoundHandler' => MoonShineNotFoundException::class,
     ],
+
     'use_migrations' => true,
     'use_notifications' => true,
+    'use_theme_switcher' => true,
+
+    'layout' => MoonshineLayout::class,
+
+    'disk' => 'public',
+
+    'disk_options' => [],
+
+    'cache' => 'file',
+
+    'assets' => [
+        'js' => [
+            'script_attributes' => [
+                'defer',
+            ],
+        ],
+        'css' => [
+            'link_attributes' => [
+                'rel' => 'stylesheet',
+            ],
+        ],
+    ],
+
+    'forms' => [
+        'login' => LoginForm::class,
+    ],
+
+    'pages' => [
+        'dashboard' => App\MoonShine\Pages\Dashboard::class,
+        'profile' => ProfilePage::class,
+    ],
+
+    'model_resources' => [
+        'default_with_import' => true,
+        'default_with_export' => true,
+    ],
+
     'auth' => [
         'enable' => true,
+        'middleware' => Authenticate::class,
         'fields' => [
             'username' => 'email',
             'password' => 'password',
@@ -41,20 +88,22 @@ return [
                 'model' => MoonshineUser::class,
             ],
         ],
-        'footer' => '',
+        'pipelines' => [],
     ],
     'locales' => [
     ],
-    'middlewares' => [],
+
+    'global_search' => [
+        // User::class
+    ],
+
     'tinymce' => [
         'file_manager' => false, // or 'laravel-filemanager' prefix for lfm
         'token' => env('MOONSHINE_TINYMCE_TOKEN', ''),
         'version' => env('MOONSHINE_TINYMCE_VERSION', '6'),
     ],
+
     'socialite' => [
         // 'driver' => 'path_to_image_for_button'
-    ],
-    'header' => null, // blade path
-    'footer' => [
     ],
 ];

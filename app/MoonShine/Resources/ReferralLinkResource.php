@@ -7,38 +7,38 @@ use Illuminate\Database\Eloquent\Model;
 use MoonShine\Actions\FiltersAction;
 use MoonShine\Decorations\Flex;
 use MoonShine\Fields\ID;
-use MoonShine\Fields\NoInput;
 use MoonShine\Fields\Number;
-use MoonShine\Fields\SwitchBoolean;
-use MoonShine\Resources\Resource;
+use MoonShine\Fields\Preview;
+use MoonShine\Fields\Switcher;
+use MoonShine\Resources\ModelResource;
 
-class ReferralLinkResource extends Resource
+class ReferralLinkResource extends ModelResource
 {
-    public static string $model = ReferralLink::class;
+    protected string $model = ReferralLink::class;
 
-    public static string $title = 'Реф. ссылки';
+    protected string $title = 'Реф. ссылки';
 
-    public static array $activeActions = ['edit'];
+    protected array $activeActions = ['edit'];
 
-    public static array $with = ['user'];
+    protected array $with = ['user'];
 
     public function fields(): array
     {
         return [
             Flex::make([
                 ID::make('Номер', 'id')->sortable(),
-                NoInput::make('Имя', 'user_id', fn ($item) => $item->user->name),
-                NoInput::make('Почта', 'user_id', fn ($item) => $item->user->email),
+                Preview::make('Имя', 'user_id', fn ($item) => $item->user->name),
+                Preview::make('Почта', 'user_id', fn ($item) => $item->user->email),
                 Number::make('UMT %', 'umt_percent')
                     ->expansion('%'),
                 Number::make('USDT %', 'usdt_percent')
                     ->expansion('%'),
-                SwitchBoolean::make('Активна', 'is_active')
-                    ->autoUpdate(true),
+                Switcher::make('Активна', 'is_active')
+                    ->updateOnPreview(),
             ]),
-            NoInput::make('Переходов', '', fn ($item) => $item->loadCount('clicks')->clicks_count)
+            Preview::make('Переходов', '', fn ($item) => $item->loadCount('clicks')->clicks_count)
                 ->hideOnForm(),
-            NoInput::make('Регистраций', '', fn ($item) => $item->user->loadCount('referrals')->referrals_count)
+            Preview::make('Регистраций', '', fn ($item) => $item->user->loadCount('referrals')->referrals_count)
                 ->hideOnForm(),
         ];
     }
@@ -65,7 +65,7 @@ class ReferralLinkResource extends Resource
     public function actions(): array
     {
         return [
-            FiltersAction::make(trans('moonshine::ui.filters')),
+            // FiltersAction::make(trans('moonshine::ui.filters')),
         ];
     }
 }

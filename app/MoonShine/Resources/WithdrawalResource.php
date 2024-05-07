@@ -5,33 +5,32 @@ namespace App\MoonShine\Resources;
 use App\Models\Withdrawal;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use MoonShine\Actions\FiltersAction;
+use MoonShine\ActionButtons\ActionButton;
 use MoonShine\Decorations\Flex;
-use MoonShine\Fields\NoInput;
-use MoonShine\Fields\SwitchBoolean;
+use MoonShine\Fields\Preview;
+use MoonShine\Fields\Switcher;
 use MoonShine\Filters\DateRangeFilter;
-use MoonShine\ItemActions\ItemAction;
 use MoonShine\QueryTags\QueryTag;
-use MoonShine\Resources\Resource;
+use MoonShine\Resources\ModelResource;
 
-class WithdrawalResource extends Resource
+class WithdrawalResource extends ModelResource
 {
-    public static string $model = Withdrawal::class;
+    protected string $model = Withdrawal::class;
 
-    public static string $title = 'Заявки на вывод USDT';
+    protected string $title = 'Заявки на вывод USDT';
 
-    public static array $activeActions = [];
+    protected array $activeActions = [];
 
     public function fields(): array
     {
         return [
             Flex::make([
-                NoInput::make('Сеть', 'network'),
-                NoInput::make('Кошелек', 'wallet'),
-                NoInput::make('Сумма', '', fn ($item) => "$item->amount USDT"),
-                NoInput::make('Создана', '', fn ($item) => $item->created_at->translatedFormat('d.m.Y H:i')),
-                SwitchBoolean::make('Выплачено', 'is_sent')
-                    ->autoUpdate(false),
+                Preview::make('Сеть', 'network'),
+                Preview::make('Кошелек', 'wallet'),
+                Preview::make('Сумма', '', fn ($item) => "$item->amount USDT"),
+                Preview::make('Создана', '', fn ($item) => $item->created_at->translatedFormat('d.m.Y H:i')),
+                Switcher::make('Выплачено', 'is_sent')
+                    ->updateOnPreview(),
             ]),
         ];
     }
@@ -49,21 +48,19 @@ class WithdrawalResource extends Resource
     public function filters(): array
     {
         return [
-            DateRangeFilter::make('Создано', 'created_at'),
+            // DateRangeFilter::make('Создано', 'created_at'),
         ];
     }
 
     public function actions(): array
     {
-        return [
-            FiltersAction::make(trans('moonshine::ui.filters')),
-        ];
+        return [];
     }
 
     public function itemActions(): array
     {
         return [
-            ItemAction::make('Пометить выплаченным', function (Model $item) {
+            ActionButton::make('Пометить выплаченным', function (Model $item) {
                 $item->update(['is_sent' => true]);
             }, 'Выплачен')
                 ->canSee(fn (Model $item) => ! $item->is_sent),

@@ -16,7 +16,7 @@
         "laravel/telescope": "^5.0",
         "laravel/tinker": "^2.8",
         "mcamara/laravel-localization": "^2.0",
-        "moonshine/moonshine": "^1.61",
+        "moonshine/moonshine": "^2.0",
         "tightenco/ziggy": "^2.1"
     },
     "require-dev": {

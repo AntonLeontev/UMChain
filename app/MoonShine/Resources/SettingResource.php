@@ -10,15 +10,15 @@ use MoonShine\Fields\Date;
 use MoonShine\Fields\Email;
 use MoonShine\Fields\Number;
 use MoonShine\Fields\Text;
-use MoonShine\Resources\Resource;
+use MoonShine\Resources\ModelResource;
 
-class SettingResource extends Resource
+class SettingResource extends ModelResource
 {
-    public static string $model = Setting::class;
+    protected string $model = Setting::class;
 
-    public static string $title = 'Настройки';
+    protected string $title = 'Настройки';
 
-    public static array $activeActions = ['edit'];
+    protected array $activeActions = ['edit'];
 
     public function fields(): array
     {
@@ -79,12 +79,19 @@ class SettingResource extends Resource
     public function actions(): array
     {
         return [
-            FiltersAction::make(trans('moonshine::ui.filters')),
+            // FiltersAction::make(trans('moonshine::ui.filters')),
         ];
     }
 
-    protected function afterUpdated(Model $item)
+    protected function afterUpdated(Model $item): Model
     {
         cache()->forget('settings');
+
+        return $item;
+    }
+
+    public function getActiveActions(): array
+    {
+        return ['view', 'update'];
     }
 }
