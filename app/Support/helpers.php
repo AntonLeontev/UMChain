@@ -1,9 +1,11 @@
 <?php
 
+use App\Enums\DataSourceType;
 use App\Models\Banner;
 use App\Models\Setting;
 use App\Models\User;
 use App\Services\GoogleOAuth\GoogleOAuthApi;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
 if (! function_exists('settings')) {
@@ -37,23 +39,32 @@ if (! function_exists('banners')) {
 }
 
 if (! function_exists('google_access_token')) {
-    function google_access_token(User $user): ?string
+    function google_access_token(?User $user): ?string
     {
-        if (is_null($user->google_access_token)) {
+        if (is_null($user)) {
             return null;
         }
 
-        if ($user->google_expires->isPast()) {
-            $response = GoogleOAuthApi::getTokenByRefresh($user->google_refresh_token);
+        $source = $user->dataSources->where('type', DataSourceType::google)->first();
 
-            $user->update([
-                'google_access_token' => $response->json('access_token'),
-                'google_expires' => now()->addSeconds($response->json('expires_in') - 15),
-            ]);
-
-            return $user->google_access_token;
+        if (is_null($source)) {
+            return null;
         }
 
-        return $user->google_access_token;
+        if (Carbon::parse($source->data->expires)->isPast()) {
+            $response = GoogleOAuthApi::getTokenByRefresh($source->data->refreshToken);
+
+            $source->update([
+                'data' => [
+                    'refreshToken' => $response->json('refresh_token'),
+                    'expires' => now()->addSeconds($response->json('expires_in') - 15),
+                    'accessToken' => $response->json('access_token'),
+                ],
+            ]);
+
+            return $response->json('access_token');
+        }
+
+        return $source->data->accessToken;
     }
 }

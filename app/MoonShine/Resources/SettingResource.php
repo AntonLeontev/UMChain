@@ -18,8 +18,6 @@ class SettingResource extends ModelResource
 
     protected string $title = 'Настройки';
 
-    protected array $activeActions = ['edit'];
-
     public function fields(): array
     {
         return [

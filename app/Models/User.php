@@ -138,4 +138,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Withdrawal::class);
     }
+
+    public function dataSources(): HasMany
+    {
+        return $this->hasMany(DataSource::class);
+    }
+
+    public function activeDataSource(): HasOne
+    {
+        return $this->hasOne(DataSource::class)->where('is_active', true);
+    }
 }

@@ -1,0 +1,8 @@
+services:
+  buggregator:
+    image: ghcr.io/buggregator/server:latest
+    ports:
+      - 8005:8000
+      - 1025:1025
+      - 9912:9912
+      - 9913:9913

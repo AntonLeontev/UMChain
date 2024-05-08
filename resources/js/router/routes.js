@@ -43,7 +43,7 @@ export default [
                 },
             },
             {
-                path: "/personal",
+                path: "personal",
                 component: () => import("@/Pages/Personal.vue"),
                 meta: {
                     requiresAuth: true,
@@ -53,7 +53,7 @@ export default [
                 name: "personal",
             },
             {
-                path: "/password",
+                path: "password",
                 component: () => import("@/Pages/ChangePassword.vue"),
                 meta: {
                     requiresAuth: true,
@@ -63,7 +63,7 @@ export default [
                 name: "change-password",
             },
             {
-                path: "/referral",
+                path: "referral",
                 component: () => import("@/Pages/Referral.vue"),
                 meta: {
                     requiresAuth: true,
@@ -73,7 +73,7 @@ export default [
                 name: "referral",
             },
             {
-                path: "/notifications",
+                path: "notifications",
                 component: () => import("@/Pages/Notifications.vue"),
                 meta: {
                     requiresAuth: true,
@@ -83,7 +83,7 @@ export default [
                 name: "notifications",
             },
             {
-                path: "/fit/profile",
+                path: "fit/profile",
                 component: () => import("@/Pages/Fit/Profile.vue"),
                 meta: {
                     requiresAuth: true,
@@ -93,7 +93,7 @@ export default [
                 name: "fit.profile",
             },
             {
-                path: "/fit/calculator",
+                path: "fit/calculator",
                 component: () => import("@/Pages/Fit/Calculator.vue"),
                 meta: {
                     requiresAuth: true,

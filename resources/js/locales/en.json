@@ -110,8 +110,9 @@
         "updated": "Profile updated"
     },
     "fit-profile": {
+        "no-active-sources": "Select your workout data source",
+        "google-fit": "Google Fit",
         "google-error": "Google authentication error. Please authenticate again",
-        "auth-btn": "Google authentication",
         "spent": "Spent for today:",
         "cal": "Cal",
         "tokens": "Total tokens:",

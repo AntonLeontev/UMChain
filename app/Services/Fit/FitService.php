@@ -6,7 +6,7 @@ use App\Models\User;
 
 class FitService
 {
-    public function __construct(public FitApi $api)
+    public function __construct(public GoogleApi $api)
     {
     }
 

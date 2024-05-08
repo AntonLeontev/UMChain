@@ -18,7 +18,7 @@ class ProfileController extends Controller
     {
         return new UserResource(auth()->user()
             ->loadCount(['unreadNotifications', 'refLink'])
-            ->load('activeRefLink'));
+            ->load(['activeRefLink', 'activeDataSource']));
     }
 
     public function update(ProfileUpdateRequest $request): void

@@ -23,9 +23,9 @@ function register(event) {
     axios
         .post("/register", new FormData(event.target))
         .then(async (response) => {
-			await useUserStore().login(event.target.email.value, event.target.password.value)
+			// await useUserStore().login(event.target.email.value, event.target.password.value)
             await useUserStore().getUser()
-			router.push({ name: "personal" });
+			router.push({ name: "fit/profile" });
         })
 		.catch((error) => useCatch(error, errors))
 		.finally(() => {

@@ -14,9 +14,6 @@ class UserResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return array_merge(
-            parent::toArray($request),
-            ['google_authenticated' => $this->google_refresh_token ? true : false]
-        );
+        return parent::toArray($request);
     }
 }

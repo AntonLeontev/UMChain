@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Enums\DataSourceType;
+use App\Models\DataSource;
+use App\Services\Fit\GoogleApi;
 use App\Services\GoogleOAuth\GoogleOAuthApi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class GoogleAuthController extends Controller
 {
@@ -14,7 +17,7 @@ class GoogleAuthController extends Controller
         $clientId = config('services.google.client_id');
 
         $query = http_build_query([
-            'scope' => 'https://www.googleapis.com/auth/fitness.activity.read',
+            'scope' => 'https://www.googleapis.com/auth/fitness.activity.read openid profile email',
             'access_type' => 'offline',
             'include_granted_scopes' => 'true',
             'response_type' => 'code',
@@ -29,13 +32,42 @@ class GoogleAuthController extends Controller
     {
         $response = GoogleOAuthApi::getTokenByCode($request->code);
 
-        User::find(auth()->id())
-            ->update([
-                'google_access_token' => $response->json('access_token'),
-                'google_refresh_token' => $response->json('refresh_token'),
-                'google_expires' => now()->addSeconds($response->json('expires_in') - 15),
+        $infoResponse = GoogleApi::userinfo($response->json('access_token'));
+
+        $email = $infoResponse->json('email');
+
+        $source = DataSource::where('login', $email)->first();
+
+        if (! is_null($source) && $source->user_id !== auth()->id()) {
+            $message = __('errors.google.duplicate', ['email' => $email]);
+
+            $cookie = Cookie::make('dataSourceError', $message, httpOnly: false);
+
+            return redirect('/cabinet/fit/profile')->withCookie($cookie);
+        }
+
+        if (! is_null($source)) {
+            DataSource::where('user_id', auth()->id())->update(['is_active' => false]);
+
+            $source->update([
+                'is_active' => true,
             ]);
 
-        return to_route('cabinet.fit.profile');
+            return redirect('/cabinet/fit/profile');
+        }
+
+        DataSource::create([
+            'user_id' => auth()->id(),
+            'login' => $email,
+            'type' => DataSourceType::google,
+            'data' => [
+                'accessToken' => $response->json('access_token'),
+                'refreshToken' => $response->json('refresh_token'),
+                'expires' => now()->addSeconds($response->json('expires_in') - 15),
+            ],
+            'is_active' => true,
+        ]);
+
+        return redirect('/cabinet/fit/profile');
     }
 }

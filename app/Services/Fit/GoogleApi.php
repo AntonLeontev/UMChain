@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
-class FitApi
+class GoogleApi
 {
     /**
      * @param  int  $bucketByTime  На какие промежутки времени разбить данные, мс
@@ -31,5 +31,11 @@ class FitApi
     {
         return Http::fit()
             ->get('users/me/dataSources');
+    }
+
+    public static function userinfo(string $accessToken): Response
+    {
+        return Http::withHeaders(['Authorization' => 'Bearer '.$accessToken])
+            ->get('https://www.googleapis.com/oauth2/v3/userinfo');
     }
 }
