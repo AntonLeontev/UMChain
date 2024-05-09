@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Casts\OrderAmountCast;
+use App\Casts\TokenAmountCast;
 use App\Events\OrderAccepted;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -26,8 +26,8 @@ class Order extends Model
     ];
 
     protected $casts = [
-        'usdt' => OrderAmountCast::class,
-        'umt' => OrderAmountCast::class,
+        'usdt' => TokenAmountCast::class,
+        'umt' => TokenAmountCast::class,
         'is_paid' => 'boolean',
         'is_accepted' => 'boolean',
         'is_viewed' => 'boolean',

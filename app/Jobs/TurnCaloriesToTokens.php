@@ -4,17 +4,14 @@ namespace App\Jobs;
 
 use App\Enums\AccountType;
 use App\Enums\TransactionDirection;
+use App\Models\CalorySpend;
 use App\Models\Transaction;
-use App\Models\User;
-use App\Services\Fit\FitService;
-use App\Services\GoogleOAuth\Exceptions\InvalidGrantException;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class TurnCaloriesToTokens implements ShouldQueue
 {
@@ -23,36 +20,47 @@ class TurnCaloriesToTokens implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct(public User $user)
+    public function __construct()
     {
+        //
     }
 
     /**
      * Execute the job.
      */
-    public function handle(FitService $fit): void
+    public function handle(): void
     {
-        try {
-            $calories = $fit->caloriesForYesterday($this->user);
-        } catch (InvalidGrantException $e) {
-            Log::channel('telegram')->error('Fit error: '.$e->getMessage().' user id: '.$this->user->id.' user name: '.$this->user->name);
-            $this->fail();
+        $tokensPerDay = config('setup.tokens_per_day');
+
+        $caloriesSum = CalorySpend::query()
+            ->whereBetween('created_at', [now()->startOfDay(), now()->endOfDay()])
+            ->sum('calories_sum');
+
+        $tokensPerCalory = $tokensPerDay / $caloriesSum;
+
+        $spends = CalorySpend::query()
+            ->whereBetween('created_at', [now()->startOfDay(), now()->endOfDay()])
+            ->where('calories_sum', '>', 0)
+            ->lazy();
+
+        foreach ($spends as $spend) {
+            DB::beginTransaction();
+
+            $spend->tokens = $spend->calories_sum * $tokensPerCalory;
+            $spend->save();
+
+            $spend->user->umt += $spend->tokens;
+            $spend->user->save();
+
+            Transaction::create([
+                'user_id' => $spend->user_id,
+                'amount' => $spend->tokens,
+                'account_type' => AccountType::umt,
+                'direction' => TransactionDirection::income,
+                'description' => 'Calories turned into tokens',
+            ]);
+
+            DB::commit();
         }
-
-        $tokens = $calories * $this->user->token_coef;
-
-        DB::beginTransaction();
-
-        Transaction::create([
-            'user_id' => $this->user->id,
-            'direction' => TransactionDirection::income,
-            'amount' => $tokens,
-            'description' => 'Calories to tokens',
-            'account_type' => AccountType::umt,
-        ]);
-
-        $this->user->update(['umt' => $tokens + $this->user->umt]);
-
-        DB::commit();
     }
 }

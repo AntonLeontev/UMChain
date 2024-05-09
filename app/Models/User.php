@@ -4,7 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use App\Casts\OrderAmountCast;
+use App\Casts\TokenAmountCast;
 use App\Enums\AccountType;
 use App\Enums\Activity;
 use App\Enums\Gender;
@@ -66,8 +66,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-        'umt' => OrderAmountCast::class,
-        'usdt' => OrderAmountCast::class,
+        'umt' => TokenAmountCast::class,
+        'usdt' => TokenAmountCast::class,
         'hasLinkRequest' => 'boolean',
         'google_expires' => 'datetime',
         'gender' => Gender::class,
@@ -147,5 +147,16 @@ class User extends Authenticatable
     public function activeDataSource(): HasOne
     {
         return $this->hasOne(DataSource::class)->where('is_active', true);
+    }
+
+    public function calorySpends(): HasMany
+    {
+        return $this->hasMany(CalorySpend::class);
+    }
+
+    public function todayCalorySpends(): HasMany
+    {
+        return $this->hasMany(CalorySpend::class)
+            ->whereBetween('created_at', now()->startOfDay(), now()->endOfDay());
     }
 }

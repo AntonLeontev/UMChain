@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\GetYesterdayCalories;
 use App\Jobs\TurnCaloriesToTokens;
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -28,11 +29,13 @@ class TurnUsersCaloriesToTokens extends Command
     public function handle()
     {
         $users = User::query()
-            ->whereNotNull('google_refresh_token')
+            ->whereHas('activeDataSource')
             ->lazy();
 
         foreach ($users as $user) {
-            dispatch(new TurnCaloriesToTokens($user));
+            dispatch(new GetYesterdayCalories($user));
         }
+
+        dispatch(new TurnCaloriesToTokens);
     }
 }

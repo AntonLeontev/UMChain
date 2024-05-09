@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Casts\OrderAmountCast;
+use App\Casts\TokenAmountCast;
 use App\Events\WithdrawalSent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,7 +20,7 @@ class Withdrawal extends Model
     ];
 
     protected $casts = [
-        'amount' => OrderAmountCast::class,
+        'amount' => TokenAmountCast::class,
         'is_sent' => 'boolean',
     ];
 

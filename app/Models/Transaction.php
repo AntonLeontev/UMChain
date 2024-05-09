@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Casts\OrderAmountCast;
+use App\Casts\TokenAmountCast;
 use App\Enums\AccountType;
 use App\Enums\TransactionDirection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,7 +23,7 @@ class Transaction extends Model
     public function casts(): array
     {
         return [
-            'amount' => OrderAmountCast::class,
+            'amount' => TokenAmountCast::class,
             'direction' => TransactionDirection::class,
             'account_type' => AccountType::class,
         ];

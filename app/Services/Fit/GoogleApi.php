@@ -27,9 +27,26 @@ class GoogleApi
             ]);
     }
 
-    public static function getDataSources(): Response
+    public static function aggregateWeight(int $bucketByTime, int $startTimeMillis, int $endTimeMillis, ?User $user = null): Response
     {
         return Http::fit()
+            ->withHeader('Authorization', 'Bearer '.google_access_token($user ?? auth()->user()))
+            ->post('users/me/dataset:aggregate', [
+                'aggregateBy' => [
+                    [
+                        'dataSourceId' => 'derived:com.google.weight:com.google.android.gms:merge_weight',
+                    ],
+                ],
+                'bucketByTime' => ['durationMillis' => $bucketByTime],
+                'startTimeMillis' => $startTimeMillis,
+                'endTimeMillis' => $endTimeMillis,
+            ]);
+    }
+
+    public static function getDataSources(string $accessToken): Response
+    {
+        return Http::fit()
+            ->withHeaders(['Authorization' => 'Bearer '.$accessToken])
             ->get('users/me/dataSources');
     }
 

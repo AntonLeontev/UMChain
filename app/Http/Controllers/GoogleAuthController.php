@@ -17,7 +17,7 @@ class GoogleAuthController extends Controller
         $clientId = config('services.google.client_id');
 
         $query = http_build_query([
-            'scope' => 'https://www.googleapis.com/auth/fitness.activity.read openid profile email',
+            'scope' => 'https://www.googleapis.com/auth/fitness.activity.read https://www.googleapis.com/auth/fitness.body.read openid profile email',
             'access_type' => 'offline',
             'include_granted_scopes' => 'true',
             'response_type' => 'code',
