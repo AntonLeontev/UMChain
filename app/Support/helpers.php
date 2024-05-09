@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\DataSourceType;
+use App\Models\ApplicationToken;
 use App\Models\Banner;
 use App\Models\Setting;
 use App\Models\User;
@@ -66,5 +67,12 @@ if (! function_exists('google_access_token')) {
         }
 
         return $source->data->accessToken;
+    }
+}
+
+if (! function_exists('appTokens')) {
+    function appTokens(): ApplicationToken
+    {
+        return ApplicationToken::first();
     }
 }
