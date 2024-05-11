@@ -4,17 +4,17 @@ import PersonalNavigation from "@/Components/Personal/Sidebar/PersonalNavigation
 </script>
 
 <template>
-	<AppLayout>
-		<div class="container container--full">
-            <div class="main__inner">
-				<div class="main__left bg-bg-dark">
-					<PersonalNavigation />
-				</div>
+  <AppLayout>
+    <div class="container container--full">
+      <div class="main__inner">
+        <div class="main__left bg-bg-dark">
+          <PersonalNavigation />
+        </div>
 
-				<div class="main__right main__right--right">
-					<router-view />
-				</div>
-			</div>
-		</div> 
-	</AppLayout>
+        <div class="main__right main__right--right">
+          <router-view />
+        </div>
+      </div>
+    </div>
+  </AppLayout>
 </template>
