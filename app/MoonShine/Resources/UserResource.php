@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use MoonShine\Fields\Email;
 use MoonShine\Fields\ID;
 use MoonShine\Fields\Number;
+use MoonShine\Fields\Relationships\BelongsTo;
 use MoonShine\Fields\Text;
 use MoonShine\Resources\ModelResource;
 
@@ -15,6 +16,10 @@ class UserResource extends ModelResource
     protected string $model = User::class;
 
     protected string $title = 'Пользователи';
+
+    protected array $with = [
+        'agent',
+    ];
 
     public function fields(): array
     {
@@ -27,8 +32,7 @@ class UserResource extends ModelResource
                 ->hideOnForm()
                 ->sortable(),
             Text::make('UMCT', 'umt')->hideOnForm(),
-            Text::make('USDT', 'usdt')->hideOnForm(),
-            Text::make('ID агента', 'agent_id')
+            BelongsTo::make('Агент', 'agent', fn (User $user) => $user->email, new UserResource)
                 ->hideOnForm()
                 ->sortable(),
             Number::make('Коэффициент', 'token_coef')

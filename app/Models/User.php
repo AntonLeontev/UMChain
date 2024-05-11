@@ -79,8 +79,8 @@ class User extends Authenticatable
     ];
 
     protected $with = [
-        'ethWallet',
-        'tronWallet',
+        // 'ethWallet',
+        // 'tronWallet',
     ];
 
     public function ethWallet(): HasOne

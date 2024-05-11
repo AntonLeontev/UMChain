@@ -12,6 +12,7 @@ class TransactionController extends Controller
     {
         $transactions = Transaction::query()
             ->where('account_type', AccountType::umt)
+            ->where('user_id', auth()->id())
             ->orderByDesc('created_at')
             ->take(10)
             ->get();
