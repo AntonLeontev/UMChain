@@ -3,15 +3,10 @@
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Services\Fit\FitService;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 
 if (app()->isLocal()) {
     Route::get('test', function (FitService $service) {
-        $token = google_access_token(auth()->user());
-        // $collect = collect($service->api->getDataSources($token)->json('dataSource'));
-        // dd($collect->pluck('dataStreamId'));
-        dd($service->weightForDate(Carbon::parse('2024-03-12')));
     });
 }
 

@@ -44,6 +44,9 @@ class User extends Authenticatable
         'activity',
         'level',
         'direction',
+        'token_coef',
+        'email_verified_at',
+        'created_at',
     ];
 
     /**
@@ -68,7 +71,6 @@ class User extends Authenticatable
         'password' => 'hashed',
         'umt' => TokenAmountCast::class,
         'usdt' => TokenAmountCast::class,
-        'hasLinkRequest' => 'boolean',
         'google_expires' => 'datetime',
         'gender' => Gender::class,
         'activity' => Activity::class,
