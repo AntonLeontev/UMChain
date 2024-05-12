@@ -1,5 +1,6 @@
 import { nextTick } from "vue";
 import { createI18n } from "vue-i18n";
+import axios from "axios";
 
 export const SUPPORT_LOCALES = ["en", "ru"];
 
@@ -10,6 +11,7 @@ export const i18n = createI18n({
 });
 
 loadLocaleMessages(i18n, i18n.global.locale.value);
+setI18nLanguage(i18n, i18n.global.locale.value);
 
 export function setI18nLanguage(i18n, locale) {
     if (i18n.mode === "legacy") {
@@ -17,13 +19,9 @@ export function setI18nLanguage(i18n, locale) {
     } else {
         i18n.global.locale.value = locale;
     }
-    /**
-     * NOTE:
-     * If you need to specify the language setting for headers, such as the `fetch` API, set it here.
-     * The following is an example for axios.
-     *
-     * axios.defaults.headers.common['Accept-Language'] = locale
-     */
+
+    axios.defaults.headers.common["Accept-Language"] = locale;
+
     document.querySelector("html").setAttribute("lang", locale);
 }
 
