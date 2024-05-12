@@ -1,6 +1,146 @@
 {
+    "titles": {
+        "profile": "Профиль",
+        "calculator": "Калькулятор",
+        "personal": "Личный кабинет",
+        "password": "Смена пароля",
+        "referral": "Реферальная система",
+        "notifications": "Уведомления",
+        "logout": "Выйти"
+    },
     "home": {
         "h1": "UMCHAIN – IT решения",
         "register": "Регистрация"
+    },
+    "auth": {
+        "name": "Имя",
+        "email": "Email",
+        "password": "Пароль",
+        "repeat": "Повторите пароле"
+    },
+    "login": {
+        "h1": "Вход",
+        "forget": "Забыли пароль?",
+        "login": "Войти",
+        "not": "Еще не зарегистрировались?",
+        "register": "Зарегистрироваться",
+        "remember": "Запомнить меня"
+    },
+    "register": {
+        "h1": "Регистрация",
+        "agree": "Я соглашаюсь на ",
+        "to": "обработку персональных данных.",
+        "btn": "Зарегистрироваться",
+        "have": "Уже есть аккаунт?",
+        "login": "Войти"
+    },
+    "forgot": {
+        "h1": "Восстановление пароля",
+        "text": "Введите email, на который вы регистрировались. Мы пришлем ссылку для сброса пароля",
+        "btn": "Отправить",
+        "not": "Еще не зарегистрировались?",
+        "register": "Зарегистрироваться",
+        "success": "Если email существует, мы пришлем ссылку для сброса пароля"
+    },
+    "reset": {
+        "h1": "Сброс пароля",
+        "btn": "Сохранить новый пароль",
+        "password": "Новый пароль",
+        "repeat": "Подтверждение нового пароля"
+    },
+    "logout": {
+        "sure": "Вы действительно хотите выйти?",
+        "dont": "Отмена",
+        "btn": "Выйти"
+    },
+    "404": {
+        "h1": "Страница не найдена",
+        "btn": "На главную"
+    },
+    "footer": {
+        "policy": "Политика конфиденциальности"
+    },
+    "change-pass": {
+        "pass-old": "Старый пароль",
+        "pass-new": "Новый пароль",
+        "confirm": "Подтверждение нового пароля",
+        "btn": "Сохранить"
+    },
+    "notifications": {
+        "h1": "Уведомления",
+        "btn": "Пометить прочитанными",
+        "no": "Нет непрочитанных уведомлений"
+    },
+    "referral": {
+        "send": "Отправить",
+        "percent": "Ваш процент",
+        "link": "Ваша ссылка",
+        "copied": "Скопировано",
+        "generate": "Отправить заявку",
+        "1": "Umfit partner program. The opportunity to earn from 3% of payments from all partners brought to us.",
+        "2": "Send a request, get a referral link, earn with us!",
+        "3": "Your request is accepted! Expect approval",
+        "4": "Your request is in progress! Expect approval"
+    },
+    "fit-calculator": {
+        "form": {
+            "Gender": "Пол",
+            "Man": "Мужской",
+            "Woman": "Женский",
+            "Age": "Возраст",
+            "Height": "Рост, см",
+            "Weight": "Вес, кг",
+            "Activity": "Активность",
+            "Minimum": "Мнимальная",
+            "Moderate": "Умеренная",
+            "Active": "Высокая",
+            "Level": "Уровень",
+            "Weak": "Слабый",
+            "Normal": "Нормальный",
+            "Strong": "Сильный",
+            "Direction": "Направление",
+            "loss": "Сброс веса",
+            "keep": "Сохранение веса",
+            "gain": "Набор веса",
+            "income": "Рекоммендуемое дневное потребление калорий:",
+            "kCal": "кКал",
+            "PFC": "расчет БЖУ:",
+            "Proteins": "Белки",
+            "Fats": "Жиры",
+            "Carbohydrates": "Углеводы",
+            "gramms": "г"
+        },
+        "updated": "Профиль обновлен"
+    },
+    "fit-profile": {
+        "no-active-sources": "Выбирите источник данных о тренировках",
+        "google-fit": "Google Fit",
+        "auth-btn": "Авторизация в Google Fit",
+        "google-error": "Не удалось авторизоваться в Google Fit. Пожалуйста, пройдите процедуру снова.",
+        "spent": "Расход калорий за сегодня:",
+        "cal": "Кал",
+        "tokens": "Всего токенов:",
+        "no-transactions": "Операций пока нет"
+    },
+    "sidebar": {
+        "tabs": {
+            "profile": "Профиль",
+            "fit": "Fit"
+        },
+        "profile": "Профиль",
+        "calculator": "Калькулятор",
+        "personal": "Личный кабинет",
+        "change-pass": "Смена пароля",
+        "referral": "Реферальная система",
+        "notifications": "Уведомления",
+        "logout": "Выход"
+    },
+    "personal": {
+        "name": "Имя",
+        "email": "Email",
+        "tron": "Кошелек Tron",
+        "eth": "Кошелек ETH",
+        "btn": "Обновить"
     }
 }
+
