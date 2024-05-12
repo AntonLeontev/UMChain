@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Exceptions\GoogleFitException;
 use App\Exceptions\TelegramException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
@@ -34,7 +35,8 @@ class HttpServiceProvider extends ServiceProvider
         Http::macro('fit', function () {
             return Http::baseUrl('https://www.googleapis.com/fitness/v1/')
                 ->throw(function (Response $response) {
-                    dd($response->json());
+                    // dd($response->json());
+                    throw new GoogleFitException($response);
                 })
                 ->retry(2, 200)
                 ->timeout(10);
