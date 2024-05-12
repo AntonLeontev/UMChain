@@ -29,39 +29,15 @@ class SplitTokens implements ShouldQueue
      */
     public function handle(): void
     {
-        DB::beginTransaction();
-
         $user = $this->spend->user;
 
-        $this->spend->tokens = $this->spend->calories_sum * $this->tokensPerCalory;
+        DB::beginTransaction();
+
+        $this->spend->tokens = $this->spend->calories_sum;
         $this->spend->save();
 
-        $user->umt += $this->spend->tokens * 0.9;
+        $user->umt += $this->spend->tokens;
         $user->save();
-
-        $appTokens = appTokens();
-
-        if (is_null($user->agent_id)) {
-            $additionalSystemTokens = $this->spend->tokens * 0.03;
-        } else {
-            $additionalSystemTokens = 0;
-
-            $agent = $user->agent;
-            $agent->umt += $this->spend->tokens * 0.03;
-            $agent->save();
-
-            Transaction::create([
-                'user_id' => $agent->id,
-                'amount' => $this->spend->tokens * 0.03,
-                'account_type' => AccountType::umt,
-                'direction' => TransactionDirection::income,
-                'description' => 'Tokens from referral',
-            ]);
-        }
-
-        $appTokens->system += $this->spend->tokens * 0.05 + $additionalSystemTokens;
-        $appTokens->miners += $this->spend->tokens * 0.02;
-        $appTokens->save();
 
         Transaction::create([
             'user_id' => $this->spend->user_id,
@@ -70,6 +46,44 @@ class SplitTokens implements ShouldQueue
             'direction' => TransactionDirection::income,
             'description' => 'Calories turned into tokens',
         ]);
+
+        // $this->spend->tokens = $this->spend->calories_sum * $this->tokensPerCalory;
+        // $this->spend->save();
+
+        // $user->umt += $this->spend->tokens * 0.9;
+        // $user->save();
+
+        // $appTokens = appTokens();
+
+        // if (is_null($user->agent_id)) {
+        //     $additionalSystemTokens = $this->spend->tokens * 0.03;
+        // } else {
+        //     $additionalSystemTokens = 0;
+
+        //     $agent = $user->agent;
+        //     $agent->umt += $this->spend->tokens * 0.03;
+        //     $agent->save();
+
+        //     Transaction::create([
+        //         'user_id' => $agent->id,
+        //         'amount' => $this->spend->tokens * 0.03,
+        //         'account_type' => AccountType::umt,
+        //         'direction' => TransactionDirection::income,
+        //         'description' => 'Tokens from referral',
+        //     ]);
+        // }
+
+        // $appTokens->system += $this->spend->tokens * 0.05 + $additionalSystemTokens;
+        // $appTokens->miners += $this->spend->tokens * 0.02;
+        // $appTokens->save();
+
+        // Transaction::create([
+        //     'user_id' => $this->spend->user_id,
+        //     'amount' => $this->spend->tokens * 0.9,
+        //     'account_type' => AccountType::umt,
+        //     'direction' => TransactionDirection::income,
+        //     'description' => 'Calories turned into tokens',
+        // ]);
 
         DB::commit();
     }

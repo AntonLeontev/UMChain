@@ -35,7 +35,6 @@ class HttpServiceProvider extends ServiceProvider
         Http::macro('fit', function () {
             return Http::baseUrl('https://www.googleapis.com/fitness/v1/')
                 ->throw(function (Response $response) {
-                    // dd($response->json());
                     throw new GoogleFitException($response);
                 })
                 ->retry(2, 200)
