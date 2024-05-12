@@ -4,6 +4,8 @@ import Loader from "@/Components/Common/Loader.vue";
 
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import { useI18n } from "vue-i18n";
+const { t: $t } = useI18n();
 
 import useUserStore from "@/stores/user";
 import useToastsStore from "@/stores/toasts";
@@ -25,7 +27,7 @@ const getCalories = () => {
     .then((response) => (calories.value = response.data))
     .catch((error) => {
       if (error.response?.data === "invalid grant") {
-        authError = true;
+        authError.value = true;
         useToastsStore().toastError($t("fit-profile.google-error"));
         return;
       }

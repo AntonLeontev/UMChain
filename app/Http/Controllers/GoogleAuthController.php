@@ -32,6 +32,12 @@ class GoogleAuthController extends Controller
     {
         $response = GoogleOAuthApi::getTokenByCode($request->code);
 
+        if (is_null($response->json('refresh_token'))) {
+            GoogleOAuthApi::revoke($response->json('access_token'));
+
+            return to_route('google.auth');
+        }
+
         $infoResponse = GoogleApi::userinfo($response->json('access_token'));
 
         $email = $infoResponse->json('email');
@@ -51,6 +57,9 @@ class GoogleAuthController extends Controller
 
             $source->update([
                 'is_active' => true,
+                'data->expires' => now()->addSeconds($response->json('expires_in') - 15),
+                'data->accessToken' => $response->json('access_token'),
+                'data->refreshToken' => $response->json('refresh_token'),
             ]);
 
             return redirect('/cabinet/fit/profile');

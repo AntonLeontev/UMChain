@@ -17,6 +17,9 @@ class DataSource extends Model
         'login',
         'type',
         'data',
+        'data->expires',
+        'data->accessToken',
+        'data->refreshToken',
         'is_active',
     ];
 

@@ -37,4 +37,15 @@ class GoogleOAuthApi
                 throw new \Exception($response->body());
             });
     }
+
+    public static function revoke(string $token): Response
+    {
+        return Http::asForm()
+            ->post('https://oauth2.googleapis.com/revoke', [
+                'token' => $token,
+            ])
+            ->throw(function (Response $response) {
+                throw new \Exception($response->body());
+            });
+    }
 }
