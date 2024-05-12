@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { i18n, loadLocaleMessages, setI18nLanguage } from "@/i18n";
+import { i18n, loadLocaleMessages, setI18nLanguage, SUPPORT_LOCALES } from "@/i18n";
 
 const show = ref(false);
 
@@ -31,7 +31,7 @@ function changeLocale(locale) {
             </div>
         </div>
         <div class="lang__list" v-show="show">
-            <div class="lang__item" v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" @click="close">
+            <div class="lang__item" v-for="locale in SUPPORT_LOCALES" :key="`locale-${locale}`" @click="close">
 				<a @click="changeLocale(locale)">{{ locale }}</a>
             </div>
         </div>

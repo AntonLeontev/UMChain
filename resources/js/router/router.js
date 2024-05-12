@@ -29,14 +29,6 @@ router.beforeEach(async (to, from) => {
     if (to.meta.requiresGuest && useUserStore().user) {
         return { name: "home" };
     }
-
-    // Locale lazy loading
-    const paramsLocale = "en";
-
-    await loadLocaleMessages(i18n, paramsLocale);
-
-    // set i18n language
-    setI18nLanguage(i18n, paramsLocale);
 });
 
 export default router;
