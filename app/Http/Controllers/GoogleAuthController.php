@@ -46,13 +46,13 @@ class GoogleAuthController extends Controller
             return redirect('/cabinet/fit/profile')->withCookie($cookie);
         }
 
+        if (is_null($response->json('refresh_token'))) {
+            GoogleOAuthApi::revoke($response->json('access_token'));
+
+            return to_route('google.auth');
+        }
+
         if (! is_null($source)) {
-            if (is_null($response->json('refresh_token'))) {
-                GoogleOAuthApi::revoke($response->json('access_token'));
-
-                return to_route('google.auth');
-            }
-
             DataSource::where('user_id', auth()->id())->update(['is_active' => false]);
 
             $source->update([
