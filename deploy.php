@@ -22,10 +22,10 @@ host('94.241.174.226')
     ->set('deploy_path', '~/umfit');
 
 //production
-host('81.177.139.224')
-    ->set('remote_user', 'deployer')
-    ->set('branch', 'master')
-    ->set('deploy_path', '~/umchain');
+// host('81.177.139.224')
+//     ->set('remote_user', 'deployer')
+//     ->set('branch', 'master')
+//     ->set('deploy_path', '~/umchain');
 
 // Tasks
 
@@ -48,6 +48,6 @@ task('reboot', function () {
 // Hooks
 after('deploy:vendors', 'build');
 after('artisan:route:cache', 'cache_routes');
-after('deploy:unlock', 'reboot');
+// after('deploy:unlock', 'reboot');
 
 after('deploy:failed', 'deploy:unlock');

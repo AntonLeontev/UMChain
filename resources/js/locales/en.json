@@ -57,6 +57,9 @@
         "h1": "Page not found",
         "btn": "To home page"
     },
+    "footer": {
+        "policy": "Privacy policy"
+    },
     "change-pass": {
         "pass-old": "Old password",
         "pass-new": "New password",

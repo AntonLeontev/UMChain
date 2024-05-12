@@ -21,6 +21,7 @@
                 </div>
             </div>
             <div class="footer__rights">© UMChain OU, Estonia, 2024г.</div>
+            <div class="mt-2 text-white underline"><a href="/Privacy_policy.pdf" target="_blank">{{ $t('footer.policy') }}</a></div>
         </div>
     </footer>
 </template>
