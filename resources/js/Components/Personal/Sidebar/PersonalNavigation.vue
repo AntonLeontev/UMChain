@@ -74,8 +74,8 @@ onMounted(() => {
                 {{ $t("sidebar.notifications") }}
                 <div
                   class="rounded bg-pink px-1 !text-white text-sm text-center"
-                  v-show="user.unread_notifications_count > 0"
-                  v-text="user.unread_notifications_count"
+                  v-show="user?.unread_notifications_count > 0"
+                  v-text="user?.unread_notifications_count"
                 ></div>
               </router-link>
             </li>
