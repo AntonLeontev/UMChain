@@ -56,11 +56,8 @@ if (! function_exists('google_access_token')) {
             $response = GoogleOAuthApi::getTokenByRefresh($source->data->refreshToken);
 
             $source->update([
-                'data' => [
-                    'refreshToken' => $response->json('refresh_token'),
-                    'expires' => now()->addSeconds($response->json('expires_in') - 15),
-                    'accessToken' => $response->json('access_token'),
-                ],
+                'data->expires' => now()->addSeconds($response->json('expires_in') - 15),
+                'data->accessToken' => $response->json('access_token'),
             ]);
 
             return $response->json('access_token');
