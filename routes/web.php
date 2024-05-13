@@ -25,7 +25,7 @@ if (! request()->ajax()) {
     })->where('vue_capture', '(?!'.config('moonshine.route.prefix').")[\/\w\.-]*");
 }
 
-Route::get('reset-password/{token}', function () {
+Route::get('reset-password', function () {
 })
     ->name('password.reset');
 
