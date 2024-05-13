@@ -26,8 +26,7 @@ if (! request()->ajax()) {
 }
 
 Route::get('reset-password', function () {
-})
-    ->name('password.reset');
+})->name('password.reset');
 
 // TODO удалить если не нужны
 // Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
