@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfilePasswordUpdate;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Http\Resources\UserResource;
-use App\Models\EthWallet;
 use App\Models\TronWallet;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Arr;
@@ -24,20 +23,13 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): void
     {
         auth()->user()->update(
-            Arr::except($request->validated(), ['tron', 'eth'])
+            Arr::except($request->validated(), ['tron'])
         );
 
         if (! empty($request->tron)) {
             TronWallet::updateOrCreate(
                 ['user_id' => auth()->id()],
                 ['address' => $request->tron]
-            );
-        }
-
-        if (! empty($request->eth)) {
-            EthWallet::updateOrCreate(
-                ['user_id' => auth()->id()],
-                ['address' => $request->eth]
             );
         }
     }

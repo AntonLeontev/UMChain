@@ -24,7 +24,6 @@ class ProfileUpdateRequest extends FormRequest
             'name' => ['string', 'max:255', 'sometimes'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id), 'sometimes'],
             'tron' => ['nullable', 'string', 'starts_with:T', 'size:34', 'sometimes'],
-            'eth' => ['nullable', 'string', 'starts_with:0x', 'size:42', 'sometimes'],
             'gender' => ['nullable', new Enum(Gender::class), 'sometimes'],
             'age' => ['nullable', 'int', 'min:5', 'max:120', 'sometimes'],
             'height' => ['nullable', 'int', 'min:0', 'sometimes'],
@@ -38,7 +37,6 @@ class ProfileUpdateRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'eth' => 'ETH wallet',
             'tron' => 'Tron wallet',
         ];
     }

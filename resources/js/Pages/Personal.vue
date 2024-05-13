@@ -46,20 +46,12 @@
 							<div v-if="errors.email" class="text-danger" v-text="errors.email"></div>
 						</div>
 					</div>
-					<div class="reg__one">
+					<div class="reg__one" v-if="user.is_enabled_withdraw">
 						<div class="reg__name">{{ $t('personal.tron') }}</div>
 						<div class="reg__field">
 							<input type="text" name="tron" class="focus:border-b-pink !text-xs focus:ring-0"
 								:value="user.tron_wallet?.address">
 							<div v-if="errors.tron" class="text-danger" v-text="errors.tron"></div>
-						</div>
-					</div>
-					<div class="reg__one">
-						<div class="reg__name">{{ $t('personal.eth') }}</div>
-						<div class="reg__field">
-							<input type="text" name="eth" class="focus:border-b-pink !text-xs focus:ring-0"
-								:value="user.eth_wallet?.address">
-							<div v-if="errors.eth" class="text-danger" v-text="errors.eth"></div>
 						</div>
 					</div>
 				</div>

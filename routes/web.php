@@ -25,6 +25,7 @@ if (! request()->ajax()) {
     })->where('vue_capture', '(?!'.config('moonshine.route.prefix').")[\/\w\.-]*");
 }
 
+// не удалять, нужен для отправки уведомлений
 Route::get('reset-password', function () {
 })->name('password.reset');
 

@@ -8,6 +8,7 @@ use MoonShine\Fields\Email;
 use MoonShine\Fields\ID;
 use MoonShine\Fields\Number;
 use MoonShine\Fields\Relationships\BelongsTo;
+use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Text;
 use MoonShine\Resources\ModelResource;
 
@@ -37,10 +38,9 @@ class UserResource extends ModelResource
                 ->sortable(),
             Number::make('Коэффициент', 'token_coef')
                 ->step(0.01),
+            Switcher::make('Разрешен вывод', 'is_enabled_withdraw')
+                ->updateOnPreview(),
             Text::make('TRON кошелёк', '', fn ($user) => $user->tronWallet?->address)
-                ->hideOnForm()
-                ->hideOnIndex(),
-            Text::make('ETH кошелёк', '', fn ($user) => $user->ethWallet?->address)
                 ->hideOnForm()
                 ->hideOnIndex(),
         ];

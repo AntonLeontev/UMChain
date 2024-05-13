@@ -79,14 +79,8 @@ class User extends Authenticatable
     ];
 
     protected $with = [
-        // 'ethWallet',
-        // 'tronWallet',
+        'tronWallet',
     ];
-
-    public function ethWallet(): HasOne
-    {
-        return $this->hasOne(EthWallet::class);
-    }
 
     public function tronWallet(): HasOne
     {
@@ -148,7 +142,7 @@ class User extends Authenticatable
 
     public function activeDataSource(): HasOne
     {
-        return $this->hasOne(DataSource::class)->where('is_active', true);
+        return $this->hasOne(DataSource::class)->where('is_active', true)->orderByDesc('created_at');
     }
 
     public function calorySpends(): HasMany
