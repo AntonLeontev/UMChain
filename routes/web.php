@@ -25,6 +25,10 @@ if (! request()->ajax()) {
     })->where('vue_capture', '(?!'.config('moonshine.route.prefix').")[\/\w\.-]*");
 }
 
+Route::get('reset-password/{token}', function () {
+})
+    ->name('password.reset');
+
 // TODO удалить если не нужны
 // Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
 //     ->prefix(LaravelLocalization::setLocale())

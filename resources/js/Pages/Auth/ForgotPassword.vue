@@ -22,7 +22,7 @@
 				if (error.response.status === 422) {
 					success.value = true
 				} else {
-					useToastsStore().handleError(error);
+					useToastsStore().toastError(error);
 				}
 			})
 			.finally(() => {
