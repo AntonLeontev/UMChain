@@ -1,9 +1,13 @@
 <script setup>
 import LangSwitch from "./LangSwitch.vue";
 import PersonalNavigation from "@/Components/Personal/Sidebar/PersonalNavigation.vue";
+
 import { ref } from "vue";
+import { useRoute } from "vue-router";
 
 const menu = ref(false);
+const route = useRoute();
+console.log(route.name);
 </script>
 
 <template>
@@ -21,7 +25,7 @@ const menu = ref(false);
             <LangSwitch />
           </div>
 
-          <div class="header__person active">
+          <div class="header__person active" v-if="route.name === 'home'">
             <router-link :to="{ name: 'personal' }">
               <svg
                 width="38"
@@ -48,7 +52,7 @@ const menu = ref(false);
             </router-link>
           </div>
 
-          <div class="header__btn w-[30px]" @click="menu = !menu">
+          <div class="header__btn w-[30px]" @click="menu = !menu" v-if="route.name !== 'home'">
             <div></div>
             <div></div>
             <div></div>

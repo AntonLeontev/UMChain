@@ -55,6 +55,13 @@ const getCalories = () => {
             {{ $t("fit-profile.auth-btn") }}
           </a>
           <div v-else>
+			<div class="flex flex-wrap justify-center gap-2 mb-3">
+				<span>{{ $t("fit-profile.source") }}</span>
+				<div class="flex gap-1">
+					<img class="w-6" src="/resources/images/google-fit.png" alt="">
+					<span>Google Fit</span>
+				</div>
+			</div>
             <div class="p-5 mb-3 rounded bg-pink">
               {{ $t("fit-profile.spent") }}
               <span>{{ calories }}</span> {{ $t("fit-profile.cal") }}

@@ -114,6 +114,8 @@
     },
     "fit-profile": {
         "no-active-sources": "Выбирите источник данных о тренировках",
+        "source": "Данные о калориях собираются из",
+        "google": {},
         "google-fit": "Google Fit",
         "auth-btn": "Авторизация в Google Fit",
         "google-error": "Не удалось авторизоваться в Google Fit. Пожалуйста, пройдите процедуру снова.",

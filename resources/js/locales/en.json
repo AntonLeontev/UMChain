@@ -114,6 +114,8 @@
     },
     "fit-profile": {
         "no-active-sources": "Select your workout data source",
+        "source": "Calories spending gathered from",
+        "google": {},
         "google-fit": "Google Fit",
         "auth-btn": "Google Fit Authentication",
         "google-error": "Google authentication error. Please authenticate again",
