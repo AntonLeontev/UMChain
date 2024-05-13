@@ -57,8 +57,9 @@ const typeToComponent = (component) => {
 		<div class="flex flex-col gap-3">
 			<a
 				:href="route('google.auth')"
-				class="inline-flex items-center justify-center w-full px-6 py-4 mb-3 font-semibold tracking-widest text-white transition duration-150 ease-in-out border rounded bg-pink border-pink hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none"
+				class="inline-flex items-center justify-center w-full gap-2 px-6 py-4 mb-3 font-semibold tracking-widest text-white transition duration-150 ease-in-out bg-black border border-none rounded hover:text-pink focus:outline-none"
 			>
+				<img class="w-6" src="/resources/images/google-fit.png" alt="">
 				{{ $t("fit-profile.google-fit") }}
 			</a>
 		</div>
