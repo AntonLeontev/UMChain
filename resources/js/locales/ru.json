@@ -2,7 +2,7 @@
     "titles": {
         "profile": "Профиль",
         "calculator": "Калькулятор",
-        "personal": "Личный кабинет",
+        "personal": "Профиль",
         "password": "Смена пароля",
         "referral": "Реферальная система",
         "notifications": "Уведомления",
@@ -126,12 +126,12 @@
     },
     "sidebar": {
         "tabs": {
-            "profile": "Профиль",
+            "profile": "Личный кабинет",
             "fit": "Fit"
         },
         "profile": "Профиль",
         "calculator": "Калькулятор",
-        "personal": "Личный кабинет",
+        "personal": "Профиль",
         "change-pass": "Смена пароля",
         "referral": "Реферальная система",
         "notifications": "Уведомления",
