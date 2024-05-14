@@ -27,6 +27,6 @@ export default function useCatch(error, errors = null) {
         useToastsStore().toastError(error.message);
     } else {
         console.log(error);
-        useToastsStore().toastError(error.response?.data.message);
+        useToastsStore().toastError(error.response?.data.message ?? "Error");
     }
 }

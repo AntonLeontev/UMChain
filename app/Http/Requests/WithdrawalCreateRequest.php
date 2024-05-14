@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class WithdrawalCreateRequest extends FormRequest
 {
@@ -22,28 +23,40 @@ class WithdrawalCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'usdt' => ['required', 'decimal:0,8', 'min:1', 'max:'.auth()->user()->usdt],
-            'network' => ['string', 'required', 'in:TRC20,ERC20'],
-            'tron_wallet' => ['required_if:network,TRC20', 'exclude_if:network,ERC20', 'starts_with:T', 'string', 'size:34', 'nullable'],
-            'eth_wallet' => ['required_if:network,ERC20', 'exclude_if:network,TRC20', 'string', 'starts_with:0x', 'size:42', 'nullable'],
+            'user_id' => ['required', 'integer', 'exists:users,id'],
+            'amount' => ['required', 'decimal:0,8', 'min:1'],
+            'wallet' => ['required', 'starts_with:T', 'string', 'size:34', 'nullable'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-            'eth_wallet' => 'ETH wallet',
-            'tron_wallet' => 'TRON wallet',
+            'wallet' => 'TRON wallet',
         ];
     }
 
     public function messages(): array
     {
-        return [
-            'tron_wallet.starts_with' => 'Field :attribute must start with :values character',
-            'tron_wallet.required_if' => 'The :attribute field is required',
-            'eth_wallet.starts_with' => 'Field :attribute must start with :values character',
-            'eth_wallet.required_if' => 'The :attribute field is required',
-        ];
+        return [];
+    }
+
+    public function prepareForValidation(): void
+    {
+        $this->merge([
+            'user_id' => auth()->id(),
+        ]);
+    }
+
+    public function passedValidation(): void
+    {
+        $totalUmct = auth()->user()->umt;
+        $frozenUmct = auth()->user()->umt_frozen;
+
+        if ($this->amount > $totalUmct - $frozenUmct) {
+            throw ValidationException::withMessages([
+                'amount' => 'Insufficient balance',
+            ]);
+        }
     }
 }

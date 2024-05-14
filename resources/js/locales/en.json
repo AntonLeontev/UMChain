@@ -122,7 +122,15 @@
         "spent": "Spent for today:",
         "cal": "Cal",
         "tokens": "Total tokens:",
-        "no-transactions": "There are no transactions yet"
+        "no-transactions": "There are no transactions yet",
+        "frozen": "Frozen",
+        "withdraw": {
+            "btn": "Withdraw tokens",
+            "amount": "Amount",
+            "wallet": "Wallet Tron",
+            "withdraw": "Withdraw",
+            "success": "Request was sent successfully"
+        }
     },
     "sidebar": {
         "tabs": {

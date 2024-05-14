@@ -21,8 +21,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 ->icon('heroicons.user-group'),
             // MenuItem::make('Заказы', new OrderResource())
             //     ->icon('heroicons.banknotes'),
-            // MenuItem::make('Заявки на вывод USDT', new WithdrawalResource())
-            //     ->icon('heroicons.arrow-uturn-up'),
+            MenuItem::make('Заявки на вывод', new WithdrawalResource())
+                ->icon('heroicons.arrow-uturn-up'),
             MenuItem::make('Реф ссылки', new ReferralLinkResource())
                 ->icon('heroicons.link'),
             // MenuItem::make('Баннеры', new BannerResource())

@@ -17,7 +17,7 @@ class WithdrawalResource extends ModelResource
 {
     protected string $model = Withdrawal::class;
 
-    protected string $title = 'Заявки на вывод USDT';
+    protected string $title = 'Заявки на вывод';
 
     protected array $activeActions = [];
 
@@ -25,9 +25,8 @@ class WithdrawalResource extends ModelResource
     {
         return [
             Flex::make([
-                Preview::make('Сеть', 'network'),
-                Preview::make('Кошелек', 'wallet'),
-                Preview::make('Сумма', '', fn ($item) => "$item->amount USDT"),
+                Preview::make('Кошелек (tron)', 'wallet'),
+                Preview::make('Сумма', '', fn ($item) => "$item->amount UMCT"),
                 Preview::make('Создана', '', fn ($item) => $item->created_at->translatedFormat('d.m.Y H:i')),
                 Switcher::make('Выплачено', 'is_sent')
                     ->updateOnPreview(),

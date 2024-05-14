@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import routes from "./routes";
 import useUserStore from "../stores/user";
 import axios from "axios";
-import { loadLocaleMessages, setI18nLanguage, i18n } from "../i18n";
 
 const router = createRouter({
     history: createWebHistory(),

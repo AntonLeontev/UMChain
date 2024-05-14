@@ -5,10 +5,13 @@ namespace App\Providers;
 use App\Events\OrderAccepted;
 use App\Events\ReferralLinkActivated;
 use App\Events\RegisteredByReferral;
+use App\Events\WithdrawalCreated;
 use App\Events\WithdrawalSent;
 use App\Listeners\BindReferral;
+use App\Listeners\ChangeBalance;
 use App\Listeners\SendOrderAcceptedNotification;
 use App\Listeners\SendReferralLinkActivatedNotification;
+use App\Listeners\SendWithdrawalCreatedTelegramNotification;
 use App\Listeners\SendWithdrawSentNotification;
 use App\Listeners\UpdateAgentPortfolio;
 use App\Listeners\UpdateUserPortfolio;
@@ -35,7 +38,12 @@ class EventServiceProvider extends ServiceProvider
             SendOrderAcceptedNotification::class,
         ],
 
+        WithdrawalCreated::class => [
+            SendWithdrawalCreatedTelegramNotification::class,
+        ],
+
         WithdrawalSent::class => [
+            ChangeBalance::class,
             SendWithdrawSentNotification::class,
         ],
 

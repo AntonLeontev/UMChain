@@ -32,11 +32,15 @@ class UserResource extends ModelResource
             Email::make('Почта', 'email')
                 ->hideOnForm()
                 ->sortable(),
-            Text::make('UMCT', 'umt')->hideOnForm(),
+            Text::make('UMCT', 'umt')
+                ->hideOnForm()
+                ->sortable(),
+            Text::make('Заморожено', 'umt_frozen')->hideOnForm(),
             BelongsTo::make('Агент', 'agent', fn (User $user) => $user->email, new UserResource)
                 ->hideOnForm()
                 ->sortable(),
             Number::make('Коэффициент', 'token_coef')
+                ->sortable()
                 ->step(0.01),
             Switcher::make('Разрешен вывод', 'is_enabled_withdraw')
                 ->updateOnPreview(),

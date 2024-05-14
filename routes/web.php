@@ -43,14 +43,6 @@ Route::get('reset-password', function () {
 //                         Route::post('create', [OrderController::class, 'create'])->name('orders.create');
 //                         Route::put('{order}/make-paid', [OrderController::class, 'makePaid'])->name('orders.make-paid');
 //                     });
-
-//                 Route::prefix('withdraw')
-//                     ->middleware(['precognitive', 'auth'])
-//                     ->group(function () {
-//                         Route::post('exchange', [WithdrawalController::class, 'exchange'])->name('withdraw.exchange');
-//                         Route::post('create', [WithdrawalController::class, 'create'])->name('withdraw.create');
-//                     });
-
 //             });
 //     });
 

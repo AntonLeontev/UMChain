@@ -5,6 +5,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\WithdrawalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,13 @@ Route::middleware('auth:sanctum')
 
                 Route::get('user/calories', [GoogleFitController::class, 'calories'])
                     ->name('api.user.google.calories');
+
+                Route::prefix('withdraw')
+                    ->group(function () {
+                        // Route::post('exchange', [WithdrawalController::class, 'exchange'])->name('withdraw.exchange');
+                        Route::post('create', [WithdrawalController::class, 'create'])
+                            ->name('api.user.withdraw.create');
+                    });
             });
 
         Route::post('reflinks/create', [ReferralLinkController::class, 'create'])->name('api.reflinks.create');
