@@ -85,7 +85,7 @@ const typeToComponent = (component) => {
 						<span>{{
 							useISOToFormatString(transaction.created_at)
 						}}</span>
-						<span>+ {{ transaction.amount }} UMCT</span>
+						<span>{{ transaction.direction === 'income' ? '+' : '-' }} {{ transaction.amount }} UMCT</span>
 					</div>
 				</div>
 				<div v-else>{{ $t("fit-profile.no-transactions") }}</div>
