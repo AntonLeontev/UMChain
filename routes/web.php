@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\WithdrawalController;
 use App\Services\Fit\FitService;
 use Illuminate\Support\Facades\Route;
 
@@ -55,4 +56,6 @@ Route::prefix(config('moonshine.route.prefix', ''))
                 Route::post('/authenticate', 'authenticateFirstFactor')->name('authenticate');
                 Route::post('/authenticate2f', 'authenticateSecondFactor')->name('authenticate2f');
             });
+
+        Route::post('withdrawals/{withdrawal}/mark-sent', [WithdrawalController::class, 'markSent'])->name('withdrawals.mark-sent');
     });
