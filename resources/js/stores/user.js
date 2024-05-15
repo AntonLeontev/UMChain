@@ -1,12 +1,10 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import axios from "axios";
-import { useRouter } from "vue-router";
 
 const useUserStore = defineStore("user", () => {
     const user = ref(null);
     const isAuthenticated = ref(null);
-    const router = useRouter();
 
     async function login(email, password) {
         await axios.post("/login", {
