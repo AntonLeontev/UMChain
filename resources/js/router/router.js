@@ -26,7 +26,7 @@ router.beforeEach(async (to, from) => {
     }
 
     if (to.meta.requiresGuest && useUserStore().user) {
-        return { name: "home" };
+        return { name: "fit.profile" };
     }
 });
 

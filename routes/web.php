@@ -11,6 +11,8 @@ if (app()->isLocal()) {
     });
 }
 
+Route::view('/', 'home')->name('home');
+
 Route::middleware(['auth'])
     ->group(function () {
         Route::get('google/auth', [GoogleAuthController::class, 'auth'])
@@ -21,31 +23,13 @@ Route::middleware(['auth'])
     });
 
 if (! request()->ajax()) {
-    Route::get('/{vue_capture?}', function () {
-        return view('home');
-    })->where('vue_capture', '(?!'.config('moonshine.route.prefix').")[\/\w\.-]*");
+    Route::view('/{vue_capture?}', 'personal')
+        ->where('vue_capture', '(?!'.config('moonshine.route.prefix').")[\/\w\.-]*");
 }
 
 // не удалять, нужен для отправки уведомлений
 Route::get('reset-password', function () {
 })->name('password.reset');
-
-// TODO удалить если не нужны
-// Route::middleware(['localeSessionRedirect', 'localizationRedirect'])
-//     ->prefix(LaravelLocalization::setLocale())
-//     ->group(function () {
-//         Route::prefix('cabinet')
-//             ->middleware(['auth'])
-//             ->group(function () {
-
-//                 Route::prefix('orders')
-//                     ->middleware(['precognitive', 'auth'])
-//                     ->group(function () {
-//                         Route::post('create', [OrderController::class, 'create'])->name('orders.create');
-//                         Route::put('{order}/make-paid', [OrderController::class, 'makePaid'])->name('orders.make-paid');
-//                     });
-//             });
-//     });
 
 Route::prefix(config('moonshine.route.prefix', ''))
     ->as('moonshine.')

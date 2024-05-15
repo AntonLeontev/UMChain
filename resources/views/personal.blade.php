@@ -1,139 +1,45 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('title', 'Cabinet')
+        <title>Title | UMFit</title>
 
-@section('content')
-	<script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('cabinet', () => ({
-                page: window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1),
-				prevPage: null,
-				user: @json(auth()->user()->loadCount('refLink')->load('activeRefLink')->loadCount('unreadNotifications')),
-				settings: @json(settings()),
-				order: null,
-				menu: false,
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&amp;display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@400;500;600&amp;family=Roboto&amp;display=swap" rel="stylesheet">
 
-                handleSwitch() {
-                    const menu = this.$event.detail.value;
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
 
-                    if (menu === 'wallet') {
-						if (this.page !== 'logout') {
-							this.prevPage = this.page;
-						}
-						
-                        this.page = 'wallet';
-						
-						this.pushState('wallet');
-                        return;
-                    }
+        <!-- Scripts -->
+		@vite(['resources/css/app.css', 'resources/js/app.js'])
+		@routes
 
-                    if (this.page === 'wallet') {
-                        this.page = this.prevPage ?? 'personal';
-						this.pushState(this.prevPage ?? 'personal');
-                        return;
-                    }
-                },
-                handlePage() {
-					this.prevPage = this.page;
-					this.page = this.$event.detail;
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGDCSBFMM6"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
 
-					if (this.$event.detail === 'logout') return;
-					if (this.$event.detail === 'withdraw') return;
+			gtag('config', 'G-SGDCSBFMM6');
+		</script>
+    </head>
+    <body class="h-[100%]">
+		<div id="app" class="h-[100%]"></div>
 
-					this.pushState(this.$event.detail);
-                },
-				pushState(path) {
-					let url = window.location.href.replace(/\/(?!.*\/).+/gm, '');
-					
-					window.history.pushState({}, '', `${url}/` + path);
-				},
-				formatRate(rate) {
-					return new Intl.NumberFormat('{{ app()->getLocale() }}', { minimumFractionDigits: 8 }).format(rate);
-				},
-				formatDate(date) {
-					date = new Date(date)
-					const options = {};
-					return date.toLocaleDateString('{{ app()->getLocale() }}', options);
-				},
-				dateDiff(date1, date2) {
-					let diff = new Date(date1.getTime() - date2.getTime());
+		<script>
+			let queryParams = new URLSearchParams(window.location.search);
 
-					return {
-						past: diff.getTime() < 0,
-						day: Math.floor(diff.getTime() / (1000 * 3600 * 24)),
-						hour: diff.getUTCHours(),
-						minute: diff.getUTCMinutes(),
-					}
-				},
-
-            }))
-        })
-    </script>
-
-    <section class="main" x-data="cabinet">
-        <div class="container container--full">
-            <div class="main__inner" 
-				x-on:switch.window="handleSwitch" 
-				x-on:page.window="handlePage"
-				@order-created.window="order = $event.detail"
-				@order-canceled.window="order = null"
-				@order-confirmed.window="order = null"
-				@exchange.window="user.usdt = $event.detail.usdt; user.umt = $event.detail.umt"
-				@withdraw.window="user.usdt = $event.detail.usdt"
-				@menu-click.window="menu = !menu"
-				@buy-click.window="menu = true"
-			>
-                <x-personal.sidebar.index />
-
-
-                <div class="main__right main__right--right">
-
-                    <x-personal.pages.wallet />
-					
-                    <x-personal.pages.profile />
-                    <x-personal.pages.portfolio />
-                    <x-personal.pages.password />
-                    <x-personal.pages.referral :$feeUmt :$feeUsdt :$purchaseNumber />
-					@if (auth()->user()->activeRefLink)
-                    	<x-personal.pages.banners />
-					@endif
-					<x-personal.pages.withdraw />
-					<x-personal.pages.notifications />
-
-					<x-personal.pages.fitProfile :$transactions />
-					<x-personal.pages.fitCalculator />
-
-                    <div data-page="logout" x-show="page === 'logout'" x-cloak>
-                        <div class="main__out">
-                            <div class="out__box">
-                                <div class="out__title">{{ __('cabinet/logout.sure') }}</div>
-                                <div class="out__buttons !justify-around">
-                                    <div class="out__no">
-                                        <x-btn-transparent class="!text-black" x-on:click="page = prevPage">
-											{{ __('cabinet/logout.cancel') }}
-										</x-btn-transparent>
-                                    </div>
-                                    <div class="out__yes w-min">
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="flex justify-center">
-                                            @csrf
-											<x-secondary-button type="submit">{{ __('Logout') }}</x-secondary-button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-			<div id="mobile-menu" class="absolute md:hidden top-0 w-full h-full pt-[100px] pb-[100px] bg-black overflow-y-auto z-50" x-show="menu" x-cloak>
-				<x-personal.sidebar class="block" />
-			</div>
-    </section>
-
-	<x-common.toast-panel />
-
-	
-
-    
-@endsection
+			if(queryParams.has('ref')) {
+				let ref = queryParams.get('ref');
+				
+				localStorage.setItem('referral', ref);
+			}
+		</script>
+    </body>
+</html>

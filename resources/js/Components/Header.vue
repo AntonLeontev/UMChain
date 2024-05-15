@@ -15,9 +15,9 @@ console.log(route.name);
     <div class="container">
       <div class="header__inner">
         <div class="header__logo">
-          <router-link :to="{ name: 'home' }">
+          <a href="/">
             <img src="/resources/images/svg/logo.svg" alt="logo" width="116" />
-          </router-link>
+          </a>
         </div>
 
         <div class="flex items-center gap-x-5 md:gap-x-10">
@@ -52,7 +52,11 @@ console.log(route.name);
             </router-link>
           </div>
 
-          <div class="header__btn w-[30px]" @click="menu = !menu" v-if="route.name !== 'home'">
+          <div
+            class="header__btn w-[30px]"
+            @click="menu = !menu"
+            v-if="route.name !== 'home'"
+          >
             <div></div>
             <div></div>
             <div></div>
