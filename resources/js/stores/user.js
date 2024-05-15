@@ -30,7 +30,7 @@ const useUserStore = defineStore("user", () => {
         axios.post(route("logout")).then(() => {
             user.value = null;
             isAuthenticated.value = null;
-            router.push({ name: "home" });
+            location.replace("/");
         });
     }
 

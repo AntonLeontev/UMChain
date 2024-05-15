@@ -7,7 +7,6 @@ import { useRoute } from "vue-router";
 
 const menu = ref(false);
 const route = useRoute();
-console.log(route.name);
 </script>
 
 <template>
