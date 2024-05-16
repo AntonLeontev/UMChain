@@ -8,7 +8,7 @@
     import axios from "axios";
     import {
         ref,
-        computed
+        computed,
     } from "vue";
 
     const user = useUserStore().user
@@ -24,8 +24,11 @@
         loading.value = true
         axios
             .post(route('api.reflinks.create'))
-            .then(response => formIsSent.value = true)
-            .catch((error) => useCatch(error, errors))
+            .then(response => {
+				formIsSent.value = true
+				useUserStore().getUser()
+			})
+            .catch((error) => useCatch(error))
             .finally(() => {
                 loading.value = false
             })
