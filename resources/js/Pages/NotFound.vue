@@ -11,9 +11,9 @@ import ButtonSecondary from '@/Components/Common/ButtonSecondary.vue';
 			<div class="flex items-center justify-center h-full">
 				<div class=" reg__info">
 					<div>
-						<router-link :to="{ name: 'home' }">
+						<a href="/">
 							<ButtonSecondary>{{ $t("404.btn") }}</ButtonSecondary>
-						</router-link>
+						</a>
 					</div>
 				</div>
 			</div>
