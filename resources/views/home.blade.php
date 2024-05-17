@@ -8382,6 +8382,15 @@
           </style>
         </div>
       </div>
+	  <script>
+			let queryParams = new URLSearchParams(window.location.search);
+
+			if(queryParams.has('ref')) {
+				let ref = queryParams.get('ref');
+				
+				localStorage.setItem('referral', ref);
+			}
+		</script>
       <!--/allrecords-->
     </body>
   </html>

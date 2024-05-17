@@ -77,10 +77,13 @@
         "link": "Ваша ссылка",
         "copied": "Скопировано",
         "generate": "Отправить заявку",
-        "1": "Umfit partner program. The opportunity to earn from 3% of payments from all partners brought to us.",
-        "2": "Send a request, get a referral link, earn with us!",
-        "3": "Your request is accepted! Expect approval",
-        "4": "Your request is in progress! Expect approval"
+        "stat": "Статистика",
+        "clicks": "Переходы по ссылке",
+        "registrations": "Регистрации",
+        "1": "Партнерская программа Umfit. Возможность зарабатывать от 3% от платежей всех приведенных к нам партнеров.",
+        "2": "Отправьте заявку, получите реферальную ссылку, зарабатывайте вместе с нами!",
+        "3": "Ваш запрос принят! Ожидайте одобрения",
+        "4": "Ваш запрос в обработке. Ожидайте одобрения"
     },
     "fit-calculator": {
         "form": {

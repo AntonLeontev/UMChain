@@ -21,15 +21,9 @@ class DetectReferralLink
             return $next($request);
         }
 
-        if (session('referral') === $request->get('ref')) {
-            return $next($request);
-        }
-
         if (ReferralLink::query()->where('id', $request->get('ref'))->exists()) {
             ReferralLinkClick::create(['referral_link_id' => $request->get('ref')]);
         }
-
-        session(['referral' => $request->get('ref')]);
 
         return $next($request);
     }

@@ -6,6 +6,7 @@ use App\Http\Requests\ProfilePasswordUpdate;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Http\Resources\UserResource;
 use App\Models\TronWallet;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
@@ -43,5 +44,13 @@ class ProfileController extends Controller
         }
 
         auth()->user()->updateOrFail(['password' => Hash::make($request->new_password)]);
+    }
+
+    public function referralData(): JsonResponse
+    {
+        $registrations = auth()->user()->loadCount('referrals')->referrals_count;
+        $clicks = auth()->user()->activeRefLink->loadCount('clicks')->clicks_count;
+
+        return response()->json(compact('registrations', 'clicks'));
     }
 }

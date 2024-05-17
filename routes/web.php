@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\WithdrawalController;
 use App\Services\Fit\FitService;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,8 @@ if (! request()->ajax()) {
 // не удалять, нужен для отправки уведомлений
 Route::get('reset-password', function () {
 })->name('password.reset');
+
+Route::post('reflink/click', [ReferralLinkController::class, 'click'])->name('reflinks.click');
 
 Route::prefix(config('moonshine.route.prefix', ''))
     ->as('moonshine.')

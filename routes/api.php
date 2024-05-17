@@ -29,20 +29,17 @@ Route::middleware('auth:sanctum')
                 Route::get('/', 'current')->name('api.user');
                 Route::put('update', 'update')->name('api.user.update');
                 Route::put('update-password', 'updatePassword')->name('api.password.update');
+                Route::get('referral-data', 'referralData')->name('api.user.referral-data');
 
                 Route::get('notifications', [NotificationController::class, 'index'])->name('api.user.notifications.index');
                 Route::post('notifications/mark-as-read', [NotificationController::class, 'markRead'])
                     ->name('api.user.notifications.mark-read');
 
-                Route::get('user/calories', [GoogleFitController::class, 'calories'])
+                Route::get('calories', [GoogleFitController::class, 'calories'])
                     ->name('api.user.google.calories');
 
-                Route::prefix('withdraw')
-                    ->group(function () {
-                        // Route::post('exchange', [WithdrawalController::class, 'exchange'])->name('withdraw.exchange');
-                        Route::post('create', [WithdrawalController::class, 'create'])
-                            ->name('api.user.withdraw.create');
-                    });
+                Route::post('withdraw/create', [WithdrawalController::class, 'create'])
+                    ->name('api.user.withdraw.create');
             });
 
         Route::post('reflinks/create', [ReferralLinkController::class, 'create'])->name('api.reflinks.create');
