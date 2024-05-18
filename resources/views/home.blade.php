@@ -25,11 +25,12 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
+<!-- Assets -->
     <script src="https://neo.tildacdn.com/js/tilda-fallback-1.0.min.js" async charset="utf-8"></script>
     <link rel="stylesheet" href="/home/css/tilda-grid-3.0.min.css" type="text/css" media="all"
         onerror="this.loaderr='y';" />
     <link rel="stylesheet"
-        href="https://static.tildacdn.com/ws/project9554701/tilda-blocks-page48859225.min.css?t=1715956549"
+        href="https://static.tildacdn.com/ws/project9554701/tilda-blocks-page48859225.min.css?t=1715958648"
         type="text/css" media="all" onerror="this.loaderr='y';" />
     <link rel="stylesheet" href="/home/css/tilda-animation-2.0.min.css" type="text/css" media="all"
         onerror="this.loaderr='y';" />
@@ -116,7 +117,7 @@
         }
     </script>
     <script src="/home/js/tilda-scripts-3.0.min.js" charset="utf-8" defer onerror="this.loaderr='y';"></script>
-    <script src="https://static.tildacdn.com/ws/project9554701/tilda-blocks-page48859225.min.js?t=1715956549"
+    <script src="https://static.tildacdn.com/ws/project9554701/tilda-blocks-page48859225.min.js?t=1715958648"
         charset="utf-8" async onerror="this.loaderr='y';"></script>
     <script src="/home/js/lazyload-1.3.min.export.js" charset="utf-8" async onerror="this.loaderr='y';"></script>
     <script src="/home/js/tilda-animation-2.0.min.js" charset="utf-8" async onerror="this.loaderr='y';"></script>
@@ -1785,7 +1786,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-fileheight-value="700" data-field-top-res-320-value="0"
                         data-field-left-res-320-value="-25" data-field-width-res-320-value="370">
                         <div class='tn-atom'><img class='tn-atom__img t-img'
-                                data-original='images/tild6634-6335-4466-b431-363938643139___1.png' alt=''
+                                data-original='/home/images/tild6634-6335-4466-b431-363938643139___1.png' alt=''
                                 imgfield='tn_img_1715700839575' /></div>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7483039451715700897687' data-elem-id='1715700897687'
@@ -7266,7 +7267,125 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                 }
             </style>
         </div>
+        <div id="rec749918112" class="r t-rec" style=" " data-record-type="270">
+            <div class="t270"></div>
+            <script>
+                t_onReady(function() {
+                    var hash = window.location.hash;
+                    t_onFuncLoad('t270_scroll', function() {
+                        t270_scroll(hash, -3);
+                    });
+                    setTimeout(function() {
+                        var curPath = window.location.pathname;
+                        var curFullPath = window.location.origin + curPath;
+                        var recs = document.querySelectorAll('.r');
+                        Array.prototype.forEach.call(recs, function(rec) {
+                            var selects =
+                                'a[href^="#"]\
+            :not([href="#"])\
+            :not(.carousel-control)\
+            :not(.t-carousel__control)\
+            :not([href^="#price"])\
+            :not([href^="#submenu"])\
+            :not([href^="#popup"])\
+            :not([href*="#zeropopup"])\
+            :not([href*="#closepopup"])\
+            :not([href*="#closeallpopup"])\
+            :not([href^="#prodpopup"])\
+            :not([href^="#order"])\
+            :not([href^="#!"])\
+            :not([target="_blank"]),' +
+                                'a[href^="' + curPath + '#"]\
+            :not([href*="#!/tfeeds/"])\
+            :not([href*="#!/tproduct/"])\
+            :not([href*="#!/tab/"])\
+            :not([href*="#popup"])\
+            :not([href*="#zeropopup"])\
+            :not([href*="#closepopup"])\
+            :not([href*="#closeallpopup"])\
+            :not([target="_blank"]),' +
+                                'a[href^="' + curFullPath + '#"]\
+            :not([href*="#!/tfeeds/"])\
+            :not([href*="#!/tproduct/"])\
+            :not([href*="#!/tab/"])\
+            :not([href*="#popup"])\
+            :not([href*="#zeropopup"])\
+            :not([href*="#closepopup"])\
+            :not([href*="#closeallpopup"])\
+            :not([target="_blank"])';
+                            var elements = rec.querySelectorAll(selects);
+                            Array.prototype.forEach.call(elements, function(element) {
+                                element.addEventListener('click', function(event) {
+                                    event.preventDefault();
+                                    var hash = this.hash.trim();
+                                    t_onFuncLoad('t270_scroll', function() {
+                                        t270_scroll(hash, -3);
+                                    });
+                                });
+                            });
+
+							document.querySelectorAll('[href="#rec747718392"]').forEach(function(element) {
+								element.addEventListener('click', function(event) {
+                                    event.preventDefault();
+                                    var hash = this.hash.trim();
+                                    t_onFuncLoad('t270_scroll', function() {
+                                        t270_scroll(hash, -3);
+                                    });
+                                });
+							})
+							document.querySelectorAll('[href="#rec747719374"]').forEach(function(element) {
+								element.addEventListener('click', function(event) {
+                                    event.preventDefault();
+                                    var hash = this.hash.trim();
+                                    t_onFuncLoad('t270_scroll', function() {
+                                        t270_scroll(hash, -3);
+                                    });
+                                });
+							})
+
+
+
+                        });
+                        if (document.querySelectorAll('.js-store').length > 0 || document.querySelectorAll(
+                                '.js-feed').length > 0) {
+                            t_onFuncLoad('t270_scroll', function() {
+                                t270_scroll(hash, -3, 1);
+                            });
+                        }
+                    }, 500);
+                    setTimeout(function() {
+                        var hash = window.location.hash;
+                        if (hash && document.querySelectorAll('a[name="' + hash.slice(1) + '"]').length > 0) {
+                            if (window.isMobile) {
+                                t_onFuncLoad('t270_scroll', function() {
+                                    t270_scroll(hash, 0);
+                                });
+                            } else {
+                                t_onFuncLoad('t270_scroll', function() {
+                                    t270_scroll(hash, 0);
+                                });
+                            }
+                        }
+                    }, 1000);
+                    window.addEventListener('popstate', function() {
+                        var hash = window.location.hash;
+                        if (hash && document.querySelectorAll('a[name="' + hash.slice(1) + '"]').length > 0) {
+                            if (window.isMobile) {
+                                t_onFuncLoad('t270_scroll', function() {
+                                    t270_scroll(hash, 0);
+                                });
+                            } else {
+                                t_onFuncLoad('t270_scroll', function() {
+                                    t270_scroll(hash, 0);
+                                });
+                            }
+                        }
+                    });
+                });
+            </script>
+        </div>
     </div>
+	<!--/allrecords-->
 	<script>
 		let queryParams = new URLSearchParams(window.location.search);
 
@@ -7276,7 +7395,6 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
 			localStorage.setItem('referral', ref);
 		}
 	</script>
-	<!--/allrecords-->
 </body>
 
 </html>
