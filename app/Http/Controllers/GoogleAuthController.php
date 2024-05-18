@@ -53,14 +53,16 @@ class GoogleAuthController extends Controller
         }
 
         if (! is_null($source)) {
-            DataSource::where('user_id', auth()->id())->update(['is_active' => false]);
+            DataSource::where('user_id', auth()->id())
+                ->update(['is_active' => false]);
 
             $source->update([
-                'is_active' => true,
                 'data->expires' => now()->addSeconds($response->json('expires_in') - 15),
                 'data->accessToken' => $response->json('access_token'),
                 'data->refreshToken' => $response->json('refresh_token'),
             ]);
+
+            DataSource::find($source->id)->update(['is_active' => true]);
 
             return redirect('/cabinet/fit/profile');
         }

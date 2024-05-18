@@ -28,7 +28,13 @@ const getCalories = () => {
     .catch((error) => {
       if (error.response?.data === "invalid grant") {
         authError.value = true;
-        useToastsStore().toastError($t("fit-profile.google-error"));
+        useToastsStore().toastError($t("fit-profile.errors.google-error"));
+        return;
+      }
+	  
+      if (error.response?.data === "insufficient scopes") {
+        authError.value = true;
+        useToastsStore().toastError($t("fit-profile.errors.insuficient-scopes"));
         return;
       }
 

@@ -120,7 +120,10 @@
         "google": {},
         "google-fit": "Google Fit",
         "auth-btn": "Google Fit Authentication",
-        "google-error": "Google authentication error. Please authenticate again",
+        "errors": {
+            "google-error": "Google authentication error. Please authenticate again",
+            "insuficient-scopes": "Data access rights are not granted. Log in to Google again and check the required permissions."
+        },
         "spent": "Spent for today:",
         "cal": "Cal",
         "tokens": "Total tokens:",

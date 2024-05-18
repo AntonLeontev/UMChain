@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Exceptions\GoogleFitException;
 use App\Exceptions\TelegramException;
+use App\Services\Fit\Exception\InsufficientScopes;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
@@ -35,6 +36,10 @@ class HttpServiceProvider extends ServiceProvider
         Http::macro('fit', function () {
             return Http::baseUrl('https://www.googleapis.com/fitness/v1/')
                 ->throw(function (Response $response) {
+                    if ($response->json('error.message') === 'Request had insufficient authentication scopes.') {
+                        throw new InsufficientScopes($response);
+                    }
+
                     throw new GoogleFitException($response);
                 })
                 ->retry(2, 200)
