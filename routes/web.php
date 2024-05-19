@@ -34,9 +34,9 @@ Route::get('reset-password', function () {
 
 Route::prefix(config('moonshine.route.prefix', ''))
     ->as('moonshine.')
-    ->middleware('throttle:3,5')
     ->group(static function () {
         Route::controller(AdminAuthController::class)
+            ->middleware('throttle:3,5')
             ->group(static function (): void {
                 Route::post('/authenticate', 'authenticateFirstFactor')->name('authenticate');
                 Route::post('/authenticate2f', 'authenticateSecondFactor')->name('authenticate2f');

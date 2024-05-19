@@ -24,7 +24,7 @@ export default function useCatch(error, errors = null) {
     }
 
     if (import.meta.env.PROD) {
-        useToastsStore().toastError(error.message);
+        useToastsStore().toastError(error.message ?? "Error");
     } else {
         console.log(error);
         useToastsStore().toastError(error.response?.data.message ?? "Error");

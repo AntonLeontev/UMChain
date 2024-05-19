@@ -25,7 +25,7 @@ function register(event) {
         .then(async (response) => {
 			// await useUserStore().login(event.target.email.value, event.target.password.value)
             await useUserStore().getUser()
-			router.push({ name: "fit/profile" });
+			router.push({ name: "fit.profile" });
         })
 		.catch((error) => useCatch(error, errors))
 		.finally(() => {
