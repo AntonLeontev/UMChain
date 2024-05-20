@@ -43,7 +43,7 @@ class UserResource extends ModelResource
             Email::make('Почта', 'email')
                 ->hideOnForm()
                 ->sortable(),
-            Text::make('UMCT', 'umt')
+            Text::make('UMCT', 'umt', fn ($user) => number_format($user->umt, 2, '.', ' '))
                 ->hideOnForm()
                 ->sortable(),
             Text::make('Заморожено', 'umt_frozen')->hideOnForm(),
@@ -56,7 +56,7 @@ class UserResource extends ModelResource
             Text::make('Кол-во рефералов', 'referrals_count')
                 ->hideOnForm()
                 ->sortable(),
-            Text::make('Калории вчера', 'calory_spends_sum_calories')
+            Text::make('Калории вчера', 'calory_spends_sum_calories', fn ($user) => number_format($user->calory_spends_sum_calories, 0, '.', ' '))
                 ->hideOnForm()
                 ->sortable(),
             Switcher::make('Разрешен вывод', 'is_enabled_withdraw')
