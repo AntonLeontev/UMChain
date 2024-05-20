@@ -3,6 +3,7 @@
 namespace App\MoonShine\Resources;
 
 use App\Models\User;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use MoonShine\Fields\Email;
 use MoonShine\Fields\ID;
@@ -21,6 +22,16 @@ class UserResource extends ModelResource
     protected array $with = [
         'agent',
     ];
+
+    public function query(): Builder
+    {
+        return parent::query()
+            ->withCount('referrals')
+            ->withSum(
+                ['calorySpends' => fn ($q) => $q->whereBetween('created_at', [now()->startOfDay(), now()->endOfDay()])],
+                'calories'
+            );
+    }
 
     public function fields(): array
     {
@@ -42,6 +53,12 @@ class UserResource extends ModelResource
             Number::make('Коэффициент', 'token_coef')
                 ->sortable()
                 ->step(0.01),
+            Text::make('Кол-во рефералов', 'referrals_count')
+                ->hideOnForm()
+                ->sortable(),
+            Text::make('Калории вчера', 'calory_spends_sum')
+                ->hideOnForm()
+                ->sortable(),
             Switcher::make('Разрешен вывод', 'is_enabled_withdraw')
                 ->updateOnPreview(),
             Text::make('TRON кошелёк', '', fn ($user) => $user->tronWallet?->address)
