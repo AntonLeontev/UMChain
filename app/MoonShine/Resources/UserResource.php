@@ -56,7 +56,7 @@ class UserResource extends ModelResource
             Text::make('Кол-во рефералов', 'referrals_count')
                 ->hideOnForm()
                 ->sortable(),
-            Text::make('Калории вчера', 'calory_spends_sum')
+            Text::make('Калории вчера', 'calory_spends_sum_calories')
                 ->hideOnForm()
                 ->sortable(),
             Switcher::make('Разрешен вывод', 'is_enabled_withdraw')
