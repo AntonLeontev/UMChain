@@ -52,7 +52,8 @@
 						<div class="uved__item" v-for="(notification) in notifications" :key="notification.id" x-if="notifications.length > 0">
 							<div class="uved__info">
 								<div class="mb-0 uved__name uved__new">
-									{{ notification.data.lang }}
+									<div v-if="notification.data.is_admin" v-html="notification.data.text[$i18n.locale]"></div>
+									<div v-else>{{ notification.data.lang }}</div>
 								</div>
 							</div>
 							<div class="uved__date">{{ useISOToLacaleString(notification.created_at) }}</div>

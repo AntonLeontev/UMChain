@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\MoonShine\Pages\CreateNotification;
 use App\MoonShine\Resources\BannerResource;
 use App\MoonShine\Resources\OrderResource;
 use App\MoonShine\Resources\ReferralLinkResource;
@@ -27,6 +28,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 ->icon('heroicons.link'),
             // MenuItem::make('Баннеры', new BannerResource())
             //     ->icon('heroicons.photo'),
+            MenuItem::make('Уведомления', CreateNotification::make('Уведомления пользователей', 'notificate'))
+                ->icon('heroicons.bell'),
             MenuItem::make('Настройки', new SettingResource())
                 ->icon('heroicons.cog-8-tooth'),
 
