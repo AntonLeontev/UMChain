@@ -1563,7 +1563,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-axisx-value="left" data-field-container-value="grid"
                         data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="px" data-field-widthunits-value="px">
-                        <div class='tn-atom'>Выбрать программу</div>
+                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -1826,7 +1826,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="px" data-field-widthunits-value="px"
                         data-field-top-res-320-value="524" data-field-left-res-320-value="50">
-                        <div class='tn-atom'>Выбрать программу</div>
+                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -2377,7 +2377,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-axisx-value="left" data-field-container-value="grid"
                         data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="px" data-field-widthunits-value="px">
-                        <div class='tn-atom'>Выбрать программу</div>
+                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -2764,7 +2764,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-heightunits-value="px" data-field-widthunits-value="px"
                         data-field-top-res-320-value="722" data-field-left-res-320-value="60"
                         data-field-height-res-320-value="44" data-field-width-res-320-value="200">
-                        <div class='tn-atom'>Выбрать программу</div>
+                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -4671,7 +4671,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-axisx-value="left" data-field-container-value="grid"
                         data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="px" data-field-widthunits-value="px">
-                        <div class='tn-atom'>Выбрать программу</div>
+                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -4984,7 +4984,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-heightunits-value="px" data-field-widthunits-value="px"
                         data-field-top-res-320-value="120" data-field-left-res-320-value="60"
                         data-field-height-res-320-value="40" data-field-width-res-320-value="200">
-                        <div class='tn-atom'>Выбрать программу</div>
+                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -6568,7 +6568,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="px" data-field-widthunits-value="px"
                         data-field-left-res-960-value="620">
-                        <div class='tn-atom'>Выбрать программу</div>
+                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7477204771715613694533' data-elem-id='1715613694533'
                         data-elem-type='shape' data-field-top-value="100" data-field-left-value="130"
@@ -7114,7 +7114,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-heightunits-value="px" data-field-widthunits-value="px"
                         data-field-top-res-320-value="405" data-field-left-res-320-value="51"
                         data-field-height-res-320-value="40" data-field-width-res-320-value="220">
-                        <div class='tn-atom'>Выбрать программу</div>
+                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7483272691715955600274' data-elem-id='1715955600274'
                         data-elem-type='text' data-field-top-value="60" data-field-left-value="60"
