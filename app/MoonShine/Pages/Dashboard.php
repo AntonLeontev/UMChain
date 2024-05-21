@@ -9,6 +9,8 @@ use MoonShine\Pages\Page;
 
 class Dashboard extends Page
 {
+    public string $title = 'Сводка';
+
     /**
      * @return array<string, string>
      */

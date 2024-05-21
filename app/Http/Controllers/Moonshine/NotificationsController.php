@@ -23,6 +23,10 @@ class NotificationsController extends Controller
             $sendAdminNotification->handle($user, $request->text_ru, $request->text_en);
         }
 
+        if ($request->ajax()) {
+            return response()->json(['message' => 'Уведомления отправлены']);
+        }
+
         return back()->with('notification_sent', 'Уведомления отправлены успешно');
     }
 }

@@ -5,12 +5,17 @@ namespace App\MoonShine\Resources;
 use App\Models\User;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Components\FormBuilder;
+use MoonShine\Decorations\Flex;
 use MoonShine\Fields\Email;
+use MoonShine\Fields\Hidden;
 use MoonShine\Fields\ID;
 use MoonShine\Fields\Number;
 use MoonShine\Fields\Relationships\BelongsTo;
 use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Text;
+use MoonShine\Fields\TinyMce;
 use MoonShine\Resources\ModelResource;
 
 class UserResource extends ModelResource
@@ -90,5 +95,41 @@ class UserResource extends ModelResource
     public function getActiveActions(): array
     {
         return ['view', 'update'];
+    }
+
+    public function indexButtons(): array
+    {
+        return [
+            ActionButton::make('')
+                ->icon('heroicons.bell-alert')
+                ->primary()
+                ->customAttributes(['title' => 'Пометить выплаченной'])
+                ->inModal(
+                    title: fn ($item) => 'Уведомление пользователю '.$item->email,
+                    content: fn ($item) => FormBuilder::make(
+                        route('moonshine.notificate'),
+                        'POST',
+                        [
+                            Hidden::make('User id', 'user_id[]'),
+                            Flex::make([
+                                TinyMce::make('Текст на русском', 'text_ru')
+                                    ->toolbar('undo redo | bold italic underline | link | removeformat')
+                                    ->menubar('')
+                                    ->required(),
+                                TinyMce::make('Текст на английском', 'text_en')
+                                    ->toolbar('undo redo | bold italic underline | link | removeformat')
+                                    ->menubar(''),
+                            ]),
+                        ],
+                        [
+                            'user_id[]' => $item->id,
+                        ],
+                    )->submit('Отправить', ['class' => 'btn-primary'])->async()->render(),
+                    wide: true,
+                    closeOutside: true,
+                    autoClose: true,
+                    async: false
+                ),
+        ];
     }
 }

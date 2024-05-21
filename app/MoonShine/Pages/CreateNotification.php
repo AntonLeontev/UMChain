@@ -59,7 +59,7 @@ class CreateNotification extends Page
                         TinyMce::make('Текст на английском', 'text_en')
                             ->toolbar('undo redo | bold italic underline | link | removeformat')
                             ->menubar(''),
-                        ]),
+                    ]),
                 ],
             )
                 ->submit('Отправить', ['class' => 'btn-primary']),
