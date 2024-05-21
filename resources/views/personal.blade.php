@@ -20,13 +20,13 @@
 		@routes
 
 		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGDCSBFMM6"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-4NK35XS5EE"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 
-			gtag('config', 'G-SGDCSBFMM6');
+			gtag('config', 'G-4NK35XS5EE');
 		</script>
     </head>
     <body class="h-[100%]">

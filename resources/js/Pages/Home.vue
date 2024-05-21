@@ -54,6 +54,15 @@
         media="all"
         onerror="this.loaderr='y';"
       />
+	  <!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-4NK35XS5EE"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-4NK35XS5EE');
+		</script>
       <script nomodule src="/home/js/tilda-polyfill-1.0.min.js" charset="utf-8"></script>
       <script type="text/javascript">
         function t_onReady(func) {
