@@ -46,7 +46,9 @@ const refDataLoading = ref(true);
 const refData = reactive({});
 
 onMounted(() => {
-  getRefData();
+	if (user.active_ref_link) {
+		getRefData();
+	}
 });
 
 const getRefData = () => {
