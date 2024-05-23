@@ -23,4 +23,8 @@ return [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'secret' => env('GOOGLE_SECRET'),
     ],
+
+    'openAI' => [
+        'token' => env('OPENAI_TOKEN', ''),
+    ],
 ];

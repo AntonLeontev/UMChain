@@ -4,13 +4,12 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\Moonshine\NotificationsController;
 use App\Http\Controllers\WithdrawalController;
-use App\Models\User;
-use App\Services\Fit\FitService;
+use App\Services\OpenAI\OpenAIService;
 use Illuminate\Support\Facades\Route;
 
 if (app()->isLocal()) {
-    Route::get('test', function (FitService $service) {
-        dd(User::query()->get(['id', 'email'])->pluck('email', 'id')->prepend('Всем пользователям', 'all')->all());
+    Route::get('test', function (OpenAIService $service) {
+        dd($service->completion('Посчитай до 10', ''));
     });
 }
 
