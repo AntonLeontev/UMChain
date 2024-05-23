@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\MenuType;
 use App\Services\OpenAI\OpenAIService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class AIGenerationController extends Controller
         $carbs = $request->get('carbs');
         $proteins = $request->get('proteins');
         $calories = $request->get('calories');
-        $menuType = $request->get('menu_type');
+        $menuType = MenuType::from($request->get('menu_type'));
 
         $menu = $this->openai->generateMenu($fat, $carbs, $proteins, $calories, $menuType);
 

@@ -112,6 +112,14 @@
             "Carbohydrates": "Carbohydrates",
             "gramms": "g"
         },
+        "menu": {
+            "title": "Menu generation",
+            "type-normal": "Usual",
+            "type-vegetarian": "Vegetarian",
+            "type-fish": "Fish",
+            "type-halal": "Halal",
+            "btn": "Generate"
+        },
         "updated": "Profile updated"
     },
     "fit-profile": {

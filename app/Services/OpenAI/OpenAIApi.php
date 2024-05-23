@@ -15,11 +15,11 @@ class OpenAIApi
     public static function completion(
         string $userMessage,
         string $systemMessage = '',
-        int|float $temperature = 1.3,
+        int|float $temperature = 0.5,
         int $n = 1,
         int|float $maxTokens = 1000,
-        int|float $presencePenalty = 2,
-        int|float $frequencyPenalty = 2,
+        int|float $presencePenalty = 0,
+        int|float $frequencyPenalty = 0,
         string $model = 'gpt-3.5-turbo',
     ): Response {
         return Http::openai()

@@ -84,6 +84,7 @@ function cleanNumber(event) {
 
 const menu = ref(null);
 const menuLoading = ref(false);
+const menuType = ref(0);
 function generateMenu() {
 	menuLoading.value = true;
 
@@ -92,7 +93,8 @@ function generateMenu() {
 			proteins: proteins.value, 
 			fat: fats.value, 
 			carbs: carbohydrates.value, 
-			calories: calcCalories.value 
+			calories: calcCalories.value,
+			menu_type: menuType.value,
 		} })
 		.then((resp) => {
 			menu.value = resp.data.menu.replaceAll(/\n/g, "<br />");
@@ -103,227 +105,262 @@ function generateMenu() {
 </script>
 
 <template>
-    <form
-        id="fitCalculator"
-        class="flex flex-col items-center"
-        @change="submit"
-    >
-        <div class="mb-8 main__data">
-            <div class="mb-3">
-                <div class="reg__name">
-                    {{ $t("fit-calculator.form.Gender") }}
-                </div>
-                <div class="flex flex-col gap-1">
-                    <Check
-                        type="radio"
-                        name="gender"
-                        value="0"
-                        v-model="form.gender"
-                        >{{ $t("fit-calculator.form.Man") }}</Check
-                    >
-                    <Check
-                        type="radio"
-                        name="gender"
-                        value="1"
-                        v-model="form.gender"
-                        >{{ $t("fit-calculator.form.Woman") }}</Check
-                    >
-                </div>
-            </div>
-
-            <div class="reg__one">
-                <div class="reg__name">{{ $t("fit-calculator.form.Age") }}</div>
-                <div class="reg__field">
-                    <input
-                        type="text"
-                        name="age"
-                        class="focus:border-b-pink focus:ring-0"
-                        v-model="form.age"
-                        @input="cleanNumber"
-                    />
-                    <div
-                        class="text-danger"
-                        v-if="errors.age"
-                        v-text="errors.age"
-                    ></div>
-                </div>
-            </div>
-            <div class="reg__one">
-                <div class="reg__name">
-                    {{ $t("fit-calculator.form.Height") }}
-                </div>
-                <div class="reg__field">
-                    <input
-                        type="text"
-                        name="height"
-                        class="focus:border-b-pink focus:ring-0"
-                        v-model="form.height"
-                        @input="cleanNumber"
-                    />
-                    <div
-                        class="text-danger"
-                        v-if="errors.height"
-                        v-text="errors.height"
-                    ></div>
-                </div>
-            </div>
-            <div class="mb-3 reg__one">
-                <div class="reg__name">
-                    {{ $t("fit-calculator.form.Weight") }}
-                </div>
-                <div class="reg__field">
-                    <input
-                        type="text"
-                        name="weight"
-                        class="focus:border-b-pink focus:ring-0"
-                        v-model="form.weight"
-                        @input="cleanNumber"
-                    />
-                    <div
-                        class="text-danger"
-                        v-if="errors.weight"
-                        v-text="errors.weight"
-                    ></div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <div class="reg__name">
-                    {{ $t("fit-calculator.form.Activity") }}
-                </div>
-                <div class="flex flex-col gap-1">
-                    <Check
-                        type="radio"
-                        name="activity"
-                        value="0"
-                        v-model="form.activity"
-                        >{{ $t("fit-calculator.form.Minimum") }}</Check
-                    >
-                    <Check
-                        type="radio"
-                        name="activity"
-                        value="1"
-                        v-model="form.activity"
-                        >{{ $t("fit-calculator.form.Moderate") }}</Check
-                    >
-                    <Check
-                        type="radio"
-                        name="activity"
-                        value="2"
-                        v-model="form.activity"
-                        >{{ $t("fit-calculator.form.Active") }}</Check
-                    >
-                </div>
-            </div>
-            <div class="mb-3">
-                <div class="reg__name">
-                    {{ $t("fit-calculator.form.Level") }}
-                </div>
-                <div class="flex flex-col gap-1">
-                    <Check
-                        type="radio"
-                        name="level"
-                        value="0"
-                        v-model="form.level"
-                        >{{ $t("fit-calculator.form.Weak") }}</Check
-                    >
-                    <Check
-                        type="radio"
-                        name="level"
-                        value="1"
-                        v-model="form.level"
-                        >{{ $t("fit-calculator.form.Normal") }}</Check
-                    >
-                    <Check
-                        type="radio"
-                        name="level"
-                        value="2"
-                        v-model="form.level"
-                        >{{ $t("fit-calculator.form.Strong") }}</Check
-                    >
-                </div>
-            </div>
-            <div>
-                <div class="reg__name">
-                    {{ $t("fit-calculator.form.Direction") }}
-                </div>
-                <div class="flex flex-col gap-1">
-                    <Check
-                        type="radio"
-                        name="direction"
-                        value="0"
-                        v-model="form.direction"
-                        >{{ $t("fit-calculator.form.loss") }}</Check
-                    >
-                    <Check
-                        type="radio"
-                        name="direction"
-                        value="1"
-                        v-model="form.direction"
-                        >{{ $t("fit-calculator.form.keep") }}</Check
-                    >
-                    <Check
-                        type="radio"
-                        name="direction"
-                        value="2"
-                        v-model="form.direction"
-                        >{{ $t("fit-calculator.form.gain") }}</Check
-                    >
-                </div>
-            </div>
-        </div>
-
-        <FadeTransition>
-			<div class="" v-if="form?.age && form?.height && form?.weight">
-				<div class="">
-					<div class="mb-3">
-						<div class="text-center">
-							{{ $t("fit-calculator.form.income") }}
-						</div>
-						<div class="text-center text-[25px]">
-							<span v-text="calcCalories"></span>
-							<span class="">{{
-								$t("fit-calculator.form.kCal")
-							}}</span>
-						</div>
+	<div>
+		<form
+			id="fitCalculator"
+			class="flex flex-col items-center"
+			@change="submit"
+		>
+			<div class="mb-8 main__data">
+				<div class="mb-3">
+					<div class="reg__name">
+						{{ $t("fit-calculator.form.Gender") }}
 					</div>
-					<div class="mb-6">
-						<div class="text-center">
-							{{ $t("fit-calculator.form.PFC") }}
-						</div>
-						<div class="flex justify-between gap-1">
-							<span>{{ $t("fit-calculator.form.Proteins") }}</span>
-							<div>
-								<span v-text="proteins"></span>
-								<span>{{ $t("fit-calculator.form.gramms") }}</span>
-							</div>
-						</div>
-						<div class="flex justify-between gap-1">
-							<span>{{ $t("fit-calculator.form.Fats") }}</span>
-							<div>
-								<span v-text="fats"></span>
-								<span>{{ $t("fit-calculator.form.gramms") }}</span>
-							</div>
-						</div>
-						<div class="flex justify-between gap-1">
-							<span>{{
-								$t("fit-calculator.form.Carbohydrates")
-							}}</span>
-							<div>
-								<span v-text="carbohydrates"></span>
-								<span>{{ $t("fit-calculator.form.gramms") }}</span>
-							</div>
-						</div>
+					<div class="flex flex-col gap-1">
+						<Check
+							type="radio"
+							name="gender"
+							value="0"
+							v-model="form.gender"
+							>{{ $t("fit-calculator.form.Man") }}</Check
+						>
+						<Check
+							type="radio"
+							name="gender"
+							value="1"
+							v-model="form.gender"
+							>{{ $t("fit-calculator.form.Woman") }}</Check
+						>
 					</div>
 				</div>
 
-				<div class="flex flex-col items-center my-3 max-w-[400px]">
-					<ButtonSecondary @click.prevent="generateMenu">
-						Сгенерировать меню
-						<Loader v-show="menuLoading" />
-					</ButtonSecondary>
-					<div class="mt-3" v-html="menu"></div>
+				<div class="reg__one">
+					<div class="reg__name">{{ $t("fit-calculator.form.Age") }}</div>
+					<div class="reg__field">
+						<input
+							type="text"
+							name="age"
+							class="focus:border-b-pink focus:ring-0"
+							v-model="form.age"
+							@input="cleanNumber"
+						/>
+						<div
+							class="text-danger"
+							v-if="errors.age"
+							v-text="errors.age"
+						></div>
+					</div>
+				</div>
+				<div class="reg__one">
+					<div class="reg__name">
+						{{ $t("fit-calculator.form.Height") }}
+					</div>
+					<div class="reg__field">
+						<input
+							type="text"
+							name="height"
+							class="focus:border-b-pink focus:ring-0"
+							v-model="form.height"
+							@input="cleanNumber"
+						/>
+						<div
+							class="text-danger"
+							v-if="errors.height"
+							v-text="errors.height"
+						></div>
+					</div>
+				</div>
+				<div class="mb-3 reg__one">
+					<div class="reg__name">
+						{{ $t("fit-calculator.form.Weight") }}
+					</div>
+					<div class="reg__field">
+						<input
+							type="text"
+							name="weight"
+							class="focus:border-b-pink focus:ring-0"
+							v-model="form.weight"
+							@input="cleanNumber"
+						/>
+						<div
+							class="text-danger"
+							v-if="errors.weight"
+							v-text="errors.weight"
+						></div>
+					</div>
+				</div>
+				<div class="mb-3">
+					<div class="reg__name">
+						{{ $t("fit-calculator.form.Activity") }}
+					</div>
+					<div class="flex flex-col gap-1">
+						<Check
+							type="radio"
+							name="activity"
+							value="0"
+							v-model="form.activity"
+							>{{ $t("fit-calculator.form.Minimum") }}</Check
+						>
+						<Check
+							type="radio"
+							name="activity"
+							value="1"
+							v-model="form.activity"
+							>{{ $t("fit-calculator.form.Moderate") }}</Check
+						>
+						<Check
+							type="radio"
+							name="activity"
+							value="2"
+							v-model="form.activity"
+							>{{ $t("fit-calculator.form.Active") }}</Check
+						>
+					</div>
+				</div>
+				<div class="mb-3">
+					<div class="reg__name">
+						{{ $t("fit-calculator.form.Level") }}
+					</div>
+					<div class="flex flex-col gap-1">
+						<Check
+							type="radio"
+							name="level"
+							value="0"
+							v-model="form.level"
+							>{{ $t("fit-calculator.form.Weak") }}</Check
+						>
+						<Check
+							type="radio"
+							name="level"
+							value="1"
+							v-model="form.level"
+							>{{ $t("fit-calculator.form.Normal") }}</Check
+						>
+						<Check
+							type="radio"
+							name="level"
+							value="2"
+							v-model="form.level"
+							>{{ $t("fit-calculator.form.Strong") }}</Check
+						>
+					</div>
+				</div>
+				<div>
+					<div class="reg__name">
+						{{ $t("fit-calculator.form.Direction") }}
+					</div>
+					<div class="flex flex-col gap-1">
+						<Check
+							type="radio"
+							name="direction"
+							value="0"
+							v-model="form.direction"
+							>{{ $t("fit-calculator.form.loss") }}</Check
+						>
+						<Check
+							type="radio"
+							name="direction"
+							value="1"
+							v-model="form.direction"
+							>{{ $t("fit-calculator.form.keep") }}</Check
+						>
+						<Check
+							type="radio"
+							name="direction"
+							value="2"
+							v-model="form.direction"
+							>{{ $t("fit-calculator.form.gain") }}</Check
+						>
+					</div>
 				</div>
 			</div>
-        </FadeTransition>
-    </form>
+		</form>
+		<div>
+			<FadeTransition>
+				<div class="" v-if="form?.age && form?.height && form?.weight">
+					<div class="">
+						<div class="mb-3">
+							<div class="text-center">
+								{{ $t("fit-calculator.form.income") }}
+							</div>
+							<div class="text-center text-[25px]">
+								<span v-text="calcCalories"></span>
+								<span class="">{{
+									$t("fit-calculator.form.kCal")
+								}}</span>
+							</div>
+						</div>
+						<div class="mb-6">
+							<div class="text-center">
+								{{ $t("fit-calculator.form.PFC") }}
+							</div>
+							<div class="flex justify-between gap-1">
+								<span>{{ $t("fit-calculator.form.Proteins") }}</span>
+								<div>
+									<span v-text="proteins"></span>
+									<span>{{ $t("fit-calculator.form.gramms") }}</span>
+								</div>
+							</div>
+							<div class="flex justify-between gap-1">
+								<span>{{ $t("fit-calculator.form.Fats") }}</span>
+								<div>
+									<span v-text="fats"></span>
+									<span>{{ $t("fit-calculator.form.gramms") }}</span>
+								</div>
+							</div>
+							<div class="flex justify-between gap-1">
+								<span>{{
+									$t("fit-calculator.form.Carbohydrates")
+								}}</span>
+								<div>
+									<span v-text="carbohydrates"></span>
+									<span>{{ $t("fit-calculator.form.gramms") }}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex flex-col gap-2 items-center my-3 max-w-[400px]">
+						<div class="text-xl text-center">{{ $t("fit-calculator.menu.title") }}</div>
+						<div class="flex flex-col w-full gap-1">
+							<Check
+								type="radio"
+								name="menu_type"
+								value="0"
+								v-model="menuType"
+								>{{ $t("fit-calculator.menu.type-normal") }}</Check
+							>
+							<Check
+								type="radio"
+								name="menu_type"
+								value="1"
+								v-model="menuType"
+								>{{ $t("fit-calculator.menu.type-vegetarian") }}</Check
+							>
+							<Check
+								type="radio"
+								name="menu_type"
+								value="2"
+								v-model="menuType"
+								>{{ $t("fit-calculator.menu.type-fish") }}</Check
+							>
+							<Check
+								type="radio"
+								name="menu_type"
+								value="3"
+								v-model="menuType"
+								>{{ $t("fit-calculator.menu.type-halal") }}</Check
+							>
+						</div>
+						<ButtonSecondary @click.prevent="generateMenu">
+							{{ $t("fit-calculator.menu.btn") }}
+							<Loader v-show="menuLoading" />
+						</ButtonSecondary>
+						<div class="mt-3" v-html="menu"></div>
+					</div>
+				</div>
+			</FadeTransition>
+		</div>
+	</div>
+    
 </template>

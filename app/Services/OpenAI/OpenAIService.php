@@ -2,6 +2,8 @@
 
 namespace App\Services\OpenAI;
 
+use App\Enums\MenuType;
+
 class OpenAIService
 {
     public function __construct(public OpenAIApi $api)
@@ -31,15 +33,15 @@ class OpenAIService
         return $results;
     }
 
-    public function generateMenu(int $fat, int $carbs, int $proteins, int $calories, ?string $menuType = null)
+    public function generateMenu(int $fat, int $carbs, int $proteins, int $calories, MenuType $menuType)
     {
         $messages = collect([__('openai.requests.menu', ['fats' => $fat, 'carbs' => $carbs, 'proteins' => $proteins])]);
 
-        if (! is_null($menuType)) {
-            $messages->push(__('openai.requests.add_menu_type', ['menu_type' => $menuType]));
+        if ($menuType !== MenuType::usual) {
+            $messages->push($menuType->toAIRequest());
         }
 
-        $results = $this->completion($messages->join(' '), '');
+        $results = $this->completion($messages->join(' '), 'You are helpfull assistant');
 
         return $results[0];
     }

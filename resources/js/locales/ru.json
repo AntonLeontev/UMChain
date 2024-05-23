@@ -113,6 +113,14 @@
             "Carbohydrates": "Углеводы",
             "gramms": "г"
         },
+        "menu": {
+            "title": "Генерация меню",
+            "type-normal": "Обычное",
+            "type-vegetarian": "Вегетарианское",
+            "type-fish": "Рыбное",
+            "type-halal": "Халяльное",
+            "btn": "Сгенерировать"
+        },
         "updated": "Профиль обновлен"
     },
     "fit-profile": {
