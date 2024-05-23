@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 if (app()->isLocal()) {
     Route::get('test', function (OpenAIService $service) {
-        dd($service->completion('Посчитай до 10', ''));
+        dd($service->generateMenu(12, 250, 130, 2500, 999));
     });
 }
 

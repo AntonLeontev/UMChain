@@ -30,4 +30,17 @@ class OpenAIService
 
         return $results;
     }
+
+    public function generateMenu(int $fat, int $carbs, int $proteins, int $calories, ?string $menuType = null)
+    {
+        $messages = collect([__('openai.requests.menu', ['fats' => $fat, 'carbs' => $carbs, 'proteins' => $proteins])]);
+
+        if (! is_null($menuType)) {
+            $messages->push(__('openai.requests.add_menu_type', ['menu_type' => $menuType]));
+        }
+
+        $results = $this->completion($messages->join(' '), '');
+
+        return $results[0];
+    }
 }

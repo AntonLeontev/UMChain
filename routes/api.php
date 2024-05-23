@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AIGenerationController;
 use App\Http\Controllers\GoogleFitController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
@@ -46,4 +47,5 @@ Route::middleware('auth:sanctum')
 
         Route::get('transactions', [TransactionController::class, 'index'])->name('api.transactions.index');
 
+        Route::get('generate-menu', [AIGenerationController::class, 'generateMenu'])->name('api.generate-menu');
     });
