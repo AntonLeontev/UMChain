@@ -180,7 +180,7 @@
             <div id="nav748332520marker"></div>
             <div class="tmenu-mobile">
                 <div class="tmenu-mobile__container">
-                    <div class="tmenu-mobile__burgerlogo"><a href="https://google.com"><img
+                    <div class="tmenu-mobile__burgerlogo"><a href="/"><img
                                 src="/home/images/tild6435-3738-4130-b836-643833363333__group_70.png"
                                 class="tmenu-mobile__imglogo" imgfield="img" style="max-width: 90px; width: 90px;"
                                 alt="UMFit"></a></div><button type="button" class="t-menuburger t-menuburger_first"
@@ -647,7 +647,7 @@
                 data-bgcolor-rgba-afterscroll="rgba(31,31,31,1)" data-menu-items-align="right" data-menu="yes">
                 <div class="t456__maincontainer t456__c12collumns" style="">
                     <div class="t456__leftwrapper" style="padding-left:20px;min-width:90px;width:90px;">
-                        <div class="t456__logowrapper" style="display: block;"><a href="https://google.com"><img
+                        <div class="t456__logowrapper" style="display: block;"><a href="/"><img
                                     class="t456__imglogo t456__imglogomobile"
                                     src="/home/images/tild6435-3738-4130-b836-643833363333__group_70.png" imgfield="img"
                                     style="max-width: 90px; width: 90px;" alt="UMFit"></a></div>
@@ -767,7 +767,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
             <div id="nav748335847marker"></div>
             <div class="tmenu-mobile tmenu-mobile_positionfixed">
                 <div class="tmenu-mobile__container">
-                    <div class="tmenu-mobile__burgerlogo"><a href="https://google.com"><img
+                    <div class="tmenu-mobile__burgerlogo"><a href="/"><img
                                 src="/home/images/tild6435-3738-4130-b836-643833363333__group_70.png"
                                 class="tmenu-mobile__imglogo" imgfield="img" style="max-width: 90px; width: 90px;"
                                 alt="UMFit"></a></div><button type="button"
@@ -1240,7 +1240,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                 data-bgcolor-rgba-afterscroll="rgba(31,31,31,1)" data-menu-items-align="right" data-menu="yes">
                 <div class="t456__maincontainer t456__c12collumns" style="">
                     <div class="t456__leftwrapper" style="padding-left:20px;min-width:90px;width:90px;">
-                        <div class="t456__logowrapper" style="display: block;"><a href="https://google.com"><img
+                        <div class="t456__logowrapper" style="display: block;"><a href="/"><img
                                     class="t456__imglogo t456__imglogomobile"
                                     src="/home/images/tild6435-3738-4130-b836-643833363333__group_70.png" imgfield="img"
                                     style="max-width: 90px; width: 90px;" alt="UMFit"></a></div>
