@@ -16,6 +16,7 @@
 		<link rel="manifest" href="/site.webmanifest">
 
         <!-- Scripts -->
+		<script src="https://telegram.org/js/telegram-web-app.js"></script>
 		@vite(['resources/css/app.css', 'resources/js/app.js'])
 		@routes
 

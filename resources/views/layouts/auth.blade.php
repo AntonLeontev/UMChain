@@ -15,11 +15,12 @@
         rel="stylesheet">
 
     <!-- Scripts -->
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
     @routes
     @vite(['resources/css/app.css'])
     <style>
         [x-cloak] {
-            display: none;
+            display: none !important;
         }
     </style>
 </head>

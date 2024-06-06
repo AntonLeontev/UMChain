@@ -12,6 +12,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@400;500;600&amp;family=Roboto&amp;display=swap" rel="stylesheet">
 
         <!-- Scripts -->
+		<script src="https://telegram.org/js/telegram-web-app.js"></script>
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGDCSBFMM6"></script>
 		<script>
@@ -25,7 +26,7 @@
 		@routes
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 		<style>
-			[x-cloak] {display: none;}
+			[x-cloak] {display: none !important;}
 		</style>
     </head>
     <body 

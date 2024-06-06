@@ -26,6 +26,7 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
 <!-- Assets -->
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://neo.tildacdn.com/js/tilda-fallback-1.0.min.js" async charset="utf-8"></script>
     <link rel="stylesheet" href="/home/css/tilda-grid-3.0.min.css" type="text/css" media="all"
         onerror="this.loaderr='y';" />
