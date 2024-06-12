@@ -19,6 +19,7 @@
       <!--/metatextblock-->
       <meta name="format-detection" content="telephone=no" />
       <meta http-equiv="x-dns-prefetch-control" content="on" />
+	  <meta http-equiv="Content-Security-Policy" content="frame-ancestors https://web.telegram.org;">
       <link rel="dns-prefetch" href="https://ws.tildacdn.com" />
 	  
       	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -26,6 +27,7 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
 <!-- Assets -->
+
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://neo.tildacdn.com/js/tilda-fallback-1.0.min.js" async charset="utf-8"></script>
     <link rel="stylesheet" href="/home/css/tilda-grid-3.0.min.css" type="text/css" media="all"

@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+		<meta http-equiv="Content-Security-Policy" content="frame-ancestors https://web.telegram.org;">
+
         <title>@yield('title') | UMFit</title>
 
         <!-- Fonts -->
