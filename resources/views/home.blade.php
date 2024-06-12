@@ -19,7 +19,6 @@
       <!--/metatextblock-->
       <meta name="format-detection" content="telephone=no" />
       <meta http-equiv="x-dns-prefetch-control" content="on" />
-	  <meta http-equiv="Content-Security-Policy" content="frame-ancestors https://web.telegram.org;">
       <link rel="dns-prefetch" href="https://ws.tildacdn.com" />
 	  
       	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
