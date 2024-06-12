@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 
 if (app()->isLocal()) {
     Route::get('test', function (OpenAIService $service) {
-        dd($service->generateMenu(12, 250, 130, 2500, 999));
     });
 }
 
@@ -30,8 +29,7 @@ if (! request()->ajax()) {
 }
 
 // не удалять, нужен для отправки уведомлений
-Route::get('reset-password', function () {
-})->name('password.reset');
+Route::get('reset-password', null)->name('password.reset');
 
 Route::prefix(config('moonshine.route.prefix', ''))
     ->as('moonshine.')

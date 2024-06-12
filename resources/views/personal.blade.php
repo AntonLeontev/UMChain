@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Title | UMFit</title>
+        <title>Личный кабинет | UMFit</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&amp;display=swap" rel="stylesheet">
@@ -16,7 +16,6 @@
 		<link rel="manifest" href="/site.webmanifest">
 
         <!-- Scripts -->
-		<script src="https://telegram.org/js/telegram-web-app.js"></script>
 		@vite(['resources/css/app.css', 'resources/js/app.js'])
 		@routes
 
