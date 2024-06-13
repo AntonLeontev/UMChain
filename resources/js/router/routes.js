@@ -24,6 +24,18 @@ export default [
         meta: { requiresGuest: true },
     },
     {
+        path: "/telegram",
+        component: () => import("@/Pages/Telegram.vue"),
+        name: "telegram",
+        meta: {},
+    },
+    {
+        path: "/quiz",
+        component: () => import("@/Pages/Quiz.vue"),
+        name: "quiz",
+        meta: {},
+    },
+    {
         path: "/cabinet",
         component: () => import("@/Layouts/PersonalLayout.vue"),
         children: [

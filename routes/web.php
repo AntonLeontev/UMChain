@@ -13,6 +13,7 @@ if (app()->isLocal()) {
 }
 
 Route::view('/', 'home')->name('home');
+Route::view('/quiz', 'quiz')->name('quiz');
 
 Route::middleware(['auth'])
     ->group(function () {

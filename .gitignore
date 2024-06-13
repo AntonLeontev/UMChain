@@ -7,6 +7,8 @@
 /storage/*.key
 resources/images_old
 /vendor
+/.cert
+/quiz_layout
 .env
 .env.backup
 .env.production
