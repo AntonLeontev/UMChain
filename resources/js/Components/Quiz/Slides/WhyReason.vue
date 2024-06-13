@@ -1,6 +1,7 @@
 <script setup>
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
+import PersonImage from "../PersonImage.vue";
 </script>
 
 <template>
@@ -15,11 +16,7 @@ import ProgressBar from "../ProgressBar.vue";
           </h2>
 
           <div class="quiz-content__img-wrapper">
-            <!--quiz-content__img при наличии 3d-model этот блок не используем -> (quiz-content__img) -->
-            <div class="quiz-content__img -ibg">
-              <img src="/resources/images/men-old/men30-39.png" alt="Image" />
-            </div>
-            <!--end quiz-content__img -->
+            <PersonImage />
           </div>
 
           <div class="quiz-content__info">

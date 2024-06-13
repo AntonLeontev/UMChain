@@ -1,5 +1,48 @@
 <script setup>
+import { inject, ref } from "vue";
+
 import NextButton from "../NextButton.vue";
+import InputWithDimension from "../InputWithDimension.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
+
+const name = sessionStorage.getItem("quiz.name");
+const bday = sessionStorage.getItem("quiz.bday");
+const sex = sessionStorage.getItem("quiz.sex");
+const heightValue = parseInt(sessionStorage.getItem("quiz.height_value"));
+const heightDimension = sessionStorage.getItem("quiz.height_dimension");
+const weightValue = parseInt(sessionStorage.getItem("quiz.weight_value"));
+const targetWeightValue = parseInt(sessionStorage.getItem("quiz.target_weight_value"));
+
+const dimensionsHeight = [
+  { label: "см", val: "cm", min: 100, max: 250 },
+  { label: "in", val: "inch", min: 30, max: 85 },
+];
+const dimensionsWeight = [
+  { label: "кг", val: "kg", min: 30, max: 250 },
+  { label: "lb", val: "lb", min: 66, max: 551 },
+];
+
+function tryNext(e) {
+  const data = new FormData(e.target);
+
+  sessionStorage.setItem("quiz.name", data.get("name"));
+  sessionStorage.setItem("quiz.bday", data.get("bday"));
+  sessionStorage.setItem("quiz.sex", data.get("sex"));
+  sessionStorage.setItem("quiz.height_dimension", data.get("height_dimension"));
+  sessionStorage.setItem("quiz.height_value", data.get("height_value"));
+  sessionStorage.setItem("quiz.weight_dimension", data.get("weight_dimension"));
+  sessionStorage.setItem("quiz.weight_value", data.get("weight_value"));
+  sessionStorage.setItem(
+    "quiz.target_weight_dimension",
+    data.get("target_weight_dimension")
+  );
+  sessionStorage.setItem("quiz.target_weight_value", data.get("target_weight_value"));
+  sessionStorage.setItem("quiz.agree", data.get("agree"));
+  sessionStorage.setItem("quiz.accept_ads", data.get("accept_ads") ?? 0);
+
+  nextPage();
+}
 </script>
 
 <template>
@@ -7,7 +50,7 @@ import NextButton from "../NextButton.vue";
     <section class="hero section-padding">
       <div class="hero__container-little">
         <h2 class="hero__title title">Давайте создадим вашу учетную запись UMFit</h2>
-        <div class="form">
+        <form class="form" @submit.prevent="tryNext">
           <div class="form__row">
             <label for="d-name" class="form__label">Как нам к вам обращаться?</label>
             <input
@@ -16,6 +59,11 @@ import NextButton from "../NextButton.vue";
               autocomplete="off"
               type="text"
               placeholder="Имя"
+              required
+              maxlength="50"
+              tabindex="0"
+              name="name"
+              :value="name"
             />
           </div>
           <div class="form__row d-flex d-flex_align-end">
@@ -25,20 +73,24 @@ import NextButton from "../NextButton.vue";
                 class="form__input input"
                 id="d-old"
                 autocomplete="off"
-                type="text"
-                placeholder="ДД/ММ/ГГГГ"
+                type="date"
+                name="bday"
+                required
+                :value="bday"
               />
             </div>
             <div class="form__column">
-              <div class="options">
+              <fieldset class="options">
                 <div class="options__item">
                   <input
                     id="o_1"
                     class="options__input"
                     checked
                     type="radio"
-                    value="1"
+                    value="male"
                     name="sex"
+                    tabindex="0"
+                    v-model="sex"
                   />
                   <label for="o_1" class="options__label">
                     <span class="options__text text">Мужской</span>
@@ -49,89 +101,46 @@ import NextButton from "../NextButton.vue";
                     id="o_2"
                     class="options__input"
                     type="radio"
-                    value="2"
+                    value="female"
                     name="sex"
+                    tabindex="0"
+                    v-model="sex"
                   />
                   <label for="o_2" class="options__label">
                     <span class="options__text text">Женский</span>
                   </label>
                 </div>
-              </div>
+              </fieldset>
             </div>
           </div>
           <div class="form__row d-flex">
             <div class="form__column">
               <label for="d-height" class="form__label">Какой у вас рост?</label>
-              <!--activation add class _active -->
-              <div class="input-box">
-                <input
-                  class="form__input input"
-                  id="d-height"
-                  autocomplete="off"
-                  type="text"
-                  placeholder="_____"
-                />
-                <button class="input-box__btn" type="button">
-                  <span>см</span>
-                  <img src="/resources/images/icons/dropdown.svg" alt="Image" />
-                </button>
-                <ul class="input-box__submenu">
-                  <li>inch</li>
-                </ul>
-              </div>
-              <!--end  -->
+              <InputWithDimension
+                name="height"
+                id="d-height"
+                :dimensions="dimensionsHeight"
+                :value="heightValue"
+                :dimensionValue="heightDimension"
+              />
             </div>
             <div class="form__column">
-              <label for="d-weight" class="form__label">Какой у вас рост?</label>
-              <!--activation add class _active -->
-              <div class="input-box">
-                <input
-                  class="form__input input"
-                  id="d-weight"
-                  autocomplete="off"
-                  type="text"
-                  placeholder="_____"
-                />
-                <button class="input-box__btn" type="button">
-                  <span>кг</span>
-                  <img
-                    src="/resources/images/icons/dropdown.svg"
-                    width="24"
-                    height="24"
-                    alt="Image"
-                  />
-                </button>
-                <ul class="input-box__submenu">
-                  <li>lb</li>
-                </ul>
-              </div>
-              <!--end  -->
+              <label for="d-weight" class="form__label">Какой у вас вес?</label>
+              <InputWithDimension
+                name="weight"
+                id="d-weight"
+                :dimensions="dimensionsWeight"
+                :value="weightValue"
+              />
             </div>
             <div class="form__column">
               <label for="d-weight_m" class="form__label">Целевой вес</label>
-              <!--activation add class _active -->
-              <div class="input-box">
-                <input
-                  class="form__input input"
-                  id="d-weight_m"
-                  autocomplete="off"
-                  type="text"
-                  placeholder="_____"
-                />
-                <button class="input-box__btn" type="button">
-                  <span>кг</span>
-                  <img
-                    src="/resources/images/icons/dropdown.svg"
-                    width="24"
-                    height="24"
-                    alt="Image"
-                  />
-                </button>
-                <ul class="input-box__submenu">
-                  <li>lb</li>
-                </ul>
-              </div>
-              <!--end  -->
+              <InputWithDimension
+                name="target_weight"
+                id="d-weight_m"
+                :dimensions="dimensionsWeight"
+                :value="targetWeightValue"
+              />
             </div>
           </div>
           <div class="form__row checkbox-items">
@@ -142,7 +151,9 @@ import NextButton from "../NextButton.vue";
                 class="checkbox__input"
                 type="checkbox"
                 value="1"
-                name="form[]"
+                name="agree"
+                checked
+                required
               />
               <label for="c_1" class="checkbox__label">
                 <span class="checkbox__text text text_xs"
@@ -161,7 +172,8 @@ import NextButton from "../NextButton.vue";
                 class="checkbox__input"
                 type="checkbox"
                 value="1"
-                name="form[]"
+                checked
+                name="accept_ads"
               />
               <label for="c_2" class="checkbox__label">
                 <span class="checkbox__text text text_xs"
@@ -184,7 +196,7 @@ import NextButton from "../NextButton.vue";
           <div class="form__row _right">
             <NextButton />
           </div>
-        </div>
+        </form>
       </div>
     </section>
   </main>

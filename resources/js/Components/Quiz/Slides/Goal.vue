@@ -1,6 +1,19 @@
 <script setup>
-import NextButton from "@/Components/Quiz/NextButton.vue";
-import ProgressBar from "@/Components/Quiz/ProgressBar.vue";
+import { inject, ref } from "vue";
+
+import NextButton from "../NextButton.vue";
+import ProgressBar from "../ProgressBar.vue";
+import PersonImage from "../PersonImage.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
+const goal = ref(sessionStorage.getItem("quiz.goal"));
+
+function tryNext(e) {
+  const data = new FormData(e.target);
+  sessionStorage.setItem("quiz.goal", data.get("goal"));
+
+  nextPage();
+}
 </script>
 
 <template>
@@ -11,13 +24,9 @@ import ProgressBar from "@/Components/Quiz/ProgressBar.vue";
         <div class="quiz-content">
           <h2 class="quiz-content__title-mobile _hidden title">Выберите свою цель</h2>
           <div class="quiz-content__img-wrapper">
-            <!--quiz-content__img при наличии 3d-model этот блок не используем -> (quiz-content__img) -->
-            <div class="quiz-content__img -ibg">
-              <img src="/resources/images/men-old/men50plus.png" alt="Image" />
-            </div>
-            <!--end quiz-content__img -->
+            <PersonImage />
           </div>
-          <div class="quiz-content__info">
+          <form class="quiz-content__info" @submit.prevent="tryNext">
             <h2 class="quiz-content__title _hidden title">Выберите свою цель</h2>
             <div class="quiz-content__options options">
               <div class="options__item">
@@ -28,6 +37,7 @@ import ProgressBar from "@/Components/Quiz/ProgressBar.vue";
                   type="radio"
                   value="1"
                   name="goal"
+                  v-model="goal"
                 />
                 <label for="g_1" class="options__label">
                   <span class="options__text text">Похудеть</span>
@@ -40,6 +50,7 @@ import ProgressBar from "@/Components/Quiz/ProgressBar.vue";
                   type="radio"
                   value="2"
                   name="goal"
+                  v-model="goal"
                 />
                 <label for="g_2" class="options__label">
                   <span class="options__text text">Набрать мышечную массу</span>
@@ -52,6 +63,7 @@ import ProgressBar from "@/Components/Quiz/ProgressBar.vue";
                   type="radio"
                   value="3"
                   name="goal"
+                  v-model="goal"
                 />
                 <label for="g_3" class="options__label">
                   <span class="options__text text">Подсушиться, показать рельеф</span>
@@ -61,7 +73,7 @@ import ProgressBar from "@/Components/Quiz/ProgressBar.vue";
             <div class="quiz-content__action">
               <NextButton />
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>

@@ -1,6 +1,10 @@
 <script setup>
+import { inject } from "vue";
+
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
 </script>
 
 <template>
@@ -17,7 +21,7 @@ import ProgressBar from "../ProgressBar.vue";
           <div class="quiz-content__img-wrapper">
             <!--quiz-content__img при наличии 3d-model этот блок не используем -> (quiz-content__img) -->
             <div class="quiz-content__img -ibg">
-              <img src="/resources/images/men-old/men30-39.png" alt="Image" />
+              <img src="/resources/images/men-old/30-39.png" alt="Image" />
             </div>
             <!--end quiz-content__img -->
           </div>
@@ -45,7 +49,7 @@ import ProgressBar from "../ProgressBar.vue";
               </div>
             </div>
             <div class="quiz-content__action">
-              <NextButton />
+              <NextButton @click="nextPage" />
             </div>
           </div>
         </div>

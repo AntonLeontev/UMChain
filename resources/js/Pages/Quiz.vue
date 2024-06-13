@@ -61,7 +61,9 @@ provide("quiz", { quizPage, nextPage, prevPage, componentsCount });
 
 <template>
   <QuizLayout>
-    <Component :is="components[quizPage]" />
+    <keep-alive>
+      <Component :is="components[quizPage]" exclude="Goal" />
+    </keep-alive>
   </QuizLayout>
 </template>
 
