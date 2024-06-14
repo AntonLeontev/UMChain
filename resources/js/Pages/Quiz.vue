@@ -42,7 +42,7 @@ const components = [
   Email,
 ];
 const componentsCount = components.length;
-const quizPage = ref(10);
+const quizPage = ref(0);
 
 function nextPage() {
   if (quizPage.value === componentsCount - 1) return;
