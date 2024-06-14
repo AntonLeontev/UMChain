@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, inject, onActivated } from "vue";
+import { ref, inject } from "vue";
 
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";

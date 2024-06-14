@@ -1,6 +1,25 @@
 <script setup>
+import { ref, inject } from "vue";
+
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
+
+const goals = ref(
+  sessionStorage.getItem("quiz.additional_goals")
+    ? JSON.parse(sessionStorage.getItem("quiz.additional_goals"))
+    : []
+);
+
+function clearGoals() {
+  goals.value = [];
+}
+
+function tryNext() {
+  sessionStorage.setItem("quiz.additional_goals", JSON.stringify(goals.value));
+  nextPage();
+}
 </script>
 
 <template>
@@ -25,7 +44,8 @@ import ProgressBar from "../ProgressBar.vue";
                   class="checkbox__input"
                   type="checkbox"
                   value="1"
-                  name="dop-goals"
+                  name="dop-goals[]"
+                  v-model="goals"
                 />
                 <label for="p_1" class="checkbox__label">
                   <span class="checkbox__text">Улучшить сон</span>
@@ -36,8 +56,9 @@ import ProgressBar from "../ProgressBar.vue";
                   id="p_2"
                   class="checkbox__input"
                   type="checkbox"
-                  value="1"
-                  name="dop-goals"
+                  value="2"
+                  name="dop-goals[]"
+                  v-model="goals"
                 />
                 <label for="p_2" class="checkbox__label">
                   <span class="checkbox__text"
@@ -50,8 +71,9 @@ import ProgressBar from "../ProgressBar.vue";
                   id="p_3"
                   class="checkbox__input"
                   type="checkbox"
-                  value="1"
-                  name="dop-goals"
+                  value="3"
+                  name="dop-goals[]"
+                  v-model="goals"
                 />
                 <label for="p_3" class="checkbox__label">
                   <span class="checkbox__text">Самодисциплина</span>
@@ -62,8 +84,9 @@ import ProgressBar from "../ProgressBar.vue";
                   id="p_4"
                   class="checkbox__input"
                   type="checkbox"
-                  value="1"
-                  name="dop-goals"
+                  value="4"
+                  name="dop-goals[]"
+                  v-model="goals"
                 />
                 <label for="p_4" class="checkbox__label">
                   <span class="checkbox__text">Улучшить свое здоровье</span>
@@ -74,8 +97,9 @@ import ProgressBar from "../ProgressBar.vue";
                   id="p_5"
                   class="checkbox__input"
                   type="checkbox"
-                  value="1"
-                  name="dop-goals"
+                  value="5"
+                  name="dop-goals[]"
+                  v-model="goals"
                 />
                 <label for="p_5" class="checkbox__label">
                   <span class="checkbox__text">Снизить стресс</span>
@@ -88,7 +112,9 @@ import ProgressBar from "../ProgressBar.vue";
                     class="checkbox__input"
                     type="checkbox"
                     value="1"
-                    name="dop-goals"
+                    name="dop-goals[]"
+                    :checked="goals.length === 0"
+                    :click="clearGoals"
                   />
                   <label for="p_6" class="checkbox__label">
                     <span class="checkbox__text">Ни один из вышеперечисленных</span>
@@ -97,7 +123,7 @@ import ProgressBar from "../ProgressBar.vue";
               </div>
             </div>
             <div class="quiz-content__action">
-              <NextButton />
+              <NextButton @click="tryNext" />
             </div>
           </div>
         </div>

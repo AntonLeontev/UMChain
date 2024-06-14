@@ -1,6 +1,25 @@
 <script setup>
+import { ref, inject } from "vue";
+
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
+
+const problems = ref(
+  sessionStorage.getItem("quiz.problems")
+    ? JSON.parse(sessionStorage.getItem("quiz.problems"))
+    : []
+);
+
+function clearProblems() {
+  problems.value = [];
+}
+
+function tryNext() {
+  sessionStorage.setItem("quiz.problems", JSON.stringify(problems.value));
+  nextPage();
+}
 </script>
 
 <template>
@@ -22,7 +41,8 @@ import ProgressBar from "../ProgressBar.vue";
                   class="checkbox__input"
                   type="checkbox"
                   value="1"
-                  name="problems"
+                  name="problems[]"
+                  v-model="problems"
                 />
                 <label for="p_1" class="checkbox__label">
                   <span class="checkbox__text">Недостаток мотивации</span>
@@ -33,8 +53,9 @@ import ProgressBar from "../ProgressBar.vue";
                   id="p_2"
                   class="checkbox__input"
                   type="checkbox"
-                  value="1"
-                  name="problems"
+                  value="2"
+                  name="problems[]"
+                  v-model="problems"
                 />
                 <label for="p_2" class="checkbox__label">
                   <span class="checkbox__text">Не увидел прогресса</span>
@@ -45,8 +66,9 @@ import ProgressBar from "../ProgressBar.vue";
                   id="p_3"
                   class="checkbox__input"
                   type="checkbox"
-                  value="1"
-                  name="problems"
+                  value="3"
+                  name="problems[]"
+                  v-model="problems"
                 />
                 <label for="p_3" class="checkbox__label">
                   <span class="checkbox__text"
@@ -59,8 +81,9 @@ import ProgressBar from "../ProgressBar.vue";
                   id="p_4"
                   class="checkbox__input"
                   type="checkbox"
-                  value="1"
-                  name="problems"
+                  value="4"
+                  name="problems[]"
+                  v-model="problems"
                 />
                 <label for="p_4" class="checkbox__label">
                   <span class="checkbox__text">Не было четкого плана занятий</span>
@@ -71,8 +94,9 @@ import ProgressBar from "../ProgressBar.vue";
                   id="p_5"
                   class="checkbox__input"
                   type="checkbox"
-                  value="1"
-                  name="problems"
+                  value="5"
+                  name="problems[]"
+                  v-model="problems"
                 />
                 <label for="p_5" class="checkbox__label">
                   <span class="checkbox__text">У меня нет единомышленников</span>
@@ -84,8 +108,11 @@ import ProgressBar from "../ProgressBar.vue";
                     id="p_6"
                     class="checkbox__input"
                     type="checkbox"
-                    value="1"
-                    name="problems"
+                    value="6"
+                    name="problems[]"
+                    :checked="problems.length === 0"
+                    v-ref="clear"
+                    @click="clearProblems"
                   />
                   <label for="p_6" class="checkbox__label">
                     <span class="checkbox__text">Ни один из вышеперечисленных</span>
@@ -94,7 +121,7 @@ import ProgressBar from "../ProgressBar.vue";
               </div>
             </div>
             <div class="quiz-content__action">
-              <NextButton />
+              <NextButton @click="tryNext" />
             </div>
           </div>
         </div>

@@ -1,7 +1,11 @@
 <script setup>
+import { inject } from "vue";
+
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
 import PersonImage from "../PersonImage.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
 </script>
 
 <template>
@@ -39,7 +43,7 @@ import PersonImage from "../PersonImage.vue";
               </div>
             </div>
             <div class="quiz-content__action">
-              <NextButton />
+              <NextButton @click="nextPage" />
             </div>
           </div>
         </div>
