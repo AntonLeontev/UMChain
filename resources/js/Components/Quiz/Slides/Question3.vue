@@ -1,6 +1,17 @@
 <script setup>
+import { ref, inject } from "vue";
+
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
+
+const deadline = ref(sessionStorage.getItem("quiz.deadline") ?? 1);
+
+function tryNext() {
+  sessionStorage.setItem("quiz.deadline", deadline.value);
+  nextPage();
+}
 </script>
 
 <template>
@@ -22,7 +33,8 @@ import ProgressBar from "../ProgressBar.vue";
                   checked
                   type="radio"
                   value="1"
-                  name="count"
+                  name="deadline"
+                  v-model="deadline"
                 />
                 <label for="c_1" class="options__label">
                   <span class="options__text text">1 - 3 месяца</span>
@@ -34,7 +46,8 @@ import ProgressBar from "../ProgressBar.vue";
                   class="options__input"
                   type="radio"
                   value="2"
-                  name="count"
+                  name="deadline"
+                  v-model="deadline"
                 />
                 <label for="c_2" class="options__label">
                   <span class="options__text text">3 - 6 месяцев</span>
@@ -46,7 +59,8 @@ import ProgressBar from "../ProgressBar.vue";
                   class="options__input"
                   type="radio"
                   value="3"
-                  name="count"
+                  name="deadline"
+                  v-model="deadline"
                 />
                 <label for="c_3" class="options__label">
                   <span class="options__text text">6 - 9 месяцев</span>
@@ -58,7 +72,8 @@ import ProgressBar from "../ProgressBar.vue";
                   class="options__input"
                   type="radio"
                   value="4"
-                  name="count"
+                  name="deadline"
+                  v-model="deadline"
                 />
                 <label for="c_4" class="options__label">
                   <span class="options__text text">9 - 12 месяцев</span>
@@ -66,7 +81,7 @@ import ProgressBar from "../ProgressBar.vue";
               </div>
             </div>
             <div class="quiz-content__action">
-              <NextButton />
+              <NextButton @click="tryNext" />
             </div>
           </div>
         </div>

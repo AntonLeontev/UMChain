@@ -1,6 +1,17 @@
 <script setup>
+import { ref, inject } from "vue";
+
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
+
+const trainingsCount = ref(sessionStorage.getItem("quiz.trainings_count") ?? 1);
+
+function tryNext() {
+  sessionStorage.setItem("quiz.trainings_count", trainingsCount.value);
+  nextPage();
+}
 </script>
 
 <template>
@@ -23,6 +34,7 @@ import ProgressBar from "../ProgressBar.vue";
                   type="radio"
                   value="1"
                   name="count"
+                  v-model="trainingsCount"
                 />
                 <label for="c_1" class="options__label">
                   <span class="options__text text"
@@ -37,6 +49,7 @@ import ProgressBar from "../ProgressBar.vue";
                   type="radio"
                   value="2"
                   name="count"
+                  v-model="trainingsCount"
                 />
                 <label for="c_2" class="options__label">
                   <span class="options__text text">1-2 раза в неделю</span>
@@ -49,6 +62,7 @@ import ProgressBar from "../ProgressBar.vue";
                   type="radio"
                   value="3"
                   name="count"
+                  v-model="trainingsCount"
                 />
                 <label for="c_3" class="options__label">
                   <span class="options__text text">3 раза в неделю</span>
@@ -61,6 +75,7 @@ import ProgressBar from "../ProgressBar.vue";
                   type="radio"
                   value="4"
                   name="count"
+                  v-model="trainingsCount"
                 />
                 <label for="c_4" class="options__label">
                   <span class="options__text text">Больше 3 раз в неделю</span>
@@ -68,7 +83,7 @@ import ProgressBar from "../ProgressBar.vue";
               </div>
             </div>
             <div class="quiz-content__action">
-              <NextButton />
+              <NextButton @click="tryNext" />
             </div>
           </div>
         </div>
