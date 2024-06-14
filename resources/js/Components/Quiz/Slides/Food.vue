@@ -1,6 +1,17 @@
 <script setup>
+import { ref, inject } from "vue";
+
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
+
+const food = ref(sessionStorage.getItem("quiz.food") ?? 1);
+
+function tryNext() {
+  sessionStorage.setItem("quiz.food", food.value);
+  nextPage();
+}
 </script>
 
 <template>
@@ -23,6 +34,7 @@ import ProgressBar from "../ProgressBar.vue";
                   type="radio"
                   value="1"
                   name="food"
+                  v-model="food"
                 />
                 <label for="f_1" class="options__label">
                   <span class="options__text text">Не часто. Я не люблю сладкое </span>
@@ -35,6 +47,7 @@ import ProgressBar from "../ProgressBar.vue";
                   type="radio"
                   value="2"
                   name="food"
+                  v-model="food"
                 />
                 <label for="f_2" class="options__label">
                   <span class="options__text text">3-5 раз в неделю</span>
@@ -47,6 +60,7 @@ import ProgressBar from "../ProgressBar.vue";
                   type="radio"
                   value="3"
                   name="food"
+                  v-model="food"
                 />
                 <label for="f_3" class="options__label">
                   <span class="options__text text">Практически каждый день</span>
@@ -54,7 +68,7 @@ import ProgressBar from "../ProgressBar.vue";
               </div>
             </div>
             <div class="quiz-content__action">
-              <NextButton />
+              <NextButton @click="tryNext" />
             </div>
           </div>
         </div>

@@ -1,6 +1,17 @@
 <script setup>
+import { ref, inject } from "vue";
+
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
+
+const why = ref(sessionStorage.getItem("quiz.why") ?? 1);
+
+function tryNext() {
+  sessionStorage.setItem("quiz.why", why.value);
+  nextPage();
+}
 </script>
 
 <template>
@@ -25,10 +36,11 @@ import ProgressBar from "../ProgressBar.vue";
                   checked
                   type="radio"
                   value="1"
-                  name="time"
+                  name="why"
+                  v-model="why"
                 />
                 <label for="t_1" class="options__label">
-                  <span class="options__text text">20 минут или меньше</span>
+                  <span class="options__text text">Улучшение внешнего вида</span>
                 </label>
               </div>
               <div class="options__item">
@@ -37,10 +49,11 @@ import ProgressBar from "../ProgressBar.vue";
                   class="options__input"
                   type="radio"
                   value="2"
-                  name="time"
+                  name="why"
+                  v-model="why"
                 />
                 <label for="t_2" class="options__label">
-                  <span class="options__text text">20 - 40 минут</span>
+                  <span class="options__text text">Улучшить свое здоровье</span>
                 </label>
               </div>
               <div class="options__item">
@@ -49,10 +62,13 @@ import ProgressBar from "../ProgressBar.vue";
                   class="options__input"
                   type="radio"
                   value="3"
-                  name="time"
+                  name="why"
+                  v-model="why"
                 />
                 <label for="t_3" class="options__label">
-                  <span class="options__text text">40 - 60 минут</span>
+                  <span class="options__text text"
+                    >Чувствовать себя более красивым и счастливым</span
+                  >
                 </label>
               </div>
               <div class="options__item">
@@ -60,16 +76,32 @@ import ProgressBar from "../ProgressBar.vue";
                   id="t_4"
                   class="options__input"
                   type="radio"
-                  value="3"
-                  name="time"
+                  value="4"
+                  name="why"
+                  v-model="why"
                 />
                 <label for="t_4" class="options__label">
-                  <span class="options__text text">Больше часа</span>
+                  <span class="options__text text"
+                    >Заниматься вместе с близким человеком</span
+                  >
+                </label>
+              </div>
+              <div class="options__item">
+                <input
+                  id="t_5"
+                  class="options__input"
+                  type="radio"
+                  value="5"
+                  name="why"
+                  v-model="why"
+                />
+                <label for="t_5" class="options__label">
+                  <span class="options__text text">Другое</span>
                 </label>
               </div>
             </div>
             <div class="quiz-content__action">
-              <NextButton />
+              <NextButton @click="tryNext" />
             </div>
           </div>
         </div>

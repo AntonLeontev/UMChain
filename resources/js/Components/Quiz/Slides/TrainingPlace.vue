@@ -1,6 +1,17 @@
 <script setup>
+import { ref, inject } from "vue";
+
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
+
+const place = ref(sessionStorage.getItem("quiz.training_place") ?? 1);
+
+function tryNext() {
+  sessionStorage.setItem("quiz.training_place", place.value);
+  nextPage();
+}
 </script>
 
 <template>
@@ -18,8 +29,9 @@ import ProgressBar from "../ProgressBar.vue";
                   class="options__input"
                   checked
                   type="radio"
-                  value="1"
+                  value="home"
                   name="place"
+                  v-model="place"
                 />
                 <label for="g_1" class="options__label">
                   <span class="options__text text">Дома</span>
@@ -30,8 +42,9 @@ import ProgressBar from "../ProgressBar.vue";
                   id="g_2"
                   class="options__input"
                   type="radio"
-                  value="2"
+                  value="gim"
                   name="place"
+                  v-model="place"
                 />
                 <label for="g_2" class="options__label">
                   <span class="options__text text">Тренажерный зал</span>
@@ -42,8 +55,9 @@ import ProgressBar from "../ProgressBar.vue";
                   id="g_3"
                   class="options__input"
                   type="radio"
-                  value="3"
+                  value="both"
                   name="place"
+                  v-model="place"
                 />
                 <label for="g_3" class="options__label">
                   <span class="options__text text">Оба варианта</span>
@@ -51,7 +65,7 @@ import ProgressBar from "../ProgressBar.vue";
               </div>
             </div>
             <div class="quiz-content__action">
-              <NextButton />
+              <NextButton @click="tryNext" />
             </div>
           </div>
         </div>

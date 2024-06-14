@@ -1,6 +1,17 @@
 <script setup>
+import { ref, inject } from "vue";
+
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
+
+const time = ref(sessionStorage.getItem("quiz.training_time") ?? 1);
+
+function tryNext() {
+  sessionStorage.setItem("quiz.training_time", time.value);
+  nextPage();
+}
 </script>
 
 <template>
@@ -12,7 +23,7 @@ import ProgressBar from "../ProgressBar.vue";
         <div class="quiz-content _little">
           <div class="quiz-content__info">
             <h2 class="quiz-content__title title">
-              Сколько времени вы готовы потрать на тренировку?
+              Сколько времени вы готовы потратить на тренировку?
             </h2>
             <div class="quiz-content__options options _shape">
               <div class="options__item">
@@ -23,6 +34,7 @@ import ProgressBar from "../ProgressBar.vue";
                   type="radio"
                   value="1"
                   name="time"
+                  v-model="time"
                 />
                 <label for="t_1" class="options__label">
                   <span class="options__text text">20 минут или меньше</span>
@@ -35,6 +47,7 @@ import ProgressBar from "../ProgressBar.vue";
                   type="radio"
                   value="2"
                   name="time"
+                  v-model="time"
                 />
                 <label for="t_2" class="options__label">
                   <span class="options__text text">20 - 40 минут</span>
@@ -47,6 +60,7 @@ import ProgressBar from "../ProgressBar.vue";
                   type="radio"
                   value="3"
                   name="time"
+                  v-model="time"
                 />
                 <label for="t_3" class="options__label">
                   <span class="options__text text">40 - 60 минут</span>
@@ -57,8 +71,9 @@ import ProgressBar from "../ProgressBar.vue";
                   id="t_4"
                   class="options__input"
                   type="radio"
-                  value="3"
+                  value="4"
                   name="time"
+                  v-model="time"
                 />
                 <label for="t_4" class="options__label">
                   <span class="options__text text">Больше часа</span>
@@ -66,7 +81,7 @@ import ProgressBar from "../ProgressBar.vue";
               </div>
             </div>
             <div class="quiz-content__action">
-              <NextButton />
+              <NextButton @click="tryNext" />
             </div>
           </div>
         </div>
