@@ -50,6 +50,8 @@ function tryNext() {
                 :max="6"
                 :step="1"
                 :tooltips="false"
+                from="5-9%"
+                to="&gt;40%"
                 @change="(e) => (level = e)"
               />
             </div>

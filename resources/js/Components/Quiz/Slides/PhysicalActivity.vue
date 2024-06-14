@@ -1,6 +1,59 @@
 <script setup>
+import { ref, computed, inject, onActivated } from "vue";
+
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
+import Slider from "../Slider.vue";
+
+const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
+
+const activity = ref(sessionStorage.getItem("quiz.physical_activity") ?? 1);
+
+const texts = [
+  {
+    title: "Новичок",
+    text: "Когда я сижу на полу, мне трудно встать.",
+  },
+  {
+    title: "Новичок",
+    text: "Я могу заниматься ходьбой в качестве кардиотренировки, но бегать тяжело.",
+  },
+  {
+    title: "Новичок",
+    text: "Я тренируюсь несколько раз в год, достаточно, чтобы вспотеть.",
+  },
+  {
+    title: "Любитель",
+    text: "Я стараюсь заниматься спортом раз в неделю, но все равно не регулярно.",
+  },
+  {
+    title: "Любитель",
+    text: "Я начал регулярно тренироваться хотя бы раз в неделю.",
+  },
+  {
+    title: "Любитель",
+    text:
+      "Я тренируюсь два раза в неделю, по крайней мере, в течение последних 3 месяцев.",
+  },
+  {
+    title: "Профи",
+    text: "Я предан фитнесу и тренируюсь, когда могу.",
+  },
+  {
+    title: "Профи",
+    text:
+      "О, поверь мне. Я в отличной форме, но мне все еще хочется подняться на уровень выше.",
+  },
+  {
+    title: "Профи",
+    text: "Я в огне! Я в лучшей форме в своей жизни.",
+  },
+];
+
+function tryNext() {
+  sessionStorage.setItem("quiz.physical_activity", activity.value);
+  nextPage();
+}
 </script>
 
 <template>
@@ -21,27 +74,28 @@ import ProgressBar from "../ProgressBar.vue";
               </div>
             </div>
             <div class="quiz-content__range">
-              <div class="quiz-content__input-range input-range">
-                <div class="input-range__input">
-                  <input type="range" id="range" />
-                </div>
-                <div class="input-range__value">
-                  <span>Худшая форма</span>
-                  <span>>Я в огне!</span>
-                </div>
-              </div>
+              <Slider
+                :min="1"
+                :max="9"
+                :step="1"
+                :tooltips="true"
+                from="Худшая форма"
+                to="Я в огне!"
+                @change="(e) => (activity = e)"
+              />
             </div>
             <div class="quiz-content__block">
               <div class="physical-training">
-                <div class="physical-training__title">Новичок</div>
+                <div class="physical-training__title">
+                  {{ texts[activity - 1].title }}
+                </div>
                 <div class="physical-training__text">
-                  Поднявшись вверх или спустившись на несколько лестничных пролетов, мне
-                  нужно отдышаться.
+                  {{ texts[activity - 1].text }}
                 </div>
               </div>
             </div>
             <div class="quiz-content__action">
-              <NextButton />
+              <NextButton @click="tryNext" />
             </div>
           </div>
         </div>

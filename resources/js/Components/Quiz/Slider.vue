@@ -7,6 +7,8 @@ const props = defineProps({
   step: Number,
   tooltips: Boolean,
   value: Number,
+  from: String,
+  to: String,
 });
 </script>
 
@@ -27,8 +29,8 @@ const props = defineProps({
       </div>
     </div>
     <div class="input-range__value">
-      <span>5-9%</span>
-      <span>&gt;40%</span>
+      <span>{{ props.from }}</span>
+      <span>{{ props.to }}</span>
     </div>
   </div>
 </template>
@@ -60,6 +62,9 @@ const props = defineProps({
 .slider-base {
   position: static;
 }
+.slider-tooltip {
+  border-color: #daf73a;
+}
 
 :root {
   --slider-radius: 0;
@@ -72,6 +77,19 @@ const props = defineProps({
   --slider-handle-ring-color: rgba(0, 0, 0, 0.32);
   --slider-handle-ring-width: 1px;
   --slider-handle-bg: #daf73a;
+
+  --slider-tooltip-font-size: 1rem;
+  --slider-tooltip-line-height: 1.25rem;
+  --slider-tooltip-font-weight: 400;
+  --slider-tooltip-min-width: 24px;
+  --slider-tooltip-bg: #262626;
+  --slider-tooltip-bg-disabled: #9ca3af;
+  --slider-tooltip-color: #daf73a;
+  --slider-tooltip-radius: 0;
+  --slider-tooltip-py: 3px;
+  --slider-tooltip-px: 7px;
+  --slider-tooltip-arrow-size: 7px;
+  --slider-tooltip-distance: 8px;
 }
 
 @media screen and (max-width: 768px) {
