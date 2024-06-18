@@ -13,6 +13,8 @@ if (app()->isLocal()) {
 }
 
 Route::view('/', 'home')->name('home');
+
+// Роут нужен тк у квиза свои ассеты и layout
 Route::view('/quiz', 'quiz')->name('quiz');
 
 Route::middleware(['auth'])

@@ -47,6 +47,8 @@ class User extends Authenticatable
         'token_coef',
         'email_verified_at',
         'created_at',
+        'telegram_id',
+        'quiz_is_done',
     ];
 
     /**
@@ -76,6 +78,7 @@ class User extends Authenticatable
         'activity' => Activity::class,
         'level' => Level::class,
         'direction' => WeightDirection::class,
+        'quiz_is_done' => 'boolean',
     ];
 
     protected $with = [

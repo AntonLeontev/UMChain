@@ -1,12 +1,28 @@
 <script setup>
-import { retrieveLaunchParams } from "@tma.js/sdk";
+import { onMounted } from "vue";
+import { initThemeParams } from "@tma.js/sdk";
 
-// const webAppData = new URLSearchParams(location.hash).get("#tgWebAppData");
-// const themeParams = new URLSearchParams(location.hash).get("tgWebAppThemeParams");
+const [themeParams] = initThemeParams();
 
-console.log(retrieveLaunchParams());
+onMounted(() => {
+  let root = document.querySelector(":root");
+  root.style.setProperty("--tg-theme-bg-color", themeParams.bgColor);
+  root.style.setProperty("--tg-theme-text-color", themeParams.textColor);
+});
 </script>
 
 <template>
-  <div class="">telegram123</div>
+  <div class="telegram-loader">
+    <a href="/quiz">quiz</a>
+    <a href="/cabinet/personal">personal</a>
+  </div>
 </template>
+
+<style scoped>
+.telegram-loader {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+}
+</style>

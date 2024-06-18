@@ -17,6 +17,7 @@ return [
     'telegram' => [
         'bot' => env('TELEGRAM_BOT_TOKEN'),
         'chat' => env('TELEGRAM_CHAT_ID'),
+        'mini_app_bot_token' => env('TELEGRAM_MINI_APP_BOT_TOKEN'),
     ],
 
     'google' => [

@@ -5,6 +5,7 @@ use App\Http\Controllers\GoogleFitController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReferralLinkController;
+use App\Http\Controllers\TelegramAuthController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WithdrawalController;
 use Illuminate\Support\Facades\Route;
@@ -48,4 +49,7 @@ Route::middleware('auth:sanctum')
         Route::get('transactions', [TransactionController::class, 'index'])->name('api.transactions.index');
 
         Route::get('generate-menu', [AIGenerationController::class, 'generateMenu'])->name('api.generate-menu');
+
     });
+
+Route::prefix('v1')->post('telegram-auth', TelegramAuthController::class)->name('telegram.auth');
