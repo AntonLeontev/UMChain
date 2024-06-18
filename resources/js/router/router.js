@@ -14,35 +14,26 @@ router.beforeEach(async (to, from) => {
         if (to.name === "telegram") {
             try {
                 const { initDataRaw } = retrieveLaunchParams();
-
-                axios
-                    .post(route("telegram.auth"), {
-                        telegram_raw_data: initDataRaw,
-                    })
-                    .then((res) => {
-                        useUserStore().user = res.data;
-                        useUserStore().isAuthenticated = true;
-
-                        if (useUserStore().user.quiz_is_done) {
-                            router.push({ name: "personal" });
-                        }
-
-                        // window.location.replace("/quiz");
-                    });
+                sessionStorage.setItem("telegramInitData", initDataRaw);
             } catch (error) {
                 return { name: "login" };
             }
-        } else {
-            await axios
-                .get(route("api.user"))
-                .then((res) => {
-                    useUserStore().user = res.data;
-                    useUserStore().isAuthenticated = true;
-                })
-                .catch(() => {
-                    useUserStore().isAuthenticated = false;
-                });
         }
+
+        if (sessionStorage.getItem("telegramInitData")) {
+            axios.defaults.headers.common["X-Telegram-Authorization"] =
+                sessionStorage.getItem("telegramInitData");
+        }
+
+        await axios
+            .get(route("api.user"))
+            .then((res) => {
+                useUserStore().user = res.data;
+                useUserStore().isAuthenticated = true;
+            })
+            .catch(() => {
+                useUserStore().isAuthenticated = false;
+            });
     }
 
     if (to.meta.requiresAuth && !useUserStore().user) {

@@ -35,6 +35,12 @@ task('build', function () {
     run('npm run build');
 });
 
+task('push_build', function () {
+    cd('/home/deployer/umfit/current');
+    run('npm install');
+    run('npm run build');
+});
+
 task('cache_routes', function () {
     cd('{{release_path}}');
     run('php artisan route:clear');
@@ -47,7 +53,8 @@ task('reboot', function () {
 
 // Hooks
 after('deploy:vendors', 'build');
-after('artisan:route:cache', 'cache_routes');
+after('push', 'push_build');
+// after('artisan:route:cache', 'cache_routes');
 // after('deploy:unlock', 'reboot');
 
 after('deploy:failed', 'deploy:unlock');
