@@ -1,18 +1,28 @@
 <script setup>
 import { inject, ref } from "vue";
+import { parseInitData } from '@tma.js/sdk';
 
 import NextButton from "../NextButton.vue";
 import InputWithDimension from "../InputWithDimension.vue";
 
 const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
 
-const name = sessionStorage.getItem("quiz.name");
+let name;
+
+if (sessionStorage.getItem("quiz.name")) {
+	name = sessionStorage.getItem("quiz.name");
+} else if(sessionStorage.getItem("telegramInitData")) {
+	name = parseInitData(sessionStorage.getItem("telegramInitData")).user?.firstName
+}
+
 const bday = sessionStorage.getItem("quiz.bday");
 const sex = sessionStorage.getItem("quiz.sex");
 const heightValue = parseInt(sessionStorage.getItem("quiz.height_value"));
 const heightDimension = sessionStorage.getItem("quiz.height_dimension");
 const weightValue = parseInt(sessionStorage.getItem("quiz.weight_value"));
+const weightDimension = sessionStorage.getItem("quiz.weight_dimension");
 const targetWeightValue = parseInt(sessionStorage.getItem("quiz.target_weight_value"));
+const targetWeightDimension = sessionStorage.getItem("quiz.target_weight_dimension");
 
 const dimensionsHeight = [
   { label: "см", val: "cm", min: 100, max: 250 },
@@ -131,6 +141,7 @@ function tryNext(e) {
                 id="d-weight"
                 :dimensions="dimensionsWeight"
                 :value="weightValue"
+				:dimensionValue="weightDimension"
               />
             </div>
             <div class="form__column">
@@ -140,6 +151,7 @@ function tryNext(e) {
                 id="d-weight_m"
                 :dimensions="dimensionsWeight"
                 :value="targetWeightValue"
+				:dimensionValue="targetWeightDimension"
               />
             </div>
           </div>

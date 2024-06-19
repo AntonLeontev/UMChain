@@ -103,3 +103,11 @@ function tryNext() {
     </section>
   </main>
 </template>
+
+<style scoped>
+@media (max-width: 30em) {
+  .quiz-content__title-block {
+    margin-bottom: 3.9rem;
+  }
+}
+</style>

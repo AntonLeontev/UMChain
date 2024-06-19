@@ -111,7 +111,6 @@ function tryNext() {
                     value="6"
                     name="problems[]"
                     :checked="problems.length === 0"
-                    v-ref="clear"
                     @click="clearProblems"
                   />
                   <label for="p_6" class="checkbox__label">

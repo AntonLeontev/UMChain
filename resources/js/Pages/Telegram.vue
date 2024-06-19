@@ -2,27 +2,44 @@
 import { onMounted } from "vue";
 import { initThemeParams } from "@tma.js/sdk";
 
+import useUserStore from "../stores/user";
+import Loader from "@/Components/Common/CircleLoader.vue";
+
+const user = useUserStore().user;
+
+let redirect = user.quiz_is_done ? "/cabinet/personal" : "/quiz";
+
+window.location.href = redirect;
+
 const [themeParams] = initThemeParams();
 
 onMounted(() => {
-  let root = document.querySelector(":root");
-  root.style.setProperty("--tg-theme-bg-color", themeParams.bgColor);
-  root.style.setProperty("--tg-theme-text-color", themeParams.textColor);
+    let root = document.querySelector(":root");
+    root.style.setProperty("--tg-theme-bg-color", themeParams.bgColor);
+    root.style.setProperty("--tg-theme-text-color", themeParams.textColor);
 });
 </script>
 
 <template>
-  <div class="telegram-loader">
-    <a href="/quiz">quiz</a>
-    <a href="/cabinet/personal">personal</a>
-  </div>
+    <div class="telegram-loader">
+        <Loader class="loader" />
+    </div>
 </template>
 
 <style scoped>
 .telegram-loader {
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--tg-theme-bg-color);
-  color: var(--tg-theme-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+}
+
+.loader {
+    width: 80px;
+    height: 80px;
+    color: var(--tg-theme-text-color);
 }
 </style>

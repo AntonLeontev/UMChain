@@ -21,54 +21,101 @@ import Question2 from "@/Components/Quiz/Slides/Question2.vue";
 import Question3 from "@/Components/Quiz/Slides/Question3.vue";
 import Email from "@/Components/Quiz/Slides/Email.vue";
 
-const components = [
-  Home,
-  Goal,
-  FatLevel,
-  ProblemZones,
-  TrainingPlace,
-  TrainingTime,
-  Why,
-  Food,
-  Water,
-  Info1,
-  PhysicalActivity,
-  Problems,
-  WhyReason,
-  AdditionalGoals,
-  Info2,
-  Question2,
-  Question3,
-  Email,
+let components = [
+    Home,
+    Goal,
+    FatLevel,
+    ProblemZones,
+    TrainingPlace,
+    TrainingTime,
+    Why,
+    Food,
+    Water,
+    Info1,
+    PhysicalActivity,
+    Problems,
+    WhyReason,
+    AdditionalGoals,
+    Info2,
+    Question2,
+    Question3,
 ];
+
+if (!sessionStorage.getItem("telegramInitData")) {
+	components.push(Email);
+}
+
 const componentsCount = components.length;
 const quizPage = ref(0);
 
 function nextPage() {
-  if (quizPage.value === componentsCount - 1) return;
+    if (quizPage.value === componentsCount - 1) {
+		saveAnswers();
+		return;
+	};
 
-  quizPage.value++;
+    goToTop();
+    quizPage.value++;
 }
 
 function prevPage() {
-  if (quizPage.value === 0) return;
+    if (quizPage.value === 0) return;
+	
+    goToTop();
+    quizPage.value--;
+}
 
-  quizPage.value--;
+function goToTop() {
+	window.scroll({
+        top: 0,
+    });
+}
+
+function saveAnswers() {
+	let data = {
+		accept_ads: sessionStorage.getItem("quiz.accept_ads"),
+		additional_goals: sessionStorage.getItem("quiz.additional_goals"),
+		agree: sessionStorage.getItem("quiz.agree"),
+		bday: sessionStorage.getItem("quiz.bday"),
+		deadline: sessionStorage.getItem("quiz.deadline"),
+		fat_level: sessionStorage.getItem("quiz.fat_level"),
+		food: sessionStorage.getItem("quiz.food"),
+		goal: sessionStorage.getItem("quiz.goal"),
+		height_dimension: sessionStorage.getItem("quiz.height_dimension"),
+		height_value: sessionStorage.getItem("quiz.height_value"),
+		name: sessionStorage.getItem("quiz.name"),
+		physical_activity: sessionStorage.getItem("quiz.physical_activity"),
+		problems: sessionStorage.getItem("quiz.problems"),
+		sex: sessionStorage.getItem("quiz.sex"),
+		target_weight_dimension: sessionStorage.getItem("quiz.target_weight_dimension"),
+		target_weight_value: sessionStorage.getItem("quiz.target_weight_value"),
+		training_place: sessionStorage.getItem("quiz.training_place"),
+		training_time: sessionStorage.getItem("quiz.training_time"),
+		trainings_count: sessionStorage.getItem("quiz.trainings_count"),
+		water: sessionStorage.getItem("quiz.water"),
+		weight_dimension: sessionStorage.getItem("quiz.weight_dimension"),
+		weight_value: sessionStorage.getItem("quiz.weight_value"),
+		why: sessionStorage.getItem("quiz.why"),
+		zones: sessionStorage.getItem("quiz.zones"),
+	};
+
+	console.table(data)
 }
 
 provide("quiz", { quizPage, nextPage, prevPage, componentsCount });
 </script>
 
 <template>
-  <QuizLayout>
-    <keep-alive>
-      <Component :is="components[quizPage]" exclude="Goal" />
-    </keep-alive>
-  </QuizLayout>
+    <QuizLayout>
+        <div class="quiz__top"></div>
+        <keep-alive>
+            <Component :is="components[quizPage]" />
+        </keep-alive>
+    </QuizLayout>
 </template>
 
 <style scoped>
 .page {
-  min-height: calc(100vh - 105px);
+    min-height: calc(100vh - 105px);
 }
 </style>

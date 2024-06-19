@@ -23,8 +23,9 @@ const activeDimension = props.dimensionValue
   ? ref(props.dimensions.find((el) => el.val === props.dimensionValue))
   : ref(props.dimensions[0]);
 
+
 const dimensionVariants = ref(
-  props.dimensions.filter((el) => el.val !== props.dimensionValue)
+  props.dimensions.filter((el) => el.val !== activeDimension.value.val)
 );
 
 function changeDimension(dimension) {
