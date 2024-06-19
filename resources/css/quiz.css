@@ -164,6 +164,11 @@ h6 {
 .button--fw {
   width: 100%
 }
+.button_tg {
+  color: #fff;
+  background-color: #2aabee;
+  box-shadow: none
+}
 .button__loader {
   width: 1.25rem;
   padding: .125rem;
@@ -384,19 +389,19 @@ textarea.input {
   top: .1875rem;
   left: .125rem;
   scale: 0;
-  background: url(../images/icons/check.svg) no-repeat center/contain;
+  background: url(../img/icons/check.svg) no-repeat center/contain;
   transition: scale .3s
 }
 ._shape .checkbox__label::after,
 .zones__checkbox .checkbox__label::after {
-  background: url(../images/icons/check-black.svg) no-repeat center/contain;
+  background: url(../img/icons/check-black.svg) no-repeat center/contain;
   top: 1.25rem;
   left: 1.3125rem
 }
 .checkbox-block .checkbox__label::after {
   top: 1.25rem;
   left: 1.3125rem;
-  background: url(../images/icons/close.svg) no-repeat center/contain
+  background: url(../img/icons/close.svg) no-repeat center/contain
 }
 .checkbox__text {
   align-self: center
@@ -577,7 +582,7 @@ textarea.input {
   content: "";
   width: 1.5rem;
   height: 1.5rem;
-  background: url(../images/icons/check-li.svg) no-repeat center/contain
+  background: url(../img/icons/check-li.svg) no-repeat center/contain
 }
 .disc-style .quiz-info ul li + li {
   margin-top: .3125rem
@@ -786,14 +791,36 @@ input:checked + .switch__slider:before {
 ._fat-goal .quiz-content__img-wrapper {
   flex: 0 0 14.375rem
 }
+._big .quiz-content__img-wrapper {
+  flex: 0 0 44%
+}
 .quiz-content__img {
   padding-bottom: 160%
 }
 ._fat-goal .quiz-content__img {
   padding-bottom: 252%
 }
+._big .quiz-content__img {
+  padding-bottom: 60%
+}
+._big .quiz-content__img::before {
+  content: "";
+  position: absolute;
+  width: 20.5rem;
+  height: 20.5rem;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: rgba(218,247,58,.3);
+  border-radius: 50%;
+  -webkit-filter: blur(80px);
+  filter: blur(80px)
+}
 .quiz-content__title._hidden {
   display: none
+}
+.quiz-content__title._accent {
+  color: var(--accent)
 }
 .quiz-content__title-mobile {
   flex: 1 1 100%
@@ -849,6 +876,11 @@ input:checked + .switch__slider:before {
   margin: 0 auto;
   text-align: center
 }
+@media (min-width:29.99875em) {
+  ._big .quiz-content__action {
+    text-align: left
+  }
+}
 @media (min-width:47.99875em) {
   .d-flex_align-end {
     align-items: flex-end
@@ -882,7 +914,7 @@ input:checked + .switch__slider:before {
   }
   .zones__checkbox .checkbox_01::before {
     height: 6.875rem;
-    background: url(../images/dec_01.svg) no-repeat center/contain
+    background: url(../img/dec_01.svg) no-repeat center/contain
   }
   .zones__checkbox .checkbox_02 {
     top: 72.1556886228%;
@@ -890,7 +922,7 @@ input:checked + .switch__slider:before {
   }
   .zones__checkbox .checkbox_02::before {
     height: 11.75rem;
-    background: url(../images/dec_02.svg) no-repeat center/contain
+    background: url(../img/dec_02.svg) no-repeat center/contain
   }
   .zones__checkbox .checkbox_03 {
     top: 20.3592814371%;
@@ -899,7 +931,7 @@ input:checked + .switch__slider:before {
   .zones__checkbox .checkbox_03::before {
     left: 50%;
     translate: -100% 0;
-    background: url(../images/dec_03.svg) no-repeat center/contain
+    background: url(../img/dec_03.svg) no-repeat center/contain
   }
   .zones__checkbox .checkbox_04 {
     top: 84.4311377246%;
@@ -908,7 +940,7 @@ input:checked + .switch__slider:before {
   .zones__checkbox .checkbox_04::before {
     left: 50%;
     translate: -100% -49%;
-    background: url(../images/dec_04.svg) no-repeat center/contain
+    background: url(../img/dec_04.svg) no-repeat center/contain
   }
   .hero__title {
     max-width: 37.8125rem
@@ -1047,6 +1079,12 @@ input:checked + .switch__slider:before {
   .quiz__progress {
     margin-bottom: 2.5rem
   }
+  .quiz-content._big {
+    padding-top: 5rem
+  }
+  .quiz-content._big {
+    gap: 8.75rem
+  }
   .quiz-content__checkbox {
     gap: 1.25rem
   }
@@ -1070,6 +1108,11 @@ input:checked + .switch__slider:before {
   }
   .quiz-content__water {
     margin-bottom: 2.5rem
+  }
+}
+@media (max-width:48em) {
+  .quiz-content._big {
+    gap: 1.25rem
   }
 }
 @media (max-width:30em) {
@@ -1182,6 +1225,9 @@ input:checked + .switch__slider:before {
   }
   .quiz__progress {
     margin-bottom: 1.875rem
+  }
+  .quiz-content._big {
+    padding-top: 1.25rem
   }
   .quiz-content__checkbox {
     gap: 1rem
@@ -1305,6 +1351,9 @@ input:checked + .switch__slider:before {
   ._fat-goal .quiz-content__img-wrapper {
     flex: 1 1 100%
   }
+  ._big .quiz-content__img-wrapper {
+    order: 2
+  }
   .quiz-content__title-mobile {
     text-align: center
   }
@@ -1334,7 +1383,13 @@ input:checked + .switch__slider:before {
   .menu__body {
     padding: 7.5rem .9375rem .9375rem 1.875rem
   }
+  ._big .quiz-info__text {
+    text-align: center
+  }
   .quiz-content__img-wrapper {
+    flex: 1 1 100%
+  }
+  ._big .quiz-content__img-wrapper {
     flex: 1 1 100%
   }
   .quiz-content__img {
@@ -1346,6 +1401,12 @@ input:checked + .switch__slider:before {
   }
   ._fat-goal .quiz-content__img {
     padding-bottom: 120%
+  }
+  ._big .quiz-content__img {
+    padding-bottom: 80%
+  }
+  ._big .quiz-content__title {
+    text-align: center
   }
   .zones__img {
     padding-bottom: 75%
@@ -1622,6 +1683,16 @@ input:checked + .switch__slider:before {
       margin-bottom: calc(1.875rem + .625 * (100vw - 20rem)/ 55)
     }
   }
+  @supports (padding-top:clamp(1.25rem ,-0.1136363636rem + 6.8181818182vw ,5rem)) {
+    .quiz-content._big {
+      padding-top: clamp(1.25rem ,-.1136363636rem + 6.8181818182vw ,5rem)
+    }
+  }
+  @supports not (padding-top:clamp(1.25rem ,-0.1136363636rem + 6.8181818182vw ,5rem)) {
+    .quiz-content._big {
+      padding-top: calc(1.25rem + 3.75 * (100vw - 20rem)/ 55)
+    }
+  }
   @supports (gap:clamp(1rem ,0.9090909091rem + 0.4545454545vw ,1.25rem)) {
     .quiz-content__checkbox {
       gap: clamp(1rem ,.9090909091rem + .4545454545vw ,1.25rem)
@@ -1879,6 +1950,18 @@ input:checked + .switch__slider:before {
   @supports not (margin-bottom:clamp(1.875rem ,1.4583333333rem + 1.3888888889vw ,2.5rem)) {
     .quiz-content__water {
       margin-bottom: calc(1.875rem + .625 * (100vw - 30rem)/ 45)
+    }
+  }
+}
+@media (min-width:48em) and (max-width:75em) {
+  @supports (gap:clamp(1.25rem ,-12.0833333333rem + 27.7777777778vw ,8.75rem)) {
+    .quiz-content._big {
+      gap: clamp(1.25rem ,-12.0833333333rem + 27.7777777778vw ,8.75rem)
+    }
+  }
+  @supports not (gap:clamp(1.25rem ,-12.0833333333rem + 27.7777777778vw ,8.75rem)) {
+    .quiz-content._big {
+      gap: calc(1.25rem + 7.5 * (100vw - 48rem)/ 27)
     }
   }
 }

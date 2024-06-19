@@ -16,6 +16,7 @@ Route::view('/', 'home')->name('home');
 
 // Роут нужен тк у квиза свои ассеты и layout
 Route::view('/quiz', 'quiz')->name('quiz');
+Route::view('/stub', 'quiz')->name('stub');
 
 Route::middleware(['auth'])
     ->group(function () {
