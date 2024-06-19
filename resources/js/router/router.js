@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import routes from "./routes";
 import useUserStore from "../stores/user";
 import axios from "axios";
-import { retrieveLaunchParams } from "@tma.js/sdk";
+import { retrieveLaunchParams, postEvent } from "@tma.js/sdk";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,6 +15,10 @@ router.beforeEach(async (to, from) => {
             try {
                 const { initDataRaw } = retrieveLaunchParams();
                 sessionStorage.setItem("telegramInitData", initDataRaw);
+                postEvent("web_app_expand");
+                postEvent("web_app_setup_closing_behavior", {
+                    need_confirmation: true,
+                });
             } catch (error) {
                 return { name: "login" };
             }

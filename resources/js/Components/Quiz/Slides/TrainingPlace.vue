@@ -27,9 +27,8 @@ function tryNext() {
                 <input
                   id="g_1"
                   class="options__input"
-                  checked
                   type="radio"
-                  value="home"
+                  value="1"
                   name="place"
                   v-model="place"
                 />
@@ -42,7 +41,7 @@ function tryNext() {
                   id="g_2"
                   class="options__input"
                   type="radio"
-                  value="gim"
+                  value="2"
                   name="place"
                   v-model="place"
                 />
@@ -55,7 +54,7 @@ function tryNext() {
                   id="g_3"
                   class="options__input"
                   type="radio"
-                  value="both"
+                  value="3"
                   name="place"
                   v-model="place"
                 />

@@ -108,7 +108,7 @@ function saveAnswers() {
 			console.log(error);
 		});
 
-	useRouter().push({ name: "stub" })
+	window.location.replace('/stub')
 }
 
 provide("quiz", { quizPage, nextPage, prevPage, componentsCount });

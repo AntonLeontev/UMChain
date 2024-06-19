@@ -6,7 +6,7 @@ import ProgressBar from "../ProgressBar.vue";
 
 const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
 
-const water = ref(sessionStorage.getItem("quiz.water") ?? null);
+const water = ref(sessionStorage.getItem("quiz.water") ?? 1);
 
 const waterResult = {
   1: {
