@@ -36,6 +36,12 @@ export default [
         meta: {},
     },
     {
+        path: "/stub",
+        component: () => import("@/Pages/Stub.vue"),
+        name: "stub",
+        meta: {},
+    },
+    {
         path: "/cabinet",
         component: () => import("@/Layouts/PersonalLayout.vue"),
         children: [

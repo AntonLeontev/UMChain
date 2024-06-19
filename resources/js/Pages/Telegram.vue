@@ -7,7 +7,7 @@ import Loader from "@/Components/Common/CircleLoader.vue";
 
 const user = useUserStore().user;
 
-let redirect = user.quiz_is_done ? "/cabinet/personal" : "/quiz";
+let redirect = user.quiz_is_done ? "/stub" : "/quiz";
 
 window.location.href = redirect;
 

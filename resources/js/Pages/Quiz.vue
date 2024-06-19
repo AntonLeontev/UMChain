@@ -1,5 +1,6 @@
 <script setup>
 import { ref, provide } from "vue";
+import { useRouter } from "vue-router";
 
 import QuizLayout from "@/Layouts/QuizLayout.vue";
 import Home from "@/Components/Quiz/Slides/Home.vue";
@@ -106,6 +107,8 @@ function saveAnswers() {
 		.catch((error) => {
 			console.log(error);
 		});
+
+	useRouter().push({ name: "stub" })
 }
 
 provide("quiz", { quizPage, nextPage, prevPage, componentsCount });
