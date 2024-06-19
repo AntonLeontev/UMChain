@@ -4,6 +4,7 @@ use App\Http\Controllers\AIGenerationController;
 use App\Http\Controllers\GoogleFitController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\ReferralLinkController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WithdrawalController;
@@ -20,10 +21,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')
-    ->prefix('v1')
-    ->group(function () {
+Route::prefix('v1')->group(function () {
+    Route::post('quizzes', [QuizController::class, 'store'])->name('api.quizzes.store');
 
+    Route::middleware('auth:sanctum')->group(function () {
         Route::prefix('user')
             ->controller(ProfileController::class)
             ->group(function () {
@@ -48,5 +49,5 @@ Route::middleware('auth:sanctum')
         Route::get('transactions', [TransactionController::class, 'index'])->name('api.transactions.index');
 
         Route::get('generate-menu', [AIGenerationController::class, 'generateMenu'])->name('api.generate-menu');
-
     });
+});

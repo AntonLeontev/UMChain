@@ -99,7 +99,13 @@ function saveAnswers() {
 		zones: sessionStorage.getItem("quiz.zones"),
 	};
 
-	console.table(data)
+	axios.post(route('api.quizzes.store'), data)
+		.then((response) => {
+			console.log(response);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 }
 
 provide("quiz", { quizPage, nextPage, prevPage, componentsCount });
