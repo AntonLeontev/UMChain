@@ -11,6 +11,7 @@ export default defineConfig({
                 "resources/css/app.css",
                 "resources/css/quiz.css",
                 "resources/js/app.js",
+                "resources/js/telegram-lib.js",
             ],
             refresh: true,
         }),

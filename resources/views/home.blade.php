@@ -169,6 +169,22 @@
             }
         })();
     </script>
+
+	@vite(['resources/js/telegram-lib.js'])
+	<script defer>
+		document.addEventListener('DOMContentLoaded', () => {
+			try {
+				const { initDataRaw } = retrieveLaunchParams();
+                sessionStorage.setItem("telegramInitData", initDataRaw);
+                postEvent("web_app_expand");
+                // postEvent("web_app_setup_closing_behavior", {
+                //     need_confirmation: true,
+                // });
+			} catch (error) {
+				console.log(error);
+			}
+		})
+	</script>
 </head>
 
 <body class="t-body" style="margin:0;"><!--allrecords-->
@@ -1575,7 +1591,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-axisx-value="left" data-field-container-value="grid"
                         data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="px" data-field-widthunits-value="px">
-                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
+                        <a href="{{ route('quiz') }}" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -1838,7 +1854,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="px" data-field-widthunits-value="px"
                         data-field-top-res-320-value="524" data-field-left-res-320-value="50">
-                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
+                        <a href="{{ route('quiz') }}" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -2389,7 +2405,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-axisx-value="left" data-field-container-value="grid"
                         data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="px" data-field-widthunits-value="px">
-                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
+                        <a href="{{ route('quiz') }}" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -2776,7 +2792,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-heightunits-value="px" data-field-widthunits-value="px"
                         data-field-top-res-320-value="722" data-field-left-res-320-value="60"
                         data-field-height-res-320-value="44" data-field-width-res-320-value="200">
-                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
+                        <a href="{{ route('quiz') }}" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -4683,7 +4699,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-axisx-value="left" data-field-container-value="grid"
                         data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="px" data-field-widthunits-value="px">
-                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
+                        <a href="{{ route('quiz') }}" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -4996,7 +5012,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-heightunits-value="px" data-field-widthunits-value="px"
                         data-field-top-res-320-value="120" data-field-left-res-320-value="60"
                         data-field-height-res-320-value="40" data-field-width-res-320-value="200">
-                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
+                        <a href="{{ route('quiz') }}" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                 </div>
             </div>
@@ -6580,7 +6596,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="px" data-field-widthunits-value="px"
                         data-field-left-res-960-value="620">
-                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
+                        <a href="{{ route('quiz') }}" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7477204771715613694533' data-elem-id='1715613694533'
                         data-elem-type='shape' data-field-top-value="100" data-field-left-value="130"
@@ -7126,7 +7142,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                         data-field-heightunits-value="px" data-field-widthunits-value="px"
                         data-field-top-res-320-value="405" data-field-left-res-320-value="51"
                         data-field-height-res-320-value="40" data-field-width-res-320-value="220">
-                        <a href="/register" class='tn-atom'>Зарегистрироваться</a>
+                        <a href="{{ route('quiz') }}" class='tn-atom'>Зарегистрироваться</a>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7483272691715955600274' data-elem-id='1715955600274'
                         data-elem-type='text' data-field-top-value="60" data-field-left-value="60"

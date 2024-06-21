@@ -389,19 +389,19 @@ textarea.input {
   top: .1875rem;
   left: .125rem;
   scale: 0;
-  background: url(../img/icons/check.svg) no-repeat center/contain;
+  background: url(../images/icons/check.svg) no-repeat center/contain;
   transition: scale .3s
 }
 ._shape .checkbox__label::after,
 .zones__checkbox .checkbox__label::after {
-  background: url(../img/icons/check-black.svg) no-repeat center/contain;
+  background: url(../images/icons/check-black.svg) no-repeat center/contain;
   top: 1.25rem;
   left: 1.3125rem
 }
 .checkbox-block .checkbox__label::after {
   top: 1.25rem;
   left: 1.3125rem;
-  background: url(../img/icons/close.svg) no-repeat center/contain
+  background: url(../images/icons/close.svg) no-repeat center/contain
 }
 .checkbox__text {
   align-self: center
@@ -582,7 +582,7 @@ textarea.input {
   content: "";
   width: 1.5rem;
   height: 1.5rem;
-  background: url(../img/icons/check-li.svg) no-repeat center/contain
+  background: url(../images/icons/check-li.svg) no-repeat center/contain
 }
 .disc-style .quiz-info ul li + li {
   margin-top: .3125rem
@@ -914,7 +914,7 @@ input:checked + .switch__slider:before {
   }
   .zones__checkbox .checkbox_01::before {
     height: 6.875rem;
-    background: url(../img/dec_01.svg) no-repeat center/contain
+    background: url(../images/dec_01.svg) no-repeat center/contain
   }
   .zones__checkbox .checkbox_02 {
     top: 72.1556886228%;
@@ -922,7 +922,7 @@ input:checked + .switch__slider:before {
   }
   .zones__checkbox .checkbox_02::before {
     height: 11.75rem;
-    background: url(../img/dec_02.svg) no-repeat center/contain
+    background: url(../images/dec_02.svg) no-repeat center/contain
   }
   .zones__checkbox .checkbox_03 {
     top: 20.3592814371%;
@@ -931,7 +931,7 @@ input:checked + .switch__slider:before {
   .zones__checkbox .checkbox_03::before {
     left: 50%;
     translate: -100% 0;
-    background: url(../img/dec_03.svg) no-repeat center/contain
+    background: url(../images/dec_03.svg) no-repeat center/contain
   }
   .zones__checkbox .checkbox_04 {
     top: 84.4311377246%;
@@ -940,7 +940,7 @@ input:checked + .switch__slider:before {
   .zones__checkbox .checkbox_04::before {
     left: 50%;
     translate: -100% -49%;
-    background: url(../img/dec_04.svg) no-repeat center/contain
+    background: url(../images/dec_04.svg) no-repeat center/contain
   }
   .hero__title {
     max-width: 37.8125rem
