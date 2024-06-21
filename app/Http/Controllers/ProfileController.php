@@ -53,4 +53,9 @@ class ProfileController extends Controller
 
         return response()->json(compact('registrations', 'clicks'));
     }
+
+    public function storeCalories()
+    {
+
+    }
 }
