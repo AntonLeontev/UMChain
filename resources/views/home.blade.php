@@ -678,7 +678,7 @@
                                     href="#rec747719374" data-menu-submenu-hook=""
                                     data-menu-item-number="2">Экосистема</a></li>
                             <li class="t456__list_item" style="padding:0 0 0 25px;"><a class="t-menu__link-item"
-                                    href="/cabinet/fit/profile" data-menu-submenu-hook="" data-menu-item-number="3">Войти в ЛК</a>
+                                    href="{{ route('stub') }}" data-menu-submenu-hook="" data-menu-item-number="3">Войти в ЛК</a>
                             </li>
                         </ul>
                     </nav>
@@ -1271,7 +1271,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                                     href="#rec748319095" data-menu-submenu-hook=""
                                     data-menu-item-number="2">Экосистема</a></li>
                             <li class="t456__list_item" style="padding:0 0 0 25px;"><a class="t-menu__link-item"
-                                    href="/cabinet/fit/profile" data-menu-submenu-hook="" data-menu-item-number="3">Войти в ЛК</a>
+                                    href="{{ route('stub') }}" data-menu-submenu-hook="" data-menu-item-number="3">Войти в ЛК</a>
                             </li>
                         </ul>
                     </nav>
@@ -7180,7 +7180,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                                     data-menu-submenu-hook="">Функции</a></div>
                             <div class="t981__menu-item"><a class="t981__menu-link" href="#rec747719374"
                                     data-menu-submenu-hook="">Экосистема</a></div>
-                            <div class="t981__menu-item"><a class="t981__menu-link" href="/cabinet/fit/profile"
+                            <div class="t981__menu-item"><a class="t981__menu-link" href="{{ route('stub') }}"
                                     data-menu-submenu-hook="">Войти в ЛК</a></div>
                         </div>
                         <div class="t981__menu t981__secondary-menu" field="text">
@@ -7246,7 +7246,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D91f1f1f', en
                                     data-menu-submenu-hook="">Функции</a></div>
                             <div class="t981__menu-item"><a class="t981__menu-link" href="#rec748319095"
                                     data-menu-submenu-hook="">Экосистема</a></div>
-                            <div class="t981__menu-item"><a class="t981__menu-link" href="/cabinet/fit/profile"
+                            <div class="t981__menu-item"><a class="t981__menu-link" href="{{ route('stub') }}"
                                     data-menu-submenu-hook="">Войти в ЛК</a></div>
                         </div>
                         <div class="t981__menu t981__secondary-menu" field="text">
