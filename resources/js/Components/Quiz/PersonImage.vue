@@ -1,23 +1,17 @@
 <script setup>
 import { onActivated, ref } from "vue";
 
-const imageDirName = ref(null);
-const imageFileName = ref(null);
+const dirName = ref(null);
+const ageDir = ref(null);
+let fatLevel = (+sessionStorage.getItem("quiz.fat_level") ?? 1) + 1
+const fileName = ref(fatLevel + ".webm");
 
 onActivated(() => {
-  imageDirName.value =
-    sessionStorage.getItem("quiz.sex") === "male" ? "men-old" : "women-old";
+  dirName.value = sessionStorage.getItem("quiz.sex") ?? "male";
   const bday = sessionStorage.getItem("quiz.bday");
   let age = calculateAge(bday);
 
-  imageFileName.value =
-    age < 30
-      ? "18-29.png"
-      : age < 40
-      ? "30-39.png"
-      : age < 50
-      ? "40-49.png"
-      : "50plus.png";
+  ageDir.value = age < 30 ? "18" : age < 40 ? "30" : age < 50 ? "40" : "50";
 });
 
 function calculateAge(birthDate) {
@@ -45,9 +39,15 @@ function calculateAge(birthDate) {
 </script>
 
 <template>
-  <!--quiz-content__img при наличии 3d-model этот блок не используем -> (quiz-content__img) -->
-  <div class="quiz-content__img -ibg">
-    <img :src="'/images/' + imageDirName + '/' + imageFileName" alt="Image" />
-  </div>
-  <!--end quiz-content__img -->
+	<div class="video_wrapper">
+  <video autoplay muted loop :src="`/video/${dirName}/${ageDir}/${fileName}`" />
+	</div>
 </template>
+
+<style scoped>
+.video_wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+</style>

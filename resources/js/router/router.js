@@ -39,7 +39,7 @@ router.beforeEach(async (to, from) => {
                 useUserStore().isAuthenticated = false;
             });
 
-        if (to.name === "quiz" && useUserStore().user.quiz_is_done) {
+        if (to.name === "quiz" && useUserStore().user?.quiz_is_done) {
             return { name: "stub" };
         }
     }
