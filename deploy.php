@@ -64,7 +64,7 @@ task('reboot', function () {
 // Hooks
 after('deploy:vendors', 'build');
 
-// after('push', 'push_build');
+after('push', 'push_build');
 after('push', 'push_routes');
 after('push', 'push_config');
 // after('artisan:route:cache', 'cache_routes');
