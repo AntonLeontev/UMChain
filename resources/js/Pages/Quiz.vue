@@ -47,7 +47,7 @@ if (!sessionStorage.getItem("telegramInitData")) {
 }
 
 const componentsCount = components.length;
-const quizPage = ref(0);
+const quizPage = ref(2);
 
 function nextPage() {
     if (quizPage.value === componentsCount - 1) {

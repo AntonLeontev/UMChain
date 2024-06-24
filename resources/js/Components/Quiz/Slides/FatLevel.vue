@@ -74,8 +74,57 @@ function tryNext() {
 							autoplay
 							muted
 							loop
-							:src="`/video/${dirName}/${ageDir}/${fileName}`"
+							:src="`/video/${dirName}/${ageDir}/1.webm`"
 							alt="Image"
+							v-show="level === 0"
+						/>
+						<video
+							autoplay
+							muted
+							loop
+							:src="`/video/${dirName}/${ageDir}/2.webm`"
+							alt="Image"
+							v-show="level === 1"
+						/>
+						<video
+							autoplay
+							muted
+							loop
+							:src="`/video/${dirName}/${ageDir}/3.webm`"
+							alt="Image"
+							v-show="level === 2"
+						/>
+						<video
+							autoplay
+							muted
+							loop
+							:src="`/video/${dirName}/${ageDir}/4.webm`"
+							alt="Image"
+							v-show="level === 3"
+						/>
+						<video
+							autoplay
+							muted
+							loop
+							:src="`/video/${dirName}/${ageDir}/5.webm`"
+							alt="Image"
+							v-show="level === 4"
+						/>
+						<video
+							autoplay
+							muted
+							loop
+							:src="`/video/${dirName}/${ageDir}/6.webm`"
+							alt="Image"
+							v-show="level === 5"
+						/>
+						<video
+							autoplay
+							muted
+							loop
+							:src="`/video/${dirName}/${ageDir}/7.webm`"
+							alt="Image"
+							v-show="level === 6"
 						/>
                     </div>
                     <div class="quiz-content__info">
