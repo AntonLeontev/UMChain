@@ -3,7 +3,7 @@ import QuizLayout from "@/Layouts/QuizLayout.vue";
 import { postEvent } from "@tma.js/sdk";
 
 function toChannel() {
-  postEvent("web_app_open_tg_link", { path_full: "fitumc" });
+  postEvent("web_app_open_tg_link", { path_full: "/fitumc" });
 }
 </script>
 
