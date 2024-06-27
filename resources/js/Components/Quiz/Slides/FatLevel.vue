@@ -74,8 +74,87 @@ function tryNext() {
               webkit-playsinline=""
               playsinline=""
               pip="false"
-              :src="`/video/${dirName}/${ageDir}/${level + 1}.webm`"
+              :src="`/video/${dirName}/${ageDir}/1.webm`"
               alt="Image"
+              v-show="level === 0"
+              poster="/resources/images/video-poster.jpg"
+            />
+            <video
+              autoplay
+              muted
+              loop
+              disablepictureinpicture=""
+              webkit-playsinline=""
+              playsinline=""
+              pip="false"
+              :src="`/video/${dirName}/${ageDir}/2.webm`"
+              alt="Image"
+              v-show="level === 1"
+              poster="/resources/images/video-poster.jpg"
+            />
+            <video
+              autoplay
+              muted
+              loop
+              disablepictureinpicture=""
+              webkit-playsinline=""
+              playsinline=""
+              pip="false"
+              :src="`/video/${dirName}/${ageDir}/3.webm`"
+              alt="Image"
+              v-show="level === 2"
+              poster="/resources/images/video-poster.jpg"
+            />
+            <video
+              autoplay
+              muted
+              loop
+              disablepictureinpicture=""
+              webkit-playsinline=""
+              playsinline=""
+              pip="false"
+              :src="`/video/${dirName}/${ageDir}/4.webm`"
+              alt="Image"
+              v-show="level === 3"
+              poster="/resources/images/video-poster.jpg"
+            />
+            <video
+              autoplay
+              muted
+              loop
+              disablepictureinpicture=""
+              webkit-playsinline=""
+              playsinline=""
+              pip="false"
+              :src="`/video/${dirName}/${ageDir}/5.webm`"
+              alt="Image"
+              v-show="level === 4"
+              poster="/resources/images/video-poster.jpg"
+            />
+            <video
+              autoplay
+              muted
+              loop
+              disablepictureinpicture=""
+              webkit-playsinline=""
+              playsinline=""
+              pip="false"
+              :src="`/video/${dirName}/${ageDir}/6.webm`"
+              alt="Image"
+              v-show="level === 5"
+              poster="/resources/images/video-poster.jpg"
+            />
+            <video
+              autoplay
+              muted
+              loop
+              disablepictureinpicture=""
+              webkit-playsinline=""
+              playsinline=""
+              pip="false"
+              :src="`/video/${dirName}/${ageDir}/7.webm`"
+              alt="Image"
+              v-show="level === 6"
               poster="/resources/images/video-poster.jpg"
             />
           </div>
