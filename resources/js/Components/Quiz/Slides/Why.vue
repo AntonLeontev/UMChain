@@ -1,5 +1,5 @@
 <script setup>
-import { ref, inject } from "vue";
+import { ref, inject, computed } from "vue";
 
 import NextButton from "../NextButton.vue";
 import ProgressBar from "../ProgressBar.vue";
@@ -12,6 +12,21 @@ function tryNext() {
   sessionStorage.setItem("quiz.why", why.value);
   nextPage();
 }
+
+const title = computed(() => {
+  let targetWeight = sessionStorage.getItem("quiz.target_weight_value");
+  let weight = sessionStorage.getItem("quiz.weight_value");
+
+  if (targetWeight > weight) {
+    return "Почему вы хотите набрать вес?";
+  }
+
+  if (targetWeight < weight) {
+    return "Почему вы хотите похудеть?";
+  }
+
+  return "Почему вы хотите сохранить вес?";
+});
 </script>
 
 <template>
@@ -23,7 +38,7 @@ function tryNext() {
         <div class="quiz-content _little">
           <div class="quiz-content__info">
             <div class="quiz-content__title-block title-block">
-              <h2 class="title-block__title title">Почему вы хотите похудеть?</h2>
+              <h2 class="title-block__title title">{{ title }}</h2>
               <div class="title-block__text">
                 Выберите то, что мотивирует вас больше всего прямо сейчас
               </div>
