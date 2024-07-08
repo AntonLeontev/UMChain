@@ -1,0 +1,57 @@
+//<FORM>
+.form {
+  display: grid;
+  @include adaptiveValue("gap", 40, 16, 0, 1200, 480);
+
+  &__row {
+    &._right {
+      text-align: right;
+      @media (max-width: $mobile) {
+        text-align: center;
+      }
+    }
+
+    &._center {
+      text-align: center;
+    }
+  }
+
+  &__column {
+    @media (max-width: $mobile) {
+      flex: 1 1 100%;
+    }
+  }
+
+  &__line {
+  }
+
+  &__label {
+    margin-bottom: toRem(10);
+    display: block;
+  }
+
+  &__input {
+  }
+
+  &__button {
+  }
+
+  &__error {
+  }
+
+  &__text {
+    line-height: 120%;
+  }
+}
+
+// <BUTTONS>
+@import "button";
+
+// <INPUTS>
+@import "input";
+
+// <CHECK>
+@import "checkbox";
+
+// <RADIO>
+@import "radio";

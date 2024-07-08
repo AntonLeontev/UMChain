@@ -1,0 +1,116 @@
+// Общие стили
+.section-padding {
+  @include adaptiveValue("padding-top", 60, 40);
+  @include adaptiveValue("padding-bottom", 100, 60);
+}
+
+.text {
+  line-height: 120%;
+  @include adaptiveValue("font-size", 20, 16, 0, 1200, 480);
+
+  a {
+    text-decoration: underline;
+    transition: all .3s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  &_xs {
+    font-size: toRem(12);
+  }
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  @include adaptiveValue("gap", 30, 16, 0, 1200, 480);
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+  }
+
+  &_align-end {
+    @media (min-width: $mobile) {
+      align-items: flex-end;
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-white40 {
+  color: var(--white40);
+}
+
+.progress {
+  display: flex;
+  gap: toRem(7);
+  align-items: center;
+  // .progress__back
+  &__back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-third);
+    padding: toRem(3) toRem(5);
+    transition: background-color .3s;
+
+    svg {
+      stroke: var(--primary);
+      transition: stroke .3s;
+
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        svg {
+          stroke: var(--bg-primary);
+        }
+
+        background-color: var(--accent);
+      }
+    }
+  }
+
+  // .progress__line
+  &__line {
+    background-color: var(--bg-third);
+    height: toRem(6);
+    flex: 1 1 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: toRem(100);
+  }
+
+  // .progress__value
+  &__value {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--accent);
+  }
+
+  // .progress__num
+  &__num {
+  }
+}
+
+//====================================================================================================
+
+.stretched-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  @extend %stretched-link;
+}

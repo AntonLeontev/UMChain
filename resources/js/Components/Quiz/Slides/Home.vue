@@ -1,6 +1,6 @@
 <script setup>
 import { inject, ref } from "vue";
-import { parseInitData } from '@tma.js/sdk';
+import { parseInitData } from "@tma.js/sdk";
 
 import NextButton from "../NextButton.vue";
 import InputWithDimension from "../InputWithDimension.vue";
@@ -10,9 +10,9 @@ const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
 let name;
 
 if (sessionStorage.getItem("quiz.name")) {
-	name = sessionStorage.getItem("quiz.name");
-} else if(sessionStorage.getItem("telegramInitData")) {
-	name = parseInitData(sessionStorage.getItem("telegramInitData")).user?.firstName
+  name = sessionStorage.getItem("quiz.name");
+} else if (sessionStorage.getItem("telegramInitData")) {
+  name = parseInitData(sessionStorage.getItem("telegramInitData")).user?.firstName;
 }
 
 const bday = sessionStorage.getItem("quiz.bday");
@@ -141,7 +141,7 @@ function tryNext(e) {
                 id="d-weight"
                 :dimensions="dimensionsWeight"
                 :value="weightValue"
-				:dimensionValue="weightDimension"
+                :dimensionValue="weightDimension"
               />
             </div>
             <div class="form__column">
@@ -151,7 +151,7 @@ function tryNext(e) {
                 id="d-weight_m"
                 :dimensions="dimensionsWeight"
                 :value="targetWeightValue"
-				:dimensionValue="targetWeightDimension"
+                :dimensionValue="targetWeightDimension"
               />
             </div>
           </div>

@@ -1,0 +1,116 @@
+.checkbox {
+  ._shape & {
+    background: var(--bg-secondary);
+    //padding: toRem(16) toRem(20);
+  }
+
+  .zones__checkbox & {
+    background: var(--bg-secondary);
+    @media (min-width: $tablet) {
+      max-width: toRem(220);
+      border: 1px solid var(--accent);
+      position: absolute;
+      width: 100%;
+      top: 0;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+      }
+    }
+
+    &_01 {
+      @media (min-width: $tablet) {
+        top: percent(99, 668);
+        left: 0;
+
+        &::before {
+          @include adaptiveValue("width", 369, 300, 0, 1200, 992);
+          @include adaptiveValue("bottom", -110, -100, 0, 1200, 992);
+          height: toRem(110);
+          //bottom: -230%;
+          background: url("/resources/images/dec_01.svg") no-repeat center / contain;
+        }
+      }
+    }
+
+    &_02 {
+      @media (min-width: $tablet) {
+        top: percent(482, 668);
+        left: 0;
+
+        &::before {
+          @include adaptiveValue("width", 312, 230, 0, 1200, 992);
+          @include adaptiveValue("height", 188, 160, 0, 1200, 992);
+          @include adaptiveValue("bottom", 48, 38, 0, 1200, 992);
+          height: toRem(188);
+          //bottom: 100%;
+          background: url("/resources/images/dec_02.svg") no-repeat center / contain;
+        }
+      }
+    }
+
+    &_03 {
+      @media (min-width: $tablet) {
+        top: percent(136, 668);
+        right: 0;
+
+        &::before {
+          @include adaptiveValue("width", 506, 400, 0, 1200, 992);
+          @include adaptiveValue("height", 156, 130, 0, 1200, 992);
+          @include adaptiveValue("bottom", -156, -128, 0, 1200, 992);
+          left: 50%;
+          translate: -100% 0;
+          background: url("/resources/images/dec_03.svg") no-repeat center / contain;
+        }
+      }
+    }
+
+    &_04 {
+      @media (min-width: $tablet) {
+        top: percent(564, 668);
+        right: 0;
+
+        &::before {
+          @include adaptiveValue("width", 358, 300, 0, 1200, 992);
+          @include adaptiveValue("height", 97, 80, 0, 1200, 992);
+          @include adaptiveValue("bottom", 1, 10, 0, 1200, 992);
+          left: 50%;
+          translate: -100% -49%;
+          background: url("/resources/images/dec_04.svg") no-repeat center / contain;
+        }
+      }
+    }
+  }
+
+  // .checkbox__input
+  &__input {
+  }
+
+  // .checkbox__label
+  &__label {
+
+    ._shape &, .zones__checkbox & {
+      width: 100%;
+      padding: toRem(16) toRem(20);
+    }
+
+    &::after {
+      ._shape &, .zones__checkbox & {
+        top: toRem(20);
+        left: toRem(21);
+      }
+
+      .checkbox-block & {
+        top: toRem(20);
+        left: toRem(21);
+        background: url("/resources/images/icons/close.svg") no-repeat center / contain;
+      }
+    }
+  }
+}
+
+.checkbox-block {
+  padding-top: toRem(20);
+  border-top: 2px solid var(--accent);
+}

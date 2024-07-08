@@ -1,0 +1,40 @@
+.options {
+  &._shape {
+    @include adaptiveValue("gap", 20, 10);
+  }
+
+  .form__column & {
+    @media (max-width: $mobile) {
+      justify-content: center;
+    }
+  }
+
+  .hero & {
+    gap: toRem(40);
+    flex-direction: row;
+  }
+
+  // .options__item
+  &__item {
+
+    ._shape & {
+      background: var(--bg-secondary);
+      padding: toRem(16) toRem(20);
+    }
+
+    &:not(:last-child) {
+
+    }
+  }
+
+  // .options__label
+  &__label {
+    ._shape & {
+      width: 100%;
+    }
+  }
+
+  // .options__text
+  &__text {
+  }
+}

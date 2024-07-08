@@ -18,7 +18,7 @@
 		<link rel="manifest" href="/site.webmanifest">
 
         <!-- Scripts -->
-		@vite(['resources/scss/base/style.scss','resources/scss/quiz/home.scss', 'resources/js/app.js'])
+		@vite(['resources/scss/base/style.scss', 'resources/scss/miniapp/home.scss', 'resources/js/app.js'])
 		@routes
 
 		<!-- Google tag (gtag.js) -->

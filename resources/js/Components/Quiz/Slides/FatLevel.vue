@@ -7,11 +7,12 @@ import Slider from "../Slider.vue";
 
 const { quizPage, nextPage, prevPage, componentsCount } = inject("quiz");
 
-const level = ref(sessionStorage.getItem("quiz.fat_level") ?? 0);
-
+const level = ref(null);
 const dirName = ref(null);
 const ageDir = ref(null);
+
 onActivated(() => {
+  level.value = +sessionStorage.getItem("quiz.fat_level") ?? 0;
   dirName.value = sessionStorage.getItem("quiz.sex");
 
   const bday = sessionStorage.getItem("quiz.bday");

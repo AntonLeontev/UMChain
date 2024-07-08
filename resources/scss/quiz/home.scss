@@ -1,0 +1,322 @@
+// Подключение main стилей
+@use "sass:math";
+@import "../base/style";
+@import "forms/input";
+@import "forms/button";
+@import "forms/checkbox";
+@import "forms/radio";
+// Подключение стилей header and footer
+@import "common";
+@import "header";
+@import "footer";
+
+//====================================================================================================
+.hero {
+  // .hero__container-little
+  &__container-little {
+  }
+
+  // .hero__title
+  &__title {
+    @include adaptiveValue("margin-bottom", 40, 20);
+    @media (min-width: $tablet) {
+      max-width: toRem(605);
+    }
+  }
+}
+
+.checkbox-items {
+  display: grid;
+  @include adaptiveValue("gap", 16, 10);
+}
+
+//====================================================================================================
+.quiz {
+  // .quiz__container
+  &__container {
+  }
+
+  // .quiz__progress
+  &__progress {
+    @include adaptiveValue("margin-bottom", 40, 30);
+  }
+
+  // .quiz__container-little
+  &__container-little {
+  }
+
+}
+
+.quiz-content {
+  display: flex;
+  gap: toRem(30);
+  justify-content: space-between;
+  align-items: center;
+
+  &._little {
+    max-width: toRem(600);
+    margin: 0 auto;
+  }
+
+  &._big {
+    @include adaptiveValue("padding-top", 80, 20);
+    @include adaptiveValue("gap", 140, 20, 0, 1200, 768);
+  }
+
+  &__checkbox {
+    display: grid;
+    @include adaptiveValue("gap", 20, 16);
+    @include adaptiveValue("margin-bottom", 40, 30);
+  }
+
+  &._big-title {
+    max-width: toRem(700);
+    margin: 0 auto;
+  }
+
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  // .quiz-content__img-wrapper
+  &__img-wrapper {
+    flex: 0 0 toRem(350);
+    @media (max-width: $mobileSmall) {
+      flex: 1 1 100%;
+    }
+
+    ._fat-goal & {
+      flex: 0 0 toRem(230);
+      @media (max-width: $mobile) {
+        flex: 1 1 100%;
+      }
+    }
+
+    ._big & {
+      flex: 0 0 44%;
+      @media (max-width: $mobile) {
+        order: 2;
+      }
+      @media (max-width: $mobileSmall) {
+        flex: 1 1 100%;
+      }
+    }
+  }
+
+  // .quiz-content__img
+  &__img {
+    padding-bottom: 160%;
+    @media (max-width: $mobileSmall) {
+      padding-bottom: 115%;
+    }
+
+    img {
+      @media (max-width: $mobileSmall) {
+        object-fit: contain;
+      }
+    }
+
+    ._fat-goal & {
+      padding-bottom: 252%;
+      @media (max-width: $mobileSmall) {
+        padding-bottom: 120%;
+      }
+    }
+
+    ._big & {
+      padding-bottom: 60%;
+      @media (max-width: $mobileSmall) {
+        padding-bottom: 80%;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: toRem(328);
+        height: toRem(328);
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        background-color: rgba(218, 247, 58, 0.3);
+        border-radius: 50%;
+        filter: blur(80px);
+      }
+    }
+  }
+
+  &__title-block {
+    @include adaptiveValue("margin-bottom", 60, 30, 0, 1200, 480);
+  }
+
+  // .quiz-content__title
+  &__title {
+    @include adaptiveValue("margin-bottom", 60, 30, 0, 1200, 480);
+
+    &._hidden {
+      display: none;
+      @media (min-width: $mobile) {
+        display: block;
+      }
+    }
+
+    ._big & {
+      @media (max-width: $mobileSmall) {
+        text-align: center;
+      }
+    }
+
+    &._accent {
+      color: var(--accent);
+    }
+  }
+
+  &__title-mobile {
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
+    flex: 1 1 100%;
+    @media (min-width: $mobile) {
+      display: none;
+    }
+  }
+
+  &__block {
+    @include adaptiveValue("margin-bottom", 40, 30, 0, 1200, 480);
+  }
+
+  // .quiz-content__info
+  &__info {
+    @media (max-width: $mobile) {
+      flex: 1 1 100%;
+    }
+
+    ._fat-goal & {
+      flex: 0 0 toRem(432);
+      @media (max-width: $mobile) {
+        flex: 1 1 100%;
+      }
+    }
+  }
+
+  &__input-range {
+    @include adaptiveValue("margin-bottom", 40, 30, 0, 1200, 480);
+  }
+
+  &__options {
+    @include adaptiveValue("margin-bottom", 40, 30, 0, 1200, 480);
+  }
+
+  // .quiz-content__water
+  &__water {
+    @include adaptiveValue("margin-bottom", 40, 30, 0, 1200, 480);
+  }
+
+  // .quiz-content__action
+  &__action {
+    @media (min-width: $mobile) {
+      text-align: right;
+    }
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
+
+    ._big & {
+      @media (min-width: $mobileSmall) {
+        text-align: left;
+      }
+    }
+  }
+}
+
+//====================================================================================================
+.water-result {
+  border-radius: toRem(6);
+  padding: toRem(20);
+  background-color: var(--bg-blue);
+  // .water-result__header
+  &__header {
+    align-items: center;
+    display: flex;
+    gap: toRem(16);
+    margin-bottom: toRem(20);
+  }
+
+  // .water-result__title
+  &__title {
+    flex: 1 1 auto;
+    font-weight: 600;
+  }
+
+  // .water-result__body
+  &__body {
+    line-height: 120%;
+  }
+}
+
+.water-result-rating {
+  display: flex;
+  gap: toRem(2);
+  // .water-result-rating__item
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 toRem(24);
+  }
+}
+
+//====================================================================================================
+
+.zones {
+  // .zones__container
+  &__container {
+  }
+
+  // .zones__content
+  &__content {
+    position: relative;
+  }
+
+  // .zones__img
+  &__img {
+    max-width: toRem(667);
+    margin: 0 auto;
+    padding-bottom: 56%;
+    @media (max-width: $mobileSmall) {
+      padding-bottom: 75%;
+    }
+  }
+
+  &__checkbox {
+    @media (max-width: $tablet) {
+      margin-top: toRem(20);
+      display: grid;
+      gap: toRem(20);
+    }
+  }
+
+  &__switch {
+    margin: toRem(40) auto toRem(40);
+    display: flex;
+    justify-content: space-between;
+    gap: toRem(10);
+    padding: toRem(16) toRem(20);
+    background-color: var(--bg-secondary);
+    @media (min-width: $tablet) {
+      max-width: toRem(567);
+    }
+    @media (max-width: $tablet) {
+      margin-top: toRem(20);
+    }
+  }
+
+  // .zones__action
+  &__action {
+    margin: 0 auto;
+    @media (min-width: $tablet) {
+      text-align: right;
+      max-width: toRem(567);
+    }
+    text-align: center;
+  }
+}

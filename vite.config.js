@@ -10,6 +10,9 @@ export default defineConfig({
             input: [
                 "resources/css/app.css",
                 "resources/css/quiz.css",
+                "resources/scss/base/style.scss",
+                "resources/scss/quiz/home.scss",
+                "resources/scss/miniapp/home.scss",
                 "resources/js/app.js",
                 "resources/js/telegram-lib.js",
             ],

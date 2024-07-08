@@ -11,19 +11,6 @@ const router = createRouter({
 
 router.beforeEach(async (to, from) => {
     if (useUserStore().isAuthenticated === null) {
-        // if (to.name === "telegram") {
-        //     try {
-        //         const { initDataRaw } = retrieveLaunchParams();
-        //         sessionStorage.setItem("telegramInitData", initDataRaw);
-        //         postEvent("web_app_expand");
-        //         postEvent("web_app_setup_closing_behavior", {
-        //             need_confirmation: true,
-        //         });
-        //     } catch (error) {
-        //         return { name: "login" };
-        //     }
-        // }
-
         if (sessionStorage.getItem("telegramInitData")) {
             axios.defaults.headers.common["X-Telegram-Authorization"] =
                 sessionStorage.getItem("telegramInitData");

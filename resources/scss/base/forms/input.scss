@@ -1,0 +1,177 @@
+//<INPUT>
+// Сніппет (HTML): inp
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.input {
+  border-radius: 0 !important;
+  width: 100%;
+  display: block;
+  padding: 0px 20px;
+  background-color: var(--bg-secondary);
+  caret-color: inherit;
+  height: toRem(44);
+  @include adaptiveValue("font-size", 20, 18);
+
+  .input-box & {
+    background-color: transparent;
+  }
+
+  .calc-app & {
+    font-size: toRem(20);
+    height: toRem(24);
+    text-align: center;
+    color: var(--accent);
+    background-color: transparent;
+  }
+
+  &._form-focus {
+  }
+
+  &._form-error {
+  }
+}
+
+.input[placeholder]:not([data-placeholder-nohiden]) {
+  &::placeholder {
+    transition: opacity 0.3s;
+
+    .diagram__input-box &,  .calc-app &{
+      color: var(--accent);
+    }
+  }
+
+  &:focus::placeholder {
+    opacity: 0;
+  }
+}
+
+textarea.input {
+  resize: none;
+  padding: 0px 0px;
+}
+
+
+.input-box {
+  position: relative;
+  padding-right: toRem(7);
+  background-color: var(--bg-secondary);
+  display: flex;
+  justify-content: space-between;
+
+  &.diagram__input-box {
+    max-width: toRem(140);
+    margin: 0 auto;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  // .input-box__btn
+  &__btn {
+    min-width: toRem(60);
+    @include adaptiveValue("font-size", 20, 18);
+    display: flex;
+    gap: toRem(8);
+    align-items: center;
+
+    span {
+      flex: 1 1 auto;
+    }
+
+    img {
+      transition: rotate .3s;
+    }
+
+    ._active & {
+      img {
+        rotate: -90deg;
+      }
+    }
+
+    .diagram__input-box & {
+      font-size: toRem(12);
+      min-width: toRem(30);
+
+      img {
+        width: toRem(18);
+      }
+    }
+  }
+
+  &__submenu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    background-size: var(--bg-secondary);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    visibility: hidden;
+    transition: all .3s;
+
+    ._active & {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    li {
+      display: flex;
+      justify-content: flex-end;
+      padding: toRem(10) toRem(39);
+      transition: background-color .3s;
+      @include adaptiveValue("font-size", 20, 18);
+      background-color: var(--bg-primary);
+
+      &:active {
+        background-color: #3D3D3D;
+      }
+
+      .diagram__input-box & {
+        font-size: toRem(12);
+        padding: toRem(5) toRem(20);
+      }
+
+      @media (any-hover: hover) {
+        cursor: pointer;
+        &:hover {
+          background-color: #3D3D3D;
+        }
+      }
+    }
+  }
+}
+
+/*А так убрать*/
+input[type=date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+.input-date {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.input-date::after {
+  content: '';
+  position: absolute;
+  width: toRem(24);
+  height: toRem(24);
+  top: 50%;
+  translate: 0 -50%;
+  right: 0;
+  background: url("../img/miniapp/icons/calendar-check.svg") no-repeat center center / contain;
+  pointer-events: none;
+}
+
+.textbox-n {
+  max-width: toRem(115);
+}
