@@ -9,6 +9,7 @@ resources/images_old
 /vendor
 /.cert
 /quiz_layout
+/layout
 .env
 .env.backup
 .env.production
