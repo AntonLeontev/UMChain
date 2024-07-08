@@ -108,8 +108,7 @@ function saveAnswers() {
     })
     .catch((error) => {
       console.log(error);
-    })
-    .finally(() => {});
+    });
 }
 
 provide("quiz", { quizPage, nextPage, prevPage, componentsCount });

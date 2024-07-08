@@ -12,7 +12,7 @@ import MiniappLayout from "@/Layouts/MiniappLayout.vue";
               <h2 class="quiz-content__title _accent title">Привет!</h2>
 
               <p class="quiz-content__title _accent title">
-                Сейчас мы активно работаем над нашим приложением, чтобы тебе был удобно и
+                Сейчас мы активно работаем над нашим приложением, чтобы тебе было удобно и
                 просто треннироваться вместе с нами!
               </p>
 
