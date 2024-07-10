@@ -103,7 +103,6 @@ function saveAnswers() {
   axios
     .post(route("api.quizzes.store"), data)
     .then((response) => {
-      console.log(response);
       window.location.replace("/miniapp/stub");
     })
     .catch((error) => {

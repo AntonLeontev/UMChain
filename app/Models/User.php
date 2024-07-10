@@ -158,4 +158,9 @@ class User extends Authenticatable
         return $this->hasMany(CalorySpend::class)
             ->whereBetween('created_at', now()->startOfDay(), now()->endOfDay());
     }
+
+    public function quiz(): HasOne
+    {
+        return $this->hasOne(Quiz::class);
+    }
 }
