@@ -104,7 +104,7 @@ function saveAnswers() {
     .post(route("api.quizzes.store"), data)
     .then((response) => {
       console.log(response);
-      window.location.replace("/stub");
+      window.location.replace("/miniapp/stub");
     })
     .catch((error) => {
       console.log(error);
