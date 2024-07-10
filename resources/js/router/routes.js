@@ -179,6 +179,14 @@ export default [
                 },
                 name: "miniapp.bounty",
             },
+            {
+                path: "game",
+                component: () => import("@/Pages/Miniapp/Game.vue"),
+                meta: {
+                    requiresAuth: true,
+                },
+                name: "miniapp.game",
+            },
         ],
     },
     {

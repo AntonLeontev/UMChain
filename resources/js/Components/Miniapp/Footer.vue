@@ -4,10 +4,10 @@
   <footer class="footer-mini">
     <div class="footer-mini__container">
       <div class="panel">
-        <a href="" class="panel__btn _active">
+        <RouterLink :to="{name: 'miniapp.game'}" activeClass="_active" class="panel__btn">
           <img src="/resources/images/miniapp/icons/footer/game.svg" alt="Image" />
           Game
-        </a>
+        </RouterLink>
         <a href="" class="panel__btn">
           <img src="/resources/images/miniapp/icons/footer/meal.svg" alt="Image" />
           Meal

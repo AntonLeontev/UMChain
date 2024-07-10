@@ -26,9 +26,8 @@ class HeightCast implements CastsAttributes
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        dump($model);
         if ($value instanceof Height) {
-            return match ($model->height_dimension) {
+            return match (HeightDimension::from($attributes['height_dimension'])) {
                 HeightDimension::inch => $value->inInch(),
                 HeightDimension::cm => $value->inCm(),
             };
