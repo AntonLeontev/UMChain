@@ -2,7 +2,9 @@
   &._shape {
     @include adaptiveValue("gap", 20, 10);
   }
-
+    .calc-app__item &{
+		flex-direction: column;
+	}
   .form__column & {
     @media (max-width: $mobile) {
       justify-content: center;

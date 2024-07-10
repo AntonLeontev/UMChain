@@ -53,4 +53,6 @@ Route::prefix('v1')->group(function () {
 
         Route::get('generate-menu', [AIGenerationController::class, 'generateMenu'])->name('api.generate-menu');
     });
+
+    Route::get('/telegram-image/{id}', [ProfileController::class, 'telegramImage'])->name('api.user.telegram-image');
 });

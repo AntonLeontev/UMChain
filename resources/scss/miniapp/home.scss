@@ -580,7 +580,7 @@
   // .bonus__item
   &__item {
     background-color: var(--bg-secondary);
-    flex: 0 0 toRem(77);
+    flex: 0 0 23%;
     border-radius: toRem(6);
     padding: toRem(4);
     border: toRem(1) solid transparent;
@@ -758,10 +758,12 @@
 }
 
 .options {
-  flex-direction: row;
-  justify-content: space-between;
   gap: toRem(10);
   font-size: toRem(12);
+  .menu-meal &{
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .checkbox {
@@ -838,6 +840,7 @@
   display: flex;
   flex-direction: column;
   gap: toRem(4);
+  flex: 0 0 47%;
 
   &.nft-item_single {
     flex: 1 1 auto;
@@ -868,6 +871,7 @@
     position: relative;
 
     img {
+		width: 100%;
       border-radius: toRem(6);
       object-fit: cover;
 
@@ -986,6 +990,7 @@
 }
 
 .item-shop {
+	flex: 0 1 47%;
   &.item-shop_disable {
     pointer-events: none;
   }
@@ -993,7 +998,7 @@
   &__inner {
     border-radius: toRem(4);
     background-color: var(--bg-secondary);
-    padding: toRem(12) toRem(10);
+    padding: toRem(12) toRem(8);
     display: flex;
     gap: toRem(8);
     border: 1px solid var(--accent);

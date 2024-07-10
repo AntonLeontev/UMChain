@@ -7,7 +7,9 @@ import Footer from "@/Components/Miniapp/Footer.vue";
   <div class="wrapper">
     <Header />
 
-    <slot />
+	 <main class="page">
+ 	   <slot />
+    </main>
 
     <Footer />
   </div>

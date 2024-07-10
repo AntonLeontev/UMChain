@@ -16,7 +16,7 @@ Route::view('/', 'home')->name('home');
 
 // Роут нужен тк у квиза свои ассеты и layout
 Route::view('/quiz', 'quiz')->name('quiz');
-Route::view('/stub', 'miniapp')->name('stub');
+Route::view('/miniapp/stub', 'miniapp')->name('stub');
 
 Route::middleware(['auth'])
     ->group(function () {
@@ -28,7 +28,7 @@ Route::middleware(['auth'])
     });
 
 if (! request()->ajax()) {
-    Route::view('/{vue_capture?}', 'quiz')
+    Route::view('/{vue_capture?}', 'miniapp')
         ->where('vue_capture', '(?!'.config('moonshine.route.prefix').")[\/\w\.-]*");
 }
 

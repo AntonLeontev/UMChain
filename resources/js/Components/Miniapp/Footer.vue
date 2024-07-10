@@ -5,8 +5,8 @@
     <div class="footer-mini__container">
       <div class="panel">
         <a href="" class="panel__btn _active">
-          <img src="/resources/images/miniapp/icons/footer/profile.svg" alt="Image" />
-          Profile
+          <img src="/resources/images/miniapp/icons/footer/game.svg" alt="Image" />
+          Game
         </a>
         <a href="" class="panel__btn">
           <img src="/resources/images/miniapp/icons/footer/meal.svg" alt="Image" />

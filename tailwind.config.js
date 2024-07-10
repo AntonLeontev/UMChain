@@ -27,7 +27,7 @@ export default {
             grey: "#868686",
             pink: "#ED0474",
             white: "#ffffff",
-            accent: "#ed0474",
+            accent: "#DAF73A",
             "bg-dark": "#2A2A2A",
             "bg-light": "#e5e5e5",
         },

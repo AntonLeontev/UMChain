@@ -8,8 +8,7 @@ export default defineConfig({
         vue(),
         laravel({
             input: [
-                "resources/css/app.css",
-                "resources/css/quiz.css",
+                "resources/css/tailwind.css",
                 "resources/scss/base/style.scss",
                 "resources/scss/quiz/home.scss",
                 "resources/scss/miniapp/home.scss",

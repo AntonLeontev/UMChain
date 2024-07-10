@@ -18,7 +18,7 @@
 		<link rel="manifest" href="/site.webmanifest">
 
         <!-- Scripts -->
-		@vite(['resources/scss/base/style.scss', 'resources/scss/miniapp/home.scss', 'resources/js/app.js'])
+		@vite(['resources/scss/base/style.scss', 'resources/scss/miniapp/home.scss', 'resources/css/tailwind.css', 'resources/js/app.js'])
 		@routes
 
 		<!-- Google tag (gtag.js) -->
@@ -31,8 +31,8 @@
 			gtag('config', 'G-4NK35XS5EE');
 		</script>
     </head>
-    <body class="h-[100%]">
-		<div id="app" class="h-[100%]"></div>
+    <body class="">
+		<div id="app" class=""></div>
 
 		<script>
 			let queryParams = new URLSearchParams(window.location.search);

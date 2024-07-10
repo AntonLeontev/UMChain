@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import routes from "./routes";
 import useUserStore from "../stores/user";
 import axios from "axios";
-import { retrieveLaunchParams, postEvent } from "@tma.js/sdk";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -27,7 +26,8 @@ router.beforeEach(async (to, from) => {
             });
 
         if (to.name === "quiz" && useUserStore().user?.quiz_is_done) {
-            return { name: "stub" };
+            window.location.replace(route("stub"));
+            return;
         }
     }
 
@@ -36,7 +36,7 @@ router.beforeEach(async (to, from) => {
     }
 
     if (to.meta.requiresGuest && useUserStore().user) {
-        return { name: "fit.profile" };
+        return { name: "miniapp.profile" };
     }
 });
 
