@@ -1,5 +1,15 @@
 <script setup>
 import MiniappLayout from "@/Layouts/MiniappLayout.vue";
+
+import useUserStore from "@/stores/user";
+
+import { ref } from "vue";
+
+const user = useUserStore().user;
+
+const sex = ref(user.quiz.sex);
+const weight = ref(user.quiz.weight_value[user.quiz.weight_dimension])
+const height = ref(user.quiz.height_value[user.quiz.height_dimension])
 </script>
 
 <template>
@@ -12,13 +22,13 @@ import MiniappLayout from "@/Layouts/MiniappLayout.vue";
 						<label class="param-calc__label input-app-label">Пол</label>
 						<div class="options">
 							<div class="options__item">
-								<input id="o_1" class="options__input" checked type="radio" value="1" name="male">
+								<input id="o_1" class="options__input" type="radio" value="male" name="sex" v-model="sex">
 								<label for="o_1" class="options__label">
 									<span class="options__text">Мужской</span>
 								</label>
 							</div>
 							<div class="options__item">
-								<input id="o_2" class="options__input" type="radio" value="2" name="male">
+								<input id="o_2" class="options__input" type="radio" value="female" name="sex" v-model="sex">
 								<label for="o_2" class="options__label">
 									<span class="options__text">Женский</span>
 								</label>
@@ -30,15 +40,15 @@ import MiniappLayout from "@/Layouts/MiniappLayout.vue";
 						<div class="param-calc">
 							<div class="param-calc__item">
 								<label for="old" class="param-calc__label input-app-label">Возраст</label>
-								<input class="param-calc__input input" id="old" autocomplete="off" type="text" placeholder="35">
+								<input class="param-calc__input input" id="old" autocomplete="off" type="text">
 							</div>
 							<div class="param-calc__item">
-								<label for="height" class="param-calc__label input-app-label">Рост, см</label>
-								<input class="param-calc__input input" id="height" autocomplete="off" type="text" placeholder="162">
+								<label for="height" class="param-calc__label input-app-label">Рост, {{ user.quiz.height_dimension }}</label>
+								<input class="param-calc__input input" id="height" autocomplete="off" type="text" v-model="height">
 							</div>
 							<div class="param-calc__item">
-								<label for="weight" class="param-calc__label input-app-label">Вес, кг</label>
-								<input class="param-calc__input input" id="weight" autocomplete="off" type="text" placeholder="50">
+								<label for="weight" class="param-calc__label input-app-label">Вес, {{ user.quiz.weight_dimension }}</label>
+								<input class="param-calc__input input" id="weight" autocomplete="off" type="text" v-model="weight">
 							</div>
 						</div>
 					</div>

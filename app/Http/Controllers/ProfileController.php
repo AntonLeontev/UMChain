@@ -75,8 +75,6 @@ class ProfileController extends Controller
 
         $file = Http::get(sprintf('https://api.telegram.org/file/bot%s/%s', config('services.telegram.bot'), $filePath));
 
-        dump($file);
-
         return $file;
     }
 
