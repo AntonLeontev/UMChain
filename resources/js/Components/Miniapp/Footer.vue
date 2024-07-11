@@ -8,10 +8,10 @@
           <img src="/resources/images/miniapp/icons/footer/game.svg" alt="Image" />
           Game
         </RouterLink>
-        <a href="" class="panel__btn">
+        <RouterLink :to="{name: 'miniapp.meal'}" activeClass="_active" class="panel__btn">
           <img src="/resources/images/miniapp/icons/footer/meal.svg" alt="Image" />
           Meal
-        </a>
+        </RouterLink>
         <a href="" class="panel__btn">
           <img src="/resources/images/miniapp/icons/footer/sport.svg" alt="Image" />
           Sport

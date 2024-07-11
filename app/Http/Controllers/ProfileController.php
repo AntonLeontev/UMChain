@@ -20,7 +20,7 @@ class ProfileController extends Controller
             ->loadCount(['unreadNotifications', 'refLink']);
 
         if ($user->quiz_is_done) {
-            $user->load(['activeRefLink', 'activeDataSource', 'quiz']);
+            $user->load(['activeRefLink', 'activeDataSource']);
         }
 
         return new UserResource($user);

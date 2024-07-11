@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('v1')->group(function () {
-    Route::post('quizzes', [QuizController::class, 'store'])->name('api.quizzes.store');
+    Route::post('quizzes', QuizController::class)->name('api.quizzes.store');
 
     Route::middleware('auth.mobile')
         ->post('user/calories', [ProfileController::class, 'storeCalories'])->name('api.user.calories.store');

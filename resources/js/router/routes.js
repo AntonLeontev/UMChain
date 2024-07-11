@@ -187,6 +187,14 @@ export default [
                 },
                 name: "miniapp.game",
             },
+            {
+                path: "meal",
+                component: () => import("@/Pages/Miniapp/Meal.vue"),
+                meta: {
+                    requiresAuth: true,
+                },
+                name: "miniapp.meal",
+            },
         ],
     },
     {

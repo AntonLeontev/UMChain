@@ -16,6 +16,10 @@ class WeightCast implements CastsAttributes
      */
     public function get(Model $model, string $key, mixed $value, array $attributes): mixed
     {
+        if (is_null($value)) {
+            return $value;
+        }
+
         return new Weight($value, $model->weight_dimension);
     }
 
@@ -27,7 +31,7 @@ class WeightCast implements CastsAttributes
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
         if ($value instanceof Weight) {
-            return match ($model->weight_dimension) {
+            return match (WeightDimension::from($attributes['weight_dimension'])) {
                 WeightDimension::kg => $value->inKg(),
                 WeightDimension::lb => $value->inLb(),
             };

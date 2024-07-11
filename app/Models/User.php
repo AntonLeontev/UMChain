@@ -4,11 +4,15 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Casts\HeightCast;
 use App\Casts\TokenAmountCast;
+use App\Casts\WeightCast;
 use App\Enums\AccountType;
 use App\Enums\Activity;
 use App\Enums\Gender;
+use App\Enums\HeightDimension;
 use App\Enums\Level;
+use App\Enums\WeightDimension;
 use App\Enums\WeightDirection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -40,7 +44,9 @@ class User extends Authenticatable
         'gender',
         'age',
         'height',
+        'height_dimension',
         'weight',
+        'weight_dimension',
         'activity',
         'level',
         'direction',
@@ -79,11 +85,13 @@ class User extends Authenticatable
         'level' => Level::class,
         'direction' => WeightDirection::class,
         'quiz_is_done' => 'boolean',
+        'weight' => WeightCast::class,
+        'height_dimension' => HeightDimension::class,
+        'height' => HeightCast::class,
+        'weight_dimension' => WeightDimension::class,
     ];
 
-    protected $with = [
-        'tronWallet',
-    ];
+    protected $with = [];
 
     public function tronWallet(): HasOne
     {
