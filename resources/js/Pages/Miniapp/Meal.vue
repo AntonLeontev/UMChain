@@ -178,7 +178,7 @@ function generateMenu() {
             >Сгенерировать</ButtonPrimary
           >
         </div>
-        <div class="">{{ menu }}</div>
+        <div class="mt-2" v-html="menu"></div>
       </div>
     </div>
   </MiniappLayout>
