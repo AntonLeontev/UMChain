@@ -21,16 +21,16 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['string', 'max:255', 'required'],
-            // 'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id), 'sometimes'],
-            // 'tron' => ['nullable', 'string', 'starts_with:T', 'size:34', 'sometimes'],
-            // 'gender' => ['nullable', new Enum(Gender::class), 'sometimes'],
-            // 'age' => ['nullable', 'int', 'min:5', 'max:120', 'sometimes'],
-            // 'height' => ['nullable', 'int', 'min:0', 'sometimes'],
-            // 'weight' => ['nullable', 'int', 'min:0', 'sometimes'],
-            // 'activity' => ['nullable', new Enum(Activity::class), 'sometimes'],
-            // 'level' => ['nullable', new Enum(Level::class), 'sometimes'],
-            // 'direction' => ['nullable', new Enum(WeightDirection::class), 'sometimes'],
+            'name' => ['string', 'max:255', 'sometimes'],
+            'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id), 'sometimes'],
+            'tron' => ['nullable', 'string', 'starts_with:T', 'size:34', 'sometimes'],
+            'gender' => ['nullable', new Enum(Gender::class), 'sometimes'],
+            'age' => ['nullable', 'int', 'min:5', 'max:120', 'sometimes'],
+            'height' => ['nullable', 'int', 'min:0', 'sometimes'],
+            'weight' => ['nullable', 'int', 'min:0', 'sometimes'],
+            'activity' => ['nullable', new Enum(Activity::class), 'sometimes'],
+            'level' => ['nullable', new Enum(Level::class), 'sometimes'],
+            'direction' => ['nullable', new Enum(WeightDirection::class), 'sometimes'],
         ];
     }
 
