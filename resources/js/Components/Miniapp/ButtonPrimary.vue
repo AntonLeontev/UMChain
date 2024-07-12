@@ -1,5 +1,5 @@
 <script setup>
-import Loader from "@/Components/Common/Loader.vue"
+import Loader from "@/Components/Common/Loader.vue";
 
 const props = defineProps({
   type: {
@@ -15,7 +15,7 @@ const props = defineProps({
     default: false,
   },
   loader: {
-	type: Boolean,
+    type: Boolean,
     default: false,
   },
 });
@@ -26,10 +26,10 @@ const props = defineProps({
     class="button button_app"
     :type="props.type"
     :class="props.class"
-    :disabled="props.disabled"
+    :disabled="props.disabled || props.loader"
   >
-	<Loader v-if="props.loader" />
+    <Loader v-if="props.loader" />
 
-	<slot v-else />
+    <slot v-else />
   </button>
 </template>
