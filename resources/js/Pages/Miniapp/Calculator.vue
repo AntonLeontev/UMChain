@@ -30,6 +30,15 @@ function submit(event) {
       route("api.user.update"),
       Object.fromEntries(new FormData(event.target.closest("form")))
     )
+    .then((response) => {
+      user.gender = form.gender;
+      user.age = form.age;
+      user.height[user.height_dimension] = form.height;
+      user.weight[user.weight_dimension] = form.weight;
+      user.activity = form.activity;
+      user.level = form.level;
+      user.direction = form.direction;
+    })
     .catch((error) => useCatch(error, errors));
 }
 
