@@ -53,11 +53,11 @@
         <div class="container">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="https://umfit.org">
+                    <a href="{{ route('home') }}">
                         <img src="assets/images/0.png" alt="UMFitness " style="height: 3rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="text-white navbar-caption text-primary display-7" href="https://umfit.org">UMFit</a></span>
+                <span class="navbar-caption-wrap"><a class="text-white navbar-caption text-primary display-7" href="{{ route('home') }}">UMFit</a></span>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="hamburger">
@@ -68,10 +68,10 @@
                 </div>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="text-white nav-link link display-4" href="https://umfit.org">
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="text-white nav-link link display-4" href="{{ route('home') }}">
                             White Paper</a></li>
                     
-                    <li class="nav-item"><a class="text-white nav-link link text-primary display-4" href="https://umfit.org" aria-expanded="true"><span class="mobi-mbri mobi-mbri-globe-2 mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span></a>
+                    <li class="nav-item"><a class="text-white nav-link link text-primary display-4" href="{{ route('home') }}" aria-expanded="true"><span class="mobi-mbri mobi-mbri-globe-2 mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span></a>
                     </li></ul>
                 
                 <div class="navbar-buttons mbr-section-btn"><a class="btn btn-warning display-4" href="index.html#content15-g">
@@ -268,7 +268,7 @@
                     <div class="card-box align-left">
                         
                         <p class="mbr-text mbr-fonts-style display-7">Перед тем, как приступить к тренировкам,&nbsp; вам надо заполнить наш уникальный фитнес-квиз из 18 вопросов. <br>Ответы помогут нам настроить тренировочный план и диету, идеально подходящие именно вам. <br>Этот квиз охватывает различные аспекты вашего здоровья, физической подготовки, питания и личных предпочтений.<br>Ответы позволят нам точно адаптировать тренировочные и питательные рекомендации, чтобы вы получили максимальную пользу от каждой тренировки.<br><br>Начните квиз сейчас и сделайте первый шаг к лучшей физической форме!<br></p>
-                        <div class="mt-3 mbr-section-btn"><a class="btn btn-warning display-4" href="https://umfit.org/quiz">Пройти Квиз</a></div>
+                        <div class="mt-3 mbr-section-btn"><a class="btn btn-warning display-4" href="{{ route('quiz') }}">Пройти Квиз</a></div>
                     </div>
                 </div>
             </div>
